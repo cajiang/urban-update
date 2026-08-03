@@ -89,6 +89,9 @@
   .brief-card .bd{font-size:13.5px;line-height:1.6;color:var(--ink-2)}
   .feedchip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);background:#eaf1f8;border-radius:5px;padding:2px 7px;margin-top:10px}
   .ai-note{font-size:12px;color:var(--muted);background:var(--range-bg);border-radius:8px;padding:10px 14px}
+  .fig{font-weight:650;font-variant-numeric:tabular-nums}
+  .fig.up{color:var(--elev)} .fig.down{color:var(--cool)}
+  .fig-money{color:#166534} .fig-num{color:var(--ink)}
   .quad{display:inline-block;font-weight:600}
   .method{font-size:13px;color:var(--ink-2)}
   .method h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
@@ -404,6 +407,19 @@ function renderLL97(){
 
 // ---------- Brief panel (LLM interpretation layer) ----------
 function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+// Colorize figures inside brief prose so the data reads "important, now".
+// Rising % → amber, falling % → blue, $ amounts → green, comma-counts → bold ink.
+// (Bare integers like ZIPs 11222, years 2026, "311" are intentionally NOT matched —
+// only thousands-separated counts, which is what the meaningful figures use.)
+function fig(text){
+  const re=/($d[d,]*(?:.d+)?(?:s?(?:million|billion|trillion))?[KMB]?)|([+−-]d[d,]*(?:.d+)?%)|(d[d,]*(?:.d+)?%)|(d{1,3}(?:,d{3})+)/g;
+  return esc(text).replace(re,(m,money,spct,pct)=>{
+    let cls='fig fig-num';
+    if(money) cls='fig fig-money';
+    else if(spct){ const s=spct[0]; cls='fig '+((s==='−'||s==='-')?'down':'up'); }
+    return '<span class="'+cls+'">'+m+'</span>';
+  });
+}
 function renderBrief(){
   const B=BRIEF;
   if(!B){
@@ -412,15 +428,15 @@ function renderBrief(){
   const p=B.meta&&B.meta.periods||{};
   let h='';
   h+=section('The Brief · what matters now',
-    '<div class="headline"><p class="brief-lead">'+esc(B.headline)+'</p><p class="brief-sum">'+esc(B.summary)+'</p></div>');
+    '<div class="headline"><p class="brief-lead">'+fig(B.headline)+'</p><p class="brief-sum">'+fig(B.summary)+'</p></div>');
 
   h+=section('Key signals',
     '<div class="grid">'+(B.insights||[]).map(i=>
-      '<div class="brief-card"><div class="bt">'+esc(i.title)+'</div><div class="bd">'+esc(i.detail)+'</div><span class="feedchip">'+esc(i.feed)+'</span></div>').join('')+'</div>');
+      '<div class="brief-card"><div class="bt">'+esc(i.title)+'</div><div class="bd">'+fig(i.detail)+'</div><span class="feedchip">'+esc(i.feed)+'</span></div>').join('')+'</div>');
 
   if((B.neighborhoods||[]).length) h+=section('Neighborhood spotlights',
     '<div class="grid">'+B.neighborhoods.map(n=>
-      '<div class="brief-card"><div class="bt">'+esc(n.area)+'</div><div class="bd">'+esc(n.narrative)+'</div></div>').join('')+'</div>');
+      '<div class="brief-card"><div class="bt">'+esc(n.area)+'</div><div class="bd">'+fig(n.narrative)+'</div></div>').join('')+'</div>');
 
   const gen = B.meta&&B.meta.generatedAt ? new Date(B.meta.generatedAt).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : '';
   h+=section('About this brief',
