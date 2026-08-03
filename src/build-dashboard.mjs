@@ -16,6 +16,7 @@ const dev = JSON.parse(await readFile(join(dir, 'development.json'), 'utf8'));
 const tx = JSON.parse(await readFile(join(dir, 'transactions.json'), 'utf8'));
 const cross = JSON.parse(await readFile(join(dir, 'crosssignal.json'), 'utf8'));
 const risk = JSON.parse(await readFile(join(dir, 'risk.json'), 'utf8'));
+const ll97 = JSON.parse(await readFile(join(dir, 'll97.json'), 'utf8'));
 
 const html = `<!doctype html>
 <html lang="en">
@@ -133,6 +134,7 @@ const html = `<!doctype html>
     <button class="tab" data-tab="tx">Transactions</button>
     <button class="tab" data-tab="cross">Cross-Signal</button>
     <button class="tab" data-tab="risk">Risk</button>
+    <button class="tab" data-tab="ll97">Local Law 97</button>
   </div>
 </div></header>
 
@@ -141,6 +143,7 @@ const html = `<!doctype html>
   <div class="panel" id="panel-tx"></div>
   <div class="panel" id="panel-cross"></div>
   <div class="panel" id="panel-risk"></div>
+  <div class="panel" id="panel-ll97"></div>
 
   <div class="modal-ov" id="ov"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
     <div class="mhead"><div><div class="mtitle" id="m-title"></div><div class="msub" id="m-sub"></div></div>
@@ -154,6 +157,7 @@ const DEV = ${JSON.stringify(dev)};
 const TX  = ${JSON.stringify(tx)};
 const CROSS = ${JSON.stringify(cross)};
 const RISK = ${JSON.stringify(risk)};
+const LL97 = ${JSON.stringify(ll97)};
 
 const fmt = (n) => Number(n||0).toLocaleString('en-US');
 const pct = (x) => x==null ? '—' : (x>=0?'+':'') + Math.round(x*100) + '%';
@@ -369,10 +373,50 @@ function renderRisk(){
   return h;
 }
 
+// ---------- Local Law 97 panel ----------
+const bigMoney = (n) => n>=1e9?'$'+(n/1e9).toFixed(1)+'B' : n>=1e6?'$'+(n/1e6).toFixed(1)+'M' : '$'+fmt(Math.round(n));
+const share = (x) => Math.round((x||0)*100)+'%';
+function renderLL97(){
+  const L=LL97, c=L.citywide, m=L.meta;
+  let h='';
+  h+=section('Local Law 97 · carbon-penalty exposure · report year '+m.reportYear,
+    '<div class="xintro">NYC\\'s <b>Local Law 97</b> caps carbon emissions for buildings over 25,000 sq ft. Penalties (<b>$268 per metric ton</b> over the limit) are <b>in effect now</b> (2024–2029) and the caps <b>tighten sharply in 2030</b>. '
+    +'This estimates each covered building\\'s exposure from its reported emissions vs. its occupancy-based limit — the single largest looming compliance cost most owners can\\'t easily compute themselves.</div>');
+
+  const kpis=[
+    {label:'Covered buildings (≥25k sq ft)', big:fmt(c.covered), sub:'benchmarked, report year '+m.reportYear},
+    {label:'Over the 2024–2029 limit', big:share(c.pct24), sub:fmt(c.over24)+' buildings · <span class="up">penalties now</span>'},
+    {label:'Over the 2030–2034 limit', big:share(c.pct30), sub:fmt(c.over30)+' buildings · <span class="up">looming</span>'},
+    {label:'Est. annual penalty exposure', big:bigMoney(c.pen24), sub:bigMoney(c.pen30)+' at the 2030 limits'},
+  ];
+  h+=section('Citywide exposure',
+    '<div class="kpis">'+kpis.map(k=>'<div class="kpi"><div class="label">'+k.label+'</div><div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('')+'</div>');
+
+  h+=section('By Borough · <span style="color:var(--accent)">click any borough to drill into ZIPs</span>',
+    '<div class="grid">'+L.boroughs.slice().sort((a,b)=>b.pen24-a.pen24).map((b)=>{
+      const i=L.boroughs.indexOf(b);
+      return '<div class="card click" data-i="'+i+'"><div class="top"><span class="name">'+b.name+'</span><span class="chip elevated">'+share(b.pct30)+' by 2030</span></div>'
+      +'<div class="big num">'+bigMoney(b.pen24)+' <small>est. penalty/yr</small></div>'
+      +'<div class="deltas"><span><b>'+share(b.pct24)+'</b> over 2024 limit</span><span><b>'+fmt(b.covered)+'</b> covered</span></div>'
+      +'<div style="font-size:12px;color:var(--muted)">'+bigMoney(b.pen30)+' at the 2030 limits</div>'
+      +'<div class="hint">View '+b.neighborhoodCount+' ZIPs →</div></div>';
+    }).join('')+'</div>');
+
+  h+=section('Highest-exposure buildings · est. 2024 penalty',
+    '<table><thead><tr><th>Address</th><th>Borough</th><th>Type</th><th class="n">Floor area</th><th class="n">Est. penalty/yr</th></tr></thead><tbody>'
+    +L.topBuildings.map(b=>'<tr><td>'+(b.address||'—')+'</td><td>'+b.borough+'</td><td class="desc">'+(b.ptype||'').slice(0,26)+'</td><td class="n">'+fmt(b.gfa)+' sf</td><td class="n">'+bigMoney(b.pen24)+'</td></tr>').join('')
+    +'</tbody></table>');
+
+  h+=section('Data Provenance &amp; Freshness', provenanceBoxes([{...m.source, publisher:m.source.attribution}], m.generatedAt, 'Benchmarking is annual · report year '+m.reportYear));
+  h+=section('Methodology &amp; Evidence', methodBlock(m.method, m.source.label+' (<code>'+m.source.datasetId+'</code>, DOB). <a href="'+m.source.landing+'" target="_blank" rel="noopener">Dataset home ↗</a>'));
+  return h;
+}
+
 document.getElementById('panel-dev').innerHTML = renderDev();
 document.getElementById('panel-tx').innerHTML  = renderTx();
 document.getElementById('panel-cross').innerHTML = renderCross();
 document.getElementById('panel-risk').innerHTML = renderRisk();
+document.getElementById('panel-ll97').innerHTML = renderLL97();
 document.getElementById('asof').textContent =
   'Development as of '+DEV.meta.latestMonthLabel+' · Transactions as of '+TX.meta.latestMonthLabel;
 
@@ -388,20 +432,28 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
 document.querySelectorAll('#panel-dev .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('dev',+el.dataset.i)));
 document.querySelectorAll('#panel-tx .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('tx',+el.dataset.i)));
 document.querySelectorAll('#panel-risk .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('risk',+el.dataset.i)));
+document.querySelectorAll('#panel-ll97 .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('ll97',+el.dataset.i)));
 
 function openBorough(feed,i){
-  const F = feed==='dev'?DEV : feed==='tx'?TX : RISK, b=F.boroughs[i];
-  const label = feed==='risk' ? (F.meta.windowLabel) : F.meta.latestMonthLabel;
-  const what = feed==='dev'?'New Building filings' : feed==='tx'?'recorded sales' : 'hazardous violations';
-  const rankBy = feed==='dev'?'filings' : feed==='tx'?'sales' : 'risk pressure';
-  const unit = feed==='risk'?'ZIPs':'neighborhoods';
-  document.getElementById('m-title').textContent=b.name+' — '+(feed==='risk'?'ZIP risk':'Neighborhoods');
+  const F = feed==='dev'?DEV : feed==='tx'?TX : feed==='risk'?RISK : LL97, b=F.boroughs[i];
+  const label = feed==='risk' ? F.meta.windowLabel : feed==='ll97' ? ('report year '+F.meta.reportYear) : F.meta.latestMonthLabel;
+  const what = feed==='dev'?'New Building filings' : feed==='tx'?'recorded sales' : feed==='risk'?'hazardous violations' : 'LL97-covered buildings';
+  const rankBy = feed==='dev'?'filings' : feed==='tx'?'sales' : feed==='risk'?'risk pressure' : 'penalty exposure';
+  const unit = (feed==='risk'||feed==='ll97')?'ZIPs':'neighborhoods';
+  document.getElementById('m-title').textContent=b.name+' — '+(feed==='risk'?'ZIP risk':feed==='ll97'?'ZIP exposure':'Neighborhoods');
   document.getElementById('m-sub').textContent=b.neighborhoodCount+' '+unit+' with '+what+' in '+label+' · ranked by '+rankBy+' · every row verifiable';
   document.getElementById('m-head').innerHTML=
     feed==='dev' ? '<tr><th>Neighborhood</th><th class="n">Filings</th><th class="n">Units</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>'
     : feed==='tx' ? '<tr><th>Neighborhood</th><th class="n">Sales</th><th class="n">Median</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>'
+    : feed==='ll97' ? '<tr><th>ZIP</th><th class="n">Covered</th><th class="n">Over 2024</th><th class="n">Over 2030</th><th class="n">Est. penalty/yr</th><th></th></tr>'
     : '<tr><th>ZIP · Area</th><th class="n">Risk pts</th><th class="n">Class C</th><th class="n">Class B</th><th class="n">311</th><th class="n">YoY</th><th>Trend</th><th></th></tr>';
   document.getElementById('m-rows').innerHTML=b.neighborhoods.map(n=>{
+    if(feed==='ll97'){
+      return '<tr><td class="num">'+n.zip+'</td><td class="nn">'+fmt(n.covered)+'</td>'
+        +'<td class="nn">'+share(n.pct24)+'</td><td class="nn">'+share(n.pct30)+'</td>'
+        +'<td class="nn">'+bigMoney(n.pen24)+'</td>'
+        +'<td><a href="'+n.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>';
+    }
     if(feed==='risk'){
       return '<tr><td>'+n.zip+(n.neighborhood?' · '+n.neighborhood:'')+'</td><td class="nn">'+fmt(n.weighted)+'</td>'
         +'<td class="nn">'+fmt(n.C)+'</td><td class="nn">'+fmt(n.B)+'</td><td class="nn">'+fmt(n.complaints311)+'</td>'

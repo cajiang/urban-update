@@ -69,6 +69,7 @@ The dashboard is a **tabbed multi-feed** view:
 - **Transactions** (DOF) — recorded market sales, median price, $ volume by borough + neighborhood drill-down.
 - **Cross-Signal** — joins the feeds by property ZIP and flags where supply, demand & **risk** read together (oversupply-watch vs. tightening, with a hazardous-violation overlay). The synthesis layer.
 - **Risk** — severity-weighted Risk Pressure from the fastest daily sources (HPD hazardous violations + 311 early-warning + ECB penalties), by borough + ZIP. The "know-first" differentiator.
+- **Local Law 97** — estimated carbon-penalty exposure per building (2024 & 2030 compliance periods) from LL84 benchmarking, aggregated by borough + ZIP. The biggest looming compliance cost.
 
 Each feed has its own regime call, KPIs, borough grid, notable list, and a provenance/freshness panel. Every figure links to the underlying records.
 
