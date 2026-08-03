@@ -59,6 +59,69 @@ async function fetchMonthly(jobType) {
   return { index, sourceUrl: url };
 }
 
+// ---------- ingest: New Building filings grouped by borough+neighborhood ----------
+async function fetchNtaAgg(where) {
+  const { rows } = await soqlQuery(DS, {
+    $select: 'borough,nta,count(*) as filings,sum(proposed_dwelling_units::number) as units',
+    $where: where,
+    $group: 'borough,nta',
+    $limit: '3000',
+  });
+  const map = {};
+  for (const r of rows) {
+    if (!BOROUGHS.includes(r.borough) || !r.nta) continue;
+    map[`${r.borough}|${r.nta}`] = { filings: Number(r.filings || 0), units: Number(r.units || 0) };
+  }
+  return map;
+}
+
+const esc = (s) => String(s).replace(/'/g, "''"); // escape single quotes for SoQL
+
+// Build per-borough neighborhood breakdown for the latest complete month,
+// with trailing-12-month baseline and YoY per neighborhood.
+async function buildNeighborhoods(latest) {
+  const NB = "job_type='New Building' AND nta IS NOT NULL";
+  const yoM = shiftYear(latest, -1);
+  const [latestMap, baseMap, yoyMap] = await Promise.all([
+    fetchNtaAgg(`${NB} AND filing_date>='${monthStart(latest)}' AND filing_date<'${nextMonthStart(latest)}'`),
+    fetchNtaAgg(`${NB} AND filing_date>='${monthStart(yoM)}' AND filing_date<'${monthStart(latest)}'`), // 12-mo window
+    fetchNtaAgg(`${NB} AND filing_date>='${monthStart(yoM)}' AND filing_date<'${nextMonthStart(yoM)}'`), // year-ago month
+  ]);
+
+  const byBorough = {};
+  for (const key of Object.keys(latestMap)) {
+    const [b, nta] = key.split('|');
+    const cur = latestMap[key];
+    const baseAvg = (baseMap[key]?.filings || 0) / BASELINE_MONTHS;
+    const yoyF = yoyMap[key]?.filings || 0;
+    const dev = baseAvg ? (cur.filings - baseAvg) / baseAvg : 0;
+    const yoy = yoyF ? (cur.filings - yoyF) / yoyF : null;
+
+    const cands = [{ kind: 'baseline', v: dev }];
+    if (yoy != null) cands.push({ kind: 'yoy', v: yoy });
+    const dom = cands.sort((a, b) => Math.abs(b.v) - Math.abs(a.v))[0];
+
+    // Suppress noisy flags on thin neighborhoods (tiny denominators explode %).
+    const meaningful = baseAvg >= 2 || yoyF >= 3;
+    let regime = 'In range';
+    if (meaningful && dom.v >= REGIME_THRESHOLD) regime = 'Elevated';
+    else if (meaningful && dom.v <= -REGIME_THRESHOLD) regime = 'Cooling';
+
+    (byBorough[b] ||= []).push({
+      nta, filings: cur.filings, units: cur.units,
+      baseline: Math.round(baseAvg * 10) / 10, deviation: dev, yoy, yoyFilings: yoyF,
+      dominant: dom, regime,
+      evidenceUrl: buildUrl(DS, {
+        $select: 'job_filing_number,house_no,street_name,nta,proposed_dwelling_units,filing_date',
+        $where: `job_type='New Building' AND borough='${esc(b)}' AND nta='${esc(nta)}' AND filing_date>='${monthStart(latest)}' AND filing_date<'${nextMonthStart(latest)}'`,
+        $order: 'proposed_dwelling_units::number DESC',
+      }),
+    });
+  }
+  for (const b of Object.keys(byBorough)) byBorough[b].sort((x, y) => y.filings - x.filings);
+  return byBorough;
+}
+
 // ---------- ingest: largest recent NB filings (evidence table) ----------
 async function fetchNotable(sinceMonthKey) {
   const { rows } = await soqlQuery(DS, {
@@ -204,6 +267,14 @@ async function main() {
 
   const cityAnalysis = analyzeSeries(city, latest);
   cityAnalysis.spark = tail(city, latest, 24);
+
+  // Neighborhood (NTA) breakdown per borough — for the click-in drill-down.
+  console.log('Aggregating neighborhood (NTA) breakdown…');
+  const nbhd = await buildNeighborhoods(latest);
+  for (const b of boroughs) {
+    b.neighborhoods = nbhd[b.name] || [];
+    b.neighborhoodCount = b.neighborhoods.length;
+  }
 
   // Demolitions (citywide, latest complete month) — secondary signal
   const demoCity = {};

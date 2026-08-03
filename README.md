@@ -64,8 +64,9 @@ A claim without a source does not ship. Every signal, regime call, and implicati
 
 This is now a **portfolio project**: a dashboard mimicking institutional research, built from public data that is easy to obtain and easy for AI to analyze. Each panel carries an AI-generated, cited interpretation.
 
+**Done:** source verified (DOB `official`, daily) · provenance & freshness panel · **neighborhood (NTA) drill-down** (click a borough) · pushed to [github.com/cajiang/urban-update](https://github.com/cajiang/urban-update).
+
 ## Next
 1. **Second feed:** Investment sales / transactions (ACRIS).
 2. **Third feed:** Capital & macro conditions (FRED — Treasury yields, SOFR, mortgage rates).
-3. **Neighborhood grain:** slice Development below borough (NTA) once feeds are stable.
-4. **Later:** watchlists, natural-language "Ask the Market", historical/scenario tools.
+3. **Later:** LLM interpretation layer (deferred until more feeds are in), watchlists, natural-language "Ask the Market", historical/scenario tools.

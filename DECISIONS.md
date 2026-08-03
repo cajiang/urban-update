@@ -13,6 +13,9 @@
 | D7 | 2026-08-03 | Stack = **Node.js (zero-dependency) pipeline + self-contained static HTML dashboard.** | Node 24 + curl already present; no Python. Founder is an AI builder, not a traditional engineer — keep it simple, portable, reviewable. | Active |
 | D8 | 2026-08-03 | Primary source for Development feed = **DOB NOW: Build – Job Application Filings** (`w9ak-ipjd`). Legacy `ic3t-wcy2` is historical-only (New Buildings dead-end at 2020). | Verified live: fresh through 2026-08-01, has `filing_date`, `job_type`, `proposed_dwelling_units`, `borough`, `nta`, `bbl`; ~10yr history. See [SOURCES](SOURCES.md). | Active |
 | D9 | 2026-08-03 | Regime detection v1 = **transparent rule** (latest complete month vs. trailing-12-month average + YoY), not ML. | Principle: transparent rules before opaque models; every number must be explainable and cited. | Active |
+| D10 | 2026-08-03 | **Neighborhood (NTA) drill-down:** click a borough → modal ranks its neighborhoods with New Building filings, each row verifiable. | User wants to click into a borough and see neighborhood-area detail. NTA field is clean (~1% null). | Active |
+| D11 | 2026-08-03 | At neighborhood grain, **suppress noisy signals**: only flag Elevated/Cooling when 12-mo avg ≥2 or year-ago ≥3; show the 12-month average (not a %) as context; show YoY% only when year-ago base ≥3. | Small denominators produce absurd %s (e.g. +1400% off a base of 1) that read as hype and kill credibility. | Active |
+| D12 | 2026-08-03 | Source verified & **GitHub live**: DOB `official` provenance, daily updates, figures re-checked against source. Repo `github.com/cajiang/urban-update` (public). | User asked to verify reputable sourcing + freshness and to save work to GitHub against usage limits. | Active |
 
 ## Principles (from the product brief, adopted)
 - **Evidence before eloquence** — no claim ships without a verifiable primary source.

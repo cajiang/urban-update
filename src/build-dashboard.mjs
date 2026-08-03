@@ -102,6 +102,24 @@ const html = `<!doctype html>
     color:#166534;background:#e7f6ec;border:1px solid #bfe6cb;border-radius:5px;padding:2px 6px;margin-left:6px}
   .fresh-ok{color:#166534} .fresh-stale{color:#b7791f}
 
+  /* clickable cards + drill-down modal */
+  .card.click{cursor:pointer;transition:transform .08s ease,box-shadow .12s ease,border-color .12s ease}
+  .card.click:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,23,31,.08);border-color:#cfd3da}
+  .card .hint{font-size:11.5px;color:var(--accent);font-weight:600;margin-top:2px}
+  .modal-ov{position:fixed;inset:0;background:rgba(20,23,31,.5);display:none;align-items:flex-start;
+    justify-content:center;padding:40px 16px;z-index:50;overflow:auto}
+  .modal-ov.open{display:flex}
+  .modal{background:var(--card);border-radius:14px;max-width:860px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+  .modal .mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:20px 22px;
+    border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--card);border-radius:14px 14px 0 0}
+  .modal .mtitle{font-size:18px;font-weight:700}
+  .modal .msub{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .modal .close{border:none;background:var(--range-bg);width:30px;height:30px;border-radius:8px;
+    cursor:pointer;font-size:15px;color:var(--ink-2);flex:none}
+  .modal .close:hover{background:#e4e6ea}
+  .modal .mbody{padding:6px 22px 20px}
+  .modal td.nn{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
   @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr 1fr}.prov{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.grid{grid-template-columns:1fr}.mast .wrap{flex-direction:column}}
 </style>
@@ -128,9 +146,21 @@ const html = `<!doctype html>
   </div></section>
 
   <section><div class="wrap">
-    <p class="eyebrow">By Borough · <span id="latest-lbl"></span></p>
+    <p class="eyebrow">By Borough · <span id="latest-lbl"></span> · <span style="color:var(--accent)">click any borough to drill into neighborhoods</span></p>
     <div class="grid" id="boroughs"></div>
   </div></section>
+
+  <!-- neighborhood drill-down modal -->
+  <div class="modal-ov" id="ov"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="mhead">
+      <div><div class="mtitle" id="m-title"></div><div class="msub" id="m-sub"></div></div>
+      <button class="close" id="m-close" aria-label="Close">✕</button>
+    </div>
+    <div class="mbody"><table><thead><tr>
+      <th>Neighborhood</th><th class="n">Filings</th><th class="n">Units</th>
+      <th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th>
+    </tr></thead><tbody id="m-rows"></tbody></table></div>
+  </div></div>
 
   <section><div class="wrap">
     <p class="eyebrow">Largest New Building filings this period</p>
@@ -208,16 +238,41 @@ document.getElementById('kpis').innerHTML = kpis.map(k=>
   +'<div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('');
 document.getElementById('city-line').textContent = DATA.narration.citySummary;
 
-// borough cards
-document.getElementById('boroughs').innerHTML = DATA.boroughs.map(b=>
-  '<div class="card"><div class="top"><span class="name">'+b.name+'</span>'
+// borough cards (clickable → neighborhood drill-down)
+document.getElementById('boroughs').innerHTML = DATA.boroughs.map((b,i)=>
+  '<div class="card click" data-i="'+i+'"><div class="top"><span class="name">'+b.name+'</span>'
   +'<span class="chip '+cls(b.regime)+'">'+b.regime+'</span></div>'
   +'<div class="big num">'+fmt(b.latest.filings)+' <small>filings</small></div>'
   +'<div class="deltas"><span><b class="'+upd(b.yoy)+'">'+arrow(b.yoy)+' '+pct(b.yoy)+'</b> YoY</span>'
   +'<span><b>'+pct(b.deviation)+'</b> vs 12-mo avg</span></div>'
   +sparkline(b.spark)
   +'<div class="cardfoot"><span class="num">'+fmt(b.latest.units)+' units proposed</span>'
-  +'<a href="'+b.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></div></div>').join('');
+  +'<a href="'+b.evidenceUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+  +'<div class="hint">View '+b.neighborhoodCount+' neighborhoods →</div></div>').join('');
+document.querySelectorAll('.card.click').forEach(el=>
+  el.addEventListener('click',()=>openBorough(+el.dataset.i)));
+
+// neighborhood drill-down
+function openBorough(i){
+  const b = DATA.boroughs[i];
+  document.getElementById('m-title').textContent = b.name + ' — Neighborhoods';
+  document.getElementById('m-sub').textContent =
+    b.neighborhoodCount + ' neighborhoods with New Building filings in '
+    + DATA.meta.latestMonthLabel + ' · ranked by filings · every row verifiable';
+  document.getElementById('m-rows').innerHTML = b.neighborhoods.map(n=>
+    '<tr><td>'+n.nta+'</td>'
+    +'<td class="nn">'+fmt(n.filings)+'</td>'
+    +'<td class="nn">'+fmt(n.units)+'</td>'
+    +'<td class="nn">'+n.baseline.toFixed(1)+'</td>'
+    +'<td class="nn '+(n.yoyFilings>=3?upd(n.yoy):'')+'">'+(n.yoyFilings>=3&&n.yoy!=null?pct(n.yoy):'—')+'</td>'
+    +'<td><span class="chip '+cls(n.regime)+'">'+n.regime+'</span></td>'
+    +'<td><a href="'+n.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>').join('');
+  document.getElementById('ov').classList.add('open');
+}
+const closeModal = () => document.getElementById('ov').classList.remove('open');
+document.getElementById('m-close').addEventListener('click', closeModal);
+document.getElementById('ov').addEventListener('click', e=>{ if(e.target.id==='ov') closeModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
 // notable table
 document.getElementById('notable').innerHTML = DATA.notable.map(n=>
