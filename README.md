@@ -66,13 +66,13 @@ This is now a **portfolio project**: a dashboard mimicking institutional researc
 
 The dashboard is a **tabbed multi-feed** view:
 - **Development** (DOB) — New Building & demolition filings, borough + neighborhood drill-down.
-- **Transactions** (DOF) — recorded market sales, median price, $ volume by borough.
+- **Transactions** (DOF) — recorded market sales, median price, $ volume by borough + neighborhood drill-down.
 
 Each feed has its own regime call, KPIs, borough grid, notable list, and a provenance/freshness panel. Every figure links to the underlying records.
 
 **Done:** sources verified & official (DOB daily; DOF monthly) · neighborhood (NTA) drill-down · transactions feed (rejected ACRIS Master for coverage gaps → DOF Rolling+Annualized Sales) · tabbed dashboard · pushed to [github.com/cajiang/urban-update](https://github.com/cajiang/urban-update).
 
-## Next
-1. **Third feed:** Capital & macro conditions (FRED — Treasury yields, SOFR, mortgage rates).
-2. **Neighborhood grain for Transactions** (Annualized dataset carries `nta`/`bbl`).
-3. **Later:** LLM interpretation layer (deferred until more feeds are in), watchlists, natural-language "Ask the Market", scenario tools.
+## Next (candidates)
+- **LLM interpretation layer** — per-neighborhood narrative synthesizing both feeds (the cross-feed "wow"; now that both feeds have neighborhood depth, this is the natural next move).
+- **A distinctive local feed** — Operations & Risk (DOB/HPD violations, Local Law 97) or Regulation/Policy.
+- **Deferred/context:** FRED rate strip (commodity data — backdrop only, not a headline feed).

@@ -134,10 +134,7 @@ const html = `<!doctype html>
   <div class="modal-ov" id="ov"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
     <div class="mhead"><div><div class="mtitle" id="m-title"></div><div class="msub" id="m-sub"></div></div>
       <button class="close" id="m-close" aria-label="Close">✕</button></div>
-    <div class="mbody"><table><thead><tr>
-      <th>Neighborhood</th><th class="n">Filings</th><th class="n">Units</th>
-      <th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th>
-    </tr></thead><tbody id="m-rows"></tbody></table></div>
+    <div class="mbody"><table><thead id="m-head"></thead><tbody id="m-rows"></tbody></table></div>
   </div></div>
 </main>
 
@@ -243,13 +240,14 @@ function renderTx(){
     '<div class="kpis">'+kpis.map(k=>'<div class="kpi"><div class="label">'+k.label+'</div><div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('')
     +'</div><p class="verify" style="margin-top:14px;color:var(--ink-2);font-size:13.5px">'+T.narration.citySummary+'</p>');
 
-  h+=section('By Borough · '+T.meta.latestMonthLabel,
-    '<div class="grid">'+T.boroughs.map(b=>
-      '<div class="card"><div class="top"><span class="name">'+b.name+'</span><span class="chip '+cls(b.regime)+'">'+b.regime+'</span></div>'
+  h+=section('By Borough · '+T.meta.latestMonthLabel+' · <span style="color:var(--accent)">click any borough to drill into neighborhoods</span>',
+    '<div class="grid">'+T.boroughs.map((b,i)=>
+      '<div class="card click" data-i="'+i+'"><div class="top"><span class="name">'+b.name+'</span><span class="chip '+cls(b.regime)+'">'+b.regime+'</span></div>'
       +'<div class="big num">'+fmt(b.latest.sales)+' <small>sales</small></div>'
       +'<div class="deltas"><span><b class="'+upd(b.yoy)+'">'+arrow(b.yoy)+' '+pct(b.yoy)+'</b> YoY</span><span><b>'+pct(b.deviation)+'</b> vs 12-mo avg</span></div>'
       +sparkline(b.spark,'sales')
-      +'<div class="cardfoot"><span class="num">median '+money(b.latest.med)+'</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></div></div>').join('')+'</div>');
+      +'<div class="cardfoot"><span class="num">median '+money(b.latest.med)+'</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+      +'<div class="hint">View '+b.neighborhoodCount+' neighborhoods →</div></div>').join('')+'</div>');
 
   h+=section('Largest recorded sales this period',
     '<table><thead><tr><th>Address</th><th>Borough</th><th>Neighborhood</th><th class="n">Price</th><th>Type</th></tr></thead><tbody>'
@@ -274,18 +272,30 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.getElementById('panel-'+t.dataset.tab).classList.add('active');
 }));
 
-// neighborhood drill-down (Development)
-document.querySelectorAll('#panel-dev .card.click').forEach(el=>el.addEventListener('click',()=>openBorough(+el.dataset.i)));
-function openBorough(i){
-  const b=DEV.boroughs[i];
+// neighborhood drill-down (both feeds)
+document.querySelectorAll('#panel-dev .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('dev',+el.dataset.i)));
+document.querySelectorAll('#panel-tx .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('tx',+el.dataset.i)));
+
+function openBorough(feed,i){
+  const dev=feed==='dev', F=dev?DEV:TX, b=F.boroughs[i];
   document.getElementById('m-title').textContent=b.name+' — Neighborhoods';
-  document.getElementById('m-sub').textContent=b.neighborhoodCount+' neighborhoods with New Building filings in '+DEV.meta.latestMonthLabel+' · ranked by filings · every row verifiable';
-  document.getElementById('m-rows').innerHTML=b.neighborhoods.map(n=>
-    '<tr><td>'+n.nta+'</td><td class="nn">'+fmt(n.filings)+'</td><td class="nn">'+fmt(n.units)+'</td>'
-    +'<td class="nn">'+n.baseline.toFixed(1)+'</td>'
-    +'<td class="nn '+(n.yoyFilings>=3?upd(n.yoy):'')+'">'+(n.yoyFilings>=3&&n.yoy!=null?pct(n.yoy):'—')+'</td>'
-    +'<td><span class="chip '+cls(n.regime)+'">'+n.regime+'</span></td>'
-    +'<td><a href="'+n.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>').join('');
+  document.getElementById('m-sub').textContent=b.neighborhoodCount+' neighborhoods with '
+    +(dev?'New Building filings':'recorded sales')+' in '+F.meta.latestMonthLabel
+    +' · ranked by '+(dev?'filings':'sales')+' · every row verifiable';
+  document.getElementById('m-head').innerHTML= dev
+    ? '<tr><th>Neighborhood</th><th class="n">Filings</th><th class="n">Units</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>'
+    : '<tr><th>Neighborhood</th><th class="n">Sales</th><th class="n">Median</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>';
+  document.getElementById('m-rows').innerHTML=b.neighborhoods.map(n=>{
+    const yoyBase = dev? n.yoyFilings : n.yoySales, minBase = dev?3:5;
+    const yoyCell = (yoyBase>=minBase && n.yoy!=null)? pct(n.yoy) : '—';
+    const col2 = dev? fmt(n.filings) : fmt(n.sales);
+    const col3 = dev? fmt(n.units) : money(n.med);
+    return '<tr><td>'+(dev?n.nta:n.neighborhood)+'</td><td class="nn">'+col2+'</td><td class="nn">'+col3+'</td>'
+      +'<td class="nn">'+n.baseline.toFixed(1)+'</td>'
+      +'<td class="nn '+(yoyBase>=minBase?upd(n.yoy):'')+'">'+yoyCell+'</td>'
+      +'<td><span class="chip '+cls(n.regime)+'">'+n.regime+'</span></td>'
+      +'<td><a href="'+n.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>';
+  }).join('');
   document.getElementById('ov').classList.add('open');
 }
 const closeModal=()=>document.getElementById('ov').classList.remove('open');

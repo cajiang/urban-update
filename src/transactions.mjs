@@ -128,6 +128,72 @@ async function fetchNotable(latest) {
   }).slice(0, 8);
 }
 
+// ---------- ingest: sales grouped by borough+neighborhood ----------
+const esc = (s) => String(s).replace(/'/g, "''");
+
+async function fetchNbhd(datasetId, where, withMedian) {
+  const sel = ['borough', 'neighborhood', 'count(*) as sales', withMedian ? 'median(sale_price::number) as med' : null]
+    .filter(Boolean).join(',');
+  const { rows } = await soqlQuery(datasetId, {
+    $select: sel,
+    $where: `sale_price::number > ${PRICE_MIN} AND sale_date IS NOT NULL AND neighborhood IS NOT NULL AND ${where}`,
+    $group: 'borough,neighborhood',
+    $limit: '5000',
+  });
+  return rows;
+}
+
+// Neighborhood (DOF) breakdown per borough for the latest complete month,
+// with trailing-12-month baseline and YoY.
+async function buildNeighborhoods(latest) {
+  const lmStart = `${latest}-01`, lmEnd = `${stepMonth(latest, 1)}-01`;
+  const baseStart = `${stepMonth(latest, -BASELINE_MONTHS)}-01`, baseEnd = lmStart;
+  const yoM = shiftYear(latest, -1), yoyStart = `${yoM}-01`, yoyEnd = `${stepMonth(yoM, 1)}-01`;
+
+  const [latestRows, baseAnn, baseRoll, yoyRows] = await Promise.all([
+    fetchNbhd(ROLL, `sale_date >= '${lmStart}' AND sale_date < '${lmEnd}'`, true),
+    fetchNbhd(ANN, `sale_date >= '${baseStart}' AND sale_date < '${SPLIT}'`, false),
+    fetchNbhd(ROLL, `sale_date >= '${SPLIT}' AND sale_date < '${baseEnd}'`, false),
+    fetchNbhd(ANN, `sale_date >= '${yoyStart}' AND sale_date < '${yoyEnd}'`, false),
+  ]);
+
+  const key = (r) => `${r.borough}|${r.neighborhood}`;
+  const baseMap = {};
+  for (const r of [...baseAnn, ...baseRoll]) baseMap[key(r)] = (baseMap[key(r)] || 0) + Number(r.sales || 0);
+  const yoyMap = {};
+  for (const r of yoyRows) yoyMap[key(r)] = Number(r.sales || 0);
+
+  const byBorough = {};
+  for (const r of latestRows) {
+    const name = boroName(r.borough); if (!name) continue;
+    const sales = Number(r.sales || 0), med = Number(r.med || 0);
+    const baseAvg = (baseMap[key(r)] || 0) / BASELINE_MONTHS;
+    const yoyF = yoyMap[key(r)] || 0;
+    const dev = baseAvg ? (sales - baseAvg) / baseAvg : 0;
+    const yoy = yoyF ? (sales - yoyF) / yoyF : null;
+    const cands = [{ kind: 'baseline', v: dev }];
+    if (yoy != null) cands.push({ kind: 'yoy', v: yoy });
+    const dom = cands.sort((a, b) => Math.abs(b.v) - Math.abs(a.v))[0];
+    const meaningful = baseAvg >= 5 || yoyF >= 5;
+    let regime = 'In range';
+    if (meaningful && dom.v >= REGIME_THRESHOLD) regime = 'Elevated';
+    else if (meaningful && dom.v <= -REGIME_THRESHOLD) regime = 'Cooling';
+
+    (byBorough[name] ||= []).push({
+      neighborhood: r.neighborhood, sales, med,
+      baseline: Math.round(baseAvg * 10) / 10, deviation: dev, yoy, yoySales: yoyF,
+      dominant: dom, regime,
+      evidenceUrl: buildUrl(ROLL, {
+        $select: 'address,neighborhood,sale_price,sale_date,building_class_category',
+        $where: `borough='${r.borough}' AND neighborhood='${esc(r.neighborhood)}' AND sale_price::number > ${PRICE_MIN} AND sale_date >= '${lmStart}' AND sale_date < '${lmEnd}'`,
+        $order: 'sale_price::number DESC',
+      }),
+    });
+  }
+  for (const b of Object.keys(byBorough)) byBorough[b].sort((x, y) => y.sales - x.sales);
+  return byBorough;
+}
+
 // ---------- main ----------
 async function main() {
   console.log('Ingesting DOF sales (annualized + rolling)…');
@@ -166,6 +232,14 @@ async function main() {
 
   const city = analyze(citySeries, latest);
   city.spark = tail(citySeries, latest, 24);
+
+  console.log('Aggregating neighborhood (DOF) breakdown…');
+  const nbhd = await buildNeighborhoods(latest);
+  for (const b of boroughs) {
+    b.neighborhoods = nbhd[b.name] || [];
+    b.neighborhoodCount = b.neighborhoods.length;
+  }
+
   const notable = await fetchNotable(latest);
 
   // provenance (both datasets)
