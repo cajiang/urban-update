@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "product": "Urban Update",
+    "feed": "Brief",
+    "generatedAt": "2026-08-03T00:00:00.000Z",
+    "model": "seed (pre-key)",
+    "grounding": "Initial brief grounded in the five processed feeds. Set ANTHROPIC_API_KEY and run `node src/refresh.mjs` to regenerate live with Claude. Every figure traces to primary NYC data; interpretation is clearly hedged.",
+    "periods": {
+      "development": "July 2026",
+      "transactions": "May 2026",
+      "risk": "May 2026–July 2026",
+      "ll97_report_year": "2024",
+      "cross_signal": "March 2026–May 2026"
+    }
+  },
+  "headline": "New construction is accelerating into a cooling sales market, while operating risk climbs fastest in the same outer-borough neighborhoods.",
+  "summary": "Citywide, New Building filings ran 1,536 in July 2026 (+24% year-over-year), yet recorded sales fell to 3,921 in May (−15% YoY) even as the median held near $940,000. That supply-up / demand-soft divergence is sharpest in a handful of ZIPs. Meanwhile hazardous-violation risk and 311 complaints (+21% YoY) concentrate in the Bronx and central Brooklyn, and Local Law 97 carbon exposure — roughly $759M per year today — is overwhelmingly a Manhattan large-building problem.",
+  "insights": [
+    {
+      "title": "Supply is outrunning demand in specific outer-borough ZIPs",
+      "detail": "Greenpoint (11222) filed 78% more New Building applications year-over-year while sales fell 44%; Bay Ridge (11209) shows +67% supply against −47% demand. The divergence is real in the data (fact). It suggests these pockets may face pricing pressure and rising concessions as pipeline units deliver into thinner buyer demand (interpretation).",
+      "feed": "Cross-Signal"
+    },
+    {
+      "title": "Low volume, firm pricing — a stalemate market",
+      "detail": "Sales are down 15% YoY citywide, but the median held at $940,000 and Manhattan's median rose 9% YoY. This pattern looks more like sellers holding and fewer transactions clearing than a broad price correction — worth watching whether firm pricing persists as inventory ages.",
+      "feed": "Transactions"
+    },
+    {
+      "title": "311 complaints are leading violations higher",
+      "detail": "Building complaints to 311 rose 21% YoY citywide, well ahead of the 4% rise in hazardous HPD violations — and complaints tend to precede violations. Immediately-hazardous violations are rising fastest in Canarsie (11236) and Greenwich Village-West (10014).",
+      "feed": "Risk"
+    },
+    {
+      "title": "Local Law 97 exposure is concentrated in Manhattan",
+      "detail": "About 73% of benchmarked buildings already exceed the tighter 2030 carbon limits, and estimated penalties total roughly $759M/year today — of which Manhattan is about $381M. For large-building owners this is a material, escalating compliance cost that most cannot easily self-compute, making it the highest-leverage risk to underwrite now.",
+      "feed": "Local Law 97"
+    }
+  ],
+  "neighborhoods": [
+    {
+      "area": "Greenpoint (11222), Brooklyn",
+      "narrative": "A construction surge — New Building filings up 78% year-over-year — is meeting a 44% drop in sales, with 495 immediately-hazardous violations logged this quarter. The widening supply/demand gap is worth watching for pricing softness as pipeline units deliver."
+    },
+    {
+      "area": "Jamaica, Queens",
+      "narrative": "Sales cooled 27% year-over-year while the borough's development pipeline stayed elevated — a submarket where borough-level averages mask a genuine demand slowdown."
+    },
+    {
+      "area": "The Bronx (Bedford Park, Highbridge, Tremont)",
+      "narrative": "The city's heaviest concentration of habitability risk: 23,033 immediately-hazardous HPD violations this quarter. This reads as a standing stock problem rather than a sudden spike — a persistent operating-risk consideration for owners in these ZIPs."
+    },
+    {
+      "area": "Manhattan large buildings",
+      "narrative": "Home to roughly $381M of the city's estimated annual Local Law 97 penalty exposure, with about 75% of covered buildings already over the 2030 limit — the dominant forward compliance cost in the city."
+    }
+  ]
+}

@@ -12,11 +12,21 @@ node src/build-dashboard.mjs
 
 Then open `dashboard/index.html` in any browser. It's fully self-contained (data inlined) — no server needed.
 
-Or run both in one step:
+Or run every step in one command:
 
 ```bash
 node src/refresh.mjs
 ```
+
+### The AI Brief (optional, needs a key)
+The **Brief** tab is written by Claude at refresh time. To enable live regeneration, set your Anthropic API key first:
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...   # PowerShell: $env:ANTHROPIC_API_KEY="sk-ant-..."
+node src/refresh.mjs
+```
+
+Without a key, narration is skipped and the last brief (or the seed brief) is kept — the rest of the dashboard still builds. The key is read from the environment only; it is never written to any file.
 
 The dashboard shows a **Data Provenance & Freshness** panel: the DOB source updates **daily**, and the panel flags if our last pull is more than 2 days behind the source. Re-run `refresh` to catch up.
 

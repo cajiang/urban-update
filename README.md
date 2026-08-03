@@ -65,6 +65,7 @@ A claim without a source does not ship. Every signal, regime call, and implicati
 This is now a **portfolio project**: a dashboard mimicking institutional research, built from public data that is easy to obtain and easy for AI to analyze. Each panel carries an AI-generated, cited interpretation.
 
 The dashboard is a **tabbed multi-feed** view:
+- **Brief** — a daily AI-written intelligence brief (Claude) synthesizing all feeds into "what matters now" + neighborhood spotlights, grounded in cited figures. The landing tab.
 - **Development** (DOB) — New Building & demolition filings, borough + neighborhood drill-down.
 - **Transactions** (DOF) — recorded market sales, median price, $ volume by borough + neighborhood drill-down.
 - **Cross-Signal** — joins the feeds by property ZIP and flags where supply, demand & **risk** read together (oversupply-watch vs. tightening, with a hazardous-violation overlay). The synthesis layer.
