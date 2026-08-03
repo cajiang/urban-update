@@ -1,0 +1,2956 @@
+{
+  "meta": {
+    "product": "Urban Update",
+    "feed": "Risk",
+    "generatedAt": "2026-08-03T20:40:16.873Z",
+    "windowLabel": "May 2026–July 2026",
+    "latestMonth": "2026-07",
+    "method": {
+      "baseline": "Risk Pressure = 3 × (Class C, immediately hazardous) + 1 × (Class B, hazardous) HPD violations issued in the trailing quarter (May 2026–July 2026), compared year-over-year.",
+      "threshold": "A trend of ±15% YoY is Rising/Falling (needs ≥60 weighted points). Class weighting is explicit, not a black box.",
+      "note": "Volume-based: dense areas naturally register more, so the year-over-year trend is the denominator-independent signal. Figures are computed facts from primary agency records; interpretation requires review. Climate/flood and compliance-deadline (LL97) risk are planned phase-2 additions."
+    },
+    "sources": [
+      {
+        "label": "HPD Housing Maintenance Code Violations",
+        "datasetId": "wvxf-dwi5",
+        "landing": "https://data.cityofnewyork.us/d/wvxf-dwi5",
+        "attribution": "Department of Housing Preservation and Development (HPD)",
+        "provenance": "official",
+        "updateFrequency": "Daily",
+        "dataUpdatedAt": "2026-08-03T15:00:10.000Z"
+      },
+      {
+        "label": "311 Service Requests (2020–present)",
+        "datasetId": "erm2-nwe9",
+        "landing": "https://data.cityofnewyork.us/d/erm2-nwe9",
+        "attribution": "311",
+        "provenance": "official",
+        "updateFrequency": "Daily",
+        "dataUpdatedAt": "2026-08-03T01:37:14.000Z"
+      },
+      {
+        "label": "DOB ECB Violations",
+        "datasetId": "6bgk-3dad",
+        "landing": "https://data.cityofnewyork.us/d/6bgk-3dad",
+        "attribution": "Department of Buildings (DOB)",
+        "provenance": "official",
+        "updateFrequency": "Every weekday",
+        "dataUpdatedAt": "2026-08-02T17:00:11.000Z"
+      }
+    ]
+  },
+  "narration": {
+    "headline": "Bronx carries the highest risk pressure — 108,062 severity-weighted hazardous-violation points in May 2026–July 2026 (23,033 immediately-hazardous, 38,963 hazardous), +5% year-over-year. Trend: Stable.",
+    "citySummary": "Citywide, 59,792 immediately-hazardous (Class C) and 100,886 hazardous (Class B) HPD violations were issued in May 2026–July 2026, +4% year-over-year, alongside 185,828 building complaints to 311 and $37M in new ECB penalty balances."
+  },
+  "citywide": {
+    "weighted": 280262,
+    "C": 59792,
+    "B": 100886,
+    "complaints311": 185828,
+    "complaints311Yoy": 154014,
+    "ecbBalance": 36596073,
+    "yoy": 0.040605065979519246,
+    "regime": "Stable",
+    "spark": [
+      {
+        "month": "2024-08",
+        "weighted": 102111
+      },
+      {
+        "month": "2024-09",
+        "weighted": 108594
+      },
+      {
+        "month": "2024-10",
+        "weighted": 111257
+      },
+      {
+        "month": "2024-11",
+        "weighted": 102564
+      },
+      {
+        "month": "2024-12",
+        "weighted": 120092
+      },
+      {
+        "month": "2025-01",
+        "weighted": 125328
+      },
+      {
+        "month": "2025-02",
+        "weighted": 103566
+      },
+      {
+        "month": "2025-03",
+        "weighted": 104744
+      },
+      {
+        "month": "2025-04",
+        "weighted": 98420
+      },
+      {
+        "month": "2025-05",
+        "weighted": 93607
+      },
+      {
+        "month": "2025-06",
+        "weighted": 84410
+      },
+      {
+        "month": "2025-07",
+        "weighted": 91311
+      },
+      {
+        "month": "2025-08",
+        "weighted": 94639
+      },
+      {
+        "month": "2025-09",
+        "weighted": 92576
+      },
+      {
+        "month": "2025-10",
+        "weighted": 109278
+      },
+      {
+        "month": "2025-11",
+        "weighted": 100973
+      },
+      {
+        "month": "2025-12",
+        "weighted": 120357
+      },
+      {
+        "month": "2026-01",
+        "weighted": 103837
+      },
+      {
+        "month": "2026-02",
+        "weighted": 110962
+      },
+      {
+        "month": "2026-03",
+        "weighted": 111814
+      },
+      {
+        "month": "2026-04",
+        "weighted": 103410
+      },
+      {
+        "month": "2026-05",
+        "weighted": 87384
+      },
+      {
+        "month": "2026-06",
+        "weighted": 103239
+      },
+      {
+        "month": "2026-07",
+        "weighted": 89639
+      }
+    ]
+  },
+  "boroughs": [
+    {
+      "name": "Manhattan",
+      "weighted": 50557,
+      "C": 10957,
+      "B": 17686,
+      "complaints311": 38850,
+      "yoy": 0.04009628044766294,
+      "regime": "Stable",
+      "ecbNew": 2845,
+      "ecbBalance": 7588277,
+      "neighborhoods": [
+        {
+          "zip": "10031",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-UPPER",
+          "weighted": 5491,
+          "C": 1186,
+          "B": 1933,
+          "complaints311": 3038,
+          "yoy": 0.10571888844140154,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710031%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10032",
+          "borough": "Manhattan",
+          "neighborhood": "WASHINGTON HEIGHTS LOWER",
+          "weighted": 4963,
+          "C": 1060,
+          "B": 1783,
+          "complaints311": 2780,
+          "yoy": 0.03266749895963379,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710032%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10029",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-EAST",
+          "weighted": 3457,
+          "C": 720,
+          "B": 1297,
+          "complaints311": 2450,
+          "yoy": 0.3149486496766831,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710029%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10030",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-CENTRAL",
+          "weighted": 3217,
+          "C": 755,
+          "B": 952,
+          "complaints311": 1888,
+          "yoy": 0.14483985765124555,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710030%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10040",
+          "borough": "Manhattan",
+          "neighborhood": "WASHINGTON HEIGHTS UPPER",
+          "weighted": 3109,
+          "C": 666,
+          "B": 1111,
+          "complaints311": 2197,
+          "yoy": -0.23177662466024215,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710040%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10027",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-CENTRAL",
+          "weighted": 2976,
+          "C": 646,
+          "B": 1038,
+          "complaints311": 2144,
+          "yoy": -0.1388888888888889,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710027%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10033",
+          "borough": "Manhattan",
+          "neighborhood": "WASHINGTON HEIGHTS UPPER",
+          "weighted": 2862,
+          "C": 607,
+          "B": 1041,
+          "complaints311": 1737,
+          "yoy": -0.27599291677207183,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710033%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10034",
+          "borough": "Manhattan",
+          "neighborhood": "INWOOD",
+          "weighted": 2673,
+          "C": 533,
+          "B": 1074,
+          "complaints311": 1764,
+          "yoy": 0.0121166224914805,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710034%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10035",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-EAST",
+          "weighted": 2620,
+          "C": 592,
+          "B": 844,
+          "complaints311": 1662,
+          "yoy": 0.12833763996554695,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710035%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10039",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-CENTRAL",
+          "weighted": 2271,
+          "C": 484,
+          "B": 819,
+          "complaints311": 1489,
+          "yoy": 0.05923507462686567,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710039%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10026",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-CENTRAL",
+          "weighted": 1924,
+          "C": 395,
+          "B": 739,
+          "complaints311": 1489,
+          "yoy": -0.019367991845056064,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710026%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10025",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER WEST SIDE (79-96)",
+          "weighted": 1801,
+          "C": 408,
+          "B": 577,
+          "complaints311": 1847,
+          "yoy": -0.046585494970884066,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710025%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10009",
+          "borough": "Manhattan",
+          "neighborhood": "ALPHABET CITY",
+          "weighted": 1364,
+          "C": 298,
+          "B": 470,
+          "complaints311": 1197,
+          "yoy": 0.37361530715005037,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710009%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10037",
+          "borough": "Manhattan",
+          "neighborhood": "HARLEM-CENTRAL",
+          "weighted": 1359,
+          "C": 288,
+          "B": 495,
+          "complaints311": 1297,
+          "yoy": 0.2548476454293629,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710037%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10002",
+          "borough": "Manhattan",
+          "neighborhood": "LOWER EAST SIDE",
+          "weighted": 1169,
+          "C": 254,
+          "B": 407,
+          "complaints311": 919,
+          "yoy": 0.4221411192214112,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710002%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10019",
+          "borough": "Manhattan",
+          "neighborhood": "MIDTOWN WEST",
+          "weighted": 999,
+          "C": 217,
+          "B": 348,
+          "complaints311": 940,
+          "yoy": 0.26136363636363635,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710019%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10003",
+          "borough": "Manhattan",
+          "neighborhood": "GREENWICH VILLAGE-CENTRAL",
+          "weighted": 807,
+          "C": 174,
+          "B": 285,
+          "complaints311": 854,
+          "yoy": -0.06597222222222222,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710003%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10024",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER WEST SIDE (79-96)",
+          "weighted": 761,
+          "C": 170,
+          "B": 251,
+          "complaints311": 748,
+          "yoy": 0.28983050847457625,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710024%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10023",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER WEST SIDE (59-79)",
+          "weighted": 633,
+          "C": 152,
+          "B": 177,
+          "complaints311": 749,
+          "yoy": 0.7486187845303868,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710023%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10011",
+          "borough": "Manhattan",
+          "neighborhood": "CHELSEA",
+          "weighted": 630,
+          "C": 145,
+          "B": 195,
+          "complaints311": 1040,
+          "yoy": 0.37254901960784315,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710011%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10012",
+          "borough": "Manhattan",
+          "neighborhood": "SOHO",
+          "weighted": 583,
+          "C": 124,
+          "B": 211,
+          "complaints311": 437,
+          "yoy": 0.5064599483204134,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710012%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10036",
+          "borough": "Manhattan",
+          "neighborhood": "MIDTOWN WEST",
+          "weighted": 550,
+          "C": 107,
+          "B": 229,
+          "complaints311": 557,
+          "yoy": -0.23822714681440443,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710036%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10028",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER EAST SIDE (79-96)",
+          "weighted": 519,
+          "C": 106,
+          "B": 201,
+          "complaints311": 466,
+          "yoy": 0.10191082802547771,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710028%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10128",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER EAST SIDE (79-96)",
+          "weighted": 438,
+          "C": 96,
+          "B": 150,
+          "complaints311": 625,
+          "yoy": 0.02336448598130841,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710128%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10014",
+          "borough": "Manhattan",
+          "neighborhood": "GREENWICH VILLAGE-WEST",
+          "weighted": 420,
+          "C": 91,
+          "B": 147,
+          "complaints311": 532,
+          "yoy": 1.0588235294117647,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710014%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10013",
+          "borough": "Manhattan",
+          "neighborhood": "TRIBECA",
+          "weighted": 371,
+          "C": 87,
+          "B": 110,
+          "complaints311": 378,
+          "yoy": 0.8737373737373737,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710013%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10016",
+          "borough": "Manhattan",
+          "neighborhood": "MURRAY HILL",
+          "weighted": 306,
+          "C": 65,
+          "B": 111,
+          "complaints311": 616,
+          "yoy": -0.2783018867924528,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710016%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10022",
+          "borough": "Manhattan",
+          "neighborhood": "MIDTOWN EAST",
+          "weighted": 299,
+          "C": 67,
+          "B": 98,
+          "complaints311": 314,
+          "yoy": -0.0911854103343465,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710022%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10010",
+          "borough": "Manhattan",
+          "neighborhood": "GRAMERCY",
+          "weighted": 297,
+          "C": 68,
+          "B": 93,
+          "complaints311": 426,
+          "yoy": -0.0660377358490566,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710010%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10001",
+          "borough": "Manhattan",
+          "neighborhood": "CHELSEA",
+          "weighted": 278,
+          "C": 58,
+          "B": 104,
+          "complaints311": 385,
+          "yoy": -0.14984709480122324,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710001%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10065",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER EAST SIDE (59-79)",
+          "weighted": 261,
+          "C": 61,
+          "B": 78,
+          "complaints311": 316,
+          "yoy": -0.2627118644067797,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710065%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10021",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER EAST SIDE (59-79)",
+          "weighted": 229,
+          "C": 51,
+          "B": 76,
+          "complaints311": 267,
+          "yoy": 0.3630952380952381,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710021%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10018",
+          "borough": "Manhattan",
+          "neighborhood": "FASHION",
+          "weighted": 216,
+          "C": 57,
+          "B": 45,
+          "complaints311": 222,
+          "yoy": 0.17391304347826086,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710018%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10075",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER EAST SIDE (59-79)",
+          "weighted": 192,
+          "C": 40,
+          "B": 72,
+          "complaints311": 219,
+          "yoy": 0.45454545454545453,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710075%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10006",
+          "borough": "Manhattan",
+          "neighborhood": "FINANCIAL",
+          "weighted": 163,
+          "C": 52,
+          "B": 7,
+          "complaints311": 58,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710006%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10044",
+          "borough": "Manhattan",
+          "neighborhood": "ROOSEVELT ISLAND",
+          "weighted": 143,
+          "C": 33,
+          "B": 44,
+          "complaints311": 173,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710044%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10017",
+          "borough": "Manhattan",
+          "neighborhood": "MIDTOWN EAST",
+          "weighted": 93,
+          "C": 20,
+          "B": 33,
+          "complaints311": 288,
+          "yoy": 0.34782608695652173,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710017%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10038",
+          "borough": "Manhattan",
+          "neighborhood": "SOUTHBRIDGE",
+          "weighted": 47,
+          "C": 8,
+          "B": 23,
+          "complaints311": 159,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710038%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10280",
+          "borough": "Manhattan",
+          "neighborhood": "TRIBECA",
+          "weighted": 18,
+          "C": 4,
+          "B": 6,
+          "complaints311": 27,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710280%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10007",
+          "borough": "Manhattan",
+          "neighborhood": "TRIBECA",
+          "weighted": 16,
+          "C": 3,
+          "B": 7,
+          "complaints311": 44,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710007%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10069",
+          "borough": "Manhattan",
+          "neighborhood": "UPPER WEST SIDE (59-79)",
+          "weighted": 11,
+          "C": 3,
+          "B": 2,
+          "complaints311": 16,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710069%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10004",
+          "borough": "Manhattan",
+          "neighborhood": "FINANCIAL",
+          "weighted": 9,
+          "C": 2,
+          "B": 3,
+          "complaints311": 41,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710004%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10005",
+          "borough": "Manhattan",
+          "neighborhood": "FINANCIAL",
+          "weighted": 6,
+          "C": 2,
+          "B": 0,
+          "complaints311": 48,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710005%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10282",
+          "borough": "Manhattan",
+          "neighborhood": "TRIBECA",
+          "weighted": 6,
+          "C": 2,
+          "B": 0,
+          "complaints311": 7,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710282%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        }
+      ],
+      "neighborhoodCount": 44,
+      "spark": [
+        {
+          "month": "2024-08",
+          "weighted": 18551
+        },
+        {
+          "month": "2024-09",
+          "weighted": 18913
+        },
+        {
+          "month": "2024-10",
+          "weighted": 19565
+        },
+        {
+          "month": "2024-11",
+          "weighted": 15401
+        },
+        {
+          "month": "2024-12",
+          "weighted": 19075
+        },
+        {
+          "month": "2025-01",
+          "weighted": 19656
+        },
+        {
+          "month": "2025-02",
+          "weighted": 16787
+        },
+        {
+          "month": "2025-03",
+          "weighted": 17681
+        },
+        {
+          "month": "2025-04",
+          "weighted": 16371
+        },
+        {
+          "month": "2025-05",
+          "weighted": 16594
+        },
+        {
+          "month": "2025-06",
+          "weighted": 18527
+        },
+        {
+          "month": "2025-07",
+          "weighted": 14160
+        },
+        {
+          "month": "2025-08",
+          "weighted": 19692
+        },
+        {
+          "month": "2025-09",
+          "weighted": 20138
+        },
+        {
+          "month": "2025-10",
+          "weighted": 19384
+        },
+        {
+          "month": "2025-11",
+          "weighted": 18576
+        },
+        {
+          "month": "2025-12",
+          "weighted": 20203
+        },
+        {
+          "month": "2026-01",
+          "weighted": 18243
+        },
+        {
+          "month": "2026-02",
+          "weighted": 21820
+        },
+        {
+          "month": "2026-03",
+          "weighted": 22837
+        },
+        {
+          "month": "2026-04",
+          "weighted": 20312
+        },
+        {
+          "month": "2026-05",
+          "weighted": 15578
+        },
+        {
+          "month": "2026-06",
+          "weighted": 19222
+        },
+        {
+          "month": "2026-07",
+          "weighted": 16236
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class+in%28%27B%27%2C%27C%27%29+AND+boro%3D%27MANHATTAN%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "name": "Bronx",
+      "weighted": 108062,
+      "C": 23033,
+      "B": 38963,
+      "complaints311": 55971,
+      "yoy": 0.05374939054119941,
+      "regime": "Stable",
+      "ecbNew": 2991,
+      "ecbBalance": 7370195,
+      "neighborhoods": [
+        {
+          "zip": "10458",
+          "borough": "Bronx",
+          "neighborhood": "BEDFORD PARK/NORWOOD",
+          "weighted": 10752,
+          "C": 2312,
+          "B": 3816,
+          "complaints311": 4754,
+          "yoy": -0.06650460149331482,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710458%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10457",
+          "borough": "Bronx",
+          "neighborhood": "BATHGATE",
+          "weighted": 9889,
+          "C": 2076,
+          "B": 3661,
+          "complaints311": 4599,
+          "yoy": 0.0013163223977318752,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710457%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10452",
+          "borough": "Bronx",
+          "neighborhood": "HIGHBRIDGE/MORRIS HEIGHTS",
+          "weighted": 9217,
+          "C": 2038,
+          "B": 3103,
+          "complaints311": 4776,
+          "yoy": 0.1341208317952504,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710452%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10468",
+          "borough": "Bronx",
+          "neighborhood": "KINGSBRIDGE HTS/UNIV HTS",
+          "weighted": 8965,
+          "C": 1940,
+          "B": 3145,
+          "complaints311": 3851,
+          "yoy": 0.08838169236372466,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710468%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10453",
+          "borough": "Bronx",
+          "neighborhood": "MOUNT HOPE/MOUNT EDEN",
+          "weighted": 8402,
+          "C": 1782,
+          "B": 3056,
+          "complaints311": 4568,
+          "yoy": -0.03668883283650539,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710453%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10467",
+          "borough": "Bronx",
+          "neighborhood": "BRONXDALE",
+          "weighted": 8267,
+          "C": 1732,
+          "B": 3071,
+          "complaints311": 4300,
+          "yoy": 0.01597640408012781,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710467%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10456",
+          "borough": "Bronx",
+          "neighborhood": "MELROSE/CONCOURSE",
+          "weighted": 8238,
+          "C": 1734,
+          "B": 3036,
+          "complaints311": 3657,
+          "yoy": 0.06516679596586501,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710456%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10460",
+          "borough": "Bronx",
+          "neighborhood": "PARKCHESTER",
+          "weighted": 6304,
+          "C": 1328,
+          "B": 2320,
+          "complaints311": 2576,
+          "yoy": 0.31552587646076796,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710460%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10459",
+          "borough": "Bronx",
+          "neighborhood": "MORRISANIA/LONGWOOD",
+          "weighted": 5308,
+          "C": 1119,
+          "B": 1951,
+          "complaints311": 2706,
+          "yoy": 0.01181852840259245,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710459%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10462",
+          "borough": "Bronx",
+          "neighborhood": "PARKCHESTER",
+          "weighted": 4589,
+          "C": 993,
+          "B": 1610,
+          "complaints311": 2756,
+          "yoy": 0.40336391437308866,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710462%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10451",
+          "borough": "Bronx",
+          "neighborhood": "MELROSE/CONCOURSE",
+          "weighted": 4450,
+          "C": 913,
+          "B": 1711,
+          "complaints311": 2565,
+          "yoy": 0.2482468443197756,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710451%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10472",
+          "borough": "Bronx",
+          "neighborhood": "SOUNDVIEW",
+          "weighted": 4082,
+          "C": 906,
+          "B": 1364,
+          "complaints311": 2159,
+          "yoy": 0.05696530295183842,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710472%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10466",
+          "borough": "Bronx",
+          "neighborhood": "BAYCHESTER",
+          "weighted": 3336,
+          "C": 697,
+          "B": 1245,
+          "complaints311": 1616,
+          "yoy": 0.012135922330097087,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710466%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10455",
+          "borough": "Bronx",
+          "neighborhood": "MORRISANIA/LONGWOOD",
+          "weighted": 3213,
+          "C": 640,
+          "B": 1293,
+          "complaints311": 1768,
+          "yoy": -0.03397474443776308,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710455%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10463",
+          "borough": "Bronx",
+          "neighborhood": "RIVERDALE",
+          "weighted": 3130,
+          "C": 700,
+          "B": 1030,
+          "complaints311": 2092,
+          "yoy": -0.07914092380111798,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710463%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10454",
+          "borough": "Bronx",
+          "neighborhood": "MOTT HAVEN/PORT MORRIS",
+          "weighted": 2441,
+          "C": 531,
+          "B": 848,
+          "complaints311": 1632,
+          "yoy": -0.07817220543806647,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710454%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10469",
+          "borough": "Bronx",
+          "neighborhood": "BAYCHESTER",
+          "weighted": 1639,
+          "C": 315,
+          "B": 694,
+          "complaints311": 1359,
+          "yoy": 0.24355083459787558,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710469%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10461",
+          "borough": "Bronx",
+          "neighborhood": "SCHUYLERVILLE/PELHAM BAY",
+          "weighted": 1576,
+          "C": 329,
+          "B": 589,
+          "complaints311": 1021,
+          "yoy": 0.21698841698841698,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710461%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10473",
+          "borough": "Bronx",
+          "neighborhood": "SOUNDVIEW",
+          "weighted": 1215,
+          "C": 282,
+          "B": 369,
+          "complaints311": 1016,
+          "yoy": -0.19161676646706588,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710473%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10474",
+          "borough": "Bronx",
+          "neighborhood": "HUNTS POINT",
+          "weighted": 1027,
+          "C": 227,
+          "B": 346,
+          "complaints311": 688,
+          "yoy": 0.26633785450061653,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710474%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10470",
+          "borough": "Bronx",
+          "neighborhood": "WOODLAWN",
+          "weighted": 945,
+          "C": 215,
+          "B": 300,
+          "complaints311": 533,
+          "yoy": 0.16093366093366093,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710470%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10471",
+          "borough": "Bronx",
+          "neighborhood": "RIVERDALE",
+          "weighted": 582,
+          "C": 131,
+          "B": 189,
+          "complaints311": 344,
+          "yoy": 0.09811320754716982,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710471%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10465",
+          "borough": "Bronx",
+          "neighborhood": "THROGS NECK",
+          "weighted": 257,
+          "C": 53,
+          "B": 98,
+          "complaints311": 336,
+          "yoy": 0.27860696517412936,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710465%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10475",
+          "borough": "Bronx",
+          "neighborhood": "BAYCHESTER",
+          "weighted": 198,
+          "C": 32,
+          "B": 102,
+          "complaints311": 251,
+          "yoy": 0,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710475%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10464",
+          "borough": "Bronx",
+          "neighborhood": "CITY ISLAND",
+          "weighted": 40,
+          "C": 8,
+          "B": 16,
+          "complaints311": 48,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710464%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        }
+      ],
+      "neighborhoodCount": 25,
+      "spark": [
+        {
+          "month": "2024-08",
+          "weighted": 44963
+        },
+        {
+          "month": "2024-09",
+          "weighted": 41394
+        },
+        {
+          "month": "2024-10",
+          "weighted": 43925
+        },
+        {
+          "month": "2024-11",
+          "weighted": 41181
+        },
+        {
+          "month": "2024-12",
+          "weighted": 51044
+        },
+        {
+          "month": "2025-01",
+          "weighted": 50368
+        },
+        {
+          "month": "2025-02",
+          "weighted": 43435
+        },
+        {
+          "month": "2025-03",
+          "weighted": 43140
+        },
+        {
+          "month": "2025-04",
+          "weighted": 38698
+        },
+        {
+          "month": "2025-05",
+          "weighted": 35665
+        },
+        {
+          "month": "2025-06",
+          "weighted": 29484
+        },
+        {
+          "month": "2025-07",
+          "weighted": 36728
+        },
+        {
+          "month": "2025-08",
+          "weighted": 39049
+        },
+        {
+          "month": "2025-09",
+          "weighted": 32652
+        },
+        {
+          "month": "2025-10",
+          "weighted": 41793
+        },
+        {
+          "month": "2025-11",
+          "weighted": 35470
+        },
+        {
+          "month": "2025-12",
+          "weighted": 42785
+        },
+        {
+          "month": "2026-01",
+          "weighted": 36969
+        },
+        {
+          "month": "2026-02",
+          "weighted": 40153
+        },
+        {
+          "month": "2026-03",
+          "weighted": 42025
+        },
+        {
+          "month": "2026-04",
+          "weighted": 37009
+        },
+        {
+          "month": "2026-05",
+          "weighted": 34066
+        },
+        {
+          "month": "2026-06",
+          "weighted": 40540
+        },
+        {
+          "month": "2026-07",
+          "weighted": 32977
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class+in%28%27B%27%2C%27C%27%29+AND+boro%3D%27BRONX%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "name": "Brooklyn",
+      "weighted": 86467,
+      "C": 18221,
+      "B": 31804,
+      "complaints311": 57803,
+      "yoy": 0.03723474443098257,
+      "regime": "Stable",
+      "ecbNew": 5553,
+      "ecbBalance": 13136344,
+      "neighborhoods": [
+        {
+          "zip": "11226",
+          "borough": "Brooklyn",
+          "neighborhood": "FLATBUSH-CENTRAL",
+          "weighted": 11811,
+          "C": 2473,
+          "B": 4392,
+          "complaints311": 5118,
+          "yoy": 0.09048102668267011,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711226%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11212",
+          "borough": "Brooklyn",
+          "neighborhood": "BROWNSVILLE",
+          "weighted": 5253,
+          "C": 1084,
+          "B": 2001,
+          "complaints311": 3164,
+          "yoy": 0.06056935190793458,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711212%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11213",
+          "borough": "Brooklyn",
+          "neighborhood": "CROWN HEIGHTS",
+          "weighted": 4858,
+          "C": 1041,
+          "B": 1735,
+          "complaints311": 2818,
+          "yoy": 0.051742801472180126,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711213%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11207",
+          "borough": "Brooklyn",
+          "neighborhood": "EAST NEW YORK",
+          "weighted": 4757,
+          "C": 1019,
+          "B": 1700,
+          "complaints311": 2886,
+          "yoy": 0.10679385760818985,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711207%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11225",
+          "borough": "Brooklyn",
+          "neighborhood": "FLATBUSH-LEFFERTS GARDEN",
+          "weighted": 4540,
+          "C": 973,
+          "B": 1621,
+          "complaints311": 2810,
+          "yoy": 0.24451754385964913,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711225%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11233",
+          "borough": "Brooklyn",
+          "neighborhood": "OCEAN HILL",
+          "weighted": 4435,
+          "C": 919,
+          "B": 1678,
+          "complaints311": 2461,
+          "yoy": 0.23709902370990238,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711233%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11203",
+          "borough": "Brooklyn",
+          "neighborhood": "FLATBUSH-EAST",
+          "weighted": 4299,
+          "C": 903,
+          "B": 1590,
+          "complaints311": 2463,
+          "yoy": 0.06595586412100174,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711203%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11221",
+          "borough": "Brooklyn",
+          "neighborhood": "BUSHWICK",
+          "weighted": 3930,
+          "C": 837,
+          "B": 1419,
+          "complaints311": 2894,
+          "yoy": 0.18302227573750754,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711221%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11230",
+          "borough": "Brooklyn",
+          "neighborhood": "OCEAN PARKWAY-NORTH",
+          "weighted": 3649,
+          "C": 803,
+          "B": 1240,
+          "complaints311": 2129,
+          "yoy": 0.005788313120176406,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711230%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11216",
+          "borough": "Brooklyn",
+          "neighborhood": "BEDFORD STUYVESANT",
+          "weighted": 3200,
+          "C": 643,
+          "B": 1271,
+          "complaints311": 2227,
+          "yoy": -0.04506117576842734,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711216%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11210",
+          "borough": "Brooklyn",
+          "neighborhood": "FLATBUSH-EAST",
+          "weighted": 3153,
+          "C": 672,
+          "B": 1137,
+          "complaints311": 1647,
+          "yoy": 0.01808201485308363,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711210%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11237",
+          "borough": "Brooklyn",
+          "neighborhood": "WYCKOFF HEIGHTS",
+          "weighted": 2545,
+          "C": 561,
+          "B": 862,
+          "complaints311": 1123,
+          "yoy": 0.22768933912204534,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711237%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11208",
+          "borough": "Brooklyn",
+          "neighborhood": "EAST NEW YORK",
+          "weighted": 2469,
+          "C": 500,
+          "B": 969,
+          "complaints311": 2615,
+          "yoy": -0.19075712881022616,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711208%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11238",
+          "borough": "Brooklyn",
+          "neighborhood": "PROSPECT HEIGHTS",
+          "weighted": 2376,
+          "C": 474,
+          "B": 954,
+          "complaints311": 1773,
+          "yoy": 0.24855491329479767,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711238%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11218",
+          "borough": "Brooklyn",
+          "neighborhood": "OCEAN PARKWAY-NORTH",
+          "weighted": 2129,
+          "C": 456,
+          "B": 761,
+          "complaints311": 1635,
+          "yoy": -0.03925992779783394,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711218%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11220",
+          "borough": "Brooklyn",
+          "neighborhood": "SUNSET PARK",
+          "weighted": 2050,
+          "C": 441,
+          "B": 727,
+          "complaints311": 1265,
+          "yoy": -0.13829340058848255,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711220%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11206",
+          "borough": "Brooklyn",
+          "neighborhood": "BEDFORD STUYVESANT",
+          "weighted": 1851,
+          "C": 410,
+          "B": 621,
+          "complaints311": 1479,
+          "yoy": 0.0824561403508772,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711206%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11209",
+          "borough": "Brooklyn",
+          "neighborhood": "BAY RIDGE",
+          "weighted": 1628,
+          "C": 331,
+          "B": 635,
+          "complaints311": 1179,
+          "yoy": 0.17800289435600578,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711209%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11235",
+          "borough": "Brooklyn",
+          "neighborhood": "SHEEPSHEAD BAY",
+          "weighted": 1475,
+          "C": 334,
+          "B": 473,
+          "complaints311": 1014,
+          "yoy": -0.19618528610354224,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711235%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11215",
+          "borough": "Brooklyn",
+          "neighborhood": "PARK SLOPE",
+          "weighted": 1381,
+          "C": 300,
+          "B": 481,
+          "complaints311": 1013,
+          "yoy": 0.1998262380538662,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711215%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11219",
+          "borough": "Brooklyn",
+          "neighborhood": "BOROUGH PARK",
+          "weighted": 1282,
+          "C": 239,
+          "B": 565,
+          "complaints311": 742,
+          "yoy": -0.11647139903514818,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711219%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11236",
+          "borough": "Brooklyn",
+          "neighborhood": "CANARSIE",
+          "weighted": 1242,
+          "C": 242,
+          "B": 516,
+          "complaints311": 1075,
+          "yoy": 0.6067270375161707,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711236%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11211",
+          "borough": "Brooklyn",
+          "neighborhood": "WILLIAMSBURG-EAST",
+          "weighted": 1226,
+          "C": 274,
+          "B": 404,
+          "complaints311": 1305,
+          "yoy": -0.3900497512437811,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711211%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11224",
+          "borough": "Brooklyn",
+          "neighborhood": "CONEY ISLAND",
+          "weighted": 1167,
+          "C": 252,
+          "B": 411,
+          "complaints311": 809,
+          "yoy": 0.12971926427879962,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711224%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11214",
+          "borough": "Brooklyn",
+          "neighborhood": "BATH BEACH",
+          "weighted": 1105,
+          "C": 231,
+          "B": 412,
+          "complaints311": 1064,
+          "yoy": -0.43593670239918325,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711214%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11229",
+          "borough": "Brooklyn",
+          "neighborhood": "MADISON",
+          "weighted": 1085,
+          "C": 224,
+          "B": 413,
+          "complaints311": 986,
+          "yoy": -0.17865253595760788,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711229%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11223",
+          "borough": "Brooklyn",
+          "neighborhood": "OCEAN PARKWAY-SOUTH",
+          "weighted": 1061,
+          "C": 218,
+          "B": 407,
+          "complaints311": 1068,
+          "yoy": -0.2945478723404255,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711223%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11204",
+          "borough": "Brooklyn",
+          "neighborhood": "BOROUGH PARK",
+          "weighted": 1057,
+          "C": 229,
+          "B": 370,
+          "complaints311": 1043,
+          "yoy": -0.008442776735459663,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711204%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11205",
+          "borough": "Brooklyn",
+          "neighborhood": "BEDFORD STUYVESANT",
+          "weighted": 861,
+          "C": 181,
+          "B": 318,
+          "complaints311": 753,
+          "yoy": 0.1908713692946058,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711205%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11222",
+          "borough": "Brooklyn",
+          "neighborhood": "GREENPOINT",
+          "weighted": 824,
+          "C": 178,
+          "B": 290,
+          "complaints311": 765,
+          "yoy": 0.18220946915351507,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711222%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11217",
+          "borough": "Brooklyn",
+          "neighborhood": "BOERUM HILL",
+          "weighted": 792,
+          "C": 185,
+          "B": 237,
+          "complaints311": 924,
+          "yoy": 0.3492333901192504,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711217%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11201",
+          "borough": "Brooklyn",
+          "neighborhood": "BROOKLYN HEIGHTS",
+          "weighted": 734,
+          "C": 162,
+          "B": 248,
+          "complaints311": 783,
+          "yoy": 0.3719626168224299,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711201%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11232",
+          "borough": "Brooklyn",
+          "neighborhood": "SUNSET PARK",
+          "weighted": 706,
+          "C": 147,
+          "B": 265,
+          "complaints311": 648,
+          "yoy": -0.12946979038224415,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711232%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11231",
+          "borough": "Brooklyn",
+          "neighborhood": "CARROLL GARDENS",
+          "weighted": 480,
+          "C": 77,
+          "B": 249,
+          "complaints311": 403,
+          "yoy": 0.10344827586206896,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711231%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11234",
+          "borough": "Brooklyn",
+          "neighborhood": "MARINE PARK",
+          "weighted": 446,
+          "C": 76,
+          "B": 218,
+          "complaints311": 661,
+          "yoy": -0.25542570951585974,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711234%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11249",
+          "borough": "Brooklyn",
+          "neighborhood": "WILLIAMSBURG-NORTH",
+          "weighted": 256,
+          "C": 54,
+          "B": 94,
+          "complaints311": 342,
+          "yoy": -0.20987654320987653,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711249%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11239",
+          "borough": "Brooklyn",
+          "neighborhood": "SPRING CREEK",
+          "weighted": 196,
+          "C": 43,
+          "B": 67,
+          "complaints311": 387,
+          "yoy": 0.10112359550561797,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711239%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11228",
+          "borough": "Brooklyn",
+          "neighborhood": "DYKER HEIGHTS",
+          "weighted": 158,
+          "C": 35,
+          "B": 53,
+          "complaints311": 332,
+          "yoy": -0.4589041095890411,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711228%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        }
+      ],
+      "neighborhoodCount": 38,
+      "spark": [
+        {
+          "month": "2024-08",
+          "weighted": 25139
+        },
+        {
+          "month": "2024-09",
+          "weighted": 32933
+        },
+        {
+          "month": "2024-10",
+          "weighted": 32493
+        },
+        {
+          "month": "2024-11",
+          "weighted": 30992
+        },
+        {
+          "month": "2024-12",
+          "weighted": 32624
+        },
+        {
+          "month": "2025-01",
+          "weighted": 38513
+        },
+        {
+          "month": "2025-02",
+          "weighted": 31278
+        },
+        {
+          "month": "2025-03",
+          "weighted": 31127
+        },
+        {
+          "month": "2025-04",
+          "weighted": 30589
+        },
+        {
+          "month": "2025-05",
+          "weighted": 29108
+        },
+        {
+          "month": "2025-06",
+          "weighted": 23803
+        },
+        {
+          "month": "2025-07",
+          "weighted": 30454
+        },
+        {
+          "month": "2025-08",
+          "weighted": 24411
+        },
+        {
+          "month": "2025-09",
+          "weighted": 27056
+        },
+        {
+          "month": "2025-10",
+          "weighted": 34382
+        },
+        {
+          "month": "2025-11",
+          "weighted": 32479
+        },
+        {
+          "month": "2025-12",
+          "weighted": 40940
+        },
+        {
+          "month": "2026-01",
+          "weighted": 33146
+        },
+        {
+          "month": "2026-02",
+          "weighted": 32615
+        },
+        {
+          "month": "2026-03",
+          "weighted": 31550
+        },
+        {
+          "month": "2026-04",
+          "weighted": 33157
+        },
+        {
+          "month": "2026-05",
+          "weighted": 27123
+        },
+        {
+          "month": "2026-06",
+          "weighted": 30978
+        },
+        {
+          "month": "2026-07",
+          "weighted": 28363
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class+in%28%27B%27%2C%27C%27%29+AND+boro%3D%27BROOKLYN%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "name": "Queens",
+      "weighted": 29890,
+      "C": 6487,
+      "B": 10429,
+      "complaints311": 29198,
+      "yoy": -0.0030352556619192153,
+      "regime": "Stable",
+      "ecbNew": 3383,
+      "ecbBalance": 6992327,
+      "neighborhoods": [
+        {
+          "zip": "11372",
+          "borough": "Queens",
+          "neighborhood": "JACKSON HEIGHTS",
+          "weighted": 2616,
+          "C": 584,
+          "B": 864,
+          "complaints311": 1423,
+          "yoy": -0.013574660633484163,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711372%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11373",
+          "borough": "Queens",
+          "neighborhood": "ELMHURST",
+          "weighted": 2230,
+          "C": 546,
+          "B": 592,
+          "complaints311": 1015,
+          "yoy": 0.1325545962417471,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711373%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11435",
+          "borough": "Queens",
+          "neighborhood": "SOUTH JAMAICA",
+          "weighted": 1841,
+          "C": 379,
+          "B": 704,
+          "complaints311": 1325,
+          "yoy": 0.3526818515797208,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711435%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11691",
+          "borough": "Queens",
+          "neighborhood": "FAR ROCKAWAY",
+          "weighted": 1509,
+          "C": 332,
+          "B": 513,
+          "complaints311": 1220,
+          "yoy": -0.20620725933719095,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711691%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11368",
+          "borough": "Queens",
+          "neighborhood": "CORONA",
+          "weighted": 1391,
+          "C": 312,
+          "B": 455,
+          "complaints311": 980,
+          "yoy": 0.15244407622203812,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711368%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11432",
+          "borough": "Queens",
+          "neighborhood": "JAMAICA ESTATES",
+          "weighted": 1343,
+          "C": 289,
+          "B": 476,
+          "complaints311": 1223,
+          "yoy": -0.11294583883751651,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711432%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11355",
+          "borough": "Queens",
+          "neighborhood": "FLUSHING-NORTH",
+          "weighted": 1318,
+          "C": 304,
+          "B": 406,
+          "complaints311": 900,
+          "yoy": -0.09602194787379972,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711355%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11385",
+          "borough": "Queens",
+          "neighborhood": "GLENDALE",
+          "weighted": 1309,
+          "C": 284,
+          "B": 457,
+          "complaints311": 1120,
+          "yoy": -0.23045267489711935,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711385%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11377",
+          "borough": "Queens",
+          "neighborhood": "WOODSIDE",
+          "weighted": 1238,
+          "C": 270,
+          "B": 428,
+          "complaints311": 944,
+          "yoy": -0.0024174053182917004,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711377%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11104",
+          "borough": "Queens",
+          "neighborhood": "SUNNYSIDE",
+          "weighted": 1085,
+          "C": 241,
+          "B": 362,
+          "complaints311": 610,
+          "yoy": 0.24284077892325315,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711104%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11374",
+          "borough": "Queens",
+          "neighborhood": "REGO PARK",
+          "weighted": 1035,
+          "C": 216,
+          "B": 387,
+          "complaints311": 716,
+          "yoy": -0.060798548094373864,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711374%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11367",
+          "borough": "Queens",
+          "neighborhood": "FLUSHING-SOUTH",
+          "weighted": 980,
+          "C": 198,
+          "B": 386,
+          "complaints311": 541,
+          "yoy": 0.1922141119221411,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711367%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11354",
+          "borough": "Queens",
+          "neighborhood": "FLUSHING-NORTH",
+          "weighted": 872,
+          "C": 186,
+          "B": 314,
+          "complaints311": 772,
+          "yoy": -0.08881922675026123,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711354%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11103",
+          "borough": "Queens",
+          "neighborhood": "ASTORIA",
+          "weighted": 766,
+          "C": 174,
+          "B": 244,
+          "complaints311": 2289,
+          "yoy": 0.025435073627844713,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711103%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11692",
+          "borough": "Queens",
+          "neighborhood": "ARVERNE",
+          "weighted": 740,
+          "C": 171,
+          "B": 227,
+          "complaints311": 389,
+          "yoy": 0.3754646840148699,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711692%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11375",
+          "borough": "Queens",
+          "neighborhood": "FOREST HILLS",
+          "weighted": 707,
+          "C": 160,
+          "B": 227,
+          "complaints311": 641,
+          "yoy": 0.02911208151382824,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711375%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11106",
+          "borough": "Queens",
+          "neighborhood": "ASTORIA",
+          "weighted": 664,
+          "C": 163,
+          "B": 175,
+          "complaints311": 563,
+          "yoy": -0.19612590799031476,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711106%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11434",
+          "borough": "Queens",
+          "neighborhood": "SPRINGFIELD GARDENS",
+          "weighted": 612,
+          "C": 108,
+          "B": 288,
+          "complaints311": 726,
+          "yoy": 0.18604651162790697,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711434%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11418",
+          "borough": "Queens",
+          "neighborhood": "RICHMOND HILL",
+          "weighted": 554,
+          "C": 112,
+          "B": 218,
+          "complaints311": 527,
+          "yoy": -0.15030674846625766,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711418%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11415",
+          "borough": "Queens",
+          "neighborhood": "KEW GARDENS",
+          "weighted": 531,
+          "C": 115,
+          "B": 186,
+          "complaints311": 383,
+          "yoy": -0.027472527472527472,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711415%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11101",
+          "borough": "Queens",
+          "neighborhood": "LONG ISLAND CITY",
+          "weighted": 525,
+          "C": 135,
+          "B": 120,
+          "complaints311": 504,
+          "yoy": 0.29310344827586204,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711101%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11102",
+          "borough": "Queens",
+          "neighborhood": "ASTORIA",
+          "weighted": 515,
+          "C": 110,
+          "B": 185,
+          "complaints311": 565,
+          "yoy": -0.23590504451038577,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711102%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11365",
+          "borough": "Queens",
+          "neighborhood": "FLUSHING-SOUTH",
+          "weighted": 429,
+          "C": 94,
+          "B": 147,
+          "complaints311": 281,
+          "yoy": 0.7654320987654321,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711365%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11419",
+          "borough": "Queens",
+          "neighborhood": "RICHMOND HILL",
+          "weighted": 381,
+          "C": 83,
+          "B": 132,
+          "complaints311": 1430,
+          "yoy": 0.8768472906403941,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711419%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11105",
+          "borough": "Queens",
+          "neighborhood": "ASTORIA",
+          "weighted": 376,
+          "C": 86,
+          "B": 118,
+          "complaints311": 315,
+          "yoy": 0.8341463414634146,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711105%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11433",
+          "borough": "Queens",
+          "neighborhood": "SOUTH JAMAICA",
+          "weighted": 325,
+          "C": 64,
+          "B": 133,
+          "complaints311": 410,
+          "yoy": -0.5090634441087614,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711433%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11421",
+          "borough": "Queens",
+          "neighborhood": "WOODHAVEN",
+          "weighted": 320,
+          "C": 57,
+          "B": 149,
+          "complaints311": 351,
+          "yoy": -0.14893617021276595,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711421%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11369",
+          "borough": "Queens",
+          "neighborhood": "EAST ELMHURST",
+          "weighted": 291,
+          "C": 67,
+          "B": 90,
+          "complaints311": 333,
+          "yoy": -0.1466275659824047,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711369%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11423",
+          "borough": "Queens",
+          "neighborhood": "HOLLIS",
+          "weighted": 283,
+          "C": 57,
+          "B": 112,
+          "complaints311": 444,
+          "yoy": -0.2977667493796526,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711423%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11694",
+          "borough": "Queens",
+          "neighborhood": "BELLE HARBOR",
+          "weighted": 259,
+          "C": 64,
+          "B": 67,
+          "complaints311": 404,
+          "yoy": 0.5508982035928144,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711694%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11413",
+          "borough": "Queens",
+          "neighborhood": "LAURELTON",
+          "weighted": 244,
+          "C": 32,
+          "B": 148,
+          "complaints311": 348,
+          "yoy": 0.1619047619047619,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711413%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11422",
+          "borough": "Queens",
+          "neighborhood": "ROSEDALE",
+          "weighted": 208,
+          "C": 42,
+          "B": 82,
+          "complaints311": 242,
+          "yoy": -0.014218009478672985,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711422%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11412",
+          "borough": "Queens",
+          "neighborhood": "ST. ALBANS",
+          "weighted": 201,
+          "C": 37,
+          "B": 90,
+          "complaints311": 288,
+          "yoy": -0.28975265017667845,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711412%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11417",
+          "borough": "Queens",
+          "neighborhood": "OZONE PARK",
+          "weighted": 168,
+          "C": 29,
+          "B": 81,
+          "complaints311": 394,
+          "yoy": -0.1724137931034483,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711417%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11427",
+          "borough": "Queens",
+          "neighborhood": "QUEENS VILLAGE",
+          "weighted": 163,
+          "C": 36,
+          "B": 55,
+          "complaints311": 168,
+          "yoy": 0.3813559322033898,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711427%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11420",
+          "borough": "Queens",
+          "neighborhood": "SOUTH OZONE PARK",
+          "weighted": 162,
+          "C": 28,
+          "B": 78,
+          "complaints311": 926,
+          "yoy": -0.24651162790697675,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711420%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11416",
+          "borough": "Queens",
+          "neighborhood": "OZONE PARK",
+          "weighted": 161,
+          "C": 38,
+          "B": 47,
+          "complaints311": 199,
+          "yoy": -0.15263157894736842,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711416%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11358",
+          "borough": "Queens",
+          "neighborhood": "FLUSHING-NORTH",
+          "weighted": 141,
+          "C": 27,
+          "B": 60,
+          "complaints311": 311,
+          "yoy": 0.1652892561983471,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711358%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11428",
+          "borough": "Queens",
+          "neighborhood": "QUEENS VILLAGE",
+          "weighted": 141,
+          "C": 29,
+          "B": 54,
+          "complaints311": 193,
+          "yoy": 0.09302325581395349,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711428%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11356",
+          "borough": "Queens",
+          "neighborhood": "COLLEGE POINT",
+          "weighted": 138,
+          "C": 28,
+          "B": 54,
+          "complaints311": 187,
+          "yoy": -0.2023121387283237,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711356%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11429",
+          "borough": "Queens",
+          "neighborhood": "QUEENS VILLAGE",
+          "weighted": 138,
+          "C": 29,
+          "B": 51,
+          "complaints311": 192,
+          "yoy": 0.045454545454545456,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711429%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11693",
+          "borough": "Queens",
+          "neighborhood": "HAMMELS",
+          "weighted": 135,
+          "C": 25,
+          "B": 60,
+          "complaints311": 184,
+          "yoy": 0.16379310344827586,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711693%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11378",
+          "borough": "Queens",
+          "neighborhood": "MASPETH",
+          "weighted": 104,
+          "C": 22,
+          "B": 38,
+          "complaints311": 255,
+          "yoy": -0.5755102040816327,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711378%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11414",
+          "borough": "Queens",
+          "neighborhood": "HOWARD BEACH",
+          "weighted": 102,
+          "C": 23,
+          "B": 33,
+          "complaints311": 249,
+          "yoy": 0.3076923076923077,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711414%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11379",
+          "borough": "Queens",
+          "neighborhood": "MIDDLE VILLAGE",
+          "weighted": 93,
+          "C": 16,
+          "B": 45,
+          "complaints311": 220,
+          "yoy": -0.07920792079207921,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711379%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11366",
+          "borough": "Queens",
+          "neighborhood": "FRESH MEADOWS",
+          "weighted": 83,
+          "C": 16,
+          "B": 35,
+          "complaints311": 182,
+          "yoy": 0.09210526315789473,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711366%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11411",
+          "borough": "Queens",
+          "neighborhood": "CAMBRIA HEIGHTS",
+          "weighted": 75,
+          "C": 8,
+          "B": 51,
+          "complaints311": 74,
+          "yoy": 0.7441860465116279,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711411%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11436",
+          "borough": "Queens",
+          "neighborhood": "SO. JAMAICA-BAISLEY PARK",
+          "weighted": 74,
+          "C": 4,
+          "B": 62,
+          "complaints311": 218,
+          "yoy": -0.5316455696202531,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711436%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11364",
+          "borough": "Queens",
+          "neighborhood": "OAKLAND GARDENS",
+          "weighted": 62,
+          "C": 12,
+          "B": 26,
+          "complaints311": 171,
+          "yoy": 0.4418604651162791,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711364%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11370",
+          "borough": "Queens",
+          "neighborhood": "JACKSON HEIGHTS",
+          "weighted": 54,
+          "C": 12,
+          "B": 18,
+          "complaints311": 138,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711370%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11361",
+          "borough": "Queens",
+          "neighborhood": "BAYSIDE",
+          "weighted": 50,
+          "C": 7,
+          "B": 29,
+          "complaints311": 136,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711361%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11001",
+          "borough": "Queens",
+          "neighborhood": "FLORAL PARK",
+          "weighted": 34,
+          "C": 5,
+          "B": 19,
+          "complaints311": 14,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711001%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11426",
+          "borough": "Queens",
+          "neighborhood": "BELLEROSE",
+          "weighted": 30,
+          "C": 6,
+          "B": 12,
+          "complaints311": 133,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711426%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11363",
+          "borough": "Queens",
+          "neighborhood": "LITTLE NECK",
+          "weighted": 26,
+          "C": 5,
+          "B": 11,
+          "complaints311": 18,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711363%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11357",
+          "borough": "Queens",
+          "neighborhood": "WHITESTONE",
+          "weighted": 22,
+          "C": 3,
+          "B": 13,
+          "complaints311": 255,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711357%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11360",
+          "borough": "Queens",
+          "neighborhood": "BAYSIDE",
+          "weighted": 16,
+          "C": 2,
+          "B": 10,
+          "complaints311": 90,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711360%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11362",
+          "borough": "Queens",
+          "neighborhood": "LITTLE NECK",
+          "weighted": 11,
+          "C": 3,
+          "B": 2,
+          "complaints311": 59,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711362%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11109",
+          "borough": "Queens",
+          "neighborhood": "LONG ISLAND CITY",
+          "weighted": 6,
+          "C": 2,
+          "B": 0,
+          "complaints311": 8,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711109%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "11005",
+          "borough": "Queens",
+          "neighborhood": "GLEN OAKS",
+          "weighted": 3,
+          "C": 0,
+          "B": 3,
+          "complaints311": 2,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711005%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        }
+      ],
+      "neighborhoodCount": 59,
+      "spark": [
+        {
+          "month": "2024-08",
+          "weighted": 11476
+        },
+        {
+          "month": "2024-09",
+          "weighted": 13678
+        },
+        {
+          "month": "2024-10",
+          "weighted": 13525
+        },
+        {
+          "month": "2024-11",
+          "weighted": 13432
+        },
+        {
+          "month": "2024-12",
+          "weighted": 15133
+        },
+        {
+          "month": "2025-01",
+          "weighted": 14361
+        },
+        {
+          "month": "2025-02",
+          "weighted": 10322
+        },
+        {
+          "month": "2025-03",
+          "weighted": 11255
+        },
+        {
+          "month": "2025-04",
+          "weighted": 11374
+        },
+        {
+          "month": "2025-05",
+          "weighted": 10839
+        },
+        {
+          "month": "2025-06",
+          "weighted": 10978
+        },
+        {
+          "month": "2025-07",
+          "weighted": 8164
+        },
+        {
+          "month": "2025-08",
+          "weighted": 9215
+        },
+        {
+          "month": "2025-09",
+          "weighted": 11094
+        },
+        {
+          "month": "2025-10",
+          "weighted": 12047
+        },
+        {
+          "month": "2025-11",
+          "weighted": 12877
+        },
+        {
+          "month": "2025-12",
+          "weighted": 14196
+        },
+        {
+          "month": "2026-01",
+          "weighted": 13334
+        },
+        {
+          "month": "2026-02",
+          "weighted": 14119
+        },
+        {
+          "month": "2026-03",
+          "weighted": 13723
+        },
+        {
+          "month": "2026-04",
+          "weighted": 11030
+        },
+        {
+          "month": "2026-05",
+          "weighted": 9536
+        },
+        {
+          "month": "2026-06",
+          "weighted": 10099
+        },
+        {
+          "month": "2026-07",
+          "weighted": 10258
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class+in%28%27B%27%2C%27C%27%29+AND+boro%3D%27QUEENS%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "name": "Staten Island",
+      "weighted": 5286,
+      "C": 1094,
+      "B": 2004,
+      "complaints311": 3915,
+      "yoy": 0.09577114427860696,
+      "regime": "Stable",
+      "ecbNew": 700,
+      "ecbBalance": 1508930,
+      "neighborhoods": [
+        {
+          "zip": "10304",
+          "borough": "Staten Island",
+          "neighborhood": "DONGAN HILLS-COLONY",
+          "weighted": 1891,
+          "C": 426,
+          "B": 613,
+          "complaints311": 573,
+          "yoy": 0.4972288202692003,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710304%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10301",
+          "borough": "Staten Island",
+          "neighborhood": "NEW BRIGHTON",
+          "weighted": 890,
+          "C": 181,
+          "B": 347,
+          "complaints311": 579,
+          "yoy": -0.25523012552301255,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710301%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10302",
+          "borough": "Staten Island",
+          "neighborhood": "PORT RICHMOND",
+          "weighted": 732,
+          "C": 192,
+          "B": 156,
+          "complaints311": 298,
+          "yoy": 0.3916349809885932,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710302%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10303",
+          "borough": "Staten Island",
+          "neighborhood": "MARINERS HARBOR",
+          "weighted": 581,
+          "C": 81,
+          "B": 338,
+          "complaints311": 399,
+          "yoy": 0.19301848049281314,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710303%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10305",
+          "borough": "Staten Island",
+          "neighborhood": "ROSEBANK",
+          "weighted": 309,
+          "C": 62,
+          "B": 123,
+          "complaints311": 370,
+          "yoy": -0.04923076923076923,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710305%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10310",
+          "borough": "Staten Island",
+          "neighborhood": "WEST NEW BRIGHTON",
+          "weighted": 301,
+          "C": 67,
+          "B": 100,
+          "complaints311": 280,
+          "yoy": -0.125,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710310%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10314",
+          "borough": "Staten Island",
+          "neighborhood": "NEW SPRINGVILLE",
+          "weighted": 233,
+          "C": 37,
+          "B": 122,
+          "complaints311": 447,
+          "yoy": -0.07539682539682539,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710314%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10306",
+          "borough": "Staten Island",
+          "neighborhood": "NEW DORP",
+          "weighted": 175,
+          "C": 30,
+          "B": 85,
+          "complaints311": 340,
+          "yoy": -0.2768595041322314,
+          "regime": "Falling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710306%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10312",
+          "borough": "Staten Island",
+          "neighborhood": "ELTINGVILLE",
+          "weighted": 112,
+          "C": 11,
+          "B": 79,
+          "complaints311": 320,
+          "yoy": 0.20430107526881722,
+          "regime": "Rising",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710312%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10309",
+          "borough": "Staten Island",
+          "neighborhood": "PRINCES BAY",
+          "weighted": 36,
+          "C": 5,
+          "B": 21,
+          "complaints311": 128,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710309%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10308",
+          "borough": "Staten Island",
+          "neighborhood": "GREAT KILLS",
+          "weighted": 22,
+          "C": 2,
+          "B": 16,
+          "complaints311": 94,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710308%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
+          "zip": "10307",
+          "borough": "Staten Island",
+          "neighborhood": "TOTTENVILLE",
+          "weighted": 4,
+          "C": 0,
+          "B": 4,
+          "complaints311": 87,
+          "yoy": null,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710307%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        }
+      ],
+      "neighborhoodCount": 12,
+      "spark": [
+        {
+          "month": "2024-08",
+          "weighted": 1982
+        },
+        {
+          "month": "2024-09",
+          "weighted": 1676
+        },
+        {
+          "month": "2024-10",
+          "weighted": 1749
+        },
+        {
+          "month": "2024-11",
+          "weighted": 1558
+        },
+        {
+          "month": "2024-12",
+          "weighted": 2216
+        },
+        {
+          "month": "2025-01",
+          "weighted": 2430
+        },
+        {
+          "month": "2025-02",
+          "weighted": 1744
+        },
+        {
+          "month": "2025-03",
+          "weighted": 1541
+        },
+        {
+          "month": "2025-04",
+          "weighted": 1388
+        },
+        {
+          "month": "2025-05",
+          "weighted": 1401
+        },
+        {
+          "month": "2025-06",
+          "weighted": 1618
+        },
+        {
+          "month": "2025-07",
+          "weighted": 1805
+        },
+        {
+          "month": "2025-08",
+          "weighted": 2272
+        },
+        {
+          "month": "2025-09",
+          "weighted": 1636
+        },
+        {
+          "month": "2025-10",
+          "weighted": 1672
+        },
+        {
+          "month": "2025-11",
+          "weighted": 1571
+        },
+        {
+          "month": "2025-12",
+          "weighted": 2233
+        },
+        {
+          "month": "2026-01",
+          "weighted": 2145
+        },
+        {
+          "month": "2026-02",
+          "weighted": 2255
+        },
+        {
+          "month": "2026-03",
+          "weighted": 1679
+        },
+        {
+          "month": "2026-04",
+          "weighted": 1902
+        },
+        {
+          "month": "2026-05",
+          "weighted": 1081
+        },
+        {
+          "month": "2026-06",
+          "weighted": 2400
+        },
+        {
+          "month": "2026-07",
+          "weighted": 1805
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class+in%28%27B%27%2C%27C%27%29+AND+boro%3D%27STATEN+ISLAND%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    }
+  ],
+  "topRising": [
+    {
+      "zip": "10014",
+      "borough": "Manhattan",
+      "neighborhood": "GREENWICH VILLAGE-WEST",
+      "weighted": 420,
+      "C": 91,
+      "B": 147,
+      "complaints311": 532,
+      "yoy": 1.0588235294117647,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710014%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "zip": "11419",
+      "borough": "Queens",
+      "neighborhood": "RICHMOND HILL",
+      "weighted": 381,
+      "C": 83,
+      "B": 132,
+      "complaints311": 1430,
+      "yoy": 0.8768472906403941,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711419%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "zip": "10013",
+      "borough": "Manhattan",
+      "neighborhood": "TRIBECA",
+      "weighted": 371,
+      "C": 87,
+      "B": 110,
+      "complaints311": 378,
+      "yoy": 0.8737373737373737,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710013%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "zip": "11105",
+      "borough": "Queens",
+      "neighborhood": "ASTORIA",
+      "weighted": 376,
+      "C": 86,
+      "B": 118,
+      "complaints311": 315,
+      "yoy": 0.8341463414634146,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711105%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "zip": "11365",
+      "borough": "Queens",
+      "neighborhood": "FLUSHING-SOUTH",
+      "weighted": 429,
+      "C": 94,
+      "B": 147,
+      "complaints311": 281,
+      "yoy": 0.7654320987654321,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711365%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "zip": "10023",
+      "borough": "Manhattan",
+      "neighborhood": "UPPER WEST SIDE (59-79)",
+      "weighted": 633,
+      "C": 152,
+      "B": 177,
+      "complaints311": 749,
+      "yoy": 0.7486187845303868,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710023%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "zip": "11236",
+      "borough": "Brooklyn",
+      "neighborhood": "CANARSIE",
+      "weighted": 1242,
+      "C": 242,
+      "B": 516,
+      "complaints311": 1075,
+      "yoy": 0.6067270375161707,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711236%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    },
+    {
+      "zip": "11694",
+      "borough": "Queens",
+      "neighborhood": "BELLE HARBOR",
+      "weighted": 259,
+      "C": 64,
+      "B": 67,
+      "complaints311": 404,
+      "yoy": 0.5508982035928144,
+      "regime": "Rising",
+      "evidence": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711694%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+    }
+  ]
+}

@@ -15,6 +15,7 @@ const OUT = join(__dirname, '..', 'dashboard', 'index.html');
 const dev = JSON.parse(await readFile(join(dir, 'development.json'), 'utf8'));
 const tx = JSON.parse(await readFile(join(dir, 'transactions.json'), 'utf8'));
 const cross = JSON.parse(await readFile(join(dir, 'crosssignal.json'), 'utf8'));
+const risk = JSON.parse(await readFile(join(dir, 'risk.json'), 'utf8'));
 
 const html = `<!doctype html>
 <html lang="en">
@@ -131,6 +132,7 @@ const html = `<!doctype html>
     <button class="tab active" data-tab="dev">Development</button>
     <button class="tab" data-tab="tx">Transactions</button>
     <button class="tab" data-tab="cross">Cross-Signal</button>
+    <button class="tab" data-tab="risk">Risk</button>
   </div>
 </div></header>
 
@@ -138,6 +140,7 @@ const html = `<!doctype html>
   <div class="panel active" id="panel-dev"></div>
   <div class="panel" id="panel-tx"></div>
   <div class="panel" id="panel-cross"></div>
+  <div class="panel" id="panel-risk"></div>
 
   <div class="modal-ov" id="ov"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
     <div class="mhead"><div><div class="mtitle" id="m-title"></div><div class="msub" id="m-sub"></div></div>
@@ -150,10 +153,13 @@ const html = `<!doctype html>
 const DEV = ${JSON.stringify(dev)};
 const TX  = ${JSON.stringify(tx)};
 const CROSS = ${JSON.stringify(cross)};
+const RISK = ${JSON.stringify(risk)};
 
 const fmt = (n) => Number(n||0).toLocaleString('en-US');
 const pct = (x) => x==null ? '—' : (x>=0?'+':'') + Math.round(x*100) + '%';
 const cls = (r) => r==='Elevated'?'elevated':r==='Cooling'?'cooling':'range';
+const riskCls = (r) => r==='Rising'?'elevated':r==='Falling'?'cooling':'range';
+const riskChip = (r) => '<span class="chip '+riskCls(r)+'">'+r+'</span>';
 const arrow = (x) => x==null?'':(x>=0?'▲':'▼');
 const upd = (x) => x==null?'':(x>=0?'up':'down');
 const dateOnly = (iso) => iso ? new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}) : '—';
@@ -278,6 +284,7 @@ function xcard(z){
     +'<div style="font-size:12px;color:var(--muted)">'+z.borough+'</div>'
     +'<div class="xsig"><b>Supply</b> <span class="'+upd(z.devYoY)+'">'+arrow(z.devYoY)+' '+pct(z.devYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.devCur)+' filings</span></div>'
     +'<div class="xsig"><b>Demand</b> <span class="'+upd(z.txYoY)+'">'+arrow(z.txYoY)+' '+pct(z.txYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.txCur)+' sales</span></div>'
+    +'<div class="xsig"><b>Risk</b> <span class="num" style="color:var(--muted)">'+fmt(z.hazardC||0)+' immediately-hazardous violations</span></div>'
     +'<div class="cardfoot"><span>verify:</span><span><a href="'+z.devEvidence+'" target="_blank" rel="noopener">filings ↗</a> &nbsp;·&nbsp; <a href="'+z.txEvidence+'" target="_blank" rel="noopener">sales ↗</a></span></div></div>';
 }
 function renderCross(){
@@ -305,9 +312,10 @@ function renderCross(){
     '<div class="grid">'+C.tightening.map(xcard).join('')+'</div>');
 
   h+=section('All qualifying ZIPs · ranked by divergence',
-    '<table><thead><tr><th>ZIP</th><th>Area</th><th>Borough</th><th class="n">Supply YoY</th><th class="n">Demand YoY</th><th>Signal</th><th></th></tr></thead><tbody>'
+    '<table><thead><tr><th>ZIP</th><th>Area</th><th>Borough</th><th class="n">Supply YoY</th><th class="n">Demand YoY</th><th class="n">Hazard (C)</th><th>Signal</th><th></th></tr></thead><tbody>'
     +C.zips.map(z=>'<tr><td class="num">'+z.zip+'</td><td class="desc">'+z.neighborhood+'</td><td>'+z.borough+'</td>'
       +'<td class="n '+upd(z.devYoY)+'">'+pct(z.devYoY)+'</td><td class="n '+upd(z.txYoY)+'">'+pct(z.txYoY)+'</td>'
+      +'<td class="n">'+fmt(z.hazardC||0)+'</td>'
       +'<td>'+crossChip(z.cls)+'</td>'
       +'<td><a href="'+z.devEvidence+'" target="_blank" rel="noopener">filings</a> · <a href="'+z.txEvidence+'" target="_blank" rel="noopener">sales</a></td></tr>').join('')
     +'</tbody></table>');
@@ -317,9 +325,54 @@ function renderCross(){
   return h;
 }
 
+// ---------- Risk panel ----------
+function renderRisk(){
+  const R=RISK, c=R.citywide, m=R.meta;
+  const worst=R.boroughs.slice().sort((a,b)=>b.weighted-a.weighted)[0];
+  const c311yoy=c.complaints311Yoy? (c.complaints311-c.complaints311Yoy)/c.complaints311Yoy : null;
+  let h='';
+  h+=section('Risk Feed · '+m.windowLabel+' · <span style="color:var(--muted)">daily-updated agency data</span>',
+    '<div class="headline"><p class="lead">'+R.narration.headline.replace(/Trend: (Rising|Falling|Stable)\\./,(x,g)=>'Trend: '+riskChip(g))+'</p>'
+    +'<p class="verify"><a href="'+worst.evidenceUrl+'" target="_blank" rel="noopener">Verify these HPD violations ↗</a></p></div>');
+
+  const kpis=[
+    {label:'Immediately-hazardous (Class C)', big:fmt(c.C), sub:'HPD violations this quarter · <span class="'+upd(c.yoy)+'">'+arrow(c.yoy)+' '+pct(c.yoy)+' YoY</span> (weighted)'},
+    {label:'Hazardous (Class B)', big:fmt(c.B), sub:'HPD violations this quarter'},
+    {label:'311 building complaints', big:fmt(c.complaints311), sub:'to HPD/DOB · <span class="'+upd(c311yoy)+'">'+arrow(c311yoy)+' '+pct(c311yoy)+' YoY</span>'},
+    {label:'New ECB penalty balance', big:'$'+fmt(Math.round(c.ecbBalance/1e6))+'M', sub:'financial enforcement this quarter'},
+  ];
+  h+=section('Citywide · Risk Pressure',
+    '<div class="kpis">'+kpis.map(k=>'<div class="kpi"><div class="label">'+k.label+'</div><div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('')
+    +'</div><p class="verify" style="margin-top:14px;color:var(--ink-2);font-size:13.5px">'+R.narration.citySummary+'</p>');
+
+  h+=section('By Borough · risk pressure · <span style="color:var(--accent)">click any borough to drill into ZIPs</span>',
+    '<div class="grid">'+R.boroughs.slice().sort((a,b)=>b.weighted-a.weighted).map((b)=>{
+      const i=R.boroughs.indexOf(b);
+      return '<div class="card click" data-i="'+i+'"><div class="top"><span class="name">'+b.name+'</span>'+riskChip(b.regime)+'</div>'
+      +'<div class="big num">'+fmt(b.weighted)+' <small>risk pts</small></div>'
+      +'<div class="deltas"><span><b class="'+upd(b.yoy)+'">'+arrow(b.yoy)+' '+pct(b.yoy)+'</b> YoY</span><span><b>'+fmt(b.C)+'</b> Class C</span></div>'
+      +sparkline(b.spark,'weighted')
+      +'<div class="cardfoot"><span class="num">'+fmt(b.complaints311)+' 311 · $'+fmt(Math.round(b.ecbBalance/1e6))+'M ECB</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+      +'<div class="hint">View '+b.neighborhoodCount+' ZIPs →</div></div>';
+    }).join('')+'</div>');
+
+  if(R.topRising.length) h+=section('Fastest-rising risk · ZIPs where hazardous violations are climbing',
+    '<div class="grid">'+R.topRising.map(z=>
+      '<div class="card"><div class="top"><span class="name">'+z.zip+' · '+z.neighborhood+'</span>'+riskChip('Rising')+'</div>'
+      +'<div style="font-size:12px;color:var(--muted)">'+z.borough+'</div>'
+      +'<div class="big num">'+fmt(z.weighted)+' <small>risk pts</small></div>'
+      +'<div class="deltas"><span><b class="up">'+arrow(z.yoy)+' '+pct(z.yoy)+'</b> YoY</span><span><b>'+fmt(z.C)+'</b> Class C · '+fmt(z.complaints311)+' 311</span></div>'
+      +'<div class="cardfoot"><span>immediately-hazardous rising</span><a href="'+z.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></div></div>').join('')+'</div>');
+
+  h+=section('Data Provenance &amp; Freshness', provenanceBoxes(m.sources.map(s=>({...s,publisher:s.attribution})), m.generatedAt, 'All three sources update daily/weekday — the fastest signals we track'));
+  h+=section('Methodology &amp; Evidence', methodBlock(m.method, m.sources.map(s=>s.label+' (<code>'+s.datasetId+'</code>)').join(' · ')));
+  return h;
+}
+
 document.getElementById('panel-dev').innerHTML = renderDev();
 document.getElementById('panel-tx').innerHTML  = renderTx();
 document.getElementById('panel-cross').innerHTML = renderCross();
+document.getElementById('panel-risk').innerHTML = renderRisk();
 document.getElementById('asof').textContent =
   'Development as of '+DEV.meta.latestMonthLabel+' · Transactions as of '+TX.meta.latestMonthLabel;
 
@@ -334,22 +387,31 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
 // neighborhood drill-down (both feeds)
 document.querySelectorAll('#panel-dev .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('dev',+el.dataset.i)));
 document.querySelectorAll('#panel-tx .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('tx',+el.dataset.i)));
+document.querySelectorAll('#panel-risk .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('risk',+el.dataset.i)));
 
 function openBorough(feed,i){
-  const dev=feed==='dev', F=dev?DEV:TX, b=F.boroughs[i];
-  document.getElementById('m-title').textContent=b.name+' — Neighborhoods';
-  document.getElementById('m-sub').textContent=b.neighborhoodCount+' neighborhoods with '
-    +(dev?'New Building filings':'recorded sales')+' in '+F.meta.latestMonthLabel
-    +' · ranked by '+(dev?'filings':'sales')+' · every row verifiable';
-  document.getElementById('m-head').innerHTML= dev
-    ? '<tr><th>Neighborhood</th><th class="n">Filings</th><th class="n">Units</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>'
-    : '<tr><th>Neighborhood</th><th class="n">Sales</th><th class="n">Median</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>';
+  const F = feed==='dev'?DEV : feed==='tx'?TX : RISK, b=F.boroughs[i];
+  const label = feed==='risk' ? (F.meta.windowLabel) : F.meta.latestMonthLabel;
+  const what = feed==='dev'?'New Building filings' : feed==='tx'?'recorded sales' : 'hazardous violations';
+  const rankBy = feed==='dev'?'filings' : feed==='tx'?'sales' : 'risk pressure';
+  const unit = feed==='risk'?'ZIPs':'neighborhoods';
+  document.getElementById('m-title').textContent=b.name+' — '+(feed==='risk'?'ZIP risk':'Neighborhoods');
+  document.getElementById('m-sub').textContent=b.neighborhoodCount+' '+unit+' with '+what+' in '+label+' · ranked by '+rankBy+' · every row verifiable';
+  document.getElementById('m-head').innerHTML=
+    feed==='dev' ? '<tr><th>Neighborhood</th><th class="n">Filings</th><th class="n">Units</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>'
+    : feed==='tx' ? '<tr><th>Neighborhood</th><th class="n">Sales</th><th class="n">Median</th><th class="n">12-mo avg</th><th class="n">YoY</th><th>Signal</th><th></th></tr>'
+    : '<tr><th>ZIP · Area</th><th class="n">Risk pts</th><th class="n">Class C</th><th class="n">Class B</th><th class="n">311</th><th class="n">YoY</th><th>Trend</th><th></th></tr>';
   document.getElementById('m-rows').innerHTML=b.neighborhoods.map(n=>{
-    const yoyBase = dev? n.yoyFilings : n.yoySales, minBase = dev?3:5;
+    if(feed==='risk'){
+      return '<tr><td>'+n.zip+(n.neighborhood?' · '+n.neighborhood:'')+'</td><td class="nn">'+fmt(n.weighted)+'</td>'
+        +'<td class="nn">'+fmt(n.C)+'</td><td class="nn">'+fmt(n.B)+'</td><td class="nn">'+fmt(n.complaints311)+'</td>'
+        +'<td class="nn '+(n.yoy!=null?upd(n.yoy):'')+'">'+(n.yoy!=null?pct(n.yoy):'—')+'</td>'
+        +'<td>'+riskChip(n.regime)+'</td>'
+        +'<td><a href="'+n.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>';
+    }
+    const dev=feed==='dev', yoyBase = dev? n.yoyFilings : n.yoySales, minBase = dev?3:5;
     const yoyCell = (yoyBase>=minBase && n.yoy!=null)? pct(n.yoy) : '—';
-    const col2 = dev? fmt(n.filings) : fmt(n.sales);
-    const col3 = dev? fmt(n.units) : money(n.med);
-    return '<tr><td>'+(dev?n.nta:n.neighborhood)+'</td><td class="nn">'+col2+'</td><td class="nn">'+col3+'</td>'
+    return '<tr><td>'+(dev?n.nta:n.neighborhood)+'</td><td class="nn">'+(dev?fmt(n.filings):fmt(n.sales))+'</td><td class="nn">'+(dev?fmt(n.units):money(n.med))+'</td>'
       +'<td class="nn">'+n.baseline.toFixed(1)+'</td>'
       +'<td class="nn '+(yoyBase>=minBase?upd(n.yoy):'')+'">'+yoyCell+'</td>'
       +'<td><span class="chip '+cls(n.regime)+'">'+n.regime+'</span></td>'

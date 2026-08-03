@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Cross-Signal",
-    "generatedAt": "2026-08-03T20:14:26.468Z",
+    "generatedAt": "2026-08-03T20:43:51.133Z",
     "referenceMonth": "2026-05",
     "referenceMonthLabel": "May 2026",
     "yoyMonthLabel": "May 2025",
@@ -24,6 +24,11 @@
         "label": "NYC Citywide Annualized Calendar Sales Update",
         "datasetId": "w2pb-icbu",
         "landing": "https://data.cityofnewyork.us/City-Government/NYC-Citywide-Annualized-Calendar-Sales-Update/w2pb-icbu"
+      },
+      {
+        "label": "HPD Housing Maintenance Code Violations (risk overlay)",
+        "datasetId": "wvxf-dwi5",
+        "landing": "https://data.cityofnewyork.us/d/wvxf-dwi5"
       }
     ],
     "method": {
@@ -49,6 +54,7 @@
       "txCur": 71,
       "txYoY": -0.1839080459770115,
       "cls": "Supply building, demand softening",
+      "hazardC": 386,
       "divergence": 2.0839080459770116,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710461%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710461%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -62,6 +68,7 @@
       "txCur": 79,
       "txYoY": -0.2616822429906542,
       "cls": "Supply building, demand softening",
+      "hazardC": 495,
       "divergence": 1.6991822429906542,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711218%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711218%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -75,6 +82,7 @@
       "txCur": 71,
       "txYoY": -0.25263157894736843,
       "cls": "Supply building, demand softening",
+      "hazardC": 19,
       "divergence": 1.6812030075187971,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711364%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711364%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -88,6 +96,7 @@
       "txCur": 47,
       "txYoY": -0.29850746268656714,
       "cls": "Supply building, demand softening",
+      "hazardC": 379,
       "divergence": 1.5762852404643448,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711432%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711432%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -101,6 +110,7 @@
       "txCur": 74,
       "txYoY": -0.25252525252525254,
       "cls": "Supply building, demand softening",
+      "hazardC": 219,
       "divergence": 1.4832944832944834,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711236%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711236%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -114,6 +124,7 @@
       "txCur": 65,
       "txYoY": -0.4396551724137931,
       "cls": "Supply building, demand softening",
+      "hazardC": 164,
       "divergence": 1.2174329501915708,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711222%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711222%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -127,6 +138,7 @@
       "txCur": 68,
       "txYoY": -0.18072289156626506,
       "cls": "Supply building, demand softening",
+      "hazardC": 973,
       "divergence": 1.180722891566265,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711203%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711203%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -140,6 +152,7 @@
       "txCur": 100,
       "txYoY": -0.46524064171123,
       "cls": "Supply building, demand softening",
+      "hazardC": 388,
       "divergence": 1.1319073083778965,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711209%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711209%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -155,6 +168,7 @@
       "txCur": 146,
       "txYoY": 0.37735849056603776,
       "cls": "Demand outpacing supply",
+      "hazardC": 66,
       "divergence": 0.8773584905660378,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710075%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710075%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -168,6 +182,7 @@
       "txCur": 89,
       "txYoY": 0.390625,
       "cls": "Demand outpacing supply",
+      "hazardC": 11,
       "divergence": 0.6833079268292683,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710308%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710308%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -183,6 +198,7 @@
       "txCur": 61,
       "txYoY": 1.0333333333333334,
       "cls": "Heating",
+      "hazardC": 53,
       "divergence": 3.716666666666667,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711365%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711365%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -196,6 +212,7 @@
       "txCur": 63,
       "txYoY": -0.05970149253731343,
       "cls": "Mixed / flat",
+      "hazardC": 791,
       "divergence": 3.6847014925373136,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711216%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711216%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -209,6 +226,7 @@
       "txCur": 58,
       "txYoY": 0.38095238095238093,
       "cls": "Heating",
+      "hazardC": 139,
       "divergence": 2.369047619047619,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711102%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711102%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -222,6 +240,7 @@
       "txCur": 56,
       "txYoY": 0.19148936170212766,
       "cls": "Heating",
+      "hazardC": 181,
       "divergence": 2.2085106382978723,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710471%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710471%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -235,6 +254,7 @@
       "txCur": 91,
       "txYoY": -0.021505376344086023,
       "cls": "Mixed / flat",
+      "hazardC": 1009,
       "divergence": 2.112414467253177,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710462%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710462%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -248,6 +268,7 @@
       "txCur": 71,
       "txYoY": -0.1839080459770115,
       "cls": "Supply building, demand softening",
+      "hazardC": 386,
       "divergence": 2.0839080459770116,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710461%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710461%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -261,6 +282,7 @@
       "txCur": 188,
       "txYoY": 0.12574850299401197,
       "cls": "Mixed / flat",
+      "hazardC": 394,
       "divergence": 1.9045545273090183,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711215%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711215%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -274,6 +296,7 @@
       "txCur": 79,
       "txYoY": -0.2616822429906542,
       "cls": "Supply building, demand softening",
+      "hazardC": 495,
       "divergence": 1.6991822429906542,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711218%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711218%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -287,6 +310,7 @@
       "txCur": 71,
       "txYoY": -0.25263157894736843,
       "cls": "Supply building, demand softening",
+      "hazardC": 19,
       "divergence": 1.6812030075187971,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711364%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711364%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -300,6 +324,7 @@
       "txCur": 77,
       "txYoY": -0.125,
       "cls": "Mixed / flat",
+      "hazardC": 205,
       "divergence": 1.6544117647058822,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711223%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711223%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -313,6 +338,7 @@
       "txCur": 95,
       "txYoY": 0.13095238095238096,
       "cls": "Mixed / flat",
+      "hazardC": 32,
       "divergence": 1.619047619047619,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711414%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711414%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -326,6 +352,7 @@
       "txCur": 176,
       "txYoY": 0.13548387096774195,
       "cls": "Mixed / flat",
+      "hazardC": 156,
       "divergence": 1.614516129032258,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710016%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710016%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -339,6 +366,7 @@
       "txCur": 47,
       "txYoY": -0.29850746268656714,
       "cls": "Supply building, demand softening",
+      "hazardC": 379,
       "divergence": 1.5762852404643448,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711432%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711432%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -352,6 +380,7 @@
       "txCur": 72,
       "txYoY": -0.08860759493670886,
       "cls": "Mixed / flat",
+      "hazardC": 41,
       "divergence": 1.5431530494821635,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711413%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711413%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -365,6 +394,7 @@
       "txCur": 117,
       "txYoY": 0,
       "cls": "Mixed / flat",
+      "hazardC": 1101,
       "divergence": 1.5185185185185186,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711207%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711207%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -378,6 +408,7 @@
       "txCur": 74,
       "txYoY": -0.25252525252525254,
       "cls": "Supply building, demand softening",
+      "hazardC": 219,
       "divergence": 1.4832944832944834,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711236%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711236%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -391,6 +422,7 @@
       "txCur": 136,
       "txYoY": -0.02158273381294964,
       "cls": "Mixed / flat",
+      "hazardC": 128,
       "divergence": 1.354916067146283,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711234%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711234%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -404,6 +436,7 @@
       "txCur": 139,
       "txYoY": 0.25225225225225223,
       "cls": "Heating",
+      "hazardC": 535,
       "divergence": 1.2349272349272349,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711238%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711238%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -417,6 +450,7 @@
       "txCur": 65,
       "txYoY": -0.4396551724137931,
       "cls": "Supply building, demand softening",
+      "hazardC": 164,
       "divergence": 1.2174329501915708,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711222%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711222%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -430,6 +464,7 @@
       "txCur": 80,
       "txYoY": 0.06666666666666667,
       "cls": "Mixed / flat",
+      "hazardC": 213,
       "divergence": 1.1833333333333333,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711367%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711367%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -443,6 +478,7 @@
       "txCur": 68,
       "txYoY": -0.18072289156626506,
       "cls": "Supply building, demand softening",
+      "hazardC": 973,
       "divergence": 1.180722891566265,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711203%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711203%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -456,6 +492,7 @@
       "txCur": 100,
       "txYoY": -0.46524064171123,
       "cls": "Supply building, demand softening",
+      "hazardC": 388,
       "divergence": 1.1319073083778965,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711209%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711209%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -469,6 +506,7 @@
       "txCur": 129,
       "txYoY": -0.07857142857142857,
       "cls": "Mixed / flat",
+      "hazardC": 131,
       "divergence": 1.0785714285714285,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710128%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710128%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -482,6 +520,7 @@
       "txCur": 60,
       "txYoY": -0.0625,
       "cls": "Mixed / flat",
+      "hazardC": 37,
       "divergence": 1.0625,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711379%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711379%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -495,6 +534,7 @@
       "txCur": 105,
       "txYoY": -0.027777777777777776,
       "cls": "Mixed / flat",
+      "hazardC": 351,
       "divergence": 1.0277777777777777,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711214%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711214%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -508,6 +548,7 @@
       "txCur": 71,
       "txYoY": 0.12698412698412698,
       "cls": "Mixed / flat",
+      "hazardC": 761,
       "divergence": 1.023015873015873,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710466%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710466%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -521,6 +562,7 @@
       "txCur": 57,
       "txYoY": -0.109375,
       "cls": "Mixed / flat",
+      "hazardC": 947,
       "divergence": 0.9665178571428571,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710027%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710027%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -534,6 +576,7 @@
       "txCur": 74,
       "txYoY": -0.013333333333333334,
       "cls": "Mixed / flat",
+      "hazardC": 307,
       "divergence": 0.9419047619047619,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710002%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710002%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -547,6 +590,7 @@
       "txCur": 88,
       "txYoY": 0.023255813953488372,
       "cls": "Mixed / flat",
+      "hazardC": 126,
       "divergence": 0.9155196962505933,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711217%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711217%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -560,6 +604,7 @@
       "txCur": 146,
       "txYoY": 0.37735849056603776,
       "cls": "Demand outpacing supply",
+      "hazardC": 66,
       "divergence": 0.8773584905660378,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710075%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710075%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -573,6 +618,7 @@
       "txCur": 111,
       "txYoY": 0.9473684210526315,
       "cls": "Mixed / flat",
+      "hazardC": 182,
       "divergence": 0.8749046529366895,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711205%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711205%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -586,6 +632,7 @@
       "txCur": 199,
       "txYoY": -0.20717131474103587,
       "cls": "Supply building, demand softening",
+      "hazardC": 90,
       "divergence": 0.8321713147410359,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710022%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710022%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -599,6 +646,7 @@
       "txCur": 74,
       "txYoY": 0.0136986301369863,
       "cls": "Mixed / flat",
+      "hazardC": 19,
       "divergence": 0.8196347031963471,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711360%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711360%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -612,6 +660,7 @@
       "txCur": 56,
       "txYoY": -0.3333333333333333,
       "cls": "Supply building, demand softening",
+      "hazardC": 149,
       "divergence": 0.8,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710036%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710036%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -625,6 +674,7 @@
       "txCur": 80,
       "txYoY": -0.22330097087378642,
       "cls": "Supply building, demand softening",
+      "hazardC": 4,
       "divergence": 0.7171281313676136,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710309%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710309%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -638,6 +688,7 @@
       "txCur": 89,
       "txYoY": 0.390625,
       "cls": "Demand outpacing supply",
+      "hazardC": 11,
       "divergence": 0.6833079268292683,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710308%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710308%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -651,6 +702,7 @@
       "txCur": 95,
       "txYoY": 0.20253164556962025,
       "cls": "Heating",
+      "hazardC": 285,
       "divergence": 0.6724683544303798,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710469%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710469%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -664,6 +716,7 @@
       "txCur": 73,
       "txYoY": -0.1978021978021978,
       "cls": "Supply building, demand softening",
+      "hazardC": 225,
       "divergence": 0.6714864083285136,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710301%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710301%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -677,6 +730,7 @@
       "txCur": 64,
       "txYoY": -0.14666666666666667,
       "cls": "Mixed / flat",
+      "hazardC": 419,
       "divergence": 0.6627956989247312,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711435%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711435%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -690,6 +744,7 @@
       "txCur": 46,
       "txYoY": 0.022222222222222223,
       "cls": "Mixed / flat",
+      "hazardC": 64,
       "divergence": 0.6444444444444444,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711422%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711422%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -703,6 +758,7 @@
       "txCur": 117,
       "txYoY": 0.044642857142857144,
       "cls": "Mixed / flat",
+      "hazardC": 232,
       "divergence": 0.6428571428571429,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711229%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711229%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -716,6 +772,7 @@
       "txCur": 68,
       "txYoY": -0.08108108108108109,
       "cls": "Mixed / flat",
+      "hazardC": 724,
       "divergence": 0.6310810810810812,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711210%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711210%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -729,6 +786,7 @@
       "txCur": 102,
       "txYoY": -0.41040462427745666,
       "cls": "Supply building, demand softening",
+      "hazardC": 268,
       "divergence": 0.5770712909441233,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711377%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711377%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -742,6 +800,7 @@
       "txCur": 72,
       "txYoY": 0.7142857142857143,
       "cls": "Mixed / flat",
+      "hazardC": 1396,
       "divergence": 0.5714285714285714,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711225%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711225%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -755,6 +814,7 @@
       "txCur": 192,
       "txYoY": -0.04,
       "cls": "Mixed / flat",
+      "hazardC": 158,
       "divergence": 0.57125,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711201%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711201%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -768,6 +828,7 @@
       "txCur": 133,
       "txYoY": 0.031007751937984496,
       "cls": "Mixed / flat",
+      "hazardC": 37,
       "divergence": 0.5342096393663633,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710306%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710306%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -781,6 +842,7 @@
       "txCur": 92,
       "txYoY": 0.21052631578947367,
       "cls": "Heating",
+      "hazardC": 60,
       "divergence": 0.5167464114832536,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710465%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710465%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -794,6 +856,7 @@
       "txCur": 72,
       "txYoY": -0.24210526315789474,
       "cls": "Supply building, demand softening",
+      "hazardC": 294,
       "divergence": 0.4643274853801169,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711204%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711204%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -807,6 +870,7 @@
       "txCur": 225,
       "txYoY": -0.03017241379310345,
       "cls": "Mixed / flat",
+      "hazardC": 147,
       "divergence": 0.458743842364532,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710011%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710011%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -820,6 +884,7 @@
       "txCur": 71,
       "txYoY": -0.1125,
       "cls": "Mixed / flat",
+      "hazardC": 433,
       "divergence": 0.4458333333333333,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711220%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711220%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -833,6 +898,7 @@
       "txCur": 170,
       "txYoY": -0.1282051282051282,
       "cls": "Mixed / flat",
+      "hazardC": 48,
       "divergence": 0.4407051282051282,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710314%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710314%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -846,6 +912,7 @@
       "txCur": 73,
       "txYoY": -0.09876543209876543,
       "cls": "Mixed / flat",
+      "hazardC": 32,
       "divergence": 0.43694885361552027,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711361%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711361%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -859,6 +926,7 @@
       "txCur": 202,
       "txYoY": 0.27848101265822783,
       "cls": "Heating",
+      "hazardC": 65,
       "divergence": 0.43580470162748647,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710021%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710021%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -872,6 +940,7 @@
       "txCur": 77,
       "txYoY": 0.1323529411764706,
       "cls": "Mixed / flat",
+      "hazardC": 2761,
       "divergence": 0.423202614379085,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711226%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711226%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -885,6 +954,7 @@
       "txCur": 121,
       "txYoY": 0.49382716049382713,
       "cls": "Mixed / flat",
+      "hazardC": 774,
       "divergence": 0.38966049382716045,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711221%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711221%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -898,6 +968,7 @@
       "txCur": 85,
       "txYoY": -0.03409090909090909,
       "cls": "Mixed / flat",
+      "hazardC": 131,
       "divergence": 0.3540909090909091,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711434%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711434%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -911,6 +982,7 @@
       "txCur": 205,
       "txYoY": -0.2490842490842491,
       "cls": "Mixed / flat",
+      "hazardC": 248,
       "divergence": 0.3516483516483516,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711354%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711354%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -924,6 +996,7 @@
       "txCur": 94,
       "txYoY": -0.3188405797101449,
       "cls": "Mixed / flat",
+      "hazardC": 751,
       "divergence": 0.3188405797101449,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710463%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710463%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -937,6 +1010,7 @@
       "txCur": 76,
       "txYoY": -0.08433734939759036,
       "cls": "Mixed / flat",
+      "hazardC": 291,
       "divergence": 0.30655957161981257,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710304%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710304%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -950,6 +1024,7 @@
       "txCur": 79,
       "txYoY": 0.05333333333333334,
       "cls": "Mixed / flat",
+      "hazardC": 984,
       "divergence": 0.2944927536231884,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711233%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711233%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -963,6 +1038,7 @@
       "txCur": 64,
       "txYoY": -0.14666666666666667,
       "cls": "Mixed / flat",
+      "hazardC": 579,
       "divergence": 0.28995305164319246,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711208%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711208%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -976,6 +1052,7 @@
       "txCur": 83,
       "txYoY": -0.07777777777777778,
       "cls": "Mixed / flat",
+      "hazardC": 270,
       "divergence": 0.28467432950191573,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711219%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711219%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -989,6 +1066,7 @@
       "txCur": 48,
       "txYoY": 0.14285714285714285,
       "cls": "Mixed / flat",
+      "hazardC": 62,
       "divergence": 0.2792207792207792,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711356%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711356%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1002,6 +1080,7 @@
       "txCur": 140,
       "txYoY": -0.13580246913580246,
       "cls": "Mixed / flat",
+      "hazardC": 415,
       "divergence": 0.2786596119929453,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711235%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711235%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1015,6 +1094,7 @@
       "txCur": 65,
       "txYoY": 0.27450980392156865,
       "cls": "Mixed / flat",
+      "hazardC": 50,
       "divergence": 0.27450980392156865,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711420%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711420%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1028,6 +1108,7 @@
       "txCur": 112,
       "txYoY": -0.2328767123287671,
       "cls": "Mixed / flat",
+      "hazardC": 126,
       "divergence": 0.2685909980430528,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711101%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711101%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1041,6 +1122,7 @@
       "txCur": 53,
       "txYoY": -0.2638888888888889,
       "cls": "Mixed / flat",
+      "hazardC": 410,
       "divergence": 0.2638888888888889,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711691%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711691%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1054,6 +1136,7 @@
       "txCur": 122,
       "txYoY": -0.0962962962962963,
       "cls": "Mixed / flat",
+      "hazardC": 95,
       "divergence": 0.256644880174292,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710065%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710065%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1067,6 +1150,7 @@
       "txCur": 121,
       "txYoY": 0.07079646017699115,
       "cls": "Mixed / flat",
+      "hazardC": 168,
       "divergence": 0.2374631268436578,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710014%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710014%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1080,6 +1164,7 @@
       "txCur": 80,
       "txYoY": -0.03614457831325301,
       "cls": "Mixed / flat",
+      "hazardC": 514,
       "divergence": 0.2365826944140197,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711373%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711373%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1093,6 +1178,7 @@
       "txCur": 92,
       "txYoY": -0.19298245614035087,
       "cls": "Cooling",
+      "hazardC": 32,
       "divergence": 0.23558897243107768,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710305%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710305%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1106,6 +1192,7 @@
       "txCur": 126,
       "txYoY": -0.17105263157894737,
       "cls": "Cooling",
+      "hazardC": 200,
       "divergence": 0.21356275303643726,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710019%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710019%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1119,6 +1206,7 @@
       "txCur": 60,
       "txYoY": -0.11764705882352941,
       "cls": "Mixed / flat",
+      "hazardC": 49,
       "divergence": 0.20460358056265984,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711358%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711358%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1132,6 +1220,7 @@
       "txCur": 66,
       "txYoY": -0.725,
       "cls": "Cooling",
+      "hazardC": 418,
       "divergence": 0.20119047619047614,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711368%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711368%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1145,6 +1234,7 @@
       "txCur": 147,
       "txYoY": 0.2564102564102564,
       "cls": "Mixed / flat",
+      "hazardC": 21,
       "divergence": 0.20085470085470084,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711357%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711357%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1158,6 +1248,7 @@
       "txCur": 112,
       "txYoY": 0.3333333333333333,
       "cls": "Mixed / flat",
+      "hazardC": 27,
       "divergence": 0.19215686274509802,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710312%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710312%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1171,6 +1262,7 @@
       "txCur": 107,
       "txYoY": 0.16304347826086957,
       "cls": "Mixed / flat",
+      "hazardC": 724,
       "divergence": 0.16304347826086957,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711230%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711230%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1184,6 +1276,7 @@
       "txCur": 123,
       "txYoY": 0.684931506849315,
       "cls": "Heating",
+      "hazardC": 348,
       "divergence": 0.1543192619513558,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711211%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711211%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1197,6 +1290,7 @@
       "txCur": 107,
       "txYoY": -0.09322033898305085,
       "cls": "Mixed / flat",
+      "hazardC": 351,
       "divergence": 0.13405238828967642,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711385%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711385%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1210,6 +1304,7 @@
       "txCur": 60,
       "txYoY": 0.1111111111111111,
       "cls": "Mixed / flat",
+      "hazardC": 38,
       "divergence": 0.1111111111111111,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711378%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711378%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1223,6 +1318,7 @@
       "txCur": 89,
       "txYoY": 0.15584415584415584,
       "cls": "Mixed / flat",
+      "hazardC": 51,
       "divergence": 0.08441558441558442,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711249%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711249%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1236,6 +1332,7 @@
       "txCur": 45,
       "txYoY": -0.26229508196721313,
       "cls": "Cooling",
+      "hazardC": 1976,
       "divergence": 0.07181889149102266,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710467%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710467%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1249,6 +1346,7 @@
       "txCur": 63,
       "txYoY": -0.16,
       "cls": "Mixed / flat",
+      "hazardC": 128,
       "divergence": 0.04679245283018868,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711231%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711231%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1262,6 +1360,7 @@
       "txCur": 76,
       "txYoY": 0.0410958904109589,
       "cls": "Mixed / flat",
+      "hazardC": 49,
       "divergence": 0.0410958904109589,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711412%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711412%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1275,6 +1374,7 @@
       "txCur": 145,
       "txYoY": -0.15204678362573099,
       "cls": "Cooling",
+      "hazardC": 391,
       "divergence": 0.0001271294177472848,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711355%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711355%27&%24order=sale_price%3A%3Anumber+DESC"

@@ -68,6 +68,22 @@ Same pattern with `job_type='Full Demolition'` gives the demolition (redevelopme
 - **Sale filter:** `sale_price::number > 10000` to drop $0/nominal transfers (standard for market-sales analysis).
 - **Lag handling:** sales accrue for weeks after they occur; the latest 1–2 months are partial. Latest **complete** month = dataset update-month − 2 (documented in-dashboard).
 
+## Risk feed (v3) — all daily/official, ZIP-joinable
+
+> **Diligence (2026-08-03):** compared cadence/reliability across risk sources. The building-risk core updates **daily/every weekday** — the fastest signals we track, and the basis of the "know-first" edge. Slower/gap sources (tax liens biannual; foreclosure not on Open Data; flood = census-tract geometry, structural) deferred to later phases.
+
+| Source | ID | Publisher | Cadence | Role |
+|--------|----|-----------|---------|------|
+| HPD Housing Maintenance Code Violations | `wvxf-dwi5` | HPD | **Daily** | Habitability risk; severity `class` A/B/C (C = immediately hazardous); has `zip` |
+| 311 Service Requests (2020–present) | `erm2-nwe9` | 311 | **~Daily** | Early-warning complaints (`agency in HPD/DOB`); has `incident_zip` |
+| DOB ECB Violations | `6bgk-3dad` | DOB | **Weekday** | Financial enforcement: `penality_imposed`, `balance_due`; `issue_date` is `YYYYMMDD` |
+
+- **Risk Pressure** = `3×(Class C) + 1×(Class B)` HPD violations, trailing quarter, YoY (weights explicit).
+- Noise gate: a ZIP/borough needs ≥60 weighted pts now and ≥40 a year ago to be Rising/Falling.
+- **Cross-Signal risk overlay:** HPD Class C counts by ZIP are also joined into the Cross-Signal view (supply + demand + risk together).
+
+**Deferred risk sources (phase 2+):** Facades/LL11 (`xubg-57si`), Local Law 97 emissions, Tax Lien Sale (`9rz4-mjek`, biannual), Flood Vulnerability Index (`mrjc-v9pm`, census-tract geometry), foreclosure/lis pendens (ACRIS/State courts — not on Open Data). FDNY current violations also a gap (only historical on Open Data).
+
 ## Planned next sources (not yet built)
-- **FRED** (Treasury yields, SOFR, mortgage rates) — capital-conditions feed.
+- **FRED** (Treasury yields, SOFR, mortgage rates) — capital-conditions feed (agreed: later; commodity data).
 - **DCP Housing Database** — net-units pipeline cross-check.

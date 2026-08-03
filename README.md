@@ -67,13 +67,14 @@ This is now a **portfolio project**: a dashboard mimicking institutional researc
 The dashboard is a **tabbed multi-feed** view:
 - **Development** (DOB) — New Building & demolition filings, borough + neighborhood drill-down.
 - **Transactions** (DOF) — recorded market sales, median price, $ volume by borough + neighborhood drill-down.
-- **Cross-Signal** — joins the two feeds by property ZIP and flags where supply & demand **diverge** (oversupply-watch vs. tightening). The synthesis layer.
+- **Cross-Signal** — joins the feeds by property ZIP and flags where supply, demand & **risk** read together (oversupply-watch vs. tightening, with a hazardous-violation overlay). The synthesis layer.
+- **Risk** — severity-weighted Risk Pressure from the fastest daily sources (HPD hazardous violations + 311 early-warning + ECB penalties), by borough + ZIP. The "know-first" differentiator.
 
 Each feed has its own regime call, KPIs, borough grid, notable list, and a provenance/freshness panel. Every figure links to the underlying records.
 
 **Done:** sources verified & official (DOB daily; DOF monthly) · neighborhood (NTA) drill-down · transactions feed (rejected ACRIS Master for coverage gaps → DOF Rolling+Annualized Sales) · tabbed dashboard · pushed to [github.com/cajiang/urban-update](https://github.com/cajiang/urban-update).
 
 ## Next (candidates)
-- **Operations & Risk feed** — DOB/HPD violations, Local Law 97 compliance (a "don't-want-to-miss" for owners; agreed to add).
-- **LLM interpretation layer** — narrative synthesizing the feeds + Cross-Signal (now well set up).
-- **Deferred/context:** FRED rate strip (commodity data — backdrop only, agreed to add later).
+- **Risk phase 2** — compliance deadlines (Local Law 97 emissions, LL11 facades), then distress (tax liens, foreclosure) and climate/flood overlay.
+- **LLM interpretation layer** — per-area narrative synthesizing supply + demand + risk (now very well set up).
+- **Deferred/context:** FRED rate strip (commodity data — agreed to add later).

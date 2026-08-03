@@ -19,6 +19,7 @@ const OUT = join(__dirname, '..', 'data', 'processed', 'crosssignal.json');
 const DOB = SOURCES.dobNowBuild.id;      // w9ak-ipjd (property zip = postcode)
 const ROLL = SOURCES.salesRolling.id;    // usep-8jbt
 const ANN = SOURCES.salesAnnual.id;      // w2pb-icbu
+const HPD = 'wvxf-dwi5';                 // HPD violations — risk overlay
 const SPLIT = '2026-01-01';
 const PRICE_MIN = 10000;
 const LAG_MONTHS = 2;
@@ -60,11 +61,13 @@ async function main() {
   const nbWhere = (w) => `job_type='New Building' AND filing_date >= '${w.start}' AND filing_date < '${w.end}'`;
   const saleWhere = (w) => `sale_price::number > ${PRICE_MIN} AND sale_date >= '${w.start}' AND sale_date < '${w.end}'`;
 
-  const [devCur, devYoy, txCur, txYoy] = await Promise.all([
+  const hazWhere = `class='C' AND novissueddate >= '${rw.start}' AND novissueddate < '${rw.end}'`;
+  const [devCur, devYoy, txCur, txYoy, hazCur] = await Promise.all([
     countByZip(DOB, 'postcode', nbWhere(rw)),
     countByZip(DOB, 'postcode', nbWhere(yw)),
     countByZip(ROLL, 'zip_code', saleWhere(rw)),   // ref month is >= SPLIT → rolling
     countByZip(ANN, 'zip_code', saleWhere(yw)),    // year-ago → annualized
+    countByZip(HPD, 'zip', hazWhere),              // immediately-hazardous risk overlay
   ]);
 
   // zip → { borough, neighborhood } label from the ref-month sales rows
@@ -95,6 +98,7 @@ async function main() {
     zips.push({
       zip: z, borough: (label[z] || {}).borough || '', neighborhood: (label[z] || {}).neighborhood || '',
       devCur: dCur, devYoY, txCur: tCur, txYoY, cls,
+      hazardC: hazCur[z] || 0,
       divergence: Math.abs(devYoY - txYoY),
       devEvidence: buildUrl(DOB, { $select: 'job_filing_number,house_no,street_name,postcode,proposed_dwelling_units,filing_date', $where: nbWhere(rw) + ` AND postcode='${z}'`, $order: 'proposed_dwelling_units::number DESC' }),
       txEvidence: buildUrl(ROLL, { $select: 'address,neighborhood,sale_price,sale_date', $where: saleWhere(rw) + ` AND zip_code='${z}'`, $order: 'sale_price::number DESC' }),
@@ -118,6 +122,7 @@ async function main() {
         { label: SOURCES.dobNowBuild.label, datasetId: DOB, landing: SOURCES.dobNowBuild.landing },
         { label: SOURCES.salesRolling.label, datasetId: ROLL, landing: SOURCES.salesRolling.landing },
         { label: SOURCES.salesAnnual.label, datasetId: ANN, landing: SOURCES.salesAnnual.landing },
+        { label: 'HPD Housing Maintenance Code Violations (risk overlay)', datasetId: HPD, landing: `https://data.cityofnewyork.us/d/${HPD}` },
       ],
       method: {
         signal: `Year-over-year change in the trailing ${WINDOW} months (${qtrLabel(ref)} vs. the same period a year earlier) in New Building filings (supply) and recorded sales (demand), joined by property ZIP.`,
