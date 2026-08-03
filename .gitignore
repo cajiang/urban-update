@@ -1,0 +1,11 @@
+# dependencies (none currently — zero-dependency Node)
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Notes:
+# data/processed/*.json and dashboard/index.html are generated, but we DO commit them
+# so a fresh clone is immediately viewable. Re-run `node src/refresh.mjs` to regenerate.
