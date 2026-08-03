@@ -1,0 +1,1107 @@
+{
+  "meta": {
+    "product": "Urban Update",
+    "feed": "NYC Transactions",
+    "generatedAt": "2026-08-03T19:54:04.695Z",
+    "latestCompleteMonth": "2026-05",
+    "latestMonthLabel": "May 2026",
+    "sources": [
+      {
+        "label": "NYC Citywide Rolling Calendar Sales",
+        "datasetId": "usep-8jbt",
+        "landing": "https://data.cityofnewyork.us/City-Government/NYC-Citywide-Rolling-Calendar-Sales/usep-8jbt",
+        "attribution": "Department of Finance",
+        "provenance": "official",
+        "updateFrequency": "Monthly",
+        "dataUpdatedAt": "2026-07-15T15:01:31.000Z"
+      },
+      {
+        "label": "NYC Citywide Annualized Calendar Sales Update",
+        "datasetId": "w2pb-icbu",
+        "landing": "https://data.cityofnewyork.us/City-Government/NYC-Citywide-Annualized-Calendar-Sales-Update/w2pb-icbu",
+        "attribution": "Department of Finance",
+        "provenance": "official",
+        "updateFrequency": "Annually",
+        "dataUpdatedAt": "2026-06-09T18:33:25.000Z"
+      }
+    ],
+    "method": {
+      "baseline": "Trailing 12-month average of recorded market sales (sale price > $10,000).",
+      "threshold": "±25% deviation (dominant of trailing-avg vs. YoY) flags a regime shift.",
+      "lag": "Sales accrue for weeks after they occur; the latest 2 months are still filling in, so the latest complete month shown is May 2026.",
+      "note": "Figures are computed facts from primary DOF sales records. Causal interpretation requires review."
+    }
+  },
+  "narration": {
+    "headline": "Property sales in Staten Island fell to 249 in May 2026 — -34% vs. the trailing-12-month average. Signal: Cooling.",
+    "citySummary": "Citywide, 3,921 recorded market sales in May 2026 (median $940,000, total volume $8B), -11% vs. the trailing-12-month average and -15% year-over-year."
+  },
+  "citywide": {
+    "latest": {
+      "sales": 3921,
+      "vol": 8448229300,
+      "med": 940000
+    },
+    "baselineSales": 4414,
+    "baselineMonths": 12,
+    "deviation": -0.11170684740131014,
+    "yoy": -0.14593770420387714,
+    "yoySales": 4591,
+    "medianYoY": 0.04852203011712214,
+    "volumeYoY": -0.3658751606925876,
+    "dominant": {
+      "kind": "yoy",
+      "v": -0.14593770420387714
+    },
+    "regime": "In range",
+    "spark": [
+      {
+        "month": "2024-06",
+        "sales": 4499,
+        "vol": 9538625519,
+        "med": 875000
+      },
+      {
+        "month": "2024-07",
+        "sales": 4555,
+        "vol": 8971834427,
+        "med": 875000
+      },
+      {
+        "month": "2024-08",
+        "sales": 4322,
+        "vol": 6718982569,
+        "med": 805000
+      },
+      {
+        "month": "2024-09",
+        "sales": 4330,
+        "vol": 8133884888,
+        "med": 825000
+      },
+      {
+        "month": "2024-10",
+        "sales": 4536,
+        "vol": 10780273147,
+        "med": 825000
+      },
+      {
+        "month": "2024-11",
+        "sales": 3998,
+        "vol": 9426477044,
+        "med": 845000
+      },
+      {
+        "month": "2024-12",
+        "sales": 4429,
+        "vol": 9773008529,
+        "med": 864494
+      },
+      {
+        "month": "2025-01",
+        "sales": 4336,
+        "vol": 8291899486,
+        "med": 858750
+      },
+      {
+        "month": "2025-02",
+        "sales": 3854,
+        "vol": 8637731423,
+        "med": 880000
+      },
+      {
+        "month": "2025-03",
+        "sales": 4340,
+        "vol": 12261531963,
+        "med": 875250
+      },
+      {
+        "month": "2025-04",
+        "sales": 4188,
+        "vol": 7393120127,
+        "med": 850000
+      },
+      {
+        "month": "2025-05",
+        "sales": 4591,
+        "vol": 13322659477,
+        "med": 896500
+      },
+      {
+        "month": "2025-06",
+        "sales": 4610,
+        "vol": 8261874450,
+        "med": 895000
+      },
+      {
+        "month": "2025-07",
+        "sales": 4775,
+        "vol": 8647952922,
+        "med": 910000
+      },
+      {
+        "month": "2025-08",
+        "sales": 4645,
+        "vol": 13333618334,
+        "med": 884136
+      },
+      {
+        "month": "2025-09",
+        "sales": 4682,
+        "vol": 9195427144,
+        "med": 890000
+      },
+      {
+        "month": "2025-10",
+        "sales": 4775,
+        "vol": 59044016980,
+        "med": 900000
+      },
+      {
+        "month": "2025-11",
+        "sales": 3833,
+        "vol": 7832002738,
+        "med": 870000
+      },
+      {
+        "month": "2025-12",
+        "sales": 4750,
+        "vol": 18753207853,
+        "med": 903975.5
+      },
+      {
+        "month": "2026-01",
+        "sales": 4254,
+        "vol": 10252770313,
+        "med": 910000
+      },
+      {
+        "month": "2026-02",
+        "sales": 3629,
+        "vol": 8688135971,
+        "med": 900000
+      },
+      {
+        "month": "2026-03",
+        "sales": 4532,
+        "vol": 10053555355,
+        "med": 924000
+      },
+      {
+        "month": "2026-04",
+        "sales": 3893,
+        "vol": 9140324892,
+        "med": 898000
+      },
+      {
+        "month": "2026-05",
+        "sales": 3921,
+        "vol": 8448229300,
+        "med": 940000
+      }
+    ]
+  },
+  "boroughs": [
+    {
+      "name": "Manhattan",
+      "latest": {
+        "sales": 1184,
+        "vol": 4504394322,
+        "med": 1440000
+      },
+      "baselineSales": 1247,
+      "baselineMonths": 12,
+      "deviation": -0.05083839935867465,
+      "yoy": -0.023907666941467436,
+      "yoySales": 1213,
+      "medianYoY": 0.09090909090909091,
+      "volumeYoY": -0.30046642172953014,
+      "dominant": {
+        "kind": "baseline",
+        "v": -0.05083839935867465
+      },
+      "regime": "In range",
+      "spark": [
+        {
+          "month": "2024-06",
+          "sales": 1269,
+          "vol": 4622352221,
+          "med": 1275000
+        },
+        {
+          "month": "2024-07",
+          "sales": 1282,
+          "vol": 5286404000,
+          "med": 1300000
+        },
+        {
+          "month": "2024-08",
+          "sales": 1175,
+          "vol": 2964860203,
+          "med": 1100000
+        },
+        {
+          "month": "2024-09",
+          "sales": 1154,
+          "vol": 4332539993,
+          "med": 1400000
+        },
+        {
+          "month": "2024-10",
+          "sales": 1167,
+          "vol": 6053932270,
+          "med": 1255000
+        },
+        {
+          "month": "2024-11",
+          "sales": 995,
+          "vol": 4035662321,
+          "med": 1250000
+        },
+        {
+          "month": "2024-12",
+          "sales": 1132,
+          "vol": 4669310443,
+          "med": 1250000
+        },
+        {
+          "month": "2025-01",
+          "sales": 1148,
+          "vol": 4380480974,
+          "med": 1300000
+        },
+        {
+          "month": "2025-02",
+          "sales": 1147,
+          "vol": 5598889359,
+          "med": 1430000
+        },
+        {
+          "month": "2025-03",
+          "sales": 1155,
+          "vol": 6698300281,
+          "med": 1306000
+        },
+        {
+          "month": "2025-04",
+          "sales": 1162,
+          "vol": 3519639101,
+          "med": 1280000
+        },
+        {
+          "month": "2025-05",
+          "sales": 1213,
+          "vol": 6439139538,
+          "med": 1320000
+        },
+        {
+          "month": "2025-06",
+          "sales": 1403,
+          "vol": 3800131264,
+          "med": 1272813
+        },
+        {
+          "month": "2025-07",
+          "sales": 1433,
+          "vol": 4316636172,
+          "med": 1300000
+        },
+        {
+          "month": "2025-08",
+          "sales": 1356,
+          "vol": 8866172189,
+          "med": 1244500
+        },
+        {
+          "month": "2025-09",
+          "sales": 1314,
+          "vol": 4337609374,
+          "med": 1112500
+        },
+        {
+          "month": "2025-10",
+          "sales": 1516,
+          "vol": 54748049276,
+          "med": 1725000
+        },
+        {
+          "month": "2025-11",
+          "sales": 963,
+          "vol": 3971915908,
+          "med": 1225000
+        },
+        {
+          "month": "2025-12",
+          "sales": 1258,
+          "vol": 10780966042,
+          "med": 1395000
+        },
+        {
+          "month": "2026-01",
+          "sales": 1151,
+          "vol": 4600862580,
+          "med": 1419441
+        },
+        {
+          "month": "2026-02",
+          "sales": 993,
+          "vol": 4413806758,
+          "med": 1350000
+        },
+        {
+          "month": "2026-03",
+          "sales": 1268,
+          "vol": 4459126627,
+          "med": 1375000
+        },
+        {
+          "month": "2026-04",
+          "sales": 1101,
+          "vol": 5502391126,
+          "med": 1413000
+        },
+        {
+          "month": "2026-05",
+          "sales": 1184,
+          "vol": 4504394322,
+          "med": 1440000
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date%2Cbuilding_class_category&%24where=borough%3D%271%27+AND+sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-05-01%27+AND+sale_date+%3C+%272026-06-01%27&%24order=sale_price%3A%3Anumber+DESC"
+    },
+    {
+      "name": "Bronx",
+      "latest": {
+        "sales": 323,
+        "vol": 337199338,
+        "med": 700000
+      },
+      "baselineSales": 338,
+      "baselineMonths": 12,
+      "deviation": -0.04555528195025861,
+      "yoy": -0.11263736263736264,
+      "yoySales": 364,
+      "medianYoY": -0.0124738658262349,
+      "volumeYoY": -0.5022449733127572,
+      "dominant": {
+        "kind": "yoy",
+        "v": -0.11263736263736264
+      },
+      "regime": "In range",
+      "spark": [
+        {
+          "month": "2024-06",
+          "sales": 473,
+          "vol": 1021907632,
+          "med": 850000
+        },
+        {
+          "month": "2024-07",
+          "sales": 338,
+          "vol": 328994985,
+          "med": 620049.5
+        },
+        {
+          "month": "2024-08",
+          "sales": 308,
+          "vol": 245219048,
+          "med": 625000
+        },
+        {
+          "month": "2024-09",
+          "sales": 349,
+          "vol": 330210026,
+          "med": 630000
+        },
+        {
+          "month": "2024-10",
+          "sales": 337,
+          "vol": 371906438,
+          "med": 660000
+        },
+        {
+          "month": "2024-11",
+          "sales": 307,
+          "vol": 330941930,
+          "med": 660000
+        },
+        {
+          "month": "2024-12",
+          "sales": 387,
+          "vol": 523653750,
+          "med": 735000
+        },
+        {
+          "month": "2025-01",
+          "sales": 346,
+          "vol": 350329275,
+          "med": 647000
+        },
+        {
+          "month": "2025-02",
+          "sales": 308,
+          "vol": 264858573,
+          "med": 615000
+        },
+        {
+          "month": "2025-03",
+          "sales": 447,
+          "vol": 1576314126,
+          "med": 765000
+        },
+        {
+          "month": "2025-04",
+          "sales": 304,
+          "vol": 350776827,
+          "med": 630000
+        },
+        {
+          "month": "2025-05",
+          "sales": 364,
+          "vol": 677440347,
+          "med": 708842
+        },
+        {
+          "month": "2025-06",
+          "sales": 334,
+          "vol": 758260061,
+          "med": 659500
+        },
+        {
+          "month": "2025-07",
+          "sales": 356,
+          "vol": 361646951,
+          "med": 686159.5
+        },
+        {
+          "month": "2025-08",
+          "sales": 347,
+          "vol": 259367514,
+          "med": 625000
+        },
+        {
+          "month": "2025-09",
+          "sales": 363,
+          "vol": 600909883,
+          "med": 721707
+        },
+        {
+          "month": "2025-10",
+          "sales": 344,
+          "vol": 562276898,
+          "med": 700000
+        },
+        {
+          "month": "2025-11",
+          "sales": 316,
+          "vol": 346204074,
+          "med": 753935.5
+        },
+        {
+          "month": "2025-12",
+          "sales": 410,
+          "vol": 2788631453,
+          "med": 662500
+        },
+        {
+          "month": "2026-01",
+          "sales": 309,
+          "vol": 260941183,
+          "med": 699000
+        },
+        {
+          "month": "2026-02",
+          "sales": 248,
+          "vol": 423363911,
+          "med": 667000
+        },
+        {
+          "month": "2026-03",
+          "sales": 334,
+          "vol": 545274071,
+          "med": 717500
+        },
+        {
+          "month": "2026-04",
+          "sales": 336,
+          "vol": 432175672,
+          "med": 755000
+        },
+        {
+          "month": "2026-05",
+          "sales": 323,
+          "vol": 337199338,
+          "med": 700000
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date%2Cbuilding_class_category&%24where=borough%3D%272%27+AND+sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-05-01%27+AND+sale_date+%3C+%272026-06-01%27&%24order=sale_price%3A%3Anumber+DESC"
+    },
+    {
+      "name": "Brooklyn",
+      "latest": {
+        "sales": 1049,
+        "vol": 1665498181,
+        "med": 1075000
+      },
+      "baselineSales": 1138,
+      "baselineMonths": 12,
+      "deviation": -0.07834236344999274,
+      "yoy": -0.07495590828924162,
+      "yoySales": 1134,
+      "medianYoY": 0.06041923551171394,
+      "volumeYoY": -0.07587065487591747,
+      "dominant": {
+        "kind": "baseline",
+        "v": -0.07834236344999274
+      },
+      "regime": "In range",
+      "spark": [
+        {
+          "month": "2024-06",
+          "sales": 1115,
+          "vol": 2381514780,
+          "med": 999999
+        },
+        {
+          "month": "2024-07",
+          "sales": 1233,
+          "vol": 1958070739,
+          "med": 999000
+        },
+        {
+          "month": "2024-08",
+          "sales": 1122,
+          "vol": 2043743296,
+          "med": 997750
+        },
+        {
+          "month": "2024-09",
+          "sales": 1104,
+          "vol": 1950563309,
+          "med": 966169
+        },
+        {
+          "month": "2024-10",
+          "sales": 1086,
+          "vol": 2209184093,
+          "med": 985000
+        },
+        {
+          "month": "2024-11",
+          "sales": 953,
+          "vol": 1815366697,
+          "med": 992794
+        },
+        {
+          "month": "2024-12",
+          "sales": 1180,
+          "vol": 2967628064,
+          "med": 1150000
+        },
+        {
+          "month": "2025-01",
+          "sales": 1118,
+          "vol": 1951480485,
+          "med": 1107496
+        },
+        {
+          "month": "2025-02",
+          "sales": 959,
+          "vol": 1363252427,
+          "med": 999343
+        },
+        {
+          "month": "2025-03",
+          "sales": 1151,
+          "vol": 2432731100,
+          "med": 1080000
+        },
+        {
+          "month": "2025-04",
+          "sales": 1081,
+          "vol": 1987654325,
+          "med": 1018250
+        },
+        {
+          "month": "2025-05",
+          "sales": 1134,
+          "vol": 1802234925,
+          "med": 1013750
+        },
+        {
+          "month": "2025-06",
+          "sales": 1213,
+          "vol": 2130084856,
+          "med": 1018000
+        },
+        {
+          "month": "2025-07",
+          "sales": 1240,
+          "vol": 2338316414,
+          "med": 1097500
+        },
+        {
+          "month": "2025-08",
+          "sales": 1255,
+          "vol": 2625867265,
+          "med": 1170000
+        },
+        {
+          "month": "2025-09",
+          "sales": 1280,
+          "vol": 2615654834,
+          "med": 1159322.5
+        },
+        {
+          "month": "2025-10",
+          "sales": 1071,
+          "vol": 1938244620,
+          "med": 990000
+        },
+        {
+          "month": "2025-11",
+          "sales": 990,
+          "vol": 1670954919,
+          "med": 1050000
+        },
+        {
+          "month": "2025-12",
+          "sales": 1183,
+          "vol": 2442047411,
+          "med": 1130289
+        },
+        {
+          "month": "2026-01",
+          "sales": 1096,
+          "vol": 2451277306,
+          "med": 1162132.5
+        },
+        {
+          "month": "2026-02",
+          "sales": 985,
+          "vol": 2366151061,
+          "med": 1110000
+        },
+        {
+          "month": "2026-03",
+          "sales": 1235,
+          "vol": 3110208281,
+          "med": 1150000
+        },
+        {
+          "month": "2026-04",
+          "sales": 976,
+          "vol": 1658380353,
+          "med": 1100000
+        },
+        {
+          "month": "2026-05",
+          "sales": 1049,
+          "vol": 1665498181,
+          "med": 1075000
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date%2Cbuilding_class_category&%24where=borough%3D%273%27+AND+sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-05-01%27+AND+sale_date+%3C+%272026-06-01%27&%24order=sale_price%3A%3Anumber+DESC"
+    },
+    {
+      "name": "Queens",
+      "latest": {
+        "sales": 1116,
+        "vol": 1541245961,
+        "med": 778500
+      },
+      "baselineSales": 1313,
+      "baselineMonths": 12,
+      "deviation": -0.1497682686813535,
+      "yoy": -0.27249022164276404,
+      "yoySales": 1534,
+      "medianYoY": 0.01103896103896104,
+      "volumeYoY": -0.6240044130085239,
+      "dominant": {
+        "kind": "yoy",
+        "v": -0.27249022164276404
+      },
+      "regime": "Cooling",
+      "spark": [
+        {
+          "month": "2024-06",
+          "sales": 1261,
+          "vol": 1131105313,
+          "med": 699000
+        },
+        {
+          "month": "2024-07",
+          "sales": 1270,
+          "vol": 1092506050,
+          "med": 725000
+        },
+        {
+          "month": "2024-08",
+          "sales": 1290,
+          "vol": 1150522029,
+          "med": 710000
+        },
+        {
+          "month": "2024-09",
+          "sales": 1290,
+          "vol": 1192078415,
+          "med": 701296.5
+        },
+        {
+          "month": "2024-10",
+          "sales": 1503,
+          "vol": 1777894080,
+          "med": 720000
+        },
+        {
+          "month": "2024-11",
+          "sales": 1354,
+          "vol": 2955187135,
+          "med": 739000
+        },
+        {
+          "month": "2024-12",
+          "sales": 1343,
+          "vol": 1315222722,
+          "med": 710000
+        },
+        {
+          "month": "2025-01",
+          "sales": 1355,
+          "vol": 1337454926,
+          "med": 700000
+        },
+        {
+          "month": "2025-02",
+          "sales": 1130,
+          "vol": 1161779601,
+          "med": 741501
+        },
+        {
+          "month": "2025-03",
+          "sales": 1226,
+          "vol": 1285713614,
+          "med": 713443
+        },
+        {
+          "month": "2025-04",
+          "sales": 1321,
+          "vol": 1298449873,
+          "med": 705000
+        },
+        {
+          "month": "2025-05",
+          "sales": 1534,
+          "vol": 4099106517,
+          "med": 770000
+        },
+        {
+          "month": "2025-06",
+          "sales": 1270,
+          "vol": 1272808002,
+          "med": 725000
+        },
+        {
+          "month": "2025-07",
+          "sales": 1342,
+          "vol": 1280442969,
+          "med": 730000
+        },
+        {
+          "month": "2025-08",
+          "sales": 1286,
+          "vol": 1258496734,
+          "med": 737750
+        },
+        {
+          "month": "2025-09",
+          "sales": 1346,
+          "vol": 1352098119,
+          "med": 753500
+        },
+        {
+          "month": "2025-10",
+          "sales": 1410,
+          "vol": 1419927188,
+          "med": 778500
+        },
+        {
+          "month": "2025-11",
+          "sales": 1223,
+          "vol": 1496374409,
+          "med": 730000
+        },
+        {
+          "month": "2025-12",
+          "sales": 1460,
+          "vol": 1961416522,
+          "med": 766475
+        },
+        {
+          "month": "2026-01",
+          "sales": 1324,
+          "vol": 2587846686,
+          "med": 820000
+        },
+        {
+          "month": "2026-02",
+          "sales": 1086,
+          "vol": 1242504650,
+          "med": 760000
+        },
+        {
+          "month": "2026-03",
+          "sales": 1330,
+          "vol": 1463288627,
+          "med": 720000
+        },
+        {
+          "month": "2026-04",
+          "sales": 1140,
+          "vol": 1118842257,
+          "med": 764944
+        },
+        {
+          "month": "2026-05",
+          "sales": 1116,
+          "vol": 1541245961,
+          "med": 778500
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date%2Cbuilding_class_category&%24where=borough%3D%274%27+AND+sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-05-01%27+AND+sale_date+%3C+%272026-06-01%27&%24order=sale_price%3A%3Anumber+DESC"
+    },
+    {
+      "name": "Staten Island",
+      "latest": {
+        "sales": 249,
+        "vol": 399891498,
+        "med": 725000
+      },
+      "baselineSales": 378,
+      "baselineMonths": 12,
+      "deviation": -0.3403973509933775,
+      "yoy": -0.28034682080924855,
+      "yoySales": 346,
+      "medianYoY": 0.034236804564907276,
+      "volumeYoY": 0.3122462612574107,
+      "dominant": {
+        "kind": "baseline",
+        "v": -0.3403973509933775
+      },
+      "regime": "Cooling",
+      "spark": [
+        {
+          "month": "2024-06",
+          "sales": 381,
+          "vol": 381745573,
+          "med": 694000
+        },
+        {
+          "month": "2024-07",
+          "sales": 432,
+          "vol": 305858653,
+          "med": 660000
+        },
+        {
+          "month": "2024-08",
+          "sales": 427,
+          "vol": 314637993,
+          "med": 680000
+        },
+        {
+          "month": "2024-09",
+          "sales": 433,
+          "vol": 328493145,
+          "med": 681000
+        },
+        {
+          "month": "2024-10",
+          "sales": 443,
+          "vol": 367356266,
+          "med": 700000
+        },
+        {
+          "month": "2024-11",
+          "sales": 389,
+          "vol": 289318961,
+          "med": 725000
+        },
+        {
+          "month": "2024-12",
+          "sales": 387,
+          "vol": 297193550,
+          "med": 675000
+        },
+        {
+          "month": "2025-01",
+          "sales": 369,
+          "vol": 272153826,
+          "med": 700000
+        },
+        {
+          "month": "2025-02",
+          "sales": 310,
+          "vol": 248951463,
+          "med": 708875
+        },
+        {
+          "month": "2025-03",
+          "sales": 361,
+          "vol": 268472842,
+          "med": 668000
+        },
+        {
+          "month": "2025-04",
+          "sales": 320,
+          "vol": 236600001,
+          "med": 700000
+        },
+        {
+          "month": "2025-05",
+          "sales": 346,
+          "vol": 304738150,
+          "med": 701000
+        },
+        {
+          "month": "2025-06",
+          "sales": 390,
+          "vol": 300590267,
+          "med": 725000
+        },
+        {
+          "month": "2025-07",
+          "sales": 404,
+          "vol": 350910416,
+          "med": 726500
+        },
+        {
+          "month": "2025-08",
+          "sales": 401,
+          "vol": 323714632,
+          "med": 735000
+        },
+        {
+          "month": "2025-09",
+          "sales": 379,
+          "vol": 289154934,
+          "med": 700000
+        },
+        {
+          "month": "2025-10",
+          "sales": 434,
+          "vol": 375518998,
+          "med": 710000
+        },
+        {
+          "month": "2025-11",
+          "sales": 341,
+          "vol": 346553428,
+          "med": 757500
+        },
+        {
+          "month": "2025-12",
+          "sales": 439,
+          "vol": 780146425,
+          "med": 760000
+        },
+        {
+          "month": "2026-01",
+          "sales": 374,
+          "vol": 351842558,
+          "med": 730000
+        },
+        {
+          "month": "2026-02",
+          "sales": 317,
+          "vol": 242309591,
+          "med": 699999
+        },
+        {
+          "month": "2026-03",
+          "sales": 365,
+          "vol": 475657749,
+          "med": 735000
+        },
+        {
+          "month": "2026-04",
+          "sales": 340,
+          "vol": 428535484,
+          "med": 720000
+        },
+        {
+          "month": "2026-05",
+          "sales": 249,
+          "vol": 399891498,
+          "med": 725000
+        }
+      ],
+      "evidenceUrl": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date%2Cbuilding_class_category&%24where=borough%3D%275%27+AND+sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-05-01%27+AND+sale_date+%3C+%272026-06-01%27&%24order=sale_price%3A%3Anumber+DESC"
+    }
+  ],
+  "notable": [
+    {
+      "address": "96-05 QUEENS BOULEVARD",
+      "borough": "Queens",
+      "neighborhood": "REGO PARK",
+      "type": "STORE BUILDINGS",
+      "price": 229621338,
+      "date": "2026-05"
+    },
+    {
+      "address": "132-142 WEST 27TH STREET",
+      "borough": "Manhattan",
+      "neighborhood": "CHELSEA",
+      "type": "LUXURY HOTELS",
+      "price": 203000000,
+      "date": "2026-05"
+    },
+    {
+      "address": "7 DEY ST., 3",
+      "borough": "Manhattan",
+      "neighborhood": "FINANCIAL",
+      "type": "SPECIAL CONDO BILLING LOTS",
+      "price": 190000000,
+      "date": "2026-05"
+    },
+    {
+      "address": "61 BROADWAY",
+      "borough": "Manhattan",
+      "neighborhood": "FINANCIAL",
+      "type": "OFFICE BUILDINGS",
+      "price": 141486750,
+      "date": "2026-05"
+    },
+    {
+      "address": "117 WEST 70 STREET",
+      "borough": "Manhattan",
+      "neighborhood": "UPPER WEST SIDE (59-79)",
+      "type": "OTHER HOTELS",
+      "price": 80000000,
+      "date": "2026-05"
+    },
+    {
+      "address": "2754 HYLAN BOULEVARD",
+      "borough": "Staten Island",
+      "neighborhood": "NEW DORP",
+      "type": "STORE BUILDINGS",
+      "price": 79190000,
+      "date": "2026-05"
+    },
+    {
+      "address": "2712 HYLAN BOULEVARD",
+      "borough": "Staten Island",
+      "neighborhood": "NEW DORP",
+      "type": "STORE BUILDINGS",
+      "price": 79190000,
+      "date": "2026-05"
+    },
+    {
+      "address": "107 BANK STREET",
+      "borough": "Manhattan",
+      "neighborhood": "GREENWICH VILLAGE-WEST",
+      "type": "ONE FAMILY DWELLINGS",
+      "price": 70000000,
+      "date": "2026-05"
+    }
+  ]
+}

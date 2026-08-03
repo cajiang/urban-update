@@ -64,9 +64,15 @@ A claim without a source does not ship. Every signal, regime call, and implicati
 
 This is now a **portfolio project**: a dashboard mimicking institutional research, built from public data that is easy to obtain and easy for AI to analyze. Each panel carries an AI-generated, cited interpretation.
 
-**Done:** source verified (DOB `official`, daily) · provenance & freshness panel · **neighborhood (NTA) drill-down** (click a borough) · pushed to [github.com/cajiang/urban-update](https://github.com/cajiang/urban-update).
+The dashboard is a **tabbed multi-feed** view:
+- **Development** (DOB) — New Building & demolition filings, borough + neighborhood drill-down.
+- **Transactions** (DOF) — recorded market sales, median price, $ volume by borough.
+
+Each feed has its own regime call, KPIs, borough grid, notable list, and a provenance/freshness panel. Every figure links to the underlying records.
+
+**Done:** sources verified & official (DOB daily; DOF monthly) · neighborhood (NTA) drill-down · transactions feed (rejected ACRIS Master for coverage gaps → DOF Rolling+Annualized Sales) · tabbed dashboard · pushed to [github.com/cajiang/urban-update](https://github.com/cajiang/urban-update).
 
 ## Next
-1. **Second feed:** Investment sales / transactions (ACRIS).
-2. **Third feed:** Capital & macro conditions (FRED — Treasury yields, SOFR, mortgage rates).
-3. **Later:** LLM interpretation layer (deferred until more feeds are in), watchlists, natural-language "Ask the Market", historical/scenario tools.
+1. **Third feed:** Capital & macro conditions (FRED — Treasury yields, SOFR, mortgage rates).
+2. **Neighborhood grain for Transactions** (Annualized dataset carries `nta`/`bbl`).
+3. **Later:** LLM interpretation layer (deferred until more feeds are in), watchlists, natural-language "Ask the Market", scenario tools.

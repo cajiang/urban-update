@@ -52,7 +52,22 @@ Same pattern with `job_type='Full Demolition'` gives the demolition (redevelopme
   - Citywide New Building filings, Jul 2026 → **1,536** ✓ match
 - The pipeline now captures publisher / provenance / update-frequency / last-refresh on every run and displays them in the dashboard's **Data Provenance & Freshness** panel, with a staleness indicator vs. the source's last refresh.
 
+## Transactions feed (v2)
+
+> **Source diligence note (2026-08-03):** We first evaluated **ACRIS – Real Property Master** (`bnx9-e6tj`, DOF, official) but **rejected it for recent sales analytics.** Its recent borough coverage is broken — 2026 DEEDs were ~22k in Manhattan but only ~77/month in Brooklyn (reality is thousands), and Staten Island was absent entirely. Raw ACRIS deeds also mix in $0/non-arm's-length transfers. We pivoted to DOF's purpose-built sales datasets below, which are complete across all five boroughs. This is the "trusted, monitorable source" standard in action.
+
+### DOF — Rolling + Annualized Calendar Sales (used together)
+| Dataset | ID | Coverage | Update | Role |
+|---------|----|----------|--------|------|
+| NYC Citywide **Rolling** Calendar Sales | `usep-8jbt` | trailing 12 mo (→ 2026-06) | Monthly | fresh edge (months ≥ 2026-01) |
+| NYC Citywide **Annualized** Calendar Sales | `w2pb-icbu` | 2016 → 2025 | ~Yearly | history for baseline/YoY (months ≤ 2025-12) |
+
+- **Publisher:** Department of Finance · **Provenance:** `official` (both).
+- **Split at the year boundary** (Annualized ≤ 2025-12, Rolling ≥ 2026-01) → continuous monthly series, no overlap double-count.
+- **Key fields:** `borough` (coded 1=Manhattan, 2=Bronx, 3=Brooklyn, 4=Queens, 5=Staten Island), `sale_price` (text → cast `::number`), `sale_date`, `neighborhood`, `building_class_category`, `address`. Annualized adds `nta`, `bbl`, lat/long (for future neighborhood grain).
+- **Sale filter:** `sale_price::number > 10000` to drop $0/nominal transfers (standard for market-sales analysis).
+- **Lag handling:** sales accrue for weeks after they occur; the latest 1–2 months are partial. Latest **complete** month = dataset update-month − 2 (documented in-dashboard).
+
 ## Planned next sources (not yet built)
-- **ACRIS** (deeds/transactions) — investment-sales feed.
 - **FRED** (Treasury yields, SOFR, mortgage rates) — capital-conditions feed.
 - **DCP Housing Database** — net-units pipeline cross-check.

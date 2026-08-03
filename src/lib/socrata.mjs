@@ -9,7 +9,40 @@ export const SOURCES = {
     landing:
       'https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Job-Application-Filings/w9ak-ipjd',
   },
+  salesRolling: {
+    id: 'usep-8jbt',
+    label: 'NYC Citywide Rolling Calendar Sales',
+    host: 'data.cityofnewyork.us',
+    landing: 'https://data.cityofnewyork.us/City-Government/NYC-Citywide-Rolling-Calendar-Sales/usep-8jbt',
+  },
+  salesAnnual: {
+    id: 'w2pb-icbu',
+    label: 'NYC Citywide Annualized Calendar Sales Update',
+    host: 'data.cityofnewyork.us',
+    landing: 'https://data.cityofnewyork.us/City-Government/NYC-Citywide-Annualized-Calendar-Sales-Update/w2pb-icbu',
+  },
 };
+
+// Fetch a dataset's official metadata (provenance, publisher, update cadence, last refresh).
+export async function fetchDatasetMeta(id) {
+  const res = await fetch(`https://data.cityofnewyork.us/api/views/${id}.json`);
+  if (!res.ok) return {};
+  const m = await res.json();
+  let updateFrequency = '';
+  const walk = (o) => {
+    for (const k in o) {
+      if (o[k] && typeof o[k] === 'object') walk(o[k]);
+      else if (/update frequency/i.test(k)) updateFrequency = o[k];
+    }
+  };
+  walk((m.metadata && m.metadata.custom_fields) || {});
+  return {
+    attribution: m.attribution || null,
+    provenance: m.provenance || null,
+    updateFrequency: updateFrequency || null,
+    dataUpdatedAt: m.rowsUpdatedAt ? new Date(m.rowsUpdatedAt * 1000).toISOString() : null,
+  };
+}
 
 const BASE = (id) => `https://data.cityofnewyork.us/resource/${id}.json`;
 
