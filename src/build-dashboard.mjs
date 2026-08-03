@@ -14,6 +14,7 @@ const OUT = join(__dirname, '..', 'dashboard', 'index.html');
 
 const dev = JSON.parse(await readFile(join(dir, 'development.json'), 'utf8'));
 const tx = JSON.parse(await readFile(join(dir, 'transactions.json'), 'utf8'));
+const cross = JSON.parse(await readFile(join(dir, 'crosssignal.json'), 'utf8'));
 
 const html = `<!doctype html>
 <html lang="en">
@@ -95,6 +96,11 @@ const html = `<!doctype html>
   .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#166534;background:#e7f6ec;border:1px solid #bfe6cb;border-radius:5px;padding:2px 6px;margin-left:6px}
   .fresh-ok{color:#166534} .fresh-stale{color:#b7791f}
 
+  .xsig{font-size:13px;color:var(--ink-2);display:flex;gap:8px;align-items:baseline}
+  .xsig b{color:var(--ink);font-weight:600;width:58px;display:inline-block}
+  .xintro{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;font-size:14px;color:var(--ink-2)}
+  .xintro b{color:var(--ink)}
+  .quad{display:inline-block;font-weight:600}
   .method{font-size:13px;color:var(--ink-2)}
   .method h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
   .method .row{margin-bottom:12px}
@@ -124,12 +130,14 @@ const html = `<!doctype html>
   <div class="tabs">
     <button class="tab active" data-tab="dev">Development</button>
     <button class="tab" data-tab="tx">Transactions</button>
+    <button class="tab" data-tab="cross">Cross-Signal</button>
   </div>
 </div></header>
 
 <main>
   <div class="panel active" id="panel-dev"></div>
   <div class="panel" id="panel-tx"></div>
+  <div class="panel" id="panel-cross"></div>
 
   <div class="modal-ov" id="ov"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
     <div class="mhead"><div><div class="mtitle" id="m-title"></div><div class="msub" id="m-sub"></div></div>
@@ -141,6 +149,7 @@ const html = `<!doctype html>
 <script>
 const DEV = ${JSON.stringify(dev)};
 const TX  = ${JSON.stringify(tx)};
+const CROSS = ${JSON.stringify(cross)};
 
 const fmt = (n) => Number(n||0).toLocaleString('en-US');
 const pct = (x) => x==null ? '—' : (x>=0?'+':'') + Math.round(x*100) + '%';
@@ -259,8 +268,58 @@ function renderTx(){
   return h;
 }
 
+// ---------- Cross-Signal panel ----------
+function crossChip(c){
+  const map={'Supply building, demand softening':['elevated','Oversupply watch'],'Demand outpacing supply':['cooling','Tightening'],'Heating':['elevated','Heating'],'Cooling':['cooling','Cooling'],'Mixed / flat':['range','Mixed']};
+  const [k,lab]=map[c]||['range',c]; return '<span class="chip '+k+'">'+lab+'</span>';
+}
+function xcard(z){
+  return '<div class="card"><div class="top"><span class="name">'+z.zip+' · '+z.neighborhood+'</span>'+crossChip(z.cls)+'</div>'
+    +'<div style="font-size:12px;color:var(--muted)">'+z.borough+'</div>'
+    +'<div class="xsig"><b>Supply</b> <span class="'+upd(z.devYoY)+'">'+arrow(z.devYoY)+' '+pct(z.devYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.devCur)+' filings</span></div>'
+    +'<div class="xsig"><b>Demand</b> <span class="'+upd(z.txYoY)+'">'+arrow(z.txYoY)+' '+pct(z.txYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.txCur)+' sales</span></div>'
+    +'<div class="cardfoot"><span>verify:</span><span><a href="'+z.devEvidence+'" target="_blank" rel="noopener">filings ↗</a> &nbsp;·&nbsp; <a href="'+z.txEvidence+'" target="_blank" rel="noopener">sales ↗</a></span></div></div>';
+}
+function renderCross(){
+  const C=CROSS, m=C.meta;
+  let h='';
+  h+=section('Cross-Signal · Supply vs. Demand · '+m.windowLabel,
+    '<div class="xintro">This view joins <b>New Building filings</b> (supply, DOB) and <b>recorded sales</b> (demand, DOF) by property ZIP, comparing the latest quarter year-over-year. '
+    +'It flags where the two <b>diverge</b> — the non-obvious signal a market report is built to catch: '
+    +'<span class="quad" style="color:var(--elev)">supply building while demand softens</span> (oversupply watch), or '
+    +'<span class="quad" style="color:var(--cool)">demand outpacing new supply</span> (tightening).</div>');
+
+  const counts=C.counts||{};
+  const kpis=[
+    {label:'Oversupply watch', big:(counts['Supply building, demand softening']||0), sub:'supply ▲ · demand ▼'},
+    {label:'Tightening', big:(counts['Demand outpacing supply']||0), sub:'demand ▲ · supply ▼'},
+    {label:'Heating (both ▲)', big:(counts['Heating']||0), sub:'supply & demand rising'},
+    {label:'Cooling (both ▼)', big:(counts['Cooling']||0), sub:'supply & demand falling'},
+  ];
+  h+=section('Divergence tally · '+C.zips.length+' qualifying ZIPs',
+    '<div class="kpis">'+kpis.map(k=>'<div class="kpi"><div class="label">'+k.label+'</div><div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('')+'</div>');
+
+  if(C.oversupply.length) h+=section('Oversupply watch — supply building, demand softening',
+    '<div class="grid">'+C.oversupply.map(xcard).join('')+'</div>');
+  if(C.tightening.length) h+=section('Tightening — demand outpacing new supply',
+    '<div class="grid">'+C.tightening.map(xcard).join('')+'</div>');
+
+  h+=section('All qualifying ZIPs · ranked by divergence',
+    '<table><thead><tr><th>ZIP</th><th>Area</th><th>Borough</th><th class="n">Supply YoY</th><th class="n">Demand YoY</th><th>Signal</th><th></th></tr></thead><tbody>'
+    +C.zips.map(z=>'<tr><td class="num">'+z.zip+'</td><td class="desc">'+z.neighborhood+'</td><td>'+z.borough+'</td>'
+      +'<td class="n '+upd(z.devYoY)+'">'+pct(z.devYoY)+'</td><td class="n '+upd(z.txYoY)+'">'+pct(z.txYoY)+'</td>'
+      +'<td>'+crossChip(z.cls)+'</td>'
+      +'<td><a href="'+z.devEvidence+'" target="_blank" rel="noopener">filings</a> · <a href="'+z.txEvidence+'" target="_blank" rel="noopener">sales</a></td></tr>').join('')
+    +'</tbody></table>');
+
+  h+=section('Data Provenance &amp; Freshness', provenanceBoxes(m.sources.map(s=>({...s,provenance:'official',publisher:'NYC Open Data (DOB + DOF)'})), m.generatedAt, 'Joins two official city feeds · quarter ending '+m.referenceMonthLabel));
+  h+=section('Methodology &amp; Evidence', methodBlock({baseline:m.method.signal, threshold:m.method.threshold, note:m.method.note}, m.sources.map(s=>s.label+' (<code>'+s.datasetId+'</code>)').join(' + ')));
+  return h;
+}
+
 document.getElementById('panel-dev').innerHTML = renderDev();
 document.getElementById('panel-tx').innerHTML  = renderTx();
+document.getElementById('panel-cross').innerHTML = renderCross();
 document.getElementById('asof').textContent =
   'Development as of '+DEV.meta.latestMonthLabel+' · Transactions as of '+TX.meta.latestMonthLabel;
 

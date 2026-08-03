@@ -67,12 +67,13 @@ This is now a **portfolio project**: a dashboard mimicking institutional researc
 The dashboard is a **tabbed multi-feed** view:
 - **Development** (DOB) — New Building & demolition filings, borough + neighborhood drill-down.
 - **Transactions** (DOF) — recorded market sales, median price, $ volume by borough + neighborhood drill-down.
+- **Cross-Signal** — joins the two feeds by property ZIP and flags where supply & demand **diverge** (oversupply-watch vs. tightening). The synthesis layer.
 
 Each feed has its own regime call, KPIs, borough grid, notable list, and a provenance/freshness panel. Every figure links to the underlying records.
 
 **Done:** sources verified & official (DOB daily; DOF monthly) · neighborhood (NTA) drill-down · transactions feed (rejected ACRIS Master for coverage gaps → DOF Rolling+Annualized Sales) · tabbed dashboard · pushed to [github.com/cajiang/urban-update](https://github.com/cajiang/urban-update).
 
 ## Next (candidates)
-- **LLM interpretation layer** — per-neighborhood narrative synthesizing both feeds (the cross-feed "wow"; now that both feeds have neighborhood depth, this is the natural next move).
-- **A distinctive local feed** — Operations & Risk (DOB/HPD violations, Local Law 97) or Regulation/Policy.
-- **Deferred/context:** FRED rate strip (commodity data — backdrop only, not a headline feed).
+- **Operations & Risk feed** — DOB/HPD violations, Local Law 97 compliance (a "don't-want-to-miss" for owners; agreed to add).
+- **LLM interpretation layer** — narrative synthesizing the feeds + Cross-Signal (now well set up).
+- **Deferred/context:** FRED rate strip (commodity data — backdrop only, agreed to add later).
