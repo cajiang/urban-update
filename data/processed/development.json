@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "NYC Development",
-    "generatedAt": "2026-08-03T19:37:08.136Z",
+    "generatedAt": "2026-08-04T17:49:51.730Z",
     "latestCompleteMonth": "2026-07",
     "latestMonthLabel": "July 2026",
     "source": {
@@ -13,7 +13,7 @@
       "publisher": "Department of Buildings (DOB)",
       "provenance": "official",
       "updateFrequency": "Daily",
-      "dataUpdatedAt": "2026-08-02T20:23:40.000Z"
+      "dataUpdatedAt": "2026-08-03T20:28:21.000Z"
     },
     "method": {
       "baseline": "Trailing 12-month average of New Building filings.",

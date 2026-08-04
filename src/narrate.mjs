@@ -159,8 +159,14 @@ async function main() {
   });
 
   if (!res.ok) {
-    console.error(`Claude API ${res.status}: ${(await res.text()).slice(0, 400)}`);
-    process.exit(1);
+    const body = (await res.text()).slice(0, 400);
+    const hint = res.status === 401 ? ' → key invalid/rejected. Check ANTHROPIC_API_KEY is set in THIS shell (no stray quotes/whitespace); rotate if unsure.'
+      : res.status === 400 ? ' → request rejected (bad parameter or schema).'
+      : res.status === 429 ? ' → rate limited; retry later.'
+      : (res.status >= 500 ? ' → Anthropic service error; retry later.' : '');
+    console.error(`Claude API ${res.status}${hint}\n${body}`);
+    console.error('Skipping narration — existing narratives.json kept; the rest of the build continues.');
+    return;   // don't halt the refresh chain; the dashboard still rebuilds
   }
   const data = await res.json();
   if (data.stop_reason === 'refusal') {
@@ -168,7 +174,7 @@ async function main() {
     return;
   }
   const text = (data.content || []).find((b) => b.type === 'text');
-  if (!text) { console.error('No text block in response.'); process.exit(1); }
+  if (!text) { console.error('No text block in response; keeping existing narratives.json.'); return; }
   const parsed = JSON.parse(text.text);
 
   const out = {

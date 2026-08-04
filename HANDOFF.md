@@ -2,6 +2,12 @@
 
 _For the next session. Read this first, then `DECISIONS.md` (the canonical decision log) and `SOURCES.md` (verified data sources)._
 
+## ⏩ Pick up here (2026-08-03 handoff — end of session #2)
+- **Last commit `c258878`** (Capital feed + bug fixes + key-security) is pushed. **Uncommitted on disk:** `src/narrate.mjs` (graceful-skip-on-API-error fix), `run.ps1` (new DPAPI launcher — no secret, safe to commit), and refreshed generated files (data/processed/*.json + dashboard/index.html from a live re-pull). Ask the user before committing.
+- **Systems check PASSED** — every feed was independently re-queried against its live source: Development, Transactions, Risk (citywide C 59,792 & 311 185,888 exact), LL97 (covered 28,925 fully reconciled), Cross-Signal, Capital — all match or are explained. Data is fresh and correct; analysis logic (regime thresholds, 3×C+B risk weight, ZIP joins, LL97 model) is data-supported.
+- **Open finding (offered, not yet done):** LL97 method note says "Covered = buildings ≥25,000 sq ft" but the covered set also requires valid positive reported GHG + a derivable borough (~3,300 excluded, which nudges "% over limit" up). Suggested tightening the note to "≥25k sq ft **with reported emissions data**." Awaiting user's go-ahead.
+- **The AI Brief is still the committed seed** — it needs the user's `ANTHROPIC_API_KEY` to regenerate (never in Claude's env; never ask the user to paste it in chat). Run path: `.\run.ps1` (see below). Once it prints "Generating brief with claude-opus-5… / Wrote narratives.json", verify the Brief's figures trace to the (now-verified) feeds and its cross-feed reasoning — especially the capital lens — is sound.
+
 ## What this is
 An **NYC real-estate market-intelligence dashboard** — a **portfolio project** for founder **cajiang** that mimics what an institutional research team produces, generated automatically by AI from **public data that is easy to obtain and easy for AI to analyze**, with every figure traceable to a primary source. Not a startup chasing paying users; success = a credible, impressive, working artifact. Audience: NYC industry professionals broadly (developers, investors, owners, operators).
 
@@ -23,6 +29,7 @@ Every panel has its own provenance/freshness note; every figure links to the und
 - GitHub: **https://github.com/cajiang/urban-update** (public, `main`). `gh` authed as `cajiang`. Git identity: `cajiang` / `calvinj18766@gmail.com`.
 - **Zero-dependency Node** (Node 24 + curl present; NO Python, NO npm/`node_modules`, NO `package.json`). Everything runs with `node`.
 - **Refresh everything:** `node src/refresh.mjs` (runs all 8 steps: pipeline → transactions → risk → ll97 → capital → crosssignal → narrate → build-dashboard).
+- **Easiest launch (with the AI Brief), for the user on Windows:** `.\run.ps1` — decrypts the DPAPI-encrypted key into that process only, refreshes, opens the dashboard. One-time key setup + the `-ExecutionPolicy Bypass` fallback are documented in the `run.ps1` header and `RUN.md`. Claude cannot regenerate the Brief itself (no key in its env).
 - **The Brief needs a key:** set `ANTHROPIC_API_KEY` before refresh to regenerate it live (`claude-opus-5`, raw `fetch` to the Messages API). Without a key, narration skips and the committed **seed** brief is kept; everything else still builds. **Key security (D29):** env-only, never committed, never in chat/memory, never received by Claude — the user runs the keyed step themselves (ephemeral env var / secret store). `.env`/secrets are gitignored. See [SOURCES.md](SOURCES.md) + `RUN.md`.
 - **Capital feed is keyless** (FRED public CSV) — no key needed for anything except the Brief.
 - Open `dashboard/index.html` after building. **Commit + push at each checkpoint** (user is usage-limit aware).
