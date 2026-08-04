@@ -6,6 +6,12 @@ node_modules/
 Thumbs.db
 *.log
 
+# Secrets — NEVER commit. ANTHROPIC_API_KEY is read from the environment only.
+.env
+.env.*
+*.local
+secrets.json
+
 # Notes:
 # data/processed/*.json and dashboard/index.html are generated, but we DO commit them
 # so a fresh clone is immediately viewable. Re-run `node src/refresh.mjs` to regenerate.

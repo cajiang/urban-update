@@ -84,6 +84,22 @@ Same pattern with `job_type='Full Demolition'` gives the demolition (redevelopme
 
 **Deferred risk sources (phase 2+):** Facades/LL11 (`xubg-57si`), Local Law 97 emissions, Tax Lien Sale (`9rz4-mjek`, biannual), Flood Vulnerability Index (`mrjc-v9pm`, census-tract geometry), foreclosure/lis pendens (ACRIS/State courts — not on Open Data). FDNY current violations also a gap (only historical on Open Data).
 
+## Capital feed (v4) — cost of capital (national, FRED)
+
+> The one non-NYC feed, added as a **lens** on the local data (see DECISIONS.md D27–D28). Interest rates are the master variable behind demand; we present them as context on our feeds, not as a standalone ticker.
+
+| Series | FRED ID | Cadence | Role |
+|--------|---------|---------|------|
+| 10-Year Treasury Constant Maturity | `DGS10` | Daily | Benchmark for CRE cap rates & permanent debt |
+| 30-Year Fixed Mortgage Average | `MORTGAGE30US` | Weekly (Freddie Mac) | Residential / 1–4 family borrowing cost |
+| Secured Overnight Financing Rate | `SOFR` | Daily | Floating-rate benchmark — construction & bridge debt |
+| Federal Funds Effective Rate | `FEDFUNDS` | Monthly | Federal Reserve policy anchor |
+
+- **Publisher:** Federal Reserve Bank of St. Louis (FRED). **Access:** public **keyless CSV** endpoint `https://fred.stlouisfed.org/graph/fredgraph.csv?id=<ID>&cosd=2016-01-01` — **no API key**, preserving the zero-dependency design. Verified live 2026-08-03 (fresh through 2026-07).
+- **Aggregation:** monthly averages of each series since 2016. **Gotcha (fixed):** FRED marks missing values (market holidays) with an **empty string**, and `Number('') === 0` — so empties must be guarded, or they enter as phantom zeros and drag the averages down.
+- **The lens (demand only):** correlate the **year-over-year change** in each rate with the YoY change in citywide recorded sales (detrended). 30Y-mortgage↔sales r ≈ −0.21. **Development filings are deliberately excluded** — DOB NOW filings only became complete ~2021 and are driven by policy deadlines (421-a), so a rate correlation on them is spurious. Sales are the rate-sensitive channel.
+- **Lag handling:** all sales-based analysis is capped at the latest **complete** DOF month (source update − 2), matching the Transactions feed, so partial months don't bias the comparison.
+- **Disclosure:** correlation is association, not causation, and is labeled as such in-dashboard.
+
 ## Planned next sources (not yet built)
-- **FRED** (Treasury yields, SOFR, mortgage rates) — capital-conditions feed (agreed: later; commodity data).
 - **DCP Housing Database** — net-units pipeline cross-check.

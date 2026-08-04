@@ -17,6 +17,8 @@ const tx = JSON.parse(await readFile(join(dir, 'transactions.json'), 'utf8'));
 const cross = JSON.parse(await readFile(join(dir, 'crosssignal.json'), 'utf8'));
 const risk = JSON.parse(await readFile(join(dir, 'risk.json'), 'utf8'));
 const ll97 = JSON.parse(await readFile(join(dir, 'll97.json'), 'utf8'));
+let capital = null;
+try { capital = JSON.parse(await readFile(join(dir, 'capital.json'), 'utf8')); } catch { /* optional */ }
 let brief = null;
 try { brief = JSON.parse(await readFile(join(dir, 'narratives.json'), 'utf8')); } catch { /* optional */ }
 
@@ -115,6 +117,14 @@ const html = `<!doctype html>
   .fig.up{color:var(--elev)} .fig.down{color:var(--cool)}
   .fig-money{color:#166534} .fig-num{color:var(--ink)}
   .quad{display:inline-block;font-weight:600}
+  .chartwrap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .chartwrap svg{width:100%;height:auto;display:block}
+  .legend{display:flex;gap:20px;font-size:12.5px;color:var(--ink-2);margin-top:10px;flex-wrap:wrap}
+  .legend .sw{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+  .cyc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .cyc .cyc-lead{font-size:16px;line-height:1.6;color:var(--ink);margin:0}
+  .cyc .cyc-lead b{font-weight:700}
+  .rolecap{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.35}
   .method{font-size:13px;color:var(--ink-2)}
   .method h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
   .method .row{margin-bottom:12px}
@@ -145,6 +155,7 @@ const html = `<!doctype html>
     <button class="tab active" data-tab="brief">Brief</button>
     <button class="tab" data-tab="dev">Development</button>
     <button class="tab" data-tab="tx">Transactions</button>
+    <button class="tab" data-tab="capital">Capital</button>
     <button class="tab" data-tab="cross">Cross-Signal</button>
     <button class="tab" data-tab="risk">Risk</button>
     <button class="tab" data-tab="ll97">Local Law 97</button>
@@ -155,6 +166,7 @@ const html = `<!doctype html>
   <div class="panel active" id="panel-brief"></div>
   <div class="panel" id="panel-dev"></div>
   <div class="panel" id="panel-tx"></div>
+  <div class="panel" id="panel-capital"></div>
   <div class="panel" id="panel-cross"></div>
   <div class="panel" id="panel-risk"></div>
   <div class="panel" id="panel-ll97"></div>
@@ -172,6 +184,7 @@ const TX  = ${JSON.stringify(tx)};
 const CROSS = ${JSON.stringify(cross)};
 const RISK = ${JSON.stringify(risk)};
 const LL97 = ${JSON.stringify(ll97)};
+const CAP = ${JSON.stringify(capital)};
 const BRIEF = ${JSON.stringify(brief)};
 
 const fmt = (n) => Number(n||0).toLocaleString('en-US');
@@ -196,12 +209,12 @@ function sparkline(series, key){
 
 function section(eyebrow, inner){ return '<section><div class="wrap"><p class="eyebrow">'+eyebrow+'</p>'+inner+'</div></section>'; }
 
-function provenanceBoxes(sources, generatedAt, lagNote){
+function provenanceBoxes(sources, generatedAt, lagNote, pubSub){
   const arr = Array.isArray(sources)?sources:[sources];
   const primary = arr[0];
   const off = (primary.provenance==='official')?'<span class="badge">Official</span>':'';
   const boxes = [
-    {k:'Publisher', v:(primary.publisher||primary.attribution||'—')+off, s:'Primary system of record — NYC Open Data'},
+    {k:'Publisher', v:(primary.publisher||primary.attribution||'—')+off, s:pubSub||'Primary system of record — NYC Open Data'},
   ];
   arr.forEach(s=>boxes.push({k:'Source dataset', v:s.label,
     s:'ID '+s.datasetId+' · '+(s.updateFrequency||'—')+' · updated '+dateOnly(s.dataUpdatedAt)}));
@@ -427,6 +440,74 @@ function renderLL97(){
   return h;
 }
 
+// ---------- Capital panel (cost-of-capital lens) ----------
+const bps = (n) => (n>=0?'+':'−')+Math.abs(n)+' bps';
+// Dual-axis line chart: a rate (left axis) vs. recorded sales (right axis).
+function lensChart(overlay){
+  const W=720,H=250,padL=40,padR=54,padT=14,padB=26,n=overlay.length;
+  const R=overlay.map(o=>o.rate),S=overlay.map(o=>o.sales);
+  const rMin=Math.min(...R),rMax=Math.max(...R),sMin=Math.min(...S),sMax=Math.max(...S);
+  const x=(i)=>padL+i*((W-padL-padR)/(n-1));
+  const yR=(v)=>(H-padB)-((v-rMin)/((rMax-rMin)||1))*(H-padT-padB);
+  const yS=(v)=>(H-padB)-((v-sMin)/((sMax-sMin)||1))*(H-padT-padB);
+  const poly=(vals,yfn,color)=>'<polyline fill="none" stroke="'+color+'" stroke-width="1.9" points="'+vals.map((v,i)=>x(i).toFixed(1)+','+yfn(v).toFixed(1)).join(' ')+'"/>';
+  let ticks='';
+  overlay.forEach((o,i)=>{ if(o.month.slice(5)==='01'){ ticks+='<line x1="'+x(i).toFixed(1)+'" y1="'+padT+'" x2="'+x(i).toFixed(1)+'" y2="'+(H-padB)+'" stroke="#eef0f3"/>'
+    +'<text x="'+x(i).toFixed(1)+'" y="'+(H-8)+'" font-size="10" fill="#6b7280" text-anchor="middle">'+o.month.slice(0,4)+'</text>'; }});
+  const axL=(v)=>'<text x="'+(padL-6)+'" y="'+(yR(v)+3).toFixed(1)+'" font-size="10" fill="#b7791f" text-anchor="end">'+v.toFixed(1)+'%</text>';
+  const axR=(v)=>'<text x="'+(W-padR+6)+'" y="'+(yS(v)+3).toFixed(1)+'" font-size="10" fill="#1c4e80" text-anchor="start">'+fmt(Math.round(v))+'</text>';
+  return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" role="img" aria-label="10-Year Treasury vs. recorded sales">'
+    +ticks+axL(rMax)+axL(rMin)+axR(sMax)+axR(sMin)
+    +poly(S,yS,'#1c4e80')+poly(R,yR,'#b7791f')+'</svg>';
+}
+function renderCapital(){
+  if(!CAP) return section('Capital Conditions','<div class="xintro">No capital data yet. Run <code>node src/capital.mjs</code> to pull the FRED rate series.</div>');
+  const K=CAP, m=K.meta, L=K.lens, cyc=L.cycle;
+  let h='';
+  h+=section('Capital Conditions · the cost of capital',
+    '<div class="xintro">Interest rates are the master variable in real estate — they set the cost of every acquisition, construction loan, and refinancing. This tracks the rates NYC deals are priced off, straight from the <b>Federal Reserve</b>, and — as a <b>lens</b> — measures how local housing demand has moved with them.</div>');
+
+  const rateKpi=(r)=>{
+    const dir = r.yoyBps==null?'':(r.yoyBps>=0?'up':'down');
+    return '<div class="kpi"><div class="label">'+r.name+'</div>'
+      +'<div class="big num">'+r.latest.value.toFixed(2)+'%</div>'
+      +'<div class="sub">'+(r.yoyBps==null?'':'<span class="'+dir+'">'+arrow(r.yoyBps)+' '+bps(r.yoyBps)+' YoY</span> · ')+'cycle '+r.cycleLow.value+'–'+r.cycleHigh.value+'%</div>'
+      +'<div class="rolecap">'+r.role+'</div></div>';
+  };
+  h+=section('Current rates · latest print',
+    '<div class="kpis">'+K.rates.map(rateKpi).join('')+'</div>'
+    +'<p class="verify" style="margin-top:12px;color:var(--muted);font-size:12.5px">Latest: '
+    +K.rates.map(r=>r.name+' '+r.latest.value.toFixed(2)+'% ('+dateOnly(r.latest.date+'T00:00:00')+')').join(' · ')+'</p>');
+
+  // The lens: cycle comparison (hero) + overlay chart + correlation.
+  if(cyc){
+    const salesPct = cyc.sales? pct(cyc.sales.pct) : '—';
+    h+=section('The lens · cost of capital vs. NYC housing demand',
+      '<div class="cyc"><p class="cyc-lead">Since the <b>2021 low-rate boom</b>, the 30-year mortgage rose from <b>'+cyc.mortgage30.from.toFixed(2)+'%</b> to <b class="up">'+cyc.mortgage30.to.toFixed(2)+'%</b> and the 10-year Treasury from <b>'+cyc.treasury10.from.toFixed(2)+'%</b> to <b class="up">'+cyc.treasury10.to.toFixed(2)+'%</b>. '
+      +'Over the same span, NYC recorded market sales '+(cyc.sales&&cyc.sales.pct<0?'fell':'moved')+' <b class="down">'+salesPct+'</b>'
+      +(cyc.sales?' — from <b>'+fmt(cyc.sales.from)+'</b> to <b>'+fmt(cyc.sales.to)+'</b> sales per month':'')+' ('+cyc.toLabel+').</p></div>');
+  }
+
+  if(L.overlay&&L.overlay.length){
+    h+=section('10-Year Treasury vs. recorded sales · monthly, 2016 → today',
+      '<div class="chartwrap">'+lensChart(L.overlay)
+      +'<div class="legend"><span><span class="sw" style="background:#b7791f"></span>10-Year Treasury (%, left axis)</span>'
+      +'<span><span class="sw" style="background:#1c4e80"></span>Recorded sales (per month, right axis)</span></div></div>');
+  }
+
+  const mc=(L.correlations||[]).find(c=>c.rate==='30-Year Mortgage');
+  if(mc){
+    h+=section('Association · detrended',
+      '<div class="xintro">On year-over-year changes (which strip out the shared long-run trend), the 30-year mortgage rate and recorded sales show a <b>modest inverse association</b> — Pearson <b>r = '+mc.r+'</b> over '+mc.n+' months ('+mc.from+' → '+mc.to+'). '
+      +'Month-to-month the relationship is noisy — many forces move a single month\\'s sales — but at cycle scale the direction is clear. '
+      +'<br><br><span style="color:var(--muted);font-size:13px">'+esc(L.supplyNote)+'</span></div>');
+  }
+
+  h+=section('Data Provenance &amp; Freshness', provenanceBoxes([{label:'Interest-rate series (10Y, mortgage, SOFR, Fed Funds)', datasetId:m.source.datasetId, updateFrequency:m.source.updateFrequency, dataUpdatedAt:m.source.dataUpdatedAt, provenance:'official', publisher:m.source.publisher}], m.generatedAt, m.source.note, 'Authoritative U.S. macro-financial data — Federal Reserve (FRED)'));
+  h+=section('Methodology &amp; Evidence', methodBlock(m.method, m.source.label+'. Series pulled from the public FRED CSV endpoint (no API key). <a href="'+m.source.landing+'" target="_blank" rel="noopener">FRED home ↗</a>'));
+  return h;
+}
+
 // ---------- Brief panel (LLM interpretation layer) ----------
 function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
 // Colorize figures inside brief prose so the data reads "important, now".
@@ -463,13 +544,14 @@ function renderBrief(){
   const gen = B.meta&&B.meta.generatedAt ? new Date(B.meta.generatedAt).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) : '';
   h+=section('About this brief',
     '<div class="ai-note"><b>Generated by '+esc((B.meta&&B.meta.model)||'Claude')+'</b> from the five feeds below'+(gen?', '+gen:'')+'. '
-    +esc((B.meta&&B.meta.grounding)||'')+' Periods — Development: '+esc(p.development)+' · Transactions: '+esc(p.transactions)+' · Risk: '+esc(p.risk)+' · LL97: '+esc(p.ll97_report_year)+' · Cross-Signal: '+esc(p.cross_signal)+'.</div>');
+    +esc((B.meta&&B.meta.grounding)||'')+' Periods — Development: '+esc(p.development)+' · Transactions: '+esc(p.transactions)+' · Risk: '+esc(p.risk)+' · LL97: '+esc(p.ll97_report_year)+' · Cross-Signal: '+esc(p.cross_signal)+(p.capital?' · Capital: '+esc(p.capital):'')+'.</div>');
   return h;
 }
 
 document.getElementById('panel-brief').innerHTML = renderBrief();
 document.getElementById('panel-dev').innerHTML = renderDev();
 document.getElementById('panel-tx').innerHTML  = renderTx();
+document.getElementById('panel-capital').innerHTML = renderCapital();
 document.getElementById('panel-cross').innerHTML = renderCross();
 document.getElementById('panel-risk').innerHTML = renderRisk();
 document.getElementById('panel-ll97').innerHTML = renderLL97();

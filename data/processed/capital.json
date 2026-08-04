@@ -1,0 +1,1368 @@
+{
+  "meta": {
+    "product": "Urban Update",
+    "feed": "Capital Conditions",
+    "generatedAt": "2026-08-04T00:09:22.423Z",
+    "source": {
+      "label": "FRED — Federal Reserve Bank of St. Louis",
+      "host": "fred.stlouisfed.org",
+      "landing": "https://fred.stlouisfed.org",
+      "publisher": "Federal Reserve Bank of St. Louis",
+      "provenance": "official",
+      "datasetId": "DGS10, MORTGAGE30US, SOFR, FEDFUNDS",
+      "updateFrequency": "Daily (Treasuries, SOFR), weekly (mortgage), monthly (Fed Funds)",
+      "dataUpdatedAt": "2026-07-31T12:00:00",
+      "note": "Public FRED CSV endpoint — no API key required."
+    },
+    "method": {
+      "baseline": "Monthly averages of each FRED series since 2016; YoY compares the latest month to twelve months prior (in basis points).",
+      "threshold": "The lens correlates the year-over-year change in each rate with the year-over-year change in citywide recorded sales (detrended to remove the shared secular trend), plus a low-rate-boom (2021) vs. now comparison.",
+      "note": "Correlation is association, not causation. Rates are one of many forces on housing demand; figures are computed facts, the linkage is interpretation."
+    }
+  },
+  "rates": [
+    {
+      "id": "DGS10",
+      "name": "10-Year Treasury",
+      "unit": "%",
+      "role": "Benchmark for CRE cap rates & permanent debt",
+      "latest": {
+        "value": 4.75,
+        "date": "2026-07-31"
+      },
+      "latestMonth": "2026-07",
+      "yoyBps": 21,
+      "cycleLow": {
+        "value": 0.62,
+        "month": "2020-07",
+        "label": "July 2020"
+      },
+      "cycleHigh": {
+        "value": 4.8,
+        "month": "2023-10",
+        "label": "October 2023"
+      },
+      "spark": [
+        {
+          "month": "2023-08",
+          "v": 4.17
+        },
+        {
+          "month": "2023-09",
+          "v": 4.38
+        },
+        {
+          "month": "2023-10",
+          "v": 4.8
+        },
+        {
+          "month": "2023-11",
+          "v": 4.5
+        },
+        {
+          "month": "2023-12",
+          "v": 4.02
+        },
+        {
+          "month": "2024-01",
+          "v": 4.06
+        },
+        {
+          "month": "2024-02",
+          "v": 4.21
+        },
+        {
+          "month": "2024-03",
+          "v": 4.21
+        },
+        {
+          "month": "2024-04",
+          "v": 4.54
+        },
+        {
+          "month": "2024-05",
+          "v": 4.48
+        },
+        {
+          "month": "2024-06",
+          "v": 4.31
+        },
+        {
+          "month": "2024-07",
+          "v": 4.25
+        },
+        {
+          "month": "2024-08",
+          "v": 3.87
+        },
+        {
+          "month": "2024-09",
+          "v": 3.72
+        },
+        {
+          "month": "2024-10",
+          "v": 4.1
+        },
+        {
+          "month": "2024-11",
+          "v": 4.36
+        },
+        {
+          "month": "2024-12",
+          "v": 4.39
+        },
+        {
+          "month": "2025-01",
+          "v": 4.63
+        },
+        {
+          "month": "2025-02",
+          "v": 4.45
+        },
+        {
+          "month": "2025-03",
+          "v": 4.28
+        },
+        {
+          "month": "2025-04",
+          "v": 4.28
+        },
+        {
+          "month": "2025-05",
+          "v": 4.42
+        },
+        {
+          "month": "2025-06",
+          "v": 4.38
+        },
+        {
+          "month": "2025-07",
+          "v": 4.39
+        },
+        {
+          "month": "2025-08",
+          "v": 4.26
+        },
+        {
+          "month": "2025-09",
+          "v": 4.12
+        },
+        {
+          "month": "2025-10",
+          "v": 4.06
+        },
+        {
+          "month": "2025-11",
+          "v": 4.09
+        },
+        {
+          "month": "2025-12",
+          "v": 4.14
+        },
+        {
+          "month": "2026-01",
+          "v": 4.21
+        },
+        {
+          "month": "2026-02",
+          "v": 4.13
+        },
+        {
+          "month": "2026-03",
+          "v": 4.25
+        },
+        {
+          "month": "2026-04",
+          "v": 4.32
+        },
+        {
+          "month": "2026-05",
+          "v": 4.48
+        },
+        {
+          "month": "2026-06",
+          "v": 4.47
+        },
+        {
+          "month": "2026-07",
+          "v": 4.6
+        }
+      ],
+      "seriesLanding": "https://fred.stlouisfed.org/series/DGS10"
+    },
+    {
+      "id": "MORTGAGE30US",
+      "name": "30-Year Mortgage",
+      "unit": "%",
+      "role": "Residential / 1–4 family borrowing cost (Freddie Mac)",
+      "latest": {
+        "value": 6.66,
+        "date": "2026-07-30"
+      },
+      "latestMonth": "2026-07",
+      "yoyBps": -18,
+      "cycleLow": {
+        "value": 2.68,
+        "month": "2020-12",
+        "label": "December 2020"
+      },
+      "cycleHigh": {
+        "value": 7.62,
+        "month": "2023-10",
+        "label": "October 2023"
+      },
+      "spark": [
+        {
+          "month": "2023-08",
+          "v": 7.07
+        },
+        {
+          "month": "2023-09",
+          "v": 7.2
+        },
+        {
+          "month": "2023-10",
+          "v": 7.62
+        },
+        {
+          "month": "2023-11",
+          "v": 7.44
+        },
+        {
+          "month": "2023-12",
+          "v": 6.82
+        },
+        {
+          "month": "2024-01",
+          "v": 6.64
+        },
+        {
+          "month": "2024-02",
+          "v": 6.78
+        },
+        {
+          "month": "2024-03",
+          "v": 6.82
+        },
+        {
+          "month": "2024-04",
+          "v": 6.99
+        },
+        {
+          "month": "2024-05",
+          "v": 7.06
+        },
+        {
+          "month": "2024-06",
+          "v": 6.92
+        },
+        {
+          "month": "2024-07",
+          "v": 6.85
+        },
+        {
+          "month": "2024-08",
+          "v": 6.5
+        },
+        {
+          "month": "2024-09",
+          "v": 6.18
+        },
+        {
+          "month": "2024-10",
+          "v": 6.43
+        },
+        {
+          "month": "2024-11",
+          "v": 6.81
+        },
+        {
+          "month": "2024-12",
+          "v": 6.72
+        },
+        {
+          "month": "2025-01",
+          "v": 6.96
+        },
+        {
+          "month": "2025-02",
+          "v": 6.84
+        },
+        {
+          "month": "2025-03",
+          "v": 6.65
+        },
+        {
+          "month": "2025-04",
+          "v": 6.73
+        },
+        {
+          "month": "2025-05",
+          "v": 6.82
+        },
+        {
+          "month": "2025-06",
+          "v": 6.82
+        },
+        {
+          "month": "2025-07",
+          "v": 6.72
+        },
+        {
+          "month": "2025-08",
+          "v": 6.59
+        },
+        {
+          "month": "2025-09",
+          "v": 6.35
+        },
+        {
+          "month": "2025-10",
+          "v": 6.25
+        },
+        {
+          "month": "2025-11",
+          "v": 6.24
+        },
+        {
+          "month": "2025-12",
+          "v": 6.19
+        },
+        {
+          "month": "2026-01",
+          "v": 6.1
+        },
+        {
+          "month": "2026-02",
+          "v": 6.05
+        },
+        {
+          "month": "2026-03",
+          "v": 6.18
+        },
+        {
+          "month": "2026-04",
+          "v": 6.33
+        },
+        {
+          "month": "2026-05",
+          "v": 6.44
+        },
+        {
+          "month": "2026-06",
+          "v": 6.49
+        },
+        {
+          "month": "2026-07",
+          "v": 6.54
+        }
+      ],
+      "seriesLanding": "https://fred.stlouisfed.org/series/MORTGAGE30US"
+    },
+    {
+      "id": "SOFR",
+      "name": "SOFR",
+      "unit": "%",
+      "role": "Floating-rate benchmark — construction & bridge debt",
+      "latest": {
+        "value": 3.66,
+        "date": "2026-07-31"
+      },
+      "latestMonth": "2026-07",
+      "yoyBps": -72,
+      "cycleLow": {
+        "value": 0.01,
+        "month": "2021-04",
+        "label": "April 2021"
+      },
+      "cycleHigh": {
+        "value": 5.34,
+        "month": "2024-07",
+        "label": "July 2024"
+      },
+      "spark": [
+        {
+          "month": "2023-08",
+          "v": 5.3
+        },
+        {
+          "month": "2023-09",
+          "v": 5.31
+        },
+        {
+          "month": "2023-10",
+          "v": 5.31
+        },
+        {
+          "month": "2023-11",
+          "v": 5.32
+        },
+        {
+          "month": "2023-12",
+          "v": 5.34
+        },
+        {
+          "month": "2024-01",
+          "v": 5.32
+        },
+        {
+          "month": "2024-02",
+          "v": 5.31
+        },
+        {
+          "month": "2024-03",
+          "v": 5.31
+        },
+        {
+          "month": "2024-04",
+          "v": 5.32
+        },
+        {
+          "month": "2024-05",
+          "v": 5.31
+        },
+        {
+          "month": "2024-06",
+          "v": 5.33
+        },
+        {
+          "month": "2024-07",
+          "v": 5.34
+        },
+        {
+          "month": "2024-08",
+          "v": 5.33
+        },
+        {
+          "month": "2024-09",
+          "v": 5.15
+        },
+        {
+          "month": "2024-10",
+          "v": 4.85
+        },
+        {
+          "month": "2024-11",
+          "v": 4.64
+        },
+        {
+          "month": "2024-12",
+          "v": 4.53
+        },
+        {
+          "month": "2025-01",
+          "v": 4.32
+        },
+        {
+          "month": "2025-02",
+          "v": 4.34
+        },
+        {
+          "month": "2025-03",
+          "v": 4.33
+        },
+        {
+          "month": "2025-04",
+          "v": 4.35
+        },
+        {
+          "month": "2025-05",
+          "v": 4.31
+        },
+        {
+          "month": "2025-06",
+          "v": 4.32
+        },
+        {
+          "month": "2025-07",
+          "v": 4.34
+        },
+        {
+          "month": "2025-08",
+          "v": 4.34
+        },
+        {
+          "month": "2025-09",
+          "v": 4.3
+        },
+        {
+          "month": "2025-10",
+          "v": 4.2
+        },
+        {
+          "month": "2025-11",
+          "v": 3.98
+        },
+        {
+          "month": "2025-12",
+          "v": 3.8
+        },
+        {
+          "month": "2026-01",
+          "v": 3.66
+        },
+        {
+          "month": "2026-02",
+          "v": 3.67
+        },
+        {
+          "month": "2026-03",
+          "v": 3.65
+        },
+        {
+          "month": "2026-04",
+          "v": 3.64
+        },
+        {
+          "month": "2026-05",
+          "v": 3.59
+        },
+        {
+          "month": "2026-06",
+          "v": 3.63
+        },
+        {
+          "month": "2026-07",
+          "v": 3.62
+        }
+      ],
+      "seriesLanding": "https://fred.stlouisfed.org/series/SOFR"
+    },
+    {
+      "id": "FEDFUNDS",
+      "name": "Fed Funds Rate",
+      "unit": "%",
+      "role": "Federal Reserve policy anchor",
+      "latest": {
+        "value": 3.63,
+        "date": "2026-07-01"
+      },
+      "latestMonth": "2026-07",
+      "yoyBps": -70,
+      "cycleLow": {
+        "value": 0.05,
+        "month": "2020-04",
+        "label": "April 2020"
+      },
+      "cycleHigh": {
+        "value": 5.33,
+        "month": "2023-08",
+        "label": "August 2023"
+      },
+      "spark": [
+        {
+          "month": "2023-08",
+          "v": 5.33
+        },
+        {
+          "month": "2023-09",
+          "v": 5.33
+        },
+        {
+          "month": "2023-10",
+          "v": 5.33
+        },
+        {
+          "month": "2023-11",
+          "v": 5.33
+        },
+        {
+          "month": "2023-12",
+          "v": 5.33
+        },
+        {
+          "month": "2024-01",
+          "v": 5.33
+        },
+        {
+          "month": "2024-02",
+          "v": 5.33
+        },
+        {
+          "month": "2024-03",
+          "v": 5.33
+        },
+        {
+          "month": "2024-04",
+          "v": 5.33
+        },
+        {
+          "month": "2024-05",
+          "v": 5.33
+        },
+        {
+          "month": "2024-06",
+          "v": 5.33
+        },
+        {
+          "month": "2024-07",
+          "v": 5.33
+        },
+        {
+          "month": "2024-08",
+          "v": 5.33
+        },
+        {
+          "month": "2024-09",
+          "v": 5.13
+        },
+        {
+          "month": "2024-10",
+          "v": 4.83
+        },
+        {
+          "month": "2024-11",
+          "v": 4.64
+        },
+        {
+          "month": "2024-12",
+          "v": 4.48
+        },
+        {
+          "month": "2025-01",
+          "v": 4.33
+        },
+        {
+          "month": "2025-02",
+          "v": 4.33
+        },
+        {
+          "month": "2025-03",
+          "v": 4.33
+        },
+        {
+          "month": "2025-04",
+          "v": 4.33
+        },
+        {
+          "month": "2025-05",
+          "v": 4.33
+        },
+        {
+          "month": "2025-06",
+          "v": 4.33
+        },
+        {
+          "month": "2025-07",
+          "v": 4.33
+        },
+        {
+          "month": "2025-08",
+          "v": 4.33
+        },
+        {
+          "month": "2025-09",
+          "v": 4.22
+        },
+        {
+          "month": "2025-10",
+          "v": 4.09
+        },
+        {
+          "month": "2025-11",
+          "v": 3.88
+        },
+        {
+          "month": "2025-12",
+          "v": 3.72
+        },
+        {
+          "month": "2026-01",
+          "v": 3.64
+        },
+        {
+          "month": "2026-02",
+          "v": 3.64
+        },
+        {
+          "month": "2026-03",
+          "v": 3.64
+        },
+        {
+          "month": "2026-04",
+          "v": 3.64
+        },
+        {
+          "month": "2026-05",
+          "v": 3.63
+        },
+        {
+          "month": "2026-06",
+          "v": 3.63
+        },
+        {
+          "month": "2026-07",
+          "v": 3.63
+        }
+      ],
+      "seriesLanding": "https://fred.stlouisfed.org/series/FEDFUNDS"
+    }
+  ],
+  "lens": {
+    "windowLabel": "2021 (low-rate boom) → June 2025 – May 2026",
+    "correlations": [
+      {
+        "rate": "30-Year Mortgage",
+        "vs": "Recorded sales",
+        "r": -0.21,
+        "n": 113,
+        "from": "2016-01",
+        "to": "2026-05"
+      },
+      {
+        "rate": "10-Year Treasury",
+        "vs": "Recorded sales",
+        "r": 0.13,
+        "n": 113,
+        "from": "2016-01",
+        "to": "2026-05"
+      }
+    ],
+    "cycle": {
+      "fromLabel": "2021 (low-rate boom)",
+      "toLabel": "June 2025 – May 2026",
+      "treasury10": {
+        "from": 1.44,
+        "to": 4.24
+      },
+      "mortgage30": {
+        "from": 2.96,
+        "to": 6.36
+      },
+      "sales": {
+        "from": 5902,
+        "to": 4358,
+        "pct": -0.2616160047438197
+      },
+      "basis": "Averages of citywide monthly figures over each period; sales are recorded market sales (price > $10,000)."
+    },
+    "overlay": [
+      {
+        "month": "2016-01",
+        "rate": 2.09,
+        "sales": 4736
+      },
+      {
+        "month": "2016-02",
+        "rate": 1.78,
+        "sales": 4774
+      },
+      {
+        "month": "2016-03",
+        "rate": 1.89,
+        "sales": 5345
+      },
+      {
+        "month": "2016-04",
+        "rate": 1.81,
+        "sales": 4535
+      },
+      {
+        "month": "2016-05",
+        "rate": 1.81,
+        "sales": 5013
+      },
+      {
+        "month": "2016-06",
+        "rate": 1.64,
+        "sales": 5840
+      },
+      {
+        "month": "2016-07",
+        "rate": 1.5,
+        "sales": 5121
+      },
+      {
+        "month": "2016-08",
+        "rate": 1.56,
+        "sales": 5734
+      },
+      {
+        "month": "2016-09",
+        "rate": 1.63,
+        "sales": 5343
+      },
+      {
+        "month": "2016-10",
+        "rate": 1.76,
+        "sales": 4451
+      },
+      {
+        "month": "2016-11",
+        "rate": 2.14,
+        "sales": 4647
+      },
+      {
+        "month": "2016-12",
+        "rate": 2.49,
+        "sales": 5217
+      },
+      {
+        "month": "2017-01",
+        "rate": 2.43,
+        "sales": 4778
+      },
+      {
+        "month": "2017-02",
+        "rate": 2.42,
+        "sales": 4386
+      },
+      {
+        "month": "2017-03",
+        "rate": 2.48,
+        "sales": 5205
+      },
+      {
+        "month": "2017-04",
+        "rate": 2.3,
+        "sales": 4410
+      },
+      {
+        "month": "2017-05",
+        "rate": 2.3,
+        "sales": 5226
+      },
+      {
+        "month": "2017-06",
+        "rate": 2.19,
+        "sales": 6038
+      },
+      {
+        "month": "2017-07",
+        "rate": 2.32,
+        "sales": 4854
+      },
+      {
+        "month": "2017-08",
+        "rate": 2.21,
+        "sales": 6047
+      },
+      {
+        "month": "2017-09",
+        "rate": 2.2,
+        "sales": 4922
+      },
+      {
+        "month": "2017-10",
+        "rate": 2.36,
+        "sales": 5228
+      },
+      {
+        "month": "2017-11",
+        "rate": 2.35,
+        "sales": 4716
+      },
+      {
+        "month": "2017-12",
+        "rate": 2.4,
+        "sales": 5056
+      },
+      {
+        "month": "2018-01",
+        "rate": 2.58,
+        "sales": 4725
+      },
+      {
+        "month": "2018-02",
+        "rate": 2.86,
+        "sales": 4155
+      },
+      {
+        "month": "2018-03",
+        "rate": 2.84,
+        "sales": 4674
+      },
+      {
+        "month": "2018-04",
+        "rate": 2.87,
+        "sales": 4340
+      },
+      {
+        "month": "2018-05",
+        "rate": 2.98,
+        "sales": 5016
+      },
+      {
+        "month": "2018-06",
+        "rate": 2.91,
+        "sales": 5299
+      },
+      {
+        "month": "2018-07",
+        "rate": 2.89,
+        "sales": 5108
+      },
+      {
+        "month": "2018-08",
+        "rate": 2.89,
+        "sales": 5316
+      },
+      {
+        "month": "2018-09",
+        "rate": 3,
+        "sales": 4242
+      },
+      {
+        "month": "2018-10",
+        "rate": 3.15,
+        "sales": 5057
+      },
+      {
+        "month": "2018-11",
+        "rate": 3.12,
+        "sales": 4306
+      },
+      {
+        "month": "2018-12",
+        "rate": 2.83,
+        "sales": 4579
+      },
+      {
+        "month": "2019-01",
+        "rate": 2.71,
+        "sales": 4262
+      },
+      {
+        "month": "2019-02",
+        "rate": 2.68,
+        "sales": 3841
+      },
+      {
+        "month": "2019-03",
+        "rate": 2.57,
+        "sales": 4289
+      },
+      {
+        "month": "2019-04",
+        "rate": 2.53,
+        "sales": 4652
+      },
+      {
+        "month": "2019-05",
+        "rate": 2.4,
+        "sales": 5095
+      },
+      {
+        "month": "2019-06",
+        "rate": 2.07,
+        "sales": 5470
+      },
+      {
+        "month": "2019-07",
+        "rate": 2.06,
+        "sales": 4737
+      },
+      {
+        "month": "2019-08",
+        "rate": 1.63,
+        "sales": 4920
+      },
+      {
+        "month": "2019-09",
+        "rate": 1.7,
+        "sales": 4542
+      },
+      {
+        "month": "2019-10",
+        "rate": 1.71,
+        "sales": 4953
+      },
+      {
+        "month": "2019-11",
+        "rate": 1.81,
+        "sales": 4156
+      },
+      {
+        "month": "2019-12",
+        "rate": 1.86,
+        "sales": 4709
+      },
+      {
+        "month": "2020-01",
+        "rate": 1.76,
+        "sales": 4846
+      },
+      {
+        "month": "2020-02",
+        "rate": 1.5,
+        "sales": 4339
+      },
+      {
+        "month": "2020-03",
+        "rate": 0.87,
+        "sales": 3677
+      },
+      {
+        "month": "2020-04",
+        "rate": 0.66,
+        "sales": 2037
+      },
+      {
+        "month": "2020-05",
+        "rate": 0.67,
+        "sales": 2556
+      },
+      {
+        "month": "2020-06",
+        "rate": 0.73,
+        "sales": 3330
+      },
+      {
+        "month": "2020-07",
+        "rate": 0.62,
+        "sales": 3209
+      },
+      {
+        "month": "2020-08",
+        "rate": 0.65,
+        "sales": 2805
+      },
+      {
+        "month": "2020-09",
+        "rate": 0.68,
+        "sales": 3324
+      },
+      {
+        "month": "2020-10",
+        "rate": 0.79,
+        "sales": 4154
+      },
+      {
+        "month": "2020-11",
+        "rate": 0.87,
+        "sales": 4275
+      },
+      {
+        "month": "2020-12",
+        "rate": 0.93,
+        "sales": 5236
+      },
+      {
+        "month": "2021-01",
+        "rate": 1.08,
+        "sales": 4274
+      },
+      {
+        "month": "2021-02",
+        "rate": 1.26,
+        "sales": 4310
+      },
+      {
+        "month": "2021-03",
+        "rate": 1.61,
+        "sales": 5627
+      },
+      {
+        "month": "2021-04",
+        "rate": 1.63,
+        "sales": 5582
+      },
+      {
+        "month": "2021-05",
+        "rate": 1.62,
+        "sales": 5498
+      },
+      {
+        "month": "2021-06",
+        "rate": 1.52,
+        "sales": 6856
+      },
+      {
+        "month": "2021-07",
+        "rate": 1.32,
+        "sales": 6400
+      },
+      {
+        "month": "2021-08",
+        "rate": 1.28,
+        "sales": 7211
+      },
+      {
+        "month": "2021-09",
+        "rate": 1.37,
+        "sales": 6039
+      },
+      {
+        "month": "2021-10",
+        "rate": 1.58,
+        "sales": 6343
+      },
+      {
+        "month": "2021-11",
+        "rate": 1.56,
+        "sales": 5651
+      },
+      {
+        "month": "2021-12",
+        "rate": 1.47,
+        "sales": 7038
+      },
+      {
+        "month": "2022-01",
+        "rate": 1.76,
+        "sales": 5548
+      },
+      {
+        "month": "2022-02",
+        "rate": 1.93,
+        "sales": 5270
+      },
+      {
+        "month": "2022-03",
+        "rate": 2.13,
+        "sales": 6363
+      },
+      {
+        "month": "2022-04",
+        "rate": 2.75,
+        "sales": 5535
+      },
+      {
+        "month": "2022-05",
+        "rate": 2.9,
+        "sales": 6110
+      },
+      {
+        "month": "2022-06",
+        "rate": 3.14,
+        "sales": 6960
+      },
+      {
+        "month": "2022-07",
+        "rate": 2.9,
+        "sales": 5921
+      },
+      {
+        "month": "2022-08",
+        "rate": 2.9,
+        "sales": 6080
+      },
+      {
+        "month": "2022-09",
+        "rate": 3.52,
+        "sales": 5185
+      },
+      {
+        "month": "2022-10",
+        "rate": 3.98,
+        "sales": 4388
+      },
+      {
+        "month": "2022-11",
+        "rate": 3.89,
+        "sales": 4262
+      },
+      {
+        "month": "2022-12",
+        "rate": 3.62,
+        "sales": 4277
+      },
+      {
+        "month": "2023-01",
+        "rate": 3.53,
+        "sales": 3612
+      },
+      {
+        "month": "2023-02",
+        "rate": 3.75,
+        "sales": 3276
+      },
+      {
+        "month": "2023-03",
+        "rate": 3.66,
+        "sales": 4558
+      },
+      {
+        "month": "2023-04",
+        "rate": 3.46,
+        "sales": 3594
+      },
+      {
+        "month": "2023-05",
+        "rate": 3.57,
+        "sales": 4546
+      },
+      {
+        "month": "2023-06",
+        "rate": 3.75,
+        "sales": 4770
+      },
+      {
+        "month": "2023-07",
+        "rate": 3.9,
+        "sales": 4127
+      },
+      {
+        "month": "2023-08",
+        "rate": 4.17,
+        "sales": 5024
+      },
+      {
+        "month": "2023-09",
+        "rate": 4.38,
+        "sales": 4078
+      },
+      {
+        "month": "2023-10",
+        "rate": 4.8,
+        "sales": 4332
+      },
+      {
+        "month": "2023-11",
+        "rate": 4.5,
+        "sales": 3730
+      },
+      {
+        "month": "2023-12",
+        "rate": 4.02,
+        "sales": 3828
+      },
+      {
+        "month": "2024-01",
+        "rate": 4.06,
+        "sales": 3738
+      },
+      {
+        "month": "2024-02",
+        "rate": 4.21,
+        "sales": 3482
+      },
+      {
+        "month": "2024-03",
+        "rate": 4.21,
+        "sales": 3812
+      },
+      {
+        "month": "2024-04",
+        "rate": 4.54,
+        "sales": 3969
+      },
+      {
+        "month": "2024-05",
+        "rate": 4.48,
+        "sales": 4892
+      },
+      {
+        "month": "2024-06",
+        "rate": 4.31,
+        "sales": 4499
+      },
+      {
+        "month": "2024-07",
+        "rate": 4.25,
+        "sales": 4555
+      },
+      {
+        "month": "2024-08",
+        "rate": 3.87,
+        "sales": 4322
+      },
+      {
+        "month": "2024-09",
+        "rate": 3.72,
+        "sales": 4330
+      },
+      {
+        "month": "2024-10",
+        "rate": 4.1,
+        "sales": 4536
+      },
+      {
+        "month": "2024-11",
+        "rate": 4.36,
+        "sales": 3998
+      },
+      {
+        "month": "2024-12",
+        "rate": 4.39,
+        "sales": 4429
+      },
+      {
+        "month": "2025-01",
+        "rate": 4.63,
+        "sales": 4336
+      },
+      {
+        "month": "2025-02",
+        "rate": 4.45,
+        "sales": 3854
+      },
+      {
+        "month": "2025-03",
+        "rate": 4.28,
+        "sales": 4340
+      },
+      {
+        "month": "2025-04",
+        "rate": 4.28,
+        "sales": 4188
+      },
+      {
+        "month": "2025-05",
+        "rate": 4.42,
+        "sales": 4591
+      },
+      {
+        "month": "2025-06",
+        "rate": 4.38,
+        "sales": 4610
+      },
+      {
+        "month": "2025-07",
+        "rate": 4.39,
+        "sales": 4775
+      },
+      {
+        "month": "2025-08",
+        "rate": 4.26,
+        "sales": 4645
+      },
+      {
+        "month": "2025-09",
+        "rate": 4.12,
+        "sales": 4682
+      },
+      {
+        "month": "2025-10",
+        "rate": 4.06,
+        "sales": 4775
+      },
+      {
+        "month": "2025-11",
+        "rate": 4.09,
+        "sales": 3833
+      },
+      {
+        "month": "2025-12",
+        "rate": 4.14,
+        "sales": 4750
+      },
+      {
+        "month": "2026-01",
+        "rate": 4.21,
+        "sales": 4254
+      },
+      {
+        "month": "2026-02",
+        "rate": 4.13,
+        "sales": 3629
+      },
+      {
+        "month": "2026-03",
+        "rate": 4.25,
+        "sales": 4532
+      },
+      {
+        "month": "2026-04",
+        "rate": 4.32,
+        "sales": 3893
+      },
+      {
+        "month": "2026-05",
+        "rate": 4.48,
+        "sales": 3921
+      }
+    ],
+    "supplyNote": "Development filings are excluded from this correlation by design: New Building filings only became complete in DOB NOW around 2021, and the series is driven more by policy deadlines (e.g., 421-a) than by interest rates. Housing demand (recorded sales) is the rate-sensitive channel."
+  }
+}

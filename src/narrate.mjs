@@ -26,7 +26,7 @@ const API = 'https://api.anthropic.com/v1/messages';
 const read = async (f) => JSON.parse(await readFile(join(dir, f), 'utf8'));
 
 // ---------- assemble a compact, grounded evidence packet ----------
-function buildEvidence(dev, tx, risk, ll97, cross) {
+function buildEvidence(dev, tx, risk, ll97, cross, capital) {
   const pctd = (x) => x == null ? null : Math.round(x * 100);
   return {
     as_of: {
@@ -35,6 +35,7 @@ function buildEvidence(dev, tx, risk, ll97, cross) {
       risk: risk.meta.windowLabel,
       ll97_report_year: ll97.meta.reportYear,
       cross_signal: cross.meta.windowLabel,
+      capital: capital ? capital.rates[0].latest.date : null,
     },
     development: {
       citywide_filings: dev.citywide.latest.filings,
@@ -71,12 +72,26 @@ function buildEvidence(dev, tx, risk, ll97, cross) {
       oversupply_watch: cross.oversupply.map((z) => ({ zip: z.zip, area: z.neighborhood, borough: z.borough, supply_yoy_pct: pctd(z.devYoY), demand_yoy_pct: pctd(z.txYoY), immediately_hazardous_violations: z.hazardC })),
       tightening: cross.tightening.map((z) => ({ zip: z.zip, area: z.neighborhood, borough: z.borough, supply_yoy_pct: pctd(z.devYoY), demand_yoy_pct: pctd(z.txYoY), immediately_hazardous_violations: z.hazardC })),
     },
+    capital: capital ? {
+      rates: capital.rates.map((r) => ({ name: r.name, latest_pct: r.latest.value, yoy_change_bps: r.yoyBps, role: r.role })),
+      cycle_boom_vs_now: capital.lens.cycle ? {
+        period: `2021 low-rate boom vs. ${capital.lens.cycle.toLabel}`,
+        mortgage_30yr_pct: [capital.lens.cycle.mortgage30.from, capital.lens.cycle.mortgage30.to],
+        treasury_10yr_pct: [capital.lens.cycle.treasury10.from, capital.lens.cycle.treasury10.to],
+        recorded_sales_per_month: capital.lens.cycle.sales ? [capital.lens.cycle.sales.from, capital.lens.cycle.sales.to] : null,
+        recorded_sales_change_pct: capital.lens.cycle.sales ? pctd(capital.lens.cycle.sales.pct) : null,
+      } : null,
+      mortgage_vs_sales_correlation_yoy: (capital.lens.correlations.find((c) => c.rate === '30-Year Mortgage') || {}).r ?? null,
+      note: 'Correlation is association, not causation. Development filings are NOT rate-driven (DOB NOW migration + policy deadlines); demand (sales) is the rate-sensitive channel.',
+    } : null,
   };
 }
 
 const SYSTEM = `You are the lead market analyst for "Urban Update," an NYC real-estate intelligence product for developers, investors, owners, and operators.
 
-You will receive a DATA payload of real, current figures drawn from official NYC sources (DOB filings, DOF sales, HPD/311/ECB risk signals, Local Law 97 benchmarking). Write a concise daily intelligence brief and a set of neighborhood spotlights.
+You will receive a DATA payload of real, current figures drawn from official NYC sources (DOB filings, DOF sales, HPD/311/ECB risk signals, Local Law 97 benchmarking) plus national capital-market rates (FRED: Treasury, mortgage, SOFR, Fed Funds). Write a concise daily intelligence brief and a set of neighborhood spotlights.
+
+Use the capital data as macro context — the cost of capital is the master variable behind demand. When it strengthens a point, connect it to the local feeds (e.g., how rising financing costs align with softer recorded sales). Respect the note that development filings are not rate-driven; demand (sales) is the rate-sensitive channel.
 
 Hard rules:
 - Use ONLY numbers present in DATA. Never invent, estimate, or round to a different figure. Never name an address, project, or trend not supported by DATA.
@@ -122,7 +137,9 @@ async function main() {
   const [dev, tx, risk, ll97, cross] = await Promise.all([
     read('development.json'), read('transactions.json'), read('risk.json'), read('ll97.json'), read('crosssignal.json'),
   ]);
-  const evidence = buildEvidence(dev, tx, risk, ll97, cross);
+  let capital = null;
+  try { capital = await read('capital.json'); } catch { /* optional feed */ }
+  const evidence = buildEvidence(dev, tx, risk, ll97, cross, capital);
 
   console.log(`Generating brief with ${MODEL}…`);
   const res = await fetch(API, {
@@ -160,7 +177,7 @@ async function main() {
       generatedAt: new Date().toISOString(),
       model: data.model || MODEL,
       grounding: 'Synthesized by Claude from the five processed feeds. Every figure traces to primary NYC data; interpretation is the model\'s and clearly hedged.',
-      periods: buildEvidence(dev, tx, risk, ll97, cross).as_of,
+      periods: evidence.as_of,
     },
     ...parsed,
   };
