@@ -101,5 +101,17 @@ Same pattern with `job_type='Full Demolition'` gives the demolition (redevelopme
 - **Lag handling:** all sales-based analysis is capped at the latest **complete** DOF month (source update − 2), matching the Transactions feed, so partial months don't bias the comparison.
 - **Disclosure:** correlation is association, not causation, and is labeled as such in-dashboard.
 
+## Demand & Affordability feed (v5) — SELECTED, verification PENDING (D30/D31)
+
+> ⚠️ **Not yet verified live** — do not treat as pinned until the first successful ACS call. Blocked on Census key activation (see HANDOFF "⏩ Pick up here").
+
+### U.S. Census — American Community Survey (ACS) 5-year
+- **API:** `https://api.census.gov/data/{year}/acs/acs5` · **Publisher:** U.S. Census Bureau (primary/official). **Requires a free `CENSUS_API_KEY`** (keyless retired). NYC Open Data's ACS profiles (`kvuc-fg9b`, `cu9u-3r5e`) are **non-tabular** (Excel attachments) — not usable via our Socrata pipeline.
+- **Geography:** ZCTA (ZIP Code Tabulation Area) — `&for=zip%20code%20tabulation%20area:<zip>` — joins to our ZIP-keyed feeds; roll up to borough. (ZCTAs ≈ ZIPs; PO-box-only ZIPs excluded.) 5-year required at ZCTA grain; annual, lagged ~1–1.5 yr (fine for structural affordability).
+- **Variables:** `B19013_001E` median HH income · `B25064_001E` median gross rent · `B25077_001E` median home value · `B01003_001E` population · `B25003_002E/_003E` owner/renter · `B25070_001E`+`_007E.._010E` rent-burdened (renters ≥30% of income) · `B19001` income distribution. Two vintages → income/rent/pop growth.
+- **Combined with existing feeds:** DOF median price + FRED mortgage rate (already ingested) → affordability engine + divergence monitor. See DECISIONS.md D30.
+
 ## Planned next sources (not yet built)
-- **DCP Housing Database** — net-units pipeline cross-check.
+- **BLS employment** (QCEW/LAUS, free API) — "demand formation" (borough/sector jobs); v1.1 fast-follow to the affordability feed.
+- **DCP Housing Database** + **PLUTO** — upgrade Development to filed→permitted→completed, net units vs. stock (D32).
+- **DOF assessment roll** — property-tax/assessment pressure (D32).

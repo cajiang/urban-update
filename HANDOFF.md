@@ -2,11 +2,16 @@
 
 _For the next session. Read this first, then `DECISIONS.md` (the canonical decision log) and `SOURCES.md` (verified data sources)._
 
-## ⏩ Pick up here (2026-08-03 handoff — end of session #2)
-- **Latest commit `9289b74`** (narration hardening + `run.ps1` DPAPI launcher + refreshed verified data) is pushed; working tree clean. Prior: `c258878` (Capital feed + bug fixes + key-security).
-- **Systems check PASSED** — every feed was independently re-queried against its live source: Development, Transactions, Risk (citywide C 59,792 & 311 185,888 exact), LL97 (covered 28,925 fully reconciled), Cross-Signal, Capital — all match or are explained. Data is fresh and correct; analysis logic (regime thresholds, 3×C+B risk weight, ZIP joins, LL97 model) is data-supported.
-- **Open finding (offered, not yet done):** LL97 method note says "Covered = buildings ≥25,000 sq ft" but the covered set also requires valid positive reported GHG + a derivable borough (~3,300 excluded, which nudges "% over limit" up). Suggested tightening the note to "≥25k sq ft **with reported emissions data**." Awaiting user's go-ahead.
-- **The AI Brief is still the committed seed** — it needs the user's `ANTHROPIC_API_KEY` to regenerate (never in Claude's env; never ask the user to paste it in chat). Run path: `.\run.ps1` (see below). Once it prints "Generating brief with claude-opus-5… / Wrote narratives.json", verify the Brief's figures trace to the (now-verified) feeds and its cross-feed reasoning — especially the capital lens — is sound.
+## ⏩ Pick up here (2026-08-05 handoff — end of session #3)
+- **Latest commit is on `main`, pushed, working tree clean.** History: `c258878` (Capital feed) → `9289b74` (narration hardening + `run.ps1` DPAPI launcher + refreshed data) → `cb22f3c` (handoff fix) → this handoff commit. 7-tab dashboard is complete and verified.
+- **THE ACTIVE TASK — build the Demand & Affordability feed (8th tab).** This is the agreed next build (see D30). It's the biggest gap in the product per a top-tier operator's feedback: we're strong on "what's happening" (supply/sales/risk) but thin on "who lives here and can they pay." Full spec is in this file under "Next build spec" below and in D30–D32.
+  - **BLOCKED on one thing:** the feed needs Census ACS data, which now **requires a free Census API key** (keyless access retired; NYC Open Data's ACS is non-tabular Excel — unusable). The user obtained a key and set it as a **user env var `CENSUS_API_KEY`** (the "simple path" — low-sensitivity free rate token, env-only, D31). It is a valid 40-char hex key, readable from the user registry, but Census returned **"Invalid Key"** on every call — this is **Census-side activation propagation lag** (can take minutes to hours after clicking the email activation link). Our setup is correct; just retry.
+  - **FIRST STEP next session:** re-verify the key works, then build. To read the user-set key into your tools despite Windows env-propagation lag, use PowerShell: `$env:CENSUS_API_KEY = [Environment]::GetEnvironmentVariable('CENSUS_API_KEY','User'); node <script>`. A ready verification probe is at the scratchpad path noted below. Once it returns real income/rent numbers for a couple ZIPs, build `src/lib/census.mjs` + `src/demand.mjs`, wire the Affordability tab, fold affordability into Cross-Signal + the narrate packet, add to `refresh.mjs`. **Evidence standard: verify the live ACS payload before shipping any figure.**
+  - Verification probe (temp, outside repo): `C:\Users\Calvin\AppData\Local\Temp\claude\C--Users-Calvin-Documents-Claude-Projects-PMOS\8c0a76f0-3f3a-44e2-9c13-805df610dc6c\scratchpad\verify-census.mjs`
+- **Two smaller open items (from session #2, still open):**
+  - LL97 method note tweak — user chose to LEAVE it for now (note says "Covered = buildings ≥25k sq ft"; the set also requires positive reported GHG + derivable borough). Not a bug; documented.
+  - The AI **Brief is still the committed seed** — regenerating needs the user's `ANTHROPIC_API_KEY` via `.\run.ps1`; then verify its figures trace to the feeds. (Key is never in Claude's env and never pasted in chat.)
+- **Systems check (session #3) PASSED** — every feed was independently re-queried vs. live source: Development 1,536 ✓ / Manhattan 109-69 +58% ✓, Transactions SI 249 & citywide 3,921 ✓, Risk citywide C 59,792 & 311 185,888 exact, LL97 covered 28,925 fully reconciled, Cross-Signal ZIP join exact, Capital matched. Data fresh and correct; analysis logic sound.
 
 ## What this is
 An **NYC real-estate market-intelligence dashboard** — a **portfolio project** for founder **cajiang** that mimics what an institutional research team produces, generated automatically by AI from **public data that is easy to obtain and easy for AI to analyze**, with every figure traceable to a primary source. Not a startup chasing paying users; success = a credible, impressive, working artifact. Audience: NYC industry professionals broadly (developers, investors, owners, operators).
@@ -61,12 +66,25 @@ Every panel has its own provenance/freshness note; every figure links to the und
 - **Socrata:** cast text-numeric fields (`::number`); exclude null date fields; the current calendar month is partial (use the latest *complete* month; transactions lag ~2 months).
 - Scratchpad helper `peek.mjs` (reads stdin JSON, uses `argv[2]`) is handy for probing Socrata during exploration.
 
-## Open roadmap (all optional — user's call next)
-- **Risk phase-2 extras:** Facades/LL11 (`xubg-57si`), tax liens (`9rz4-mjek`, biannual), flood/climate (`mrjc-v9pm`, census-tract geometry — needs a geo join). Foreclosure/lis pendens is a gap (not on Open Data; ACRIS/State courts).
-- **Visual polish:** an NYC map/choropleth (data already carries `nta`, `bbl`, lat/long).
-- **Distress/watchlist** — considered & deferred: property-level foreclosure is a narrower audience + no clean public source (ACRIS coverage broken, courts/DFS not bulk-APIs); a submarket distress-pressure signal from existing ECB/HPD/LL97 data remains the on-thesis option if revisited.
+## Next build spec — Demand & Affordability feed (ACTIVE, D30)
+The agreed next feed. Turns "prices rose X%" into "…but incomes rose only Y% and Z% of households can't afford the median — is this growth real or fragile?" — the #1 gap per a top-tier operator's review.
+- **Sources:** Census **ACS 5-year** (`api.census.gov/data/{year}/acs/acs5`, needs `CENSUS_API_KEY`) for income/rent/burden/tenure/population, by **ZCTA (ZIP)** so it joins to our existing ZIP-keyed feeds (Transactions `zip_code`, Development `postcode`, Risk `zip`, Cross-Signal); roll up to borough. Reuse our DOF median price + FRED mortgage rate (already in the pipeline) for the affordability math.
+- **ACS variables:** `B19013_001E` (median HH income), `B25064_001E` (median gross rent), `B25077_001E` (median home value), `B01003_001E` (population), `B25003_002E/_003E` (owner/renter), `B25070_001E` + `_007E.._010E` (rent-burdened = share of renters ≥30% of income), `B19001` (income distribution → share who can afford). Pull two vintages for growth (income/rent/pop change).
+- **Metrics:** (1) affordability engine — local median price × mortgage rate → payment → income required at 30% DTI → gap vs. ACS median income + est. share who can afford; (2) divergence monitor (D30/interview #6) — price vs income vs rent growth → classify supported-growth / yield-compression / affordability-stress / improving-fundamentals; (3) fold affordability into Cross-Signal per ZIP (supply+demand+risk+affordability quad).
+- **Architecture:** `src/lib/census.mjs` (Census fetch + var registry, env key, skip-gracefully if unset) → `src/demand.mjs` → `data/processed/demand.json` → new **Affordability** tab in `build-dashboard.mjs` (borough cards + ZIP drill-down + divergence monitor) → fold into `crosssignal.mjs` + `narrate.mjs` packet → add to `refresh.mjs`.
+- **Fast-follow (v1.1):** BLS employment (borough/sector jobs) for the rest of "demand formation" — BLS API, free (keyless tier or free key).
 
-_(FRED capital strip: **DONE** — shipped as the Capital tab, D27.)_
+## Feature roadmap from the top-tier interview (D32 — build vs. defer vs. skip)
+An operator gave a 12-category wish list (full text in DECISIONS.md D32 notes / chat). Our discipline: build only what's sourceable with verifiable free data AND deepens an existing feed; do NOT try to match all 12 (that sprawls and breaks the evidence standard).
+- **BUILD (feasible, high-value):** Demand & Affordability (Census — above, in progress); **upgrade Development** with the DCP Housing Database (`filed→permitted→completed`, net units vs. stock) + PLUTO (fixes "every filing = supply"); **LL97 reframe** to neighborhood concentration of covered buildings (cheap, we have the data); **property-tax/assessment** pressure (DOF assessment roll, on Open Data).
+- **DEFER (heavier / medium value):** construction feasibility (materials PPI + land sales + DOB approval times — partial), infrastructure/public-investment (NYC Capital Projects DB, messy geo-join), facility externalities + matched-control impact study (DCP Facilities DB; analytically heavy), quality-of-life trajectory (crime + 311 + school enrollment, normalized — extends Risk).
+- **SKIP (no clean free primary source, or curatorial — would break the evidence standard):** cap-rate direction, office occupancy, construction/insurance cost, retail vacancy/concessions, broad regulatory-headline tracking, major-employer/capital-flow tracking. Better to omit than show a number we can't stand behind.
+
+## Older roadmap (still optional)
+- **Risk phase-2 extras:** Facades/LL11 (`xubg-57si`), tax liens (`9rz4-mjek`, biannual), flood/climate (`mrjc-v9pm`, census-tract geometry). Foreclosure/lis pendens is a gap (not on Open Data).
+- **Visual polish:** an NYC map/choropleth (data already carries `nta`, `bbl`, lat/long).
+
+_(FRED capital strip: **DONE** — Capital tab, D27.)_
 
 ## How to work with this user (from feedback)
 - They value **honest diligence over speed** — verify sources before building; surface data-quality problems; disclose approximations.
