@@ -8,13 +8,32 @@
 //
 // Run: node src/crosssignal.mjs
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SOURCES, buildUrl, soqlQuery, fetchDatasetMeta } from './lib/socrata.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUT = join(__dirname, '..', 'data', 'processed', 'crosssignal.json');
+const PROCESSED = join(__dirname, '..', 'data', 'processed');
+const OUT = join(PROCESSED, 'crosssignal.json');
+
+// Affordability overlay (Demand feed) — optional; join by ZIP if demand.json
+// exists and isn't a keyless stub. Adds the fourth dimension to the quad:
+// supply + demand + risk + affordability.
+async function loadAffordability() {
+  try {
+    const d = JSON.parse(await readFile(join(PROCESSED, 'demand.json'), 'utf8'));
+    if (!d || (d.meta && d.meta.skipped) || !Array.isArray(d.zips)) return null;
+    const byZip = {};
+    for (const z of d.zips) {
+      byZip[z.zip] = {
+        gap: z.engine.gapRatio, canAfford: z.engine.shareCanAfford,
+        rentBurden: z.rentBurdenShare, divCls: z.divergence.cls, divCode: z.divergence.code,
+      };
+    }
+    return { byZip, vintages: d.meta.vintages };
+  } catch { return null; }
+}
 
 const DOB = SOURCES.dobNowBuild.id;      // w9ak-ipjd (property zip = postcode)
 const ROLL = SOURCES.salesRolling.id;    // usep-8jbt
@@ -52,6 +71,8 @@ async function countByZip(datasetId, field, where) {
 }
 
 async function main() {
+  const afford = await loadAffordability();
+  if (afford) console.log(`Affordability overlay: ${Object.keys(afford.byZip).length} ZIPs (ACS ${afford.vintages.current}).`);
   const rollMeta = await fetchDatasetMeta(ROLL);
   const ref = stepMonth(monthKey(rollMeta.dataUpdatedAt || new Date().toISOString()), -LAG_MONTHS);
   const yo = shiftYear(ref, -1);
@@ -99,6 +120,7 @@ async function main() {
       zip: z, borough: (label[z] || {}).borough || '', neighborhood: (label[z] || {}).neighborhood || '',
       devCur: dCur, devYoY, txCur: tCur, txYoY, cls,
       hazardC: hazCur[z] || 0,
+      afford: afford ? (afford.byZip[z] || null) : null,
       divergence: Math.abs(devYoY - txYoY),
       devEvidence: buildUrl(DOB, { $select: 'job_filing_number,house_no,street_name,postcode,proposed_dwelling_units,filing_date', $where: nbWhere(rw) + ` AND postcode='${z}'`, $order: 'proposed_dwelling_units::number DESC' }),
       txEvidence: buildUrl(ROLL, { $select: 'address,neighborhood,sale_price,sale_date', $where: saleWhere(rw) + ` AND zip_code='${z}'`, $order: 'sale_price::number DESC' }),
@@ -123,11 +145,13 @@ async function main() {
         { label: SOURCES.salesRolling.label, datasetId: ROLL, landing: SOURCES.salesRolling.landing },
         { label: SOURCES.salesAnnual.label, datasetId: ANN, landing: SOURCES.salesAnnual.landing },
         { label: 'HPD Housing Maintenance Code Violations (risk overlay)', datasetId: HPD, landing: `https://data.cityofnewyork.us/d/${HPD}` },
+        ...(afford ? [{ label: `U.S. Census ACS 5-Year ${afford.vintages.current} (affordability overlay)`, datasetId: `ACS5 ${afford.vintages.current}`, landing: 'https://www.census.gov/programs-surveys/acs' }] : []),
       ],
+      hasAffordability: !!afford,
       method: {
         signal: `Year-over-year change in the trailing ${WINDOW} months (${qtrLabel(ref)} vs. the same period a year earlier) in New Building filings (supply) and recorded sales (demand), joined by property ZIP.`,
         threshold: `A move of ±${THRESH * 100}% YoY counts as up/down. To qualify, a ZIP needs ≥${MIN_DEV} filings and ≥${MIN_TX} sales this quarter, each off a year-ago base of ≥${MIN_DEV_YA} / ≥${MIN_TX_YA} (avoids small-number noise).`,
-        note: 'Supply and demand use the same trailing quarter (transactions lag ~2 months, so that quarter governs). Divergence flags are computed facts; interpretation requires review.',
+        note: `Supply and demand use the same trailing quarter (transactions lag ~2 months, so that quarter governs).${afford ? ' Each ZIP also carries its affordability read (income-to-buy gap, renter cost burden, and price-vs-income divergence class) from the Census ACS.' : ''} Divergence flags are computed facts; interpretation requires review.`,
       },
     },
     counts, oversupply, tightening, zips,

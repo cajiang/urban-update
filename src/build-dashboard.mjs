@@ -19,6 +19,8 @@ const risk = JSON.parse(await readFile(join(dir, 'risk.json'), 'utf8'));
 const ll97 = JSON.parse(await readFile(join(dir, 'll97.json'), 'utf8'));
 let capital = null;
 try { capital = JSON.parse(await readFile(join(dir, 'capital.json'), 'utf8')); } catch { /* optional */ }
+let demand = null;
+try { demand = JSON.parse(await readFile(join(dir, 'demand.json'), 'utf8')); } catch { /* optional */ }
 let brief = null;
 try { brief = JSON.parse(await readFile(join(dir, 'narratives.json'), 'utf8')); } catch { /* optional */ }
 
@@ -66,6 +68,16 @@ const html = `<!doctype html>
   .chip.elevated{color:var(--elev);background:var(--elev-bg)}
   .chip.cooling{color:var(--cool);background:var(--cool-bg)}
   .chip.range{color:var(--range);background:var(--range-bg)}
+  /* divergence-monitor classes (Affordability tab) */
+  .chip.stress{color:#b4232a;background:#fceceb}
+  .chip.spec{color:#8a5a12;background:#fbeed4}
+  .chip.fund{color:#166534;background:#e7f6ec}
+  .chip.supported{color:#1c6ea4;background:#e8f2f9}
+  .chip.mixed{color:#6b7280;background:#f0f1f3}
+  .afford-lead{font-size:16px;line-height:1.6;color:var(--ink);margin:0}
+  .afford-lead b{font-weight:700}
+  .growth3{display:flex;gap:14px;font-size:12px;color:var(--ink-2);flex-wrap:wrap}
+  .growth3 b{font-weight:600}
 
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
@@ -159,6 +171,7 @@ const html = `<!doctype html>
     <button class="tab" data-tab="cross">Cross-Signal</button>
     <button class="tab" data-tab="risk">Risk</button>
     <button class="tab" data-tab="ll97">Local Law 97</button>
+    <button class="tab" data-tab="demand">Affordability</button>
   </div>
 </div></header>
 
@@ -170,6 +183,7 @@ const html = `<!doctype html>
   <div class="panel" id="panel-cross"></div>
   <div class="panel" id="panel-risk"></div>
   <div class="panel" id="panel-ll97"></div>
+  <div class="panel" id="panel-demand"></div>
 
   <div class="modal-ov" id="ov"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
     <div class="mhead"><div><div class="mtitle" id="m-title"></div><div class="msub" id="m-sub"></div></div>
@@ -178,6 +192,10 @@ const html = `<!doctype html>
   </div></div>
 </main>
 
+<footer class="foot"><div class="wrap">
+  <strong>Built with AI.</strong> Urban Update is an AI-generated research prototype: the data is pulled from official public sources (linked as “verify ↗” on every panel) and the analysis and written interpretation are produced by AI, which can be wrong. Treat every figure as a lead to confirm against its primary source, not a finished conclusion — and note figures carry the usual source caveats (reporting lags, sampling error, disclosed modeling assumptions). This is market intelligence, not investment advice.
+</div></footer>
+
 <script>
 const DEV = ${JSON.stringify(dev)};
 const TX  = ${JSON.stringify(tx)};
@@ -185,6 +203,7 @@ const CROSS = ${JSON.stringify(cross)};
 const RISK = ${JSON.stringify(risk)};
 const LL97 = ${JSON.stringify(ll97)};
 const CAP = ${JSON.stringify(capital)};
+const DEM = ${JSON.stringify(demand)};
 const BRIEF = ${JSON.stringify(brief)};
 
 const fmt = (n) => Number(n||0).toLocaleString('en-US');
@@ -317,6 +336,7 @@ function xcard(z){
     +'<div class="xsig"><b>Supply</b> <span class="'+upd(z.devYoY)+'">'+arrow(z.devYoY)+' '+pct(z.devYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.devCur)+' filings</span></div>'
     +'<div class="xsig"><b>Demand</b> <span class="'+upd(z.txYoY)+'">'+arrow(z.txYoY)+' '+pct(z.txYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.txCur)+' sales</span></div>'
     +'<div class="xsig"><b>Risk</b> <span class="num" style="color:var(--muted)">'+fmt(z.hazardC||0)+' immediately-hazardous violations</span></div>'
+    +(z.afford?'<div class="xsig"><b>Afford.</b> <span class="num" style="color:var(--muted)">'+(z.afford.gap!=null?z.afford.gap.toFixed(1)+'× income to buy · ':'')+share(z.afford.rentBurden)+' rent-burdened</span> '+divChip({code:z.afford.divCode,cls:z.afford.divCls})+'</div>':'')
     +'<div class="cardfoot"><span>verify:</span><span><a href="'+z.devEvidence+'" target="_blank" rel="noopener">filings ↗</a> &nbsp;·&nbsp; <a href="'+z.txEvidence+'" target="_blank" rel="noopener">sales ↗</a></span></div></div>';
 }
 function renderCross(){
@@ -344,10 +364,11 @@ function renderCross(){
     '<div class="grid">'+C.tightening.map(xcard).join('')+'</div>');
 
   h+=section('All qualifying ZIPs · ranked by divergence',
-    '<table><thead><tr><th>ZIP</th><th>Area</th><th>Borough</th><th class="n">Supply YoY</th><th class="n">Demand YoY</th><th class="n">Hazard (C)</th><th>Signal</th><th></th></tr></thead><tbody>'
+    '<table><thead><tr><th>ZIP</th><th>Area</th><th>Borough</th><th class="n">Supply YoY</th><th class="n">Demand YoY</th><th class="n">Hazard (C)</th><th class="n">Afford. gap</th><th>Signal</th><th></th></tr></thead><tbody>'
     +C.zips.map(z=>'<tr><td class="num">'+z.zip+'</td><td class="desc">'+z.neighborhood+'</td><td>'+z.borough+'</td>'
       +'<td class="n '+upd(z.devYoY)+'">'+pct(z.devYoY)+'</td><td class="n '+upd(z.txYoY)+'">'+pct(z.txYoY)+'</td>'
       +'<td class="n">'+fmt(z.hazardC||0)+'</td>'
+      +'<td class="n">'+(z.afford&&z.afford.gap!=null?z.afford.gap.toFixed(1)+'×':'—')+'</td>'
       +'<td>'+crossChip(z.cls)+'</td>'
       +'<td><a href="'+z.devEvidence+'" target="_blank" rel="noopener">filings</a> · <a href="'+z.txEvidence+'" target="_blank" rel="noopener">sales</a></td></tr>').join('')
     +'</tbody></table>');
@@ -548,6 +569,83 @@ function renderBrief(){
   return h;
 }
 
+// ---------- Affordability panel (Demand & Affordability) ----------
+const divChip = (d)=>{ const c=(d&&d.code)||'mixed'; return '<span class="chip '+(c==='na'?'mixed':c)+'">'+(d?d.cls:'—')+'</span>'; };
+const gapx = (g)=> g==null?'—':g.toFixed(1)+'×';
+function growth3(g){
+  return '<div class="growth3"><span>income <b class="'+upd(g.income)+'">'+pct(g.income)+'</b></span>'
+    +'<span>rent <b class="'+upd(g.rent)+'">'+pct(g.rent)+'</b></span>'
+    +'<span>value <b class="'+upd(g.value)+'">'+pct(g.value)+'</b></span></div>';
+}
+function renderDemand(){
+  if(!DEM || (DEM.meta&&DEM.meta.skipped)){
+    return section('Demand & Affordability','<div class="xintro">No affordability data yet. This feed needs a free <code>CENSUS_API_KEY</code> in the environment; run <code>node src/demand.mjs</code> then rebuild.</div>');
+  }
+  const D=DEM, m=D.meta, city=D.city;
+  let h='';
+  h+=section('Demand & Affordability · can they pay?',
+    '<div class="xintro">Supply, sales, and risk tell you <b>what\\'s happening</b>. This feed asks <b>who lives here and can they afford it</b> — the demand side. It combines <b>U.S. Census</b> income, rent, and home-value data with our <b>DOF sale prices</b> and the <b>FRED mortgage rate</b> to compute the income required to buy the median home, the share of households who can, and whether price growth is <b>supported by incomes or running ahead of them</b>.</div>');
+
+  if(city){
+    h+=section('New York City · the affordability math',
+      '<div class="cyc"><p class="afford-lead">Buying the median NYC home — <b>'+money(city.dofMedianPrice)+'</b> (DOF) at today\\'s <b>'+D.rate.value+'%</b> mortgage — takes about <b class="up">'+money(city.engine.incomeRequired)+'</b> in household income, <b>'+gapx(city.engine.gapRatio)+'</b> the city\\'s <b>'+money(city.income)+'</b> median. An estimated <b>'+share(city.engine.shareCanAfford)+'</b> of households earn enough to buy it.</p>'
+      +'<p class="verify" style="margin-top:10px"><a href="'+city.censusUrl+'" target="_blank" rel="noopener">Verify NYC income &amp; housing in the Census profile ↗</a></p></div>');
+
+    const kpis=[
+      {label:'Median household income', big:money(city.income), sub:'ACS 5-yr '+m.vintages.current+' · <span class="'+upd(city.growth.income)+'">'+arrow(city.growth.income)+' '+pct(city.growth.income)+'</span> since '+m.vintages.prior},
+      {label:'Income required to buy', big:money(city.engine.incomeRequired), sub:'median home '+money(city.dofMedianPrice)+' · 20% down · '+D.rate.value+'%'},
+      {label:'Affordability gap', big:gapx(city.engine.gapRatio), sub:'income needed ÷ median income'},
+      {label:'Can afford the median home', big:share(city.engine.shareCanAfford), sub:'est. share of households (ACS income dist.)'},
+    ];
+    h+=section('Citywide indicators',
+      '<div class="kpis">'+kpis.map(k=>'<div class="kpi"><div class="label">'+k.label+'</div><div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('')+'</div>');
+  }
+
+  const t=D.divergenceTally||{};
+  const dk=[
+    {label:'Affordability stress', big:(t.stress||0), sub:'rents outrunning incomes'},
+    {label:'Yield compression', big:(t.spec||0), sub:'values outrunning rents'},
+    {label:'Improving fundamentals', big:(t.fund||0), sub:'incomes outrunning values'},
+    {label:'Supported growth', big:(t.supported||0), sub:'values &amp; incomes together'},
+  ];
+  h+=section('Divergence monitor · '+m.vintages.prior+' → '+m.vintages.current+' · '+D.zips.length+' ZIPs',
+    '<div class="xintro" style="margin-bottom:14px">Is price growth <b>real or fragile</b>? This classifies each ZIP by how home-value, rent, and income growth diverge — the matrix a market desk watches: rents past incomes = <span style="color:#b4232a;font-weight:600">affordability stress</span>; values past rents = <span style="color:#8a5a12;font-weight:600">yield compression</span>; incomes past values = <span style="color:#166534;font-weight:600">improving fundamentals</span>.</div>'
+    +'<div class="kpis">'+dk.map(k=>'<div class="kpi"><div class="label">'+k.label+'</div><div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('')+'</div>');
+
+  h+=section('By Borough · <span style="color:var(--accent)">click any borough to drill into ZIPs</span>',
+    '<div class="grid">'+D.boroughs.map((b,i)=>
+      '<div class="card click" data-i="'+i+'"><div class="top"><span class="name">'+b.borough+'</span>'+divChip(b.divergence)+'</div>'
+      +'<div class="big num">'+money(b.engine.incomeRequired)+' <small>income to buy</small></div>'
+      +'<div class="deltas"><span><b>'+gapx(b.engine.gapRatio)+'</b> median income</span><span><b>'+share(b.engine.shareCanAfford)+'</b> can afford</span></div>'
+      +growth3(b.growth)
+      +'<div class="cardfoot"><span class="num">median inc '+money(b.income)+' · rent burden '+share(b.rentBurdenShare)+'</span><a href="'+b.censusUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+      +'<div class="hint">View ZIPs →</div></div>').join('')+'</div>');
+
+  const top=D.zips.slice(0,20);
+  h+=section('Least affordable ZIPs · income required vs. local income · top 20 of '+D.zips.length,
+    '<table><thead><tr><th>ZIP</th><th>Borough</th><th class="n">Median income</th><th class="n">Income to buy</th><th class="n">Gap</th><th class="n">Can afford</th><th class="n">Rent burden</th><th>Divergence</th><th></th></tr></thead><tbody>'
+    +top.map(z=>'<tr><td class="num">'+z.zip+'</td><td>'+z.borough+'</td>'
+      +'<td class="n">'+money(z.income)+'</td><td class="n">'+money(z.engine.incomeRequired)+'</td>'
+      +'<td class="n">'+gapx(z.engine.gapRatio)+'</td><td class="n">'+share(z.engine.shareCanAfford)+'</td>'
+      +'<td class="n">'+share(z.rentBurdenShare)+'</td><td>'+divChip(z.divergence)+'</td>'
+      +'<td><a href="'+z.censusUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>').join('')
+    +'</tbody></table><p class="verify" style="margin-top:10px;color:var(--muted);font-size:12px">Gap = income required to buy the ZIP\\'s median-valued home ÷ its median household income. The highest gaps fall in lower-income neighborhoods where ownership is most out of reach — pair with rent burden, since most residents there rent.</p>');
+
+  h+=section('Data Provenance &amp; Freshness',
+    provenanceBoxes([{label:m.source.label, datasetId:m.source.datasetId, updateFrequency:m.source.updateFrequency, dataUpdatedAt:m.source.dataUpdatedAt, provenance:'official', publisher:m.source.publisher}], m.generatedAt, m.source.note, 'Authoritative demographic data — U.S. Census Bureau (ACS)'));
+
+  const methodRows=[
+    ['Source', m.source.label+' combined with DOF median sale price + FRED 30-year mortgage. <a href="'+m.source.landing+'" target="_blank" rel="noopener">ACS home ↗</a>'],
+    ['Affordability engine', esc(m.method.engine)],
+    ['Divergence monitor', esc(m.method.divergence)],
+    ['Cost burden', esc(m.method.burden)],
+    ['Assumptions', esc(m.assumptions.note)],
+    ['Facts vs. inference', esc(m.method.disclosure)],
+  ];
+  h+=section('Methodology &amp; Evidence','<div class="method">'+methodRows.map(r=>'<div class="row"><h3>'+r[0]+'</h3><span>'+r[1]+'</span></div>').join('')+'</div>');
+  return h;
+}
+
 document.getElementById('panel-brief').innerHTML = renderBrief();
 document.getElementById('panel-dev').innerHTML = renderDev();
 document.getElementById('panel-tx').innerHTML  = renderTx();
@@ -555,6 +653,7 @@ document.getElementById('panel-capital').innerHTML = renderCapital();
 document.getElementById('panel-cross').innerHTML = renderCross();
 document.getElementById('panel-risk').innerHTML = renderRisk();
 document.getElementById('panel-ll97').innerHTML = renderLL97();
+document.getElementById('panel-demand').innerHTML = renderDemand();
 document.getElementById('asof').textContent =
   'Development as of '+DEV.meta.latestMonthLabel+' · Transactions as of '+TX.meta.latestMonthLabel;
 
@@ -571,6 +670,22 @@ document.querySelectorAll('#panel-dev .card.click').forEach(el=>el.addEventListe
 document.querySelectorAll('#panel-tx .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('tx',+el.dataset.i)));
 document.querySelectorAll('#panel-risk .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('risk',+el.dataset.i)));
 document.querySelectorAll('#panel-ll97 .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('ll97',+el.dataset.i)));
+document.querySelectorAll('#panel-demand .card.click').forEach(el=>el.addEventListener('click',()=>openDemandBorough(+el.dataset.i)));
+
+// Affordability drill-down: borough → its ZIPs, ranked by affordability gap.
+function openDemandBorough(i){
+  const b=DEM.boroughs[i];
+  const zips=DEM.zips.filter(z=>z.borough===b.borough).sort((a,c)=>(c.engine.gapRatio||0)-(a.engine.gapRatio||0));
+  document.getElementById('m-title').textContent=b.borough+' — ZIP affordability';
+  document.getElementById('m-sub').textContent=zips.length+' ZIPs · income required to buy vs. local income · ACS '+DEM.meta.vintages.current+' · every row verifiable';
+  document.getElementById('m-head').innerHTML='<tr><th>ZIP</th><th class="n">Median income</th><th class="n">Income to buy</th><th class="n">Gap</th><th class="n">Can afford</th><th class="n">Rent burden</th><th>Divergence</th><th></th></tr>';
+  document.getElementById('m-rows').innerHTML=zips.map(z=>'<tr><td class="num">'+z.zip+'</td>'
+    +'<td class="nn">'+money(z.income)+'</td><td class="nn">'+money(z.engine.incomeRequired)+'</td>'
+    +'<td class="nn">'+gapx(z.engine.gapRatio)+'</td><td class="nn">'+share(z.engine.shareCanAfford)+'</td>'
+    +'<td class="nn">'+share(z.rentBurdenShare)+'</td><td>'+divChip(z.divergence)+'</td>'
+    +'<td><a href="'+z.censusUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>').join('');
+  document.getElementById('ov').classList.add('open');
+}
 
 function openBorough(feed,i){
   const F = feed==='dev'?DEV : feed==='tx'?TX : feed==='risk'?RISK : LL97, b=F.boroughs[i];

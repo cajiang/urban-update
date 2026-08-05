@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Risk",
-    "generatedAt": "2026-08-04T17:50:03.895Z",
+    "generatedAt": "2026-08-05T18:50:24.658Z",
     "windowLabel": "May 2026–July 2026",
     "latestMonth": "2026-07",
     "method": {
@@ -18,7 +18,7 @@
         "attribution": "Department of Housing Preservation and Development (HPD)",
         "provenance": "official",
         "updateFrequency": "Daily",
-        "dataUpdatedAt": "2026-08-04T14:56:56.000Z"
+        "dataUpdatedAt": "2026-08-05T14:54:04.000Z"
       },
       {
         "label": "311 Service Requests (2020–present)",
@@ -27,7 +27,7 @@
         "attribution": "311",
         "provenance": "official",
         "updateFrequency": "Daily",
-        "dataUpdatedAt": "2026-08-04T01:45:08.000Z"
+        "dataUpdatedAt": "2026-08-05T01:42:36.000Z"
       },
       {
         "label": "DOB ECB Violations",
@@ -36,21 +36,21 @@
         "attribution": "Department of Buildings (DOB)",
         "provenance": "official",
         "updateFrequency": "Every weekday",
-        "dataUpdatedAt": "2026-08-04T16:58:47.000Z"
+        "dataUpdatedAt": "2026-08-05T16:58:59.000Z"
       }
     ]
   },
   "narration": {
     "headline": "Bronx carries the highest risk pressure — 108,062 severity-weighted hazardous-violation points in May 2026–July 2026 (23,033 immediately-hazardous, 38,963 hazardous), +5% year-over-year. Trend: Stable.",
-    "citySummary": "Citywide, 59,792 immediately-hazardous (Class C) and 100,886 hazardous (Class B) HPD violations were issued in May 2026–July 2026, +4% year-over-year, alongside 185,888 building complaints to 311 and $37M in new ECB penalty balances."
+    "citySummary": "Citywide, 59,792 immediately-hazardous (Class C) and 100,886 hazardous (Class B) HPD violations were issued in May 2026–July 2026, +4% year-over-year, alongside 185,900 building complaints to 311 and $37M in new ECB penalty balances."
   },
   "citywide": {
     "weighted": 280262,
     "C": 59792,
     "B": 100886,
-    "complaints311": 185888,
+    "complaints311": 185900,
     "complaints311Yoy": 154014,
-    "ecbBalance": 36905418,
+    "ecbBalance": 37353718,
     "yoy": 0.040605065979519246,
     "regime": "Stable",
     "spark": [
@@ -158,11 +158,11 @@
       "weighted": 50557,
       "C": 10957,
       "B": 17686,
-      "complaints311": 38857,
+      "complaints311": 38855,
       "yoy": 0.04009628044766294,
       "regime": "Stable",
-      "ecbNew": 2881,
-      "ecbBalance": 7659297,
+      "ecbNew": 2905,
+      "ecbBalance": 7751567,
       "neighborhoods": [
         {
           "zip": "10031",
@@ -363,7 +363,7 @@
           "weighted": 807,
           "C": 174,
           "B": 285,
-          "complaints311": 856,
+          "complaints311": 854,
           "yoy": -0.06597222222222222,
           "regime": "Stable",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710003%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -799,11 +799,11 @@
       "weighted": 108062,
       "C": 23033,
       "B": 38963,
-      "complaints311": 55979,
+      "complaints311": 55985,
       "yoy": 0.05374939054119941,
       "regime": "Stable",
       "ecbNew": 3042,
-      "ecbBalance": 7495915,
+      "ecbBalance": 7491165,
       "neighborhoods": [
         {
           "zip": "10458",
@@ -812,7 +812,7 @@
           "weighted": 10752,
           "C": 2312,
           "B": 3816,
-          "complaints311": 4755,
+          "complaints311": 4756,
           "yoy": -0.06650460149331482,
           "regime": "Stable",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710458%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -860,7 +860,7 @@
           "weighted": 8402,
           "C": 1782,
           "B": 3056,
-          "complaints311": 4568,
+          "complaints311": 4571,
           "yoy": -0.03668883283650539,
           "regime": "Stable",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710453%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -872,7 +872,7 @@
           "weighted": 8267,
           "C": 1732,
           "B": 3071,
-          "complaints311": 4300,
+          "complaints311": 4301,
           "yoy": 0.01597640408012781,
           "regime": "Stable",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710467%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -1016,7 +1016,7 @@
           "weighted": 1576,
           "C": 329,
           "B": 589,
-          "complaints311": 1022,
+          "complaints311": 1023,
           "yoy": 0.21698841698841698,
           "regime": "Rising",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710461%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -1212,11 +1212,11 @@
       "weighted": 86467,
       "C": 18221,
       "B": 31804,
-      "complaints311": 57841,
+      "complaints311": 57845,
       "yoy": 0.03723474443098257,
       "regime": "Stable",
       "ecbNew": 5581,
-      "ecbBalance": 13246964,
+      "ecbBalance": 13227964,
       "neighborhoods": [
         {
           "zip": "11226",
@@ -1225,7 +1225,7 @@
           "weighted": 11811,
           "C": 2473,
           "B": 4392,
-          "complaints311": 5119,
+          "complaints311": 5121,
           "yoy": 0.09048102668267011,
           "regime": "Stable",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711226%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -1597,7 +1597,7 @@
           "weighted": 734,
           "C": 162,
           "B": 248,
-          "complaints311": 783,
+          "complaints311": 785,
           "yoy": 0.3719626168224299,
           "regime": "Rising",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711201%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -1781,11 +1781,11 @@
       "weighted": 29890,
       "C": 6487,
       "B": 10429,
-      "complaints311": 29205,
+      "complaints311": 29207,
       "yoy": -0.0030352556619192153,
       "regime": "Stable",
-      "ecbNew": 3414,
-      "ecbBalance": 6994812,
+      "ecbNew": 3463,
+      "ecbBalance": 7369592,
       "neighborhoods": [
         {
           "zip": "11372",
@@ -2346,7 +2346,7 @@
           "weighted": 75,
           "C": 8,
           "B": 51,
-          "complaints311": 74,
+          "complaints311": 75,
           "yoy": 0.7441860465116279,
           "regime": "Rising",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711411%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -2370,7 +2370,7 @@
           "weighted": 62,
           "C": 12,
           "B": 26,
-          "complaints311": 171,
+          "complaints311": 172,
           "yoy": 0.4418604651162791,
           "regime": "Rising",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2711364%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -2602,11 +2602,11 @@
       "weighted": 5286,
       "C": 1094,
       "B": 2004,
-      "complaints311": 3915,
+      "complaints311": 3917,
       "yoy": 0.09577114427860696,
       "regime": "Stable",
-      "ecbNew": 700,
-      "ecbBalance": 1508430,
+      "ecbNew": 704,
+      "ecbBalance": 1513430,
       "neighborhoods": [
         {
           "zip": "10304",
@@ -2639,7 +2639,7 @@
           "weighted": 732,
           "C": 192,
           "B": 156,
-          "complaints311": 298,
+          "complaints311": 299,
           "yoy": 0.3916349809885932,
           "regime": "Rising",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710302%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
@@ -2675,7 +2675,7 @@
           "weighted": 301,
           "C": 67,
           "B": 100,
-          "complaints311": 280,
+          "complaints311": 281,
           "yoy": -0.125,
           "regime": "Stable",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710310%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"

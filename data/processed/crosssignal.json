@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Cross-Signal",
-    "generatedAt": "2026-08-04T17:50:14.376Z",
+    "generatedAt": "2026-08-05T18:50:38.199Z",
     "referenceMonth": "2026-05",
     "referenceMonthLabel": "May 2026",
     "yoyMonthLabel": "May 2025",
@@ -29,12 +29,18 @@
         "label": "HPD Housing Maintenance Code Violations (risk overlay)",
         "datasetId": "wvxf-dwi5",
         "landing": "https://data.cityofnewyork.us/d/wvxf-dwi5"
+      },
+      {
+        "label": "U.S. Census ACS 5-Year 2024 (affordability overlay)",
+        "datasetId": "ACS5 2024",
+        "landing": "https://www.census.gov/programs-surveys/acs"
       }
     ],
+    "hasAffordability": true,
     "method": {
       "signal": "Year-over-year change in the trailing 3 months (March 2026–May 2026 vs. the same period a year earlier) in New Building filings (supply) and recorded sales (demand), joined by property ZIP.",
       "threshold": "A move of ±15% YoY counts as up/down. To qualify, a ZIP needs ≥8 filings and ≥45 sales this quarter, each off a year-ago base of ≥4 / ≥25 (avoids small-number noise).",
-      "note": "Supply and demand use the same trailing quarter (transactions lag ~2 months, so that quarter governs). Divergence flags are computed facts; interpretation requires review."
+      "note": "Supply and demand use the same trailing quarter (transactions lag ~2 months, so that quarter governs). Each ZIP also carries its affordability read (income-to-buy gap, renter cost burden, and price-vs-income divergence class) from the Census ACS. Divergence flags are computed facts; interpretation requires review."
     }
   },
   "counts": {
@@ -55,6 +61,13 @@
       "txYoY": -0.1839080459770115,
       "cls": "Supply building, demand softening",
       "hazardC": 386,
+      "afford": {
+        "gap": 2.04,
+        "canAfford": 0.22160375169221339,
+        "rentBurden": 0.5909265077783739,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 2.0839080459770116,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710461%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710461%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -69,6 +82,13 @@
       "txYoY": -0.2616822429906542,
       "cls": "Supply building, demand softening",
       "hazardC": 495,
+      "afford": {
+        "gap": 1.98,
+        "canAfford": 0.22996860108519276,
+        "rentBurden": 0.5125867195242815,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 1.6991822429906542,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711218%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711218%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -83,6 +103,13 @@
       "txYoY": -0.25263157894736843,
       "cls": "Supply building, demand softening",
       "hazardC": 19,
+      "afford": {
+        "gap": 1.69,
+        "canAfford": 0.27381707813947803,
+        "rentBurden": 0.5825133539499578,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.6812030075187971,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711364%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711364%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -97,6 +124,13 @@
       "txYoY": -0.29850746268656714,
       "cls": "Supply building, demand softening",
       "hazardC": 379,
+      "afford": {
+        "gap": 2.4,
+        "canAfford": 0.14160891311166424,
+        "rentBurden": 0.5685629211722301,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.5762852404643448,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711432%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711432%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -111,6 +145,13 @@
       "txYoY": -0.25252525252525254,
       "cls": "Supply building, demand softening",
       "hazardC": 219,
+      "afford": {
+        "gap": 1.88,
+        "canAfford": 0.2019205202064917,
+        "rentBurden": 0.5295077315931338,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.4832944832944834,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711236%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711236%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -125,6 +166,13 @@
       "txYoY": -0.4396551724137931,
       "cls": "Supply building, demand softening",
       "hazardC": 164,
+      "afford": {
+        "gap": 2.25,
+        "canAfford": 0.12868260960052094,
+        "rentBurden": 0.41533018867924526,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 1.2174329501915708,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711222%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711222%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -139,6 +187,13 @@
       "txYoY": -0.18072289156626506,
       "cls": "Supply building, demand softening",
       "hazardC": 973,
+      "afford": {
+        "gap": 2.18,
+        "canAfford": 0.16881903205710325,
+        "rentBurden": 0.5803022855738511,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 1.180722891566265,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711203%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711203%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -153,6 +208,13 @@
       "txYoY": -0.46524064171123,
       "cls": "Supply building, demand softening",
       "hazardC": 388,
+      "afford": {
+        "gap": 1.91,
+        "canAfford": 0.22006144562908808,
+        "rentBurden": 0.4665618050659001,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 1.1319073083778965,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711209%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711209%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -169,6 +231,13 @@
       "txYoY": 0.37735849056603776,
       "cls": "Demand outpacing supply",
       "hazardC": 66,
+      "afford": {
+        "gap": 1.31,
+        "canAfford": 0.3892693185146243,
+        "rentBurden": 0.4812286689419795,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.8773584905660378,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710075%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710075%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -183,6 +252,13 @@
       "txYoY": 0.390625,
       "cls": "Demand outpacing supply",
       "hazardC": 11,
+      "afford": {
+        "gap": 1.07,
+        "canAfford": 0.4582008587399348,
+        "rentBurden": 0.5802469135802469,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.6833079268292683,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710308%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710308%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -199,6 +275,13 @@
       "txYoY": 1.0333333333333334,
       "cls": "Heating",
       "hazardC": 53,
+      "afford": {
+        "gap": 2.33,
+        "canAfford": 0.1381300935808642,
+        "rentBurden": 0.5041682219733732,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 3.716666666666667,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711365%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711365%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -213,6 +296,13 @@
       "txYoY": -0.05970149253731343,
       "cls": "Mixed / flat",
       "hazardC": 791,
+      "afford": {
+        "gap": 2.63,
+        "canAfford": 0.11559903215313883,
+        "rentBurden": 0.4290214704599428,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 3.6847014925373136,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711216%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711216%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -227,6 +317,13 @@
       "txYoY": 0.38095238095238093,
       "cls": "Heating",
       "hazardC": 139,
+      "afford": {
+        "gap": 1.53,
+        "canAfford": 0.3264651859909755,
+        "rentBurden": 0.4252480328429695,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 2.369047619047619,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711102%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711102%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -241,6 +338,13 @@
       "txYoY": 0.19148936170212766,
       "cls": "Heating",
       "hazardC": 181,
+      "afford": {
+        "gap": 0.83,
+        "canAfford": 0.5945912465437336,
+        "rentBurden": 0.45381755790677725,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 2.2085106382978723,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710471%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710471%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -255,6 +359,13 @@
       "txYoY": -0.021505376344086023,
       "cls": "Mixed / flat",
       "hazardC": 1009,
+      "afford": {
+        "gap": 1.18,
+        "canAfford": 0.42993580715721397,
+        "rentBurden": 0.590403529736189,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 2.112414467253177,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710462%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710462%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -269,6 +380,13 @@
       "txYoY": -0.1839080459770115,
       "cls": "Supply building, demand softening",
       "hazardC": 386,
+      "afford": {
+        "gap": 2.04,
+        "canAfford": 0.22160375169221339,
+        "rentBurden": 0.5909265077783739,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 2.0839080459770116,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710461%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710461%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -283,6 +401,13 @@
       "txYoY": 0.12574850299401197,
       "cls": "Mixed / flat",
       "hazardC": 394,
+      "afford": {
+        "gap": 1.79,
+        "canAfford": 0.1655360628662066,
+        "rentBurden": 0.343439845073832,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 1.9045545273090183,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711215%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711215%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -297,6 +422,13 @@
       "txYoY": -0.2616822429906542,
       "cls": "Supply building, demand softening",
       "hazardC": 495,
+      "afford": {
+        "gap": 1.98,
+        "canAfford": 0.22996860108519276,
+        "rentBurden": 0.5125867195242815,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 1.6991822429906542,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711218%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711218%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -311,6 +443,13 @@
       "txYoY": -0.25263157894736843,
       "cls": "Supply building, demand softening",
       "hazardC": 19,
+      "afford": {
+        "gap": 1.69,
+        "canAfford": 0.27381707813947803,
+        "rentBurden": 0.5825133539499578,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.6812030075187971,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711364%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711364%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -325,6 +464,13 @@
       "txYoY": -0.125,
       "cls": "Mixed / flat",
       "hazardC": 205,
+      "afford": {
+        "gap": 3.46,
+        "canAfford": 0.07826132529640949,
+        "rentBurden": 0.5978375691294352,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.6544117647058822,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711223%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711223%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -339,6 +485,13 @@
       "txYoY": 0.13095238095238096,
       "cls": "Mixed / flat",
       "hazardC": 32,
+      "afford": {
+        "gap": 1.43,
+        "canAfford": 0.36203979762957045,
+        "rentBurden": 0.5725631768953069,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 1.619047619047619,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711414%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711414%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -353,6 +506,13 @@
       "txYoY": 0.13548387096774195,
       "cls": "Mixed / flat",
       "hazardC": 156,
+      "afford": {
+        "gap": 1.33,
+        "canAfford": 0.4162336224594977,
+        "rentBurden": 0.4716225546605293,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.614516129032258,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710016%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710016%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -367,6 +527,13 @@
       "txYoY": -0.29850746268656714,
       "cls": "Supply building, demand softening",
       "hazardC": 379,
+      "afford": {
+        "gap": 2.4,
+        "canAfford": 0.14160891311166424,
+        "rentBurden": 0.5685629211722301,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.5762852404643448,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711432%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711432%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -381,6 +548,13 @@
       "txYoY": -0.08860759493670886,
       "cls": "Mixed / flat",
       "hazardC": 41,
+      "afford": {
+        "gap": 1.14,
+        "canAfford": 0.4184272990348019,
+        "rentBurden": 0.513583071203889,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 1.5431530494821635,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711413%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711413%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -395,6 +569,13 @@
       "txYoY": 0,
       "cls": "Mixed / flat",
       "hazardC": 1101,
+      "afford": {
+        "gap": 2.39,
+        "canAfford": 0.1790497913031911,
+        "rentBurden": 0.5595228267150995,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 1.5185185185185186,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711207%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711207%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -409,6 +590,13 @@
       "txYoY": -0.25252525252525254,
       "cls": "Supply building, demand softening",
       "hazardC": 219,
+      "afford": {
+        "gap": 1.88,
+        "canAfford": 0.2019205202064917,
+        "rentBurden": 0.5295077315931338,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.4832944832944834,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711236%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711236%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -423,6 +611,13 @@
       "txYoY": -0.02158273381294964,
       "cls": "Mixed / flat",
       "hazardC": 128,
+      "afford": {
+        "gap": 1.68,
+        "canAfford": 0.2782204897810209,
+        "rentBurden": 0.536649527681454,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.354916067146283,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711234%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711234%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -437,6 +632,13 @@
       "txYoY": 0.25225225225225223,
       "cls": "Heating",
       "hazardC": 535,
+      "afford": {
+        "gap": 1.68,
+        "canAfford": 0.25905664731997313,
+        "rentBurden": 0.38629139751871217,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 1.2349272349272349,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711238%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711238%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -451,6 +653,13 @@
       "txYoY": -0.4396551724137931,
       "cls": "Supply building, demand softening",
       "hazardC": 164,
+      "afford": {
+        "gap": 2.25,
+        "canAfford": 0.12868260960052094,
+        "rentBurden": 0.41533018867924526,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 1.2174329501915708,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711222%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711222%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -465,6 +674,13 @@
       "txYoY": 0.06666666666666667,
       "cls": "Mixed / flat",
       "hazardC": 213,
+      "afford": {
+        "gap": 1.35,
+        "canAfford": 0.38690087177547183,
+        "rentBurden": 0.5519834832620557,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.1833333333333333,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711367%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711367%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -479,6 +695,13 @@
       "txYoY": -0.18072289156626506,
       "cls": "Supply building, demand softening",
       "hazardC": 973,
+      "afford": {
+        "gap": 2.18,
+        "canAfford": 0.16881903205710325,
+        "rentBurden": 0.5803022855738511,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 1.180722891566265,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711203%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711203%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -493,6 +716,13 @@
       "txYoY": -0.46524064171123,
       "cls": "Supply building, demand softening",
       "hazardC": 388,
+      "afford": {
+        "gap": 1.91,
+        "canAfford": 0.22006144562908808,
+        "rentBurden": 0.4665618050659001,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 1.1319073083778965,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711209%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711209%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -507,6 +737,13 @@
       "txYoY": -0.07857142857142857,
       "cls": "Mixed / flat",
       "hazardC": 131,
+      "afford": {
+        "gap": 2.01,
+        "canAfford": 0.1785778250473291,
+        "rentBurden": 0.40787845796011285,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 1.0785714285714285,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710128%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710128%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -521,6 +758,13 @@
       "txYoY": -0.0625,
       "cls": "Mixed / flat",
       "hazardC": 37,
+      "afford": {
+        "gap": 1.96,
+        "canAfford": 0.22184824865629232,
+        "rentBurden": 0.5174621653084982,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.0625,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711379%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711379%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -535,6 +779,13 @@
       "txYoY": -0.027777777777777776,
       "cls": "Mixed / flat",
       "hazardC": 351,
+      "afford": {
+        "gap": 3.09,
+        "canAfford": 0.103510104029541,
+        "rentBurden": 0.5529830810329475,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 1.0277777777777777,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711214%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711214%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -549,6 +800,13 @@
       "txYoY": 0.12698412698412698,
       "cls": "Mixed / flat",
       "hazardC": 761,
+      "afford": {
+        "gap": 1.92,
+        "canAfford": 0.23877419675677156,
+        "rentBurden": 0.5774463089565638,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 1.023015873015873,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710466%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710466%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -563,6 +821,13 @@
       "txYoY": -0.109375,
       "cls": "Mixed / flat",
       "hazardC": 947,
+      "afford": {
+        "gap": 3.1,
+        "canAfford": 0.17323895865148484,
+        "rentBurden": 0.5053267610112896,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.9665178571428571,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710027%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710027%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -577,6 +842,13 @@
       "txYoY": -0.013333333333333334,
       "cls": "Mixed / flat",
       "hazardC": 307,
+      "afford": {
+        "gap": 3.52,
+        "canAfford": 0.15759203299201838,
+        "rentBurden": 0.5223661183059153,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.9419047619047619,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710002%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710002%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -591,6 +863,13 @@
       "txYoY": 0.023255813953488372,
       "cls": "Mixed / flat",
       "hazardC": 126,
+      "afford": {
+        "gap": 2.07,
+        "canAfford": 0.14510642661127035,
+        "rentBurden": 0.40782122905027934,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.9155196962505933,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711217%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711217%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -605,6 +884,13 @@
       "txYoY": 0.37735849056603776,
       "cls": "Demand outpacing supply",
       "hazardC": 66,
+      "afford": {
+        "gap": 1.31,
+        "canAfford": 0.3892693185146243,
+        "rentBurden": 0.4812286689419795,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.8773584905660378,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710075%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710075%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -619,6 +905,13 @@
       "txYoY": 0.9473684210526315,
       "cls": "Mixed / flat",
       "hazardC": 182,
+      "afford": {
+        "gap": 2.01,
+        "canAfford": 0.2613530026737929,
+        "rentBurden": 0.4630738522954092,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.8749046529366895,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711205%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711205%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -633,6 +926,13 @@
       "txYoY": -0.20717131474103587,
       "cls": "Supply building, demand softening",
       "hazardC": 90,
+      "afford": {
+        "gap": 1.32,
+        "canAfford": 0.34815656062038214,
+        "rentBurden": 0.47742166090789945,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.8321713147410359,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710022%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710022%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -647,6 +947,13 @@
       "txYoY": 0.0136986301369863,
       "cls": "Mixed / flat",
       "hazardC": 19,
+      "afford": {
+        "gap": 1.43,
+        "canAfford": 0.34472224452673206,
+        "rentBurden": 0.5130193905817174,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.8196347031963471,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711360%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711360%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -661,6 +968,13 @@
       "txYoY": -0.3333333333333333,
       "cls": "Supply building, demand softening",
       "hazardC": 149,
+      "afford": {
+        "gap": 2.05,
+        "canAfford": 0.23566194951202107,
+        "rentBurden": 0.492656315568611,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.8,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710036%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710036%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -675,6 +989,13 @@
       "txYoY": -0.22330097087378642,
       "cls": "Supply building, demand softening",
       "hazardC": 4,
+      "afford": {
+        "gap": 1.36,
+        "canAfford": 0.383005893461352,
+        "rentBurden": 0.657196261682243,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.7171281313676136,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710309%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710309%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -689,6 +1010,13 @@
       "txYoY": 0.390625,
       "cls": "Demand outpacing supply",
       "hazardC": 11,
+      "afford": {
+        "gap": 1.07,
+        "canAfford": 0.4582008587399348,
+        "rentBurden": 0.5802469135802469,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.6833079268292683,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710308%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710308%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -703,6 +1031,13 @@
       "txYoY": 0.20253164556962025,
       "cls": "Heating",
       "hazardC": 285,
+      "afford": {
+        "gap": 1.8,
+        "canAfford": 0.2515805471117371,
+        "rentBurden": 0.5963534361851333,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.6724683544303798,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710469%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710469%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -717,6 +1052,13 @@
       "txYoY": -0.1978021978021978,
       "cls": "Supply building, demand softening",
       "hazardC": 225,
+      "afford": {
+        "gap": 1.64,
+        "canAfford": 0.27131962540115173,
+        "rentBurden": 0.554320987654321,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.6714864083285136,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710301%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710301%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -731,6 +1073,13 @@
       "txYoY": -0.14666666666666667,
       "cls": "Mixed / flat",
       "hazardC": 419,
+      "afford": {
+        "gap": 1.41,
+        "canAfford": 0.32326362724970853,
+        "rentBurden": 0.5617611088463106,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.6627956989247312,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711435%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711435%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -745,6 +1094,13 @@
       "txYoY": 0.022222222222222223,
       "cls": "Mixed / flat",
       "hazardC": 64,
+      "afford": {
+        "gap": 1.19,
+        "canAfford": 0.42140056478581,
+        "rentBurden": 0.5422318125770653,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.6444444444444444,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711422%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711422%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -759,6 +1115,13 @@
       "txYoY": 0.044642857142857144,
       "cls": "Mixed / flat",
       "hazardC": 232,
+      "afford": {
+        "gap": 2.39,
+        "canAfford": 0.18600292673786076,
+        "rentBurden": 0.5295581014729951,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.6428571428571429,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711229%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711229%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -773,6 +1136,13 @@
       "txYoY": -0.08108108108108109,
       "cls": "Mixed / flat",
       "hazardC": 724,
+      "afford": {
+        "gap": 2.06,
+        "canAfford": 0.19401934389077702,
+        "rentBurden": 0.5451168689980069,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.6310810810810812,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711210%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711210%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -787,6 +1157,13 @@
       "txYoY": -0.41040462427745666,
       "cls": "Supply building, demand softening",
       "hazardC": 268,
+      "afford": {
+        "gap": 2.05,
+        "canAfford": 0.1884076782366602,
+        "rentBurden": 0.5298065190866307,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.5770712909441233,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711377%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711377%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -801,6 +1178,13 @@
       "txYoY": 0.7142857142857143,
       "cls": "Mixed / flat",
       "hazardC": 1396,
+      "afford": {
+        "gap": 2.83,
+        "canAfford": 0.09596122534489648,
+        "rentBurden": 0.45564046763500177,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.5714285714285714,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711225%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711225%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -815,6 +1199,13 @@
       "txYoY": -0.04,
       "cls": "Mixed / flat",
       "hazardC": 158,
+      "afford": {
+        "gap": 1.32,
+        "canAfford": 0.3325954578198566,
+        "rentBurden": 0.40021013419934093,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.57125,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711201%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711201%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -829,6 +1220,13 @@
       "txYoY": 0.031007751937984496,
       "cls": "Mixed / flat",
       "hazardC": 37,
+      "afford": {
+        "gap": 1.47,
+        "canAfford": 0.32617944878698735,
+        "rentBurden": 0.5970098538905878,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.5342096393663633,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710306%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710306%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -843,6 +1241,13 @@
       "txYoY": 0.21052631578947367,
       "cls": "Heating",
       "hazardC": 60,
+      "afford": {
+        "gap": 1.46,
+        "canAfford": 0.32667680331043486,
+        "rentBurden": 0.5535529620327966,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.5167464114832536,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710465%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710465%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -857,6 +1262,13 @@
       "txYoY": -0.24210526315789474,
       "cls": "Supply building, demand softening",
       "hazardC": 294,
+      "afford": {
+        "gap": 3.25,
+        "canAfford": 0.058678544821737885,
+        "rentBurden": 0.5812245968270617,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.4643274853801169,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711204%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711204%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -871,6 +1283,13 @@
       "txYoY": -0.03017241379310345,
       "cls": "Mixed / flat",
       "hazardC": 147,
+      "afford": {
+        "gap": 1.66,
+        "canAfford": 0.25799123052060935,
+        "rentBurden": 0.44007892751436367,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.458743842364532,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710011%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710011%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -885,6 +1304,13 @@
       "txYoY": -0.1125,
       "cls": "Mixed / flat",
       "hazardC": 433,
+      "afford": {
+        "gap": 3.03,
+        "canAfford": 0.0861246755230129,
+        "rentBurden": 0.5582585143201083,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.4458333333333333,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711220%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711220%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -899,6 +1325,13 @@
       "txYoY": -0.1282051282051282,
       "cls": "Mixed / flat",
       "hazardC": 48,
+      "afford": {
+        "gap": 1.34,
+        "canAfford": 0.37185203747281326,
+        "rentBurden": 0.49179697513458087,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.4407051282051282,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710314%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710314%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -913,6 +1346,13 @@
       "txYoY": -0.09876543209876543,
       "cls": "Mixed / flat",
       "hazardC": 32,
+      "afford": {
+        "gap": 1.78,
+        "canAfford": 0.20329675550359913,
+        "rentBurden": 0.4824242424242424,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.43694885361552027,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711361%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711361%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -927,6 +1367,13 @@
       "txYoY": 0.27848101265822783,
       "cls": "Heating",
       "hazardC": 65,
+      "afford": {
+        "gap": 1.79,
+        "canAfford": 0.210193517331377,
+        "rentBurden": 0.39054545454545453,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.43580470162748647,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710021%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710021%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -941,6 +1388,13 @@
       "txYoY": 0.1323529411764706,
       "cls": "Mixed / flat",
       "hazardC": 2761,
+      "afford": {
+        "gap": 2.23,
+        "canAfford": 0.16914373852935333,
+        "rentBurden": 0.4954306459689534,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.423202614379085,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711226%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711226%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -955,6 +1409,13 @@
       "txYoY": 0.49382716049382713,
       "cls": "Mixed / flat",
       "hazardC": 774,
+      "afford": {
+        "gap": 2.61,
+        "canAfford": 0.1276178100018311,
+        "rentBurden": 0.5144364543056409,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.38966049382716045,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711221%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711221%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -969,6 +1430,13 @@
       "txYoY": -0.03409090909090909,
       "cls": "Mixed / flat",
       "hazardC": 131,
+      "afford": {
+        "gap": 1.66,
+        "canAfford": 0.2794070124567872,
+        "rentBurden": 0.5021933672574136,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.3540909090909091,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711434%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711434%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -983,6 +1451,13 @@
       "txYoY": -0.2490842490842491,
       "cls": "Mixed / flat",
       "hazardC": 248,
+      "afford": {
+        "gap": 1.75,
+        "canAfford": 0.27052562240623346,
+        "rentBurden": 0.6424754352697811,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.3516483516483516,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711354%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711354%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -997,6 +1472,13 @@
       "txYoY": -0.3188405797101449,
       "cls": "Mixed / flat",
       "hazardC": 751,
+      "afford": {
+        "gap": 1.06,
+        "canAfford": 0.4742389427162258,
+        "rentBurden": 0.5513196480938416,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.3188405797101449,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710463%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710463%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1011,6 +1493,13 @@
       "txYoY": -0.08433734939759036,
       "cls": "Mixed / flat",
       "hazardC": 291,
+      "afford": {
+        "gap": 1.95,
+        "canAfford": 0.22743760025754528,
+        "rentBurden": 0.5584860873005407,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.30655957161981257,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710304%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710304%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1025,6 +1514,13 @@
       "txYoY": 0.05333333333333334,
       "cls": "Mixed / flat",
       "hazardC": 984,
+      "afford": {
+        "gap": 3.26,
+        "canAfford": 0.09254516557397698,
+        "rentBurden": 0.5369107619329974,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.2944927536231884,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711233%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711233%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1039,6 +1535,13 @@
       "txYoY": -0.14666666666666667,
       "cls": "Mixed / flat",
       "hazardC": 579,
+      "afford": {
+        "gap": 2.25,
+        "canAfford": 0.1647554583854884,
+        "rentBurden": 0.5385958348921311,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.28995305164319246,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711208%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711208%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1053,6 +1556,13 @@
       "txYoY": -0.07777777777777778,
       "cls": "Mixed / flat",
       "hazardC": 270,
+      "afford": {
+        "gap": 4.01,
+        "canAfford": 0.05875538534243329,
+        "rentBurden": 0.6064981949458483,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.28467432950191573,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711219%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711219%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1067,6 +1577,13 @@
       "txYoY": 0.14285714285714285,
       "cls": "Mixed / flat",
       "hazardC": 62,
+      "afford": {
+        "gap": 2.16,
+        "canAfford": 0.1562221381966053,
+        "rentBurden": 0.5872242175474602,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.2792207792207792,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711356%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711356%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1081,6 +1598,13 @@
       "txYoY": -0.13580246913580246,
       "cls": "Mixed / flat",
       "hazardC": 415,
+      "afford": {
+        "gap": 2.49,
+        "canAfford": 0.18365954276465135,
+        "rentBurden": 0.6426987497051191,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.2786596119929453,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711235%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711235%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1095,6 +1619,13 @@
       "txYoY": 0.27450980392156865,
       "cls": "Mixed / flat",
       "hazardC": 50,
+      "afford": {
+        "gap": 1.45,
+        "canAfford": 0.2996965496225077,
+        "rentBurden": 0.55573681348559,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.27450980392156865,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711420%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711420%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1109,6 +1640,13 @@
       "txYoY": -0.2328767123287671,
       "cls": "Mixed / flat",
       "hazardC": 126,
+      "afford": {
+        "gap": 1.65,
+        "canAfford": 0.31863191962533305,
+        "rentBurden": 0.4124418604651163,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.2685909980430528,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711101%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711101%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1123,6 +1661,13 @@
       "txYoY": -0.2638888888888889,
       "cls": "Mixed / flat",
       "hazardC": 410,
+      "afford": {
+        "gap": 2.48,
+        "canAfford": 0.17651738158959748,
+        "rentBurden": 0.5572480324955572,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.2638888888888889,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711691%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711691%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1137,6 +1682,13 @@
       "txYoY": -0.0962962962962963,
       "cls": "Mixed / flat",
       "hazardC": 95,
+      "afford": {
+        "gap": 1.88,
+        "canAfford": 0.19177418642119273,
+        "rentBurden": 0.44795333400382176,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.256644880174292,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710065%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710065%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1151,6 +1703,13 @@
       "txYoY": 0.07079646017699115,
       "cls": "Mixed / flat",
       "hazardC": 168,
+      "afford": {
+        "gap": 1.5,
+        "canAfford": 0.26406805363197733,
+        "rentBurden": 0.3824038794596467,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.2374631268436578,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710014%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710014%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1165,6 +1724,13 @@
       "txYoY": -0.03614457831325301,
       "cls": "Mixed / flat",
       "hazardC": 514,
+      "afford": {
+        "gap": 2.01,
+        "canAfford": 0.17022017959393235,
+        "rentBurden": 0.5939380818358952,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.2365826944140197,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711373%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711373%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1179,6 +1745,13 @@
       "txYoY": -0.19298245614035087,
       "cls": "Cooling",
       "hazardC": 32,
+      "afford": {
+        "gap": 1.59,
+        "canAfford": 0.2822461661663894,
+        "rentBurden": 0.5542216886754702,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.23558897243107768,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710305%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710305%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1193,6 +1766,13 @@
       "txYoY": -0.17105263157894737,
       "cls": "Cooling",
       "hazardC": 200,
+      "afford": {
+        "gap": 1.7,
+        "canAfford": 0.28955782839961774,
+        "rentBurden": 0.44615009746588696,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.21356275303643726,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710019%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710019%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1207,6 +1787,13 @@
       "txYoY": -0.11764705882352941,
       "cls": "Mixed / flat",
       "hazardC": 49,
+      "afford": {
+        "gap": 2.27,
+        "canAfford": 0.16279738563876806,
+        "rentBurden": 0.5737480438184663,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.20460358056265984,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711358%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711358%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1221,6 +1808,13 @@
       "txYoY": -0.725,
       "cls": "Cooling",
       "hazardC": 418,
+      "afford": {
+        "gap": 2.11,
+        "canAfford": 0.1483119616076507,
+        "rentBurden": 0.5591643179886369,
+        "divCls": "Supported growth",
+        "divCode": "supported"
+      },
       "divergence": 0.20119047619047614,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711368%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711368%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1235,6 +1829,13 @@
       "txYoY": 0.2564102564102564,
       "cls": "Mixed / flat",
       "hazardC": 21,
+      "afford": {
+        "gap": 1.95,
+        "canAfford": 0.23430307249556256,
+        "rentBurden": 0.5623334320402724,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.20085470085470084,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711357%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711357%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1249,6 +1850,13 @@
       "txYoY": 0.3333333333333333,
       "cls": "Mixed / flat",
       "hazardC": 27,
+      "afford": {
+        "gap": 1.34,
+        "canAfford": 0.3482512241636772,
+        "rentBurden": 0.5939537640782454,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.19215686274509802,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710312%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710312%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1263,6 +1871,13 @@
       "txYoY": 0.16304347826086957,
       "cls": "Mixed / flat",
       "hazardC": 724,
+      "afford": {
+        "gap": 2.57,
+        "canAfford": 0.143965548275966,
+        "rentBurden": 0.5716018285287807,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.16304347826086957,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711230%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711230%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1277,6 +1892,13 @@
       "txYoY": 0.684931506849315,
       "cls": "Heating",
       "hazardC": 348,
+      "afford": {
+        "gap": 2.18,
+        "canAfford": 0.22728700552276962,
+        "rentBurden": 0.41801570053665676,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.1543192619513558,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711211%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711211%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1291,6 +1913,13 @@
       "txYoY": -0.09322033898305085,
       "cls": "Mixed / flat",
       "hazardC": 351,
+      "afford": {
+        "gap": 1.99,
+        "canAfford": 0.17774561266207345,
+        "rentBurden": 0.47070634060153393,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.13405238828967642,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711385%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711385%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1305,6 +1934,13 @@
       "txYoY": 0.1111111111111111,
       "cls": "Mixed / flat",
       "hazardC": 38,
+      "afford": {
+        "gap": 2,
+        "canAfford": 0.20780857776085018,
+        "rentBurden": 0.5579103922662205,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
       "divergence": 0.1111111111111111,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711378%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711378%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1319,6 +1955,13 @@
       "txYoY": 0.15584415584415584,
       "cls": "Mixed / flat",
       "hazardC": 51,
+      "afford": {
+        "gap": 2.47,
+        "canAfford": 0.15121238050821673,
+        "rentBurden": 0.37870427140813406,
+        "divCls": "Insufficient data",
+        "divCode": "na"
+      },
       "divergence": 0.08441558441558442,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711249%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711249%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1333,6 +1976,13 @@
       "txYoY": -0.26229508196721313,
       "cls": "Cooling",
       "hazardC": 1976,
+      "afford": {
+        "gap": 1.73,
+        "canAfford": 0.27402224139009557,
+        "rentBurden": 0.5794994657946709,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.07181889149102266,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710467%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710467%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1347,6 +1997,13 @@
       "txYoY": -0.16,
       "cls": "Mixed / flat",
       "hazardC": 128,
+      "afford": {
+        "gap": 2.37,
+        "canAfford": 0.13994712855707386,
+        "rentBurden": 0.3301826774516041,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.04679245283018868,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711231%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711231%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1361,6 +2018,13 @@
       "txYoY": 0.0410958904109589,
       "cls": "Mixed / flat",
       "hazardC": 49,
+      "afford": {
+        "gap": 1.36,
+        "canAfford": 0.326511211727914,
+        "rentBurden": 0.5450603902136885,
+        "divCls": "Yield compression",
+        "divCode": "spec"
+      },
       "divergence": 0.0410958904109589,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711412%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711412%27&%24order=sale_price%3A%3Anumber+DESC"
@@ -1375,6 +2039,13 @@
       "txYoY": -0.15204678362573099,
       "cls": "Cooling",
       "hazardC": 391,
+      "afford": {
+        "gap": 2.51,
+        "canAfford": 0.15654351101638053,
+        "rentBurden": 0.6502476313522825,
+        "divCls": "Improving fundamentals",
+        "divCode": "fund"
+      },
       "divergence": 0.0001271294177472848,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711355%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711355%27&%24order=sale_price%3A%3Anumber+DESC"

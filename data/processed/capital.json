@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Capital Conditions",
-    "generatedAt": "2026-08-04T17:50:10.859Z",
+    "generatedAt": "2026-08-05T18:50:31.301Z",
     "source": {
       "label": "FRED — Federal Reserve Bank of St. Louis",
       "host": "fred.stlouisfed.org",
@@ -11,7 +11,7 @@
       "provenance": "official",
       "datasetId": "DGS10, MORTGAGE30US, SOFR, FEDFUNDS",
       "updateFrequency": "Daily (Treasuries, SOFR), weekly (mortgage), monthly (Fed Funds)",
-      "dataUpdatedAt": "2026-08-03T12:00:00",
+      "dataUpdatedAt": "2026-08-04T12:00:00",
       "note": "Public FRED CSV endpoint — no API key required."
     },
     "method": {
@@ -27,11 +27,11 @@
       "unit": "%",
       "role": "Benchmark for CRE cap rates & permanent debt",
       "latest": {
-        "value": 4.75,
-        "date": "2026-07-31"
+        "value": 4.7,
+        "date": "2026-08-03"
       },
-      "latestMonth": "2026-07",
-      "yoyBps": 21,
+      "latestMonth": "2026-08",
+      "yoyBps": 44,
       "cycleLow": {
         "value": 0.62,
         "month": "2020-07",
@@ -43,10 +43,6 @@
         "label": "October 2023"
       },
       "spark": [
-        {
-          "month": "2023-08",
-          "v": 4.17
-        },
         {
           "month": "2023-09",
           "v": 4.38
@@ -186,6 +182,10 @@
         {
           "month": "2026-07",
           "v": 4.6
+        },
+        {
+          "month": "2026-08",
+          "v": 4.7
         }
       ],
       "seriesLanding": "https://fred.stlouisfed.org/series/DGS10"
@@ -365,8 +365,8 @@
       "unit": "%",
       "role": "Floating-rate benchmark — construction & bridge debt",
       "latest": {
-        "value": 3.65,
-        "date": "2026-08-03"
+        "value": 3.66,
+        "date": "2026-08-04"
       },
       "latestMonth": "2026-08",
       "yoyBps": -69,
@@ -523,7 +523,7 @@
         },
         {
           "month": "2026-08",
-          "v": 3.65
+          "v": 3.66
         }
       ],
       "seriesLanding": "https://fred.stlouisfed.org/series/SOFR"

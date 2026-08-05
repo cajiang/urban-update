@@ -101,15 +101,19 @@ Same pattern with `job_type='Full Demolition'` gives the demolition (redevelopme
 - **Lag handling:** all sales-based analysis is capped at the latest **complete** DOF month (source update − 2), matching the Transactions feed, so partial months don't bias the comparison.
 - **Disclosure:** correlation is association, not causation, and is labeled as such in-dashboard.
 
-## Demand & Affordability feed (v5) — SELECTED, verification PENDING (D30/D31)
+## Demand & Affordability feed (v5) — BUILT & VERIFIED live 2026-08-05 (D30/D31)
 
-> ⚠️ **Not yet verified live** — do not treat as pinned until the first successful ACS call. Blocked on Census key activation (see HANDOFF "⏩ Pick up here").
+> ✅ **Verified live** — first successful ACS calls returned real NYC figures; feed shipped as the 8th tab. Census key activation lag (see prior handoffs) cleared.
 
 ### U.S. Census — American Community Survey (ACS) 5-year
-- **API:** `https://api.census.gov/data/{year}/acs/acs5` · **Publisher:** U.S. Census Bureau (primary/official). **Requires a free `CENSUS_API_KEY`** (keyless retired). NYC Open Data's ACS profiles (`kvuc-fg9b`, `cu9u-3r5e`) are **non-tabular** (Excel attachments) — not usable via our Socrata pipeline.
-- **Geography:** ZCTA (ZIP Code Tabulation Area) — `&for=zip%20code%20tabulation%20area:<zip>` — joins to our ZIP-keyed feeds; roll up to borough. (ZCTAs ≈ ZIPs; PO-box-only ZIPs excluded.) 5-year required at ZCTA grain; annual, lagged ~1–1.5 yr (fine for structural affordability).
-- **Variables:** `B19013_001E` median HH income · `B25064_001E` median gross rent · `B25077_001E` median home value · `B01003_001E` population · `B25003_002E/_003E` owner/renter · `B25070_001E`+`_007E.._010E` rent-burdened (renters ≥30% of income) · `B19001` income distribution. Two vintages → income/rent/pop growth.
-- **Combined with existing feeds:** DOF median price + FRED mortgage rate (already ingested) → affordability engine + divergence monitor. See DECISIONS.md D30.
+- **API:** `https://api.census.gov/data/{year}/acs/acs5` · **Publisher:** U.S. Census Bureau (primary/official). **Requires a free `CENSUS_API_KEY`** (keyless retired; env-only, D31). NYC Open Data's ACS profiles (`kvuc-fg9b`, `cu9u-3r5e`) are **non-tabular** (Excel attachments) — not usable via our Socrata pipeline.
+- **Vintages used:** **ACS5 2024 (current) + ACS5 2020 (prior)** — both on **2020-Census ZCTA boundaries**, so the change window is measured on a consistent geography. Pre-2020 ACS5 (≤2019) uses **2010 ZCTAs** AND requires `&in=state:36` nesting (the modern single-`for=` ZCTA call errors "ambiguous geography"); comparing across the 2010→2020 boundary redraw would manufacture spurious growth, so we don't. The 2016–2020 and 2020–2024 five-year windows share only their 2020 endpoint (≈ adjacent windows — a clean ~4-yr change read spanning the rate surge).
+- **Geography:** ZCTA (ZIP) — `&for=zip%20code%20tabulation%20area:<zip1,zip2,…>` (comma-batched, verified) — joins to our ZIP-keyed feeds; borough = **county** (`for=county:061,005,047,081,085&in=state:36`; authoritative medians, not averaged ZIPs); citywide = **place** `160XX00US3651000`. (ZCTAs ≈ ZIPs; PO-box-only ZIPs excluded.)
+- **Variables (verified returning, 2024 & 2020):** `B19013_001E` median HH income · `B25064_001E` median gross rent · `B25077_001E` median home value · `B01003_001E` population · `B25003_001E/002E/003E` tenure total/owner/renter · `B25070_001E`+`_007E.._010E` (+`_011E` not-computed) rent burden · `B19001` (17-bucket income distribution). Two vintages → income/rent/value/pop growth.
+- **Combined with existing feeds:** DOF median sale price (borough/citywide) + ACS median home value (ZIP) + FRED 30-yr mortgage → affordability engine (income required to buy vs. local income; share who can afford) + divergence monitor (value/income/rent growth classes). See DECISIONS.md D30, D33.
+- **Evidence links (no key):** public `data.census.gov/profile?g=…` (ZCTA `860XX00US<zip>`, county `050XX00US36<fips>`, place `160XX00US3651000`) — all resolve 200.
+
+**2026-08-05 — verified via live ACS calls (probe + first build).** Sample: ZCTA 11365 (Fresh Meadows) median HH income **$81,258**, gross rent **$1,890**, home value **$922,200**, pop **42,322** (ACS5 2024). Borough medians match reality (Manhattan income $103,931, Bronx $48,676; citywide $80,483, pop 8,483,844). Every dashboard figure re-checked against the live payload.
 
 ## Planned next sources (not yet built)
 - **BLS employment** (QCEW/LAUS, free API) — "demand formation" (borough/sector jobs); v1.1 fast-follow to the affordability feed.
