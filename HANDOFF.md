@@ -1,6 +1,6 @@
 # Urban Update — Handoff
 
-_For the next session. Read this first, then `DECISIONS.md` (the canonical decision log) and `SOURCES.md` (verified data sources)._
+_For the next session. Read this first, then `DECISIONS.md` (the canonical decision log) and `SOURCES.md` (verified data sources). When it's time to hand off again, follow `HANDOFF_PROCESS.md` — including its mandatory pressure test._
 
 ## ⏩ Pick up here (2026-08-05 handoff — end of session #3)
 - **Latest commit is on `main`, pushed, working tree clean.** History: `c258878` (Capital feed) → `9289b74` (narration hardening + `run.ps1` DPAPI launcher + refreshed data) → `cb22f3c` (handoff fix) → this handoff commit. 7-tab dashboard is complete and verified.
