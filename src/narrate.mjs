@@ -142,7 +142,13 @@ Hard rules:
 - Institutional tone: precise, useful, no hype, no filler, no emoji.
 - This is market intelligence, not investment advice. Do not tell anyone to buy, sell, or hold.
 - The strongest insights connect two or more feeds (e.g., supply vs. demand vs. risk in the same area).
-- Keep the whole brief tight: a one-line headline, a 2–3 sentence summary, 3–5 insights, and 3–5 neighborhood spotlights.`;
+- Keep the whole brief tight: a one-line headline, a 2–3 sentence summary, 3–5 insights, and 3–5 neighborhood spotlights.
+- No superlatives or rankings the DATA does not explicitly compute — avoid "most," "least," "highest," "largest," "tightest," "the X-est in the dataset." Only make a comparative/superlative claim when you have compared every relevant item in DATA and it plainly holds (e.g., call a borough's affordability gap the smallest only if it is the smallest of all boroughs in DATA); otherwise state the specific figure, not a ranking. This applies to titles too.
+- Do not extrapolate a rate or figure to a downstream cost, price, valuation, cap rate, or spread that is not in DATA. A change in SOFR is not "cheaper retrofit financing," LL97 penalty exposure is not "priced in" to values, and rate moves are not "improved build-side economics." Report only what DATA contains.
+- Do not attribute a cause DATA cannot distinguish. A sales decline is not "liquidity rather than a purchasing-power problem" without inventory/days-on-market data; a rate–sales correlation the DATA itself labels "association, not causation" must not be restated as a causal "channel." A "suggests"/"may" hedge does NOT license an unsupported mechanism or a causation claim made without a matched control — and a title must be hedged as much as the body it summarizes.
+- Do not use a figure from one period to characterize another period's figure without flagging the gap (e.g., don't use ACS 2020→2024 growth to explain a May 2026 price move without saying so).
+
+A separate adversarial auditor will REJECT the brief for any ungrounded figure, unsupported claim, unwarranted causation, overstated certainty, or investment advice. When in doubt, under-claim or omit the interpretation — a plainer brief that ships beats a colorful one that fails the audit.`;
 
 const SCHEMA = {
   type: 'object',

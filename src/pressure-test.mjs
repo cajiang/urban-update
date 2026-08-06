@@ -85,7 +85,7 @@ async function main() {
     headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
     body: JSON.stringify({
       model: MODEL,
-      max_tokens: 4000,
+      max_tokens: 16000,
       thinking: { type: 'adaptive' },
       output_config: { effort: 'high', format: { type: 'json_schema', schema: SCHEMA } },
       system: SYSTEM,
@@ -103,12 +103,17 @@ async function main() {
     const hint = res.status === 401 ? ' → key invalid/rejected.' : res.status === 429 ? ' → rate limited; retry later.' : (res.status >= 500 ? ' → Anthropic service error; retry later.' : '');
     console.error(`Claude API ${res.status}${hint}\n${body}`);
     console.error('Skipping pressure-test — no audit produced (build continues).');
-    process.exit(0);   // don't block the pipeline on an audit that couldn't run
+    process.exitCode = 0; return;   // don't block the pipeline on an audit that couldn't run
   }
   const data = await res.json();
   const text = (data.content || []).find((b) => b.type === 'text');
-  if (!text) { console.error('No text block in audit response; skipping.'); process.exit(0); }
-  const parsed = JSON.parse(text.text);
+  if (!text) { console.error('No text block in audit response; skipping.'); process.exitCode = 0; return; }
+  let parsed;
+  try { parsed = JSON.parse(text.text); }
+  catch (e) {
+    console.error(`Audit response was not valid JSON (${e.message}); stop_reason=${data.stop_reason}. Skipping — no audit produced.`);
+    process.exitCode = 0; return;
+  }
 
   const out = {
     generatedAt: new Date().toISOString(),
@@ -123,9 +128,9 @@ async function main() {
   console.log(`Pressure-test verdict: ${out.verdict.toUpperCase()} — ${out.issues.length} issue(s) (${high} high). ${out.overall}`);
   for (const i of out.issues) console.log(`   • [${i.severity}] ${i.type} — ${i.quote}\n     ${i.problem}`);
   console.log(`Wrote ${OUT}`);
-  process.exit(out.verdict === 'revise' ? 4 : 0);
+  process.exitCode = out.verdict === 'revise' ? 4 : 0;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main().catch((e) => { console.error(e); process.exit(0); });   // never hard-fail the pipeline on the audit
+  main().catch((e) => { console.error(e); process.exitCode = 0; });   // never hard-fail the pipeline on the audit
 }

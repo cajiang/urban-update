@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Risk",
-    "generatedAt": "2026-08-05T20:12:42.684Z",
+    "generatedAt": "2026-08-06T01:52:39.648Z",
     "windowLabel": "May 2026–July 2026",
     "latestMonth": "2026-07",
     "method": {
@@ -27,7 +27,7 @@
         "attribution": "311",
         "provenance": "official",
         "updateFrequency": "Daily",
-        "dataUpdatedAt": "2026-08-05T01:42:36.000Z"
+        "dataUpdatedAt": "2026-08-06T01:46:05.000Z"
       },
       {
         "label": "DOB ECB Violations",
@@ -41,7 +41,7 @@
     ]
   },
   "narration": {
-    "headline": "Bronx carries the highest risk pressure — 104,932 severity-weighted hazardous-violation points in May 2026–July 2026 (22,333 immediately-hazardous, 37,933 hazardous), +2% year-over-year. Trend: Stable.",
+    "headline": "Bronx carries the highest risk pressure — 108,062 severity-weighted hazardous-violation points in May 2026–July 2026 (23,033 immediately-hazardous, 38,963 hazardous), +5% year-over-year. Trend: Stable.",
     "citySummary": "Citywide, 59,792 immediately-hazardous (Class C) and 100,886 hazardous (Class B) HPD violations were issued in May 2026–July 2026, +4% year-over-year, alongside 185,900 building complaints to 311 and $37M in new ECB penalty balances."
   },
   "citywide": {
@@ -155,11 +155,11 @@
   "boroughs": [
     {
       "name": "Manhattan",
-      "weighted": 53687,
-      "C": 11657,
-      "B": 18716,
-      "complaints311": 40947,
-      "yoy": 0.10448897300855826,
+      "weighted": 50557,
+      "C": 10957,
+      "B": 17686,
+      "complaints311": 38855,
+      "yoy": 0.04009628044766294,
       "regime": "Stable",
       "ecbNew": 2905,
       "ecbBalance": 7751567,
@@ -211,18 +211,6 @@
           "yoy": 0.14483985765124555,
           "regime": "Stable",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710030%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
-        },
-        {
-          "zip": "10463",
-          "borough": "Manhattan",
-          "neighborhood": "RIVERDALE",
-          "weighted": 3130,
-          "C": 700,
-          "B": 1030,
-          "complaints311": 2092,
-          "yoy": -0.07914092380111798,
-          "regime": "Stable",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710463%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
         },
         {
           "zip": "10040",
@@ -705,7 +693,7 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710282%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
         }
       ],
-      "neighborhoodCount": 45,
+      "neighborhoodCount": 44,
       "spark": [
         {
           "month": "2024-08",
@@ -808,11 +796,11 @@
     },
     {
       "name": "Bronx",
-      "weighted": 104932,
-      "C": 22333,
-      "B": 37933,
-      "complaints311": 53893,
-      "yoy": 0.023227693807898585,
+      "weighted": 108062,
+      "C": 23033,
+      "B": 38963,
+      "complaints311": 55985,
+      "yoy": 0.05374939054119941,
       "regime": "Stable",
       "ecbNew": 3042,
       "ecbBalance": 7491165,
@@ -986,6 +974,18 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710455%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
         },
         {
+          "zip": "10463",
+          "borough": "Bronx",
+          "neighborhood": "RIVERDALE",
+          "weighted": 3130,
+          "C": 700,
+          "B": 1030,
+          "complaints311": 2092,
+          "yoy": -0.07914092380111798,
+          "regime": "Stable",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710463%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
+        },
+        {
           "zip": "10454",
           "borough": "Bronx",
           "neighborhood": "MOTT HAVEN/PORT MORRIS",
@@ -1106,7 +1106,7 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/wvxf-dwi5.json?%24select=housenumber%2Cstreetname%2Czip%2Cclass%2Cnovdescription%2Cnovissueddate&%24where=class%3D%27C%27+AND+zip%3D%2710464%27+AND+novissueddate+%3E%3D+%272026-05-01%27+AND+novissueddate+%3C+%272026-08-01%27&%24order=novissueddate+DESC"
         }
       ],
-      "neighborhoodCount": 24,
+      "neighborhoodCount": 25,
       "spark": [
         {
           "month": "2024-08",

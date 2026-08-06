@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Cross-Signal",
-    "generatedAt": "2026-08-05T20:12:49.282Z",
+    "generatedAt": "2026-08-06T01:53:09.974Z",
     "referenceMonth": "2026-05",
     "referenceMonthLabel": "May 2026",
     "yoyMonthLabel": "May 2025",
@@ -1253,6 +1253,27 @@
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710465%27&%24order=sale_price%3A%3Anumber+DESC"
     },
     {
+      "zip": "10314",
+      "borough": "Staten Island",
+      "neighborhood": "NEW SPRINGVILLE",
+      "devCur": 63,
+      "devYoY": 0.3404255319148936,
+      "txCur": 170,
+      "txYoY": -0.1282051282051282,
+      "cls": "Mixed / flat",
+      "hazardC": 48,
+      "afford": {
+        "gap": 1.34,
+        "canAfford": 0.37185203747281326,
+        "rentBurden": 0.49179697513458087,
+        "divCls": "Affordability stress",
+        "divCode": "stress"
+      },
+      "divergence": 0.4686306601200218,
+      "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710314%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
+      "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710314%27&%24order=sale_price%3A%3Anumber+DESC"
+    },
+    {
       "zip": "11204",
       "borough": "Brooklyn",
       "neighborhood": "BOROUGH PARK",
@@ -1314,27 +1335,6 @@
       "divergence": 0.4458333333333333,
       "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2711220%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2711220%27&%24order=sale_price%3A%3Anumber+DESC"
-    },
-    {
-      "zip": "10314",
-      "borough": "Staten Island",
-      "neighborhood": "NEW SPRINGVILLE",
-      "devCur": 63,
-      "devYoY": 0.3125,
-      "txCur": 170,
-      "txYoY": -0.1282051282051282,
-      "cls": "Mixed / flat",
-      "hazardC": 48,
-      "afford": {
-        "gap": 1.34,
-        "canAfford": 0.37185203747281326,
-        "rentBurden": 0.49179697513458087,
-        "divCls": "Affordability stress",
-        "divCode": "stress"
-      },
-      "divergence": 0.4407051282051282,
-      "devEvidence": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cpostcode%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+filing_date+%3E%3D+%272026-03-01%27+AND+filing_date+%3C+%272026-06-01%27+AND+postcode%3D%2710314%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
-      "txEvidence": "https://data.cityofnewyork.us/resource/usep-8jbt.json?%24select=address%2Cneighborhood%2Csale_price%2Csale_date&%24where=sale_price%3A%3Anumber+%3E+10000+AND+sale_date+%3E%3D+%272026-03-01%27+AND+sale_date+%3C+%272026-06-01%27+AND+zip_code%3D%2710314%27&%24order=sale_price%3A%3Anumber+DESC"
     },
     {
       "zip": "11361",

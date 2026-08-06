@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Capital Conditions",
-    "generatedAt": "2026-08-05T20:12:47.673Z",
+    "generatedAt": "2026-08-06T01:53:00.574Z",
     "source": {
       "label": "FRED — Federal Reserve Bank of St. Louis",
       "host": "fred.stlouisfed.org",
@@ -27,11 +27,11 @@
       "unit": "%",
       "role": "Benchmark for CRE cap rates & permanent debt",
       "latest": {
-        "value": 4.7,
-        "date": "2026-08-03"
+        "value": 4.63,
+        "date": "2026-08-04"
       },
       "latestMonth": "2026-08",
-      "yoyBps": 44,
+      "yoyBps": 40,
       "cycleLow": {
         "value": 0.62,
         "month": "2020-07",
@@ -185,7 +185,7 @@
         },
         {
           "month": "2026-08",
-          "v": 4.7
+          "v": 4.67
         }
       ],
       "seriesLanding": "https://fred.stlouisfed.org/series/DGS10"

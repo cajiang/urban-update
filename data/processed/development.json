@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "NYC Development",
-    "generatedAt": "2026-08-05T20:12:23.104Z",
+    "generatedAt": "2026-08-06T01:46:28.504Z",
     "latestCompleteMonth": "2026-07",
     "latestMonthLabel": "July 2026",
     "source": {
@@ -13,7 +13,7 @@
       "publisher": "Department of Buildings (DOB)",
       "provenance": "official",
       "updateFrequency": "Daily",
-      "dataUpdatedAt": "2026-08-04T20:25:03.000Z"
+      "dataUpdatedAt": "2026-08-05T20:26:21.000Z"
     },
     "method": {
       "baseline": "Trailing 12-month average of New Building filings.",
@@ -79,8 +79,8 @@
       },
       {
         "month": "2025-03",
-        "filings": 1083,
-        "units": 47769
+        "filings": 1082,
+        "units": 47768
       },
       {
         "month": "2025-04",
@@ -3196,8 +3196,8 @@
         },
         {
           "month": "2025-03",
-          "filings": 167,
-          "units": 317
+          "filings": 166,
+          "units": 316
         },
         {
           "month": "2025-04",
@@ -3551,14 +3551,14 @@
   },
   "notable": [
     {
-      "filing": "B00539478-B9",
+      "filing": "B00539478-B6",
       "address": "18 INDIA STREET",
       "borough": "Brooklyn",
       "units": 834,
       "stories": 37,
       "cost": 1000,
       "date": "2026-07",
-      "description": "Install new sprinkler/standpipe system in conjunction with New Building.",
+      "description": "ERECT 37 STORY RESIDENTIAL AND RETAIL NEW BUILDING.",
       "bbl": "3025380001"
     },
     {
@@ -3573,14 +3573,14 @@
       "bbl": "1017900013"
     },
     {
-      "filing": "B01313117-Z5",
+      "filing": "B01313117-Z4",
       "address": "10 NOBLE STREET",
       "borough": "Brooklyn",
       "units": 792,
       "stories": 38,
       "cost": 0,
-      "date": "2026-07",
-      "description": "Retaining wall work as per plans.",
+      "date": "2026-08",
+      "description": "NYC DEV HUB: Application filed for 33' curb cut (with splays) on Noble Street.",
       "bbl": "3025670001"
     },
     {
@@ -3595,14 +3595,14 @@
       "bbl": "1010260021"
     },
     {
-      "filing": "M00601915-S7",
+      "filing": "M00601915-Z2",
       "address": "689 LENOX AVENUE",
       "borough": "Manhattan",
       "units": 652,
       "stories": 40,
       "cost": 0,
       "date": "2026-07",
-      "description": "MECHANICAL SYSTEMS FILED IN CONJUNCTION WITH NB M00601915-I1",
+      "description": "curb cut installation filed in conjunction with NB M00601915-I1",
       "bbl": "1020130029"
     },
     {

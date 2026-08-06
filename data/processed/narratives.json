@@ -2,57 +2,68 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Brief",
-    "generatedAt": "2026-08-03T00:00:00.000Z",
-    "model": "seed (pre-key)",
-    "grounding": "Initial brief grounded in the five processed feeds. Set ANTHROPIC_API_KEY and run `node src/refresh.mjs` to regenerate live with Claude. Every figure traces to primary NYC data; interpretation is clearly hedged.",
+    "generatedAt": "2026-08-06T01:53:41.326Z",
+    "model": "claude-opus-5",
+    "grounding": "Synthesized by Claude from the five processed feeds. Every figure traces to primary NYC data; interpretation is the model's and clearly hedged.",
     "periods": {
       "development": "July 2026",
       "transactions": "May 2026",
       "risk": "May 2026–July 2026",
       "ll97_report_year": "2024",
-      "cross_signal": "March 2026–May 2026"
+      "cross_signal": "March 2026–May 2026",
+      "capital": "2026-08-04",
+      "demand_affordability": "ACS 5-year 2024"
     }
   },
-  "headline": "New construction is accelerating into a cooling sales market, while operating risk climbs fastest in the same outer-borough neighborhoods.",
-  "summary": "Citywide, New Building filings ran 1,536 in July 2026 (+24% year-over-year), yet recorded sales fell to 3,921 in May (−15% YoY) even as the median held near $940,000. That supply-up / demand-soft divergence is sharpest in a handful of ZIPs. Meanwhile hazardous-violation risk and 311 complaints (+21% YoY) concentrate in the Bronx and central Brooklyn, and Local Law 97 carbon exposure — roughly $759M per year today — is overwhelmingly a Manhattan large-building problem.",
+  "headline": "Filings up 24% in July 2026 while May 2026 sales fall 15%; citywide ownership requires 2.4x the median income",
+  "summary": "Development filings reached 1,536 in July 2026 (74,533 units), up 24% year-over-year and 15% above baseline, while recorded sales in May 2026 fell 15% year-over-year to 3,921 even as the median price rose 5% to $940,000. Financing benchmarks are mixed as of August 4, 2026: the 10-Year Treasury is 4.63% (+40 bps year-over-year) while SOFR is 3.66% (-69 bps) and the 30-Year Mortgage is 6.66% (-18 bps). Against ACS 5-year 2024 incomes, buying the citywide median home requires $193,302 versus a median household income of $80,483 — a 2.4x gap, with 19% estimated able to afford and 52% of renters cost-burdened.",
   "insights": [
     {
-      "title": "Supply is outrunning demand in specific outer-borough ZIPs",
-      "detail": "Greenpoint (11222) filed 78% more New Building applications year-over-year while sales fell 44%; Bay Ridge (11209) shows +67% supply against −47% demand. The divergence is real in the data (fact). It suggests these pockets may face pricing pressure and rising concessions as pipeline units deliver into thinner buyer demand (interpretation).",
-      "feed": "Cross-Signal"
+      "title": "Supply expanding while recorded demand contracts",
+      "detail": "July 2026 filings rose 24% year-over-year citywide (1,536 filings, 74,533 units), with Manhattan +58% (109 filings), Brooklyn +33% (493) and Staten Island +30% (195) flagged Elevated. May 2026 sales moved the other way: -15% citywide, with Queens -27% (1,116 sales) and Staten Island -28% (249) classified Cooling. DATA notes filings are not rate-driven (DOB NOW migration and policy deadlines), so the two series should be read as separate signals rather than one causing the other.",
+      "feed": "Development + Transactions"
     },
     {
-      "title": "Low volume, firm pricing — a stalemate market",
-      "detail": "Sales are down 15% YoY citywide, but the median held at $940,000 and Manhattan's median rose 9% YoY. This pattern looks more like sellers holding and fewer transactions clearing than a broad price correction — worth watching whether firm pricing persists as inventory ages.",
-      "feed": "Transactions"
+      "title": "Cost-of-capital context is mixed, and the sales link is an association only",
+      "detail": "As of August 4, 2026: 10-Year Treasury 4.63% (+40 bps year-over-year), 30-Year Mortgage 6.66% (-18 bps), SOFR 3.66% (-69 bps), Fed Funds 3.63% (-70 bps). Versus the 2021 low-rate boom, mortgage rates moved from 2.96% to 6.36% and recorded sales from 5,902 to 4,358 per month (-26%) over June 2025–May 2026. The year-over-year mortgage-vs-sales correlation is -0.21, which DATA labels association, not causation.",
+      "feed": "Capital"
     },
     {
-      "title": "311 complaints are leading violations higher",
-      "detail": "Building complaints to 311 rose 21% YoY citywide, well ahead of the 4% rise in hazardous HPD violations — and complaints tend to precede violations. Immediately-hazardous violations are rising fastest in Canarsie (11236) and Greenwich Village-West (10014).",
-      "feed": "Risk"
+      "title": "Price gains outpace measured purchasing power",
+      "detail": "The May 2026 citywide median price of $940,000 is up 5% year-over-year, while the ACS 5-year 2024 read shows $193,302 of income required to buy against $80,483 median household income (2.4x gap, 19% share able to afford). Over the 2020→2024 window, incomes grew 20% while rents grew 22% and home values 22%. These are different periods — the affordability read is structural, annual and lagged — so the comparison frames context rather than explaining the May 2026 move; the 52% renter cost-burden figure is worth watching alongside it.",
+      "feed": "Transactions + Demand & Affordability"
     },
     {
-      "title": "Local Law 97 exposure is concentrated in Manhattan",
-      "detail": "About 73% of benchmarked buildings already exceed the tighter 2030 carbon limits, and estimated penalties total roughly $759M/year today — of which Manhattan is about $381M. For large-building owners this is a material, escalating compliance cost that most cannot easily self-compute, making it the highest-leverage risk to underwrite now.",
+      "title": "Oversupply-watch ZIPs pair rising filings with falling sales and hazardous violations",
+      "detail": "Over March 2026–May 2026, Schuylerville/Pelham Bay (10461) shows supply +190% against demand -18% with 386 immediately hazardous violations; Ocean Parkway-North (11218) +144% supply, -26% demand, 495 violations; Flatbush-East (11203) +100% supply, -18% demand, 973 violations; Bay Ridge (11209) +67% supply, -47% demand, 388 violations. The combination of added pipeline, softer recorded demand and existing-stock violations suggests these submarkets merit closer diligence.",
+      "feed": "Cross-signal + Risk"
+    },
+    {
+      "title": "Local Law 97: 73% of covered buildings above the 2030 limit",
+      "detail": "For report year 2024, 28,925 covered buildings show 18% over the 2024 limit and 73% over the 2030 limit, with estimated annual penalty exposure of $759M (2024) rising to $2,282M (2030). Manhattan accounts for $381M of estimated penalty with 75% over the 2030 limit; the Bronx shows $142M and 78% over 2030. Compliance timelines are a fixed deadline rather than a market-cycle variable.",
       "feed": "Local Law 97"
     }
   ],
   "neighborhoods": [
     {
-      "area": "Greenpoint (11222), Brooklyn",
-      "narrative": "A construction surge — New Building filings up 78% year-over-year — is meeting a 44% drop in sales, with 495 immediately-hazardous violations logged this quarter. The widening supply/demand gap is worth watching for pricing softness as pipeline units deliver."
+      "area": "Queens (citywide borough view)",
+      "narrative": "May 2026 sales of 1,116 were down 27% year-over-year at a $778,500 median, a Cooling regime, while July 2026 filings of 398 were up 9% and In range. On affordability (ACS 5-year 2024), Queens requires $160,091 to buy versus $86,136 median income — a 1.86x gap with 23% able to afford, classified Supported growth. Risk pressure of 29,890 was flat year-over-year (0%) with 6,487 Class C violations."
     },
     {
-      "area": "Jamaica, Queens",
-      "narrative": "Sales cooled 27% year-over-year while the borough's development pipeline stayed elevated — a submarket where borough-level averages mask a genuine demand slowdown."
+      "area": "Manhattan",
+      "narrative": "Filings rose 58% to 109 in July 2026 (Elevated), while May 2026 sales of 1,184 were down only 2% at a $1,440,000 median (In range). ACS 5-year 2024 affordability shows $296,122 income required versus $103,931 median income (2.85x, 13% able to afford, 48% renter cost burden), classified Affordability stress. Manhattan also carries $381M of estimated annual LL97 penalty exposure with 75% of covered buildings over the 2030 limit."
     },
     {
-      "area": "The Bronx (Bedford Park, Highbridge, Tremont)",
-      "narrative": "The city's heaviest concentration of habitability risk: 23,033 immediately-hazardous HPD violations this quarter. This reads as a standing stock problem rather than a sudden spike — a persistent operating-risk consideration for owners in these ZIPs."
+      "area": "Bronx",
+      "narrative": "Filings of 341 were up 19% in July 2026 (In range); May 2026 sales of 323 fell 11% at a $700,000 median. Risk pressure of 108,062 rose 5% year-over-year with 23,033 Class C violations. Ownership economics are strained in low-income, majority-renter ZIPs: 10454 shows a 6.76x gap ($162,867 required vs. $24,086 median income) with 61% of renters cost-burdened, and 10453 a 4.18x gap with 65% cost-burdened — these are renter-cost signals, not evidence of broad local buying."
     },
     {
-      "area": "Manhattan large buildings",
-      "narrative": "Home to roughly $381M of the city's estimated annual Local Law 97 penalty exposure, with about 75% of covered buildings already over the 2030 limit — the dominant forward compliance cost in the city."
+      "area": "Staten Island",
+      "narrative": "July 2026 filings of 195 were up 30% (Elevated) while May 2026 sales of 249 fell 28% at a $725,000 median (Cooling). Risk pressure of 5,286 rose 10% year-over-year with 1,094 Class C violations. Affordability (ACS 5-year 2024) shows a 1.52x gap ($149,089 required vs. $98,333 median income) and 31% able to afford, yet 57% of renters are cost-burdened and the borough is classed Affordability stress. Great Kills (10308) appears on the tightening list for March–May 2026 with supply -29% and demand +39%."
+    },
+    {
+      "area": "Brooklyn",
+      "narrative": "Filings of 493 were up 33% in July 2026 (Elevated); May 2026 sales of 1,049 fell 7% at a $1,075,000 median (In range). Canarsie (11236) appears on both lists: risk pressure of 1,242 up 61% year-over-year with 242 Class C violations, and supply +123% against demand -25% with 219 immediately hazardous violations over March–May 2026. Borough affordability is a 2.75x gap ($221,064 required vs. $80,263 median income), 14% able to afford, classified Supported growth."
     }
   ]
 }
