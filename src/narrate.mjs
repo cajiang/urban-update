@@ -13,7 +13,7 @@
 // Run: node src/narrate.mjs
 
 import { readFile, writeFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -25,8 +25,21 @@ const API = 'https://api.anthropic.com/v1/messages';
 
 const read = async (f) => JSON.parse(await readFile(join(dir, f), 'utf8'));
 
+// Load all processed feeds (optional feeds tolerated). Exported so the brief
+// verifiers can rebuild the exact same evidence packet the model was given.
+export async function loadFeeds() {
+  const [dev, tx, risk, ll97, cross] = await Promise.all([
+    read('development.json'), read('transactions.json'), read('risk.json'), read('ll97.json'), read('crosssignal.json'),
+  ]);
+  let capital = null;
+  try { capital = await read('capital.json'); } catch { /* optional feed */ }
+  let demand = null;
+  try { demand = await read('demand.json'); } catch { /* optional feed */ }
+  return { dev, tx, risk, ll97, cross, capital, demand };
+}
+
 // ---------- assemble a compact, grounded evidence packet ----------
-function buildEvidence(dev, tx, risk, ll97, cross, capital, demand) {
+export function buildEvidence(dev, tx, risk, ll97, cross, capital, demand) {
   const pctd = (x) => x == null ? null : Math.round(x * 100);
   const hasDemand = demand && !(demand.meta && demand.meta.skipped);
   return {
@@ -164,13 +177,7 @@ async function main() {
     return;
   }
 
-  const [dev, tx, risk, ll97, cross] = await Promise.all([
-    read('development.json'), read('transactions.json'), read('risk.json'), read('ll97.json'), read('crosssignal.json'),
-  ]);
-  let capital = null;
-  try { capital = await read('capital.json'); } catch { /* optional feed */ }
-  let demand = null;
-  try { demand = await read('demand.json'); } catch { /* optional feed */ }
+  const { dev, tx, risk, ll97, cross, capital, demand } = await loadFeeds();
   const evidence = buildEvidence(dev, tx, risk, ll97, cross, capital, demand);
 
   console.log(`Generating brief with ${MODEL}…`);
@@ -223,4 +230,8 @@ async function main() {
   console.log(`Wrote ${OUT} (${out.insights.length} insights, ${out.neighborhoods.length} spotlights)`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// Only run generation when executed directly — importing this module (for the
+// brief verifiers, which reuse buildEvidence/loadFeeds) must have no side effects.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => { console.error(e); process.exit(1); });
+}
