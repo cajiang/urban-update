@@ -23,9 +23,33 @@ export const SOURCES = {
   },
 };
 
+// Resilient fetch: retries transient network failures (ECONNRESET, dropped
+// connections, timeouts) and 429/5xx responses with exponential backoff. NYC
+// Open Data occasionally resets connections under many rapid requests — common
+// from CI runners — which would otherwise fail an entire refresh.
+export async function fetchWithRetry(url, opts = {}, { tries = 4, baseDelay = 600 } = {}) {
+  let lastErr;
+  for (let i = 0; i < tries; i++) {
+    try {
+      const res = await fetch(url, opts);
+      if ([429, 500, 502, 503, 504].includes(res.status)) {
+        lastErr = new Error(`HTTP ${res.status}`);
+      } else {
+        return res;
+      }
+    } catch (e) {
+      lastErr = e;   // network-level failure (ECONNRESET, "fetch failed", timeout)
+    }
+    if (i < tries - 1) await new Promise((r) => setTimeout(r, baseDelay * 2 ** i));
+  }
+  throw lastErr;
+}
+
 // Fetch a dataset's official metadata (provenance, publisher, update cadence, last refresh).
 export async function fetchDatasetMeta(id) {
-  const res = await fetch(`https://data.cityofnewyork.us/api/views/${id}.json`);
+  let res;
+  try { res = await fetchWithRetry(`https://data.cityofnewyork.us/api/views/${id}.json`); }
+  catch { return {}; }
   if (!res.ok) return {};
   const m = await res.json();
   let updateFrequency = '';
@@ -59,7 +83,7 @@ export function buildUrl(id, params = {}) {
 // object with `message` on error rather than an array).
 export async function soqlQuery(id, params = {}) {
   const url = buildUrl(id, params);
-  const res = await fetch(url, { headers: { Accept: 'application/json' } });
+  const res = await fetchWithRetry(url, { headers: { Accept: 'application/json' } });
   if (!res.ok) {
     const body = await res.text();
     throw new Error(`Socrata ${res.status} for ${url}\n${body.slice(0, 400)}`);

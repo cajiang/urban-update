@@ -17,7 +17,7 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { SOURCES, soqlQuery, fetchDatasetMeta } from './lib/socrata.mjs';
+import { SOURCES, soqlQuery, fetchDatasetMeta, fetchWithRetry } from './lib/socrata.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, '..', 'data', 'processed', 'capital.json');
@@ -81,7 +81,7 @@ function trailingAvg(map, end, n) {
 // ---------- FRED ingest ----------
 // Returns { latest:{value,date}, monthly:{YYYY-MM:avg}, points:n } for a series.
 async function fetchFred(id) {
-  const res = await fetch(seriesCsv(id));
+  const res = await fetchWithRetry(seriesCsv(id));
   if (!res.ok) throw new Error(`FRED ${res.status} for ${id}`);
   const text = await res.text();
   const lines = text.trim().split(/\r?\n/);
