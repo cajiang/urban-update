@@ -1,0 +1,42 @@
+name: Deploy dashboard to Pages
+
+# Publishes the ALREADY-BUILT, ALREADY-VERIFIED dashboard to GitHub Pages.
+# It does NOT refresh data or regenerate the Brief — that happens locally via
+# open.ps1, which only commits after BOTH verifiers pass (deterministic grounding
+# + adversarial audit). So Pages only ever serves a self-consistent, audited
+# artifact, and no API key is ever needed here.
+#
+# Triggers: every push to main that changes the built dashboard (i.e. an
+# open.ps1 -Publish), plus a manual "Run workflow" button.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dashboard/**'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard        # publish the committed, verified dashboard/index.html
+      - id: deploy
+        uses: actions/deploy-pages@v4
