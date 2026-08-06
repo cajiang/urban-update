@@ -24,6 +24,7 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 25        # safety ceiling: NYC Open Data can be slow from CI (retries)
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
