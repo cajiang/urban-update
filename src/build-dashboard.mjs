@@ -213,6 +213,9 @@ const CAP = ${J(capital)};
 const DEM = ${J(demand)};
 const BRIEF = ${J(brief)};
 
+// esc() runs in the browser (the render functions build innerHTML client-side).
+// Emit it from the same lib module the tests cover, so there is one definition.
+const esc = ${esc.toString()};
 const fmt = (n) => Number(n||0).toLocaleString('en-US');
 const pct = (x) => x==null ? '—' : (x>=0?'+':'') + Math.round(x*100) + '%';
 const cls = (r) => r==='Elevated'?'elevated':r==='Cooling'?'cooling':'range';
