@@ -1,0 +1,38 @@
+name: CI
+
+# Fast, deterministic checks on the pure logic — the affordability math, the
+# dashboard's XSS escaping, and the context-scoped Brief verifier. No network and
+# no secrets: the tests run against fixtures, not live data, so this can gate every
+# push and pull request without touching any API key.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+      - '.github/workflows/ci.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Syntax-check all source modules
+        run: for f in src/*.mjs src/lib/*.mjs; do node --check "$f"; done
+      - name: Run unit tests
+        run: node --test test/*.test.mjs

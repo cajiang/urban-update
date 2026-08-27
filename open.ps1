@@ -52,9 +52,12 @@ if ($alreadyToday -and -not $Force) {
 # --- source freshness gate ----------------------------------------------------
 Write-Host 'Checking sources for new data...' -ForegroundColor Cyan
 node src/check-sources.mjs
-$srcExit = $LASTEXITCODE   # 0 = up to date, 10 = updates available, 2 = error
+$srcExit = $LASTEXITCODE   # 0 = up to date, 10 = updates available, 2 = unknown/unreachable
 
-if ($srcExit -eq 2) { Write-Warning 'Source check errored; opening the current dashboard without refreshing.'; if (Test-Path $dash) { Start-Process $dash }; return }
+# Fail closed: if freshness could not be verified (a source was unreachable), do
+# NOT refresh or publish — an unknown state is not a "current" one. Try again when
+# sources are reachable.
+if ($srcExit -eq 2) { Write-Warning 'Source freshness UNKNOWN (a source was unreachable); not refreshing or publishing. Opening the current dashboard.'; if (Test-Path $dash) { Start-Process $dash }; return }
 
 if ($srcExit -ne 10 -and -not $Force) {
   Write-Host 'All sources up to date - no refresh needed.' -ForegroundColor Green
@@ -76,13 +79,26 @@ $verifyPass = ($LASTEXITCODE -eq 0)
 
 Write-Host 'Pressure-testing the Brief (adversarial AI audit)...' -ForegroundColor Cyan
 node src/pressure-test.mjs
-# Read the audit verdict from disk (present only if the key was available and it ran).
+# Read the audit from disk. It is written only on a successful run and is now
+# bound to a SHA-256 of the exact brief reviewed — so a stale "pass" from an
+# older brief cannot be reused. Accept only when the verdict is 'pass' AND the
+# audit's hash matches the current narratives.json.
 $auditVerdict = 'skipped'
+$auditBound = $false
 $auditFile = Join-Path $PSScriptRoot 'data\processed\brief-audit.json'
-if (Test-Path -LiteralPath $auditFile) {
-  try { $auditVerdict = (Get-Content -LiteralPath $auditFile -Raw | ConvertFrom-Json).verdict } catch { $auditVerdict = 'unknown' }
+$narrFile  = Join-Path $PSScriptRoot 'data\processed\narratives.json'
+if ((Test-Path -LiteralPath $auditFile) -and (Test-Path -LiteralPath $narrFile)) {
+  try {
+    $audit = Get-Content -LiteralPath $auditFile -Raw | ConvertFrom-Json
+    $auditVerdict = $audit.verdict
+    $curHash = (Get-FileHash -LiteralPath $narrFile -Algorithm SHA256).Hash.ToLower()
+    $auditBound = ($audit.narrativesSha256) -and ($audit.narrativesSha256.ToLower() -eq $curHash)
+  } catch { $auditVerdict = 'unknown' }
 }
-$auditPass = ($auditVerdict -eq 'pass')
+if (($auditVerdict -eq 'pass') -and -not $auditBound) {
+  Write-Warning 'Audit says pass but its hash does not match the current brief (stale/rebound) - treating as NOT passed.'
+}
+$auditPass = (($auditVerdict -eq 'pass') -and $auditBound)
 
 New-Item -ItemType Directory -Force $stateDir | Out-Null
 Set-Content -LiteralPath $stamp -Value $today

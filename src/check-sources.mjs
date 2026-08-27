@@ -65,6 +65,7 @@ async function fredLatestDate(id) {
 
 export async function checkSources() {
   const changes = [];
+  const unknown = [];   // sources whose freshness we could NOT read → fail closed
   const items = [];
 
   // --- NYC Open Data (Socrata) ---
@@ -73,6 +74,11 @@ export async function checkSources() {
     const meta = await fetchDatasetMeta(id);
     const src = meta.dataUpdatedAt || null;
     const our = ours[id] || null;
+    if (!src) {   // metadata unreachable after retries → freshness UNKNOWN, not "current"
+      unknown.push(SOCRATA_LABELS[id]);
+      items.push({ source: SOCRATA_LABELS[id], id, ourPull: day(our), sourceUpdated: null, changed: false, unknown: true });
+      continue;
+    }
     const changed = !!(src && (!our || day(src) > day(our)));
     items.push({ source: SOCRATA_LABELS[id], id, ourPull: day(our), sourceUpdated: day(src), changed });
     if (changed) changes.push(`${SOCRATA_LABELS[id]} (${day(our) || '—'} → ${day(src)})`);
@@ -84,6 +90,11 @@ export async function checkSources() {
     for (const r of cap.rates) {
       const src = await fredLatestDate(r.id);
       const our = r.latest.date;
+      if (!src) {
+        unknown.push(`FRED ${r.id}`);
+        items.push({ source: `FRED ${r.id} (Capital)`, id: r.id, ourPull: day(our), sourceUpdated: null, changed: false, unknown: true });
+        continue;
+      }
       const changed = !!(src && day(src) > day(our));
       items.push({ source: `FRED ${r.id} (Capital)`, id: r.id, ourPull: day(our), sourceUpdated: day(src), changed });
       if (changed) changes.push(`FRED ${r.id} (${day(our)} → ${day(src)})`);
@@ -107,6 +118,8 @@ export async function checkSources() {
 
   const report = {
     generatedAt: new Date().toISOString(),
+    determinable: unknown.length === 0,   // false = at least one source unreachable
+    unknown,
     updatesAvailable: changes.length > 0,
     changed: changes,
     sources: items,
@@ -118,12 +131,20 @@ export async function checkSources() {
 async function main() {
   const r = await checkSources();
   console.log(`Source check — ${r.sources.length} sources examined.`);
-  for (const s of r.sources) console.log(`  ${s.changed ? '⚠ CHANGED' : '· current'}  ${s.source}: our ${s.ourPull} | source ${s.sourceUpdated}`);
+  for (const s of r.sources) console.log(`  ${s.unknown ? '✗ UNKNOWN' : s.changed ? '⚠ CHANGED' : '· current'}  ${s.source}: our ${s.ourPull} | source ${s.sourceUpdated}`);
+  if (!r.determinable) {
+    // Fail closed: we could not read freshness for one or more sources, so the
+    // state is UNKNOWN — do NOT treat it as "up to date." Exit 2 = do-not-publish.
+    console.log(`\n✗ Could NOT verify freshness for ${r.unknown.length} source(s): ${r.unknown.join(', ')}.`);
+    console.log('  State is UNKNOWN — not treating as up to date (fail closed).');
+    console.log(`Wrote ${OUT}`);
+    process.exit(2);
+  }
   if (r.updatesAvailable) {
     console.log(`\n${r.changed.length} source(s) have new data — a refresh is warranted:`);
     for (const c of r.changed) console.log(`   • ${c}`);
   } else {
-    console.log('\n✓ All sources up to date — no refresh needed.');
+    console.log('\n✓ All sources reachable and up to date — no refresh needed.');
   }
   console.log(`Wrote ${OUT}`);
   process.exit(r.updatesAvailable ? 10 : 0);

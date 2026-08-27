@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Capital Conditions",
-    "generatedAt": "2026-08-06T01:53:00.574Z",
+    "generatedAt": "2026-08-18T17:40:10.579Z",
     "source": {
       "label": "FRED — Federal Reserve Bank of St. Louis",
       "host": "fred.stlouisfed.org",
@@ -11,7 +11,7 @@
       "provenance": "official",
       "datasetId": "DGS10, MORTGAGE30US, SOFR, FEDFUNDS",
       "updateFrequency": "Daily (Treasuries, SOFR), weekly (mortgage), monthly (Fed Funds)",
-      "dataUpdatedAt": "2026-08-04T12:00:00",
+      "dataUpdatedAt": "2026-08-17T12:00:00",
       "note": "Public FRED CSV endpoint — no API key required."
     },
     "method": {
@@ -27,11 +27,11 @@
       "unit": "%",
       "role": "Benchmark for CRE cap rates & permanent debt",
       "latest": {
-        "value": 4.63,
-        "date": "2026-08-04"
+        "value": 4.68,
+        "date": "2026-08-14"
       },
       "latestMonth": "2026-08",
-      "yoyBps": 40,
+      "yoyBps": 41,
       "cycleLow": {
         "value": 0.62,
         "month": "2020-07",
@@ -196,11 +196,11 @@
       "unit": "%",
       "role": "Residential / 1–4 family borrowing cost (Freddie Mac)",
       "latest": {
-        "value": 6.66,
-        "date": "2026-07-30"
+        "value": 6.67,
+        "date": "2026-08-13"
       },
-      "latestMonth": "2026-07",
-      "yoyBps": -18,
+      "latestMonth": "2026-08",
+      "yoyBps": 9,
       "cycleLow": {
         "value": 2.68,
         "month": "2020-12",
@@ -212,10 +212,6 @@
         "label": "October 2023"
       },
       "spark": [
-        {
-          "month": "2023-08",
-          "v": 7.07
-        },
         {
           "month": "2023-09",
           "v": 7.2
@@ -355,6 +351,10 @@
         {
           "month": "2026-07",
           "v": 6.54
+        },
+        {
+          "month": "2026-08",
+          "v": 6.68
         }
       ],
       "seriesLanding": "https://fred.stlouisfed.org/series/MORTGAGE30US"
@@ -366,10 +366,10 @@
       "role": "Floating-rate benchmark — construction & bridge debt",
       "latest": {
         "value": 3.66,
-        "date": "2026-08-04"
+        "date": "2026-08-17"
       },
       "latestMonth": "2026-08",
-      "yoyBps": -69,
+      "yoyBps": -71,
       "cycleLow": {
         "value": 0.01,
         "month": "2021-04",
@@ -523,7 +523,7 @@
         },
         {
           "month": "2026-08",
-          "v": 3.66
+          "v": 3.64
         }
       ],
       "seriesLanding": "https://fred.stlouisfed.org/series/SOFR"

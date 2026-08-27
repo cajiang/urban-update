@@ -2,7 +2,7 @@
 
 **A market-intelligence dashboard for real estate professionals operating in New York.**
 
-Urban Update continuously monitors New York property, policy, capital, development, neighborhood, and operating signals; determines which market regimes are changing; identifies who and what is affected; and explains the practical implications with verifiable evidence.
+Urban Update periodically monitors New York property, policy, capital, development, neighborhood, and operating signals (refreshed on demand, not live-streamed); determines which market regimes are changing; identifies who and what is affected; and explains the practical implications with verifiable evidence.
 
 The premise: *in real estate, information is the first move toward becoming a top-tier player.* Urban Update exists to give its users that informational edge — not raw data, but understanding.
 
@@ -12,7 +12,7 @@ The premise: *in real estate, information is the first move toward becoming a to
 
 Everything the product does resolves to four steps:
 
-1. **Monitor** — continuously ingest signals across the six domains below.
+1. **Monitor** — periodically ingest signals across the six domains below (on-demand refresh).
 2. **Detect regime change** — determine which market regimes are shifting (not just what changed, but when the underlying pattern breaks).
 3. **Identify who & what is affected** — map each shift to the specific actors, asset classes, submarkets, and deals it touches.
 4. **Explain the implications** — translate the shift into practical, decision-ready guidance, always backed by verifiable evidence.

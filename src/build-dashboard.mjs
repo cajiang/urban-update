@@ -7,6 +7,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { randomBytes } from 'node:crypto';
+import { J, esc } from './lib/escape.mjs';
+
+// Per-build nonce so the CSP can allow this page's one inline script without
+// 'unsafe-inline' — which lets the CSP block any injected inline event handler.
+const NONCE = randomBytes(16).toString('base64');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dir = join(__dirname, '..', 'data', 'processed');
@@ -28,6 +34,7 @@ const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-${NONCE}'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Urban Update — NYC Real Estate Intelligence</title>
 <style>
@@ -196,15 +203,15 @@ const html = `<!doctype html>
   <strong>Built with AI.</strong> Urban Update is an AI-generated research prototype: the data is pulled from official public sources (linked as “verify ↗” on every panel) and the analysis and written interpretation are produced by AI, which can be wrong. Treat every figure as a lead to confirm against its primary source, not a finished conclusion — and note figures carry the usual source caveats (reporting lags, sampling error, disclosed modeling assumptions). This is market intelligence, not investment advice.
 </div></footer>
 
-<script>
-const DEV = ${JSON.stringify(dev)};
-const TX  = ${JSON.stringify(tx)};
-const CROSS = ${JSON.stringify(cross)};
-const RISK = ${JSON.stringify(risk)};
-const LL97 = ${JSON.stringify(ll97)};
-const CAP = ${JSON.stringify(capital)};
-const DEM = ${JSON.stringify(demand)};
-const BRIEF = ${JSON.stringify(brief)};
+<script nonce="${NONCE}">
+const DEV = ${J(dev)};
+const TX  = ${J(tx)};
+const CROSS = ${J(cross)};
+const RISK = ${J(risk)};
+const LL97 = ${J(ll97)};
+const CAP = ${J(capital)};
+const DEM = ${J(demand)};
+const BRIEF = ${J(brief)};
 
 const fmt = (n) => Number(n||0).toLocaleString('en-US');
 const pct = (x) => x==null ? '—' : (x>=0?'+':'') + Math.round(x*100) + '%';
@@ -273,12 +280,12 @@ function renderDev(){
       +'<div class="big num">'+fmt(b.latest.filings)+' <small>filings</small></div>'
       +'<div class="deltas"><span><b class="'+upd(b.yoy)+'">'+arrow(b.yoy)+' '+pct(b.yoy)+'</b> YoY</span><span><b>'+pct(b.deviation)+'</b> vs 12-mo avg</span></div>'
       +sparkline(b.spark,'filings')
-      +'<div class="cardfoot"><span class="num">'+fmt(b.latest.units)+' units proposed</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+      +'<div class="cardfoot"><span class="num">'+fmt(b.latest.units)+' units proposed</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></div>'
       +'<div class="hint">View '+b.neighborhoodCount+' neighborhoods →</div></div>').join('')+'</div>');
 
   h+=section('Largest New Building filings this period',
     '<table><thead><tr><th>Address</th><th>Borough</th><th class="n">Units</th><th class="n">Stories</th><th>Project</th></tr></thead><tbody>'
-    +D.notable.map(n=>'<tr><td>'+(n.address||'—')+'</td><td>'+n.borough+'</td><td class="n">'+fmt(n.units)+'</td><td class="n">'+(n.stories||'—')+'</td><td class="desc">'+(n.description||'').replace(/</g,'&lt;').slice(0,70)+'</td></tr>').join('')
+    +D.notable.map(n=>'<tr><td>'+esc(n.address||'—')+'</td><td>'+esc(n.borough)+'</td><td class="n">'+fmt(n.units)+'</td><td class="n">'+(n.stories||'—')+'</td><td class="desc">'+esc((n.description||'').slice(0,70))+'</td></tr>').join('')
     +'</tbody></table>');
 
   h+=section('Data Provenance &amp; Freshness', provenanceBoxes(D.meta.source, D.meta.generatedAt, 'DOB updates daily · pulled live on each build'));
@@ -312,12 +319,12 @@ function renderTx(){
       +'<div class="big num">'+fmt(b.latest.sales)+' <small>sales</small></div>'
       +'<div class="deltas"><span><b class="'+upd(b.yoy)+'">'+arrow(b.yoy)+' '+pct(b.yoy)+'</b> YoY</span><span><b>'+pct(b.deviation)+'</b> vs 12-mo avg</span></div>'
       +sparkline(b.spark,'sales')
-      +'<div class="cardfoot"><span class="num">median '+money(b.latest.med)+'</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+      +'<div class="cardfoot"><span class="num">median '+money(b.latest.med)+'</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></div>'
       +'<div class="hint">View '+b.neighborhoodCount+' neighborhoods →</div></div>').join('')+'</div>');
 
   h+=section('Largest recorded sales this period',
     '<table><thead><tr><th>Address</th><th>Borough</th><th>Neighborhood</th><th class="n">Price</th><th>Type</th></tr></thead><tbody>'
-    +T.notable.map(n=>'<tr><td>'+(n.address||'—')+'</td><td>'+n.borough+'</td><td class="desc">'+n.neighborhood+'</td><td class="n">'+money(n.price)+'</td><td class="desc">'+(n.type||'').replace(/</g,'&lt;').slice(0,32)+'</td></tr>').join('')
+    +T.notable.map(n=>'<tr><td>'+esc(n.address||'—')+'</td><td>'+esc(n.borough)+'</td><td class="desc">'+esc(n.neighborhood)+'</td><td class="n">'+money(n.price)+'</td><td class="desc">'+esc((n.type||'').slice(0,32))+'</td></tr>').join('')
     +'</tbody></table>');
 
   h+=section('Data Provenance &amp; Freshness', provenanceBoxes(T.meta.sources, T.meta.generatedAt, 'DOF updates monthly · latest complete month lags ~2 mo'));
@@ -327,14 +334,14 @@ function renderTx(){
 
 // ---------- Cross-Signal panel ----------
 function crossChip(c){
-  const map={'Supply building, demand softening':['elevated','Oversupply watch'],'Demand outpacing supply':['cooling','Tightening'],'Heating':['elevated','Heating'],'Cooling':['cooling','Cooling'],'Mixed / flat':['range','Mixed']};
+  const map={'Supply building, demand softening':['elevated','Filings ↑ / sales ↓'],'Demand outpacing supply':['cooling','Sales ↑ / filings ↓'],'Heating':['elevated','Both rising'],'Cooling':['cooling','Both falling'],'Mixed / flat':['range','Mixed']};
   const [k,lab]=map[c]||['range',c]; return '<span class="chip '+k+'">'+lab+'</span>';
 }
 function xcard(z){
-  return '<div class="card"><div class="top"><span class="name">'+z.zip+' · '+z.neighborhood+'</span>'+crossChip(z.cls)+'</div>'
+  return '<div class="card"><div class="top"><span class="name">'+z.zip+' · '+esc(z.neighborhood)+'</span>'+crossChip(z.cls)+'</div>'
     +'<div style="font-size:12px;color:var(--muted)">'+z.borough+'</div>'
-    +'<div class="xsig"><b>Supply</b> <span class="'+upd(z.devYoY)+'">'+arrow(z.devYoY)+' '+pct(z.devYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.devCur)+' filings</span></div>'
-    +'<div class="xsig"><b>Demand</b> <span class="'+upd(z.txYoY)+'">'+arrow(z.txYoY)+' '+pct(z.txYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.txCur)+' sales</span></div>'
+    +'<div class="xsig"><b>Filings</b> <span class="'+upd(z.devYoY)+'">'+arrow(z.devYoY)+' '+pct(z.devYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.devCur)+' filings</span></div>'
+    +'<div class="xsig"><b>Sales</b> <span class="'+upd(z.txYoY)+'">'+arrow(z.txYoY)+' '+pct(z.txYoY)+'</span> <span class="num" style="color:var(--muted)">'+fmt(z.txCur)+' sales</span></div>'
     +'<div class="xsig"><b>Risk</b> <span class="num" style="color:var(--muted)">'+fmt(z.hazardC||0)+' immediately-hazardous violations</span></div>'
     +(z.afford?'<div class="xsig"><b>Afford.</b> <span class="num" style="color:var(--muted)">'+(z.afford.gap!=null?z.afford.gap.toFixed(1)+'× income to buy · ':'')+share(z.afford.rentBurden)+' rent-burdened</span> '+divChip({code:z.afford.divCode,cls:z.afford.divCls})+'</div>':'')
     +'<div class="cardfoot"><span>verify:</span><span><a href="'+z.devEvidence+'" target="_blank" rel="noopener">filings ↗</a> &nbsp;·&nbsp; <a href="'+z.txEvidence+'" target="_blank" rel="noopener">sales ↗</a></span></div></div>';
@@ -342,30 +349,28 @@ function xcard(z){
 function renderCross(){
   const C=CROSS, m=C.meta;
   let h='';
-  h+=section('Cross-Signal · Supply vs. Demand · '+m.windowLabel,
-    '<div class="xintro">This view joins <b>New Building filings</b> (supply, DOB) and <b>recorded sales</b> (demand, DOF) by property ZIP, comparing the latest quarter year-over-year. '
-    +'It flags where the two <b>diverge</b> — the non-obvious signal a market report is built to catch: '
-    +'<span class="quad" style="color:var(--elev)">supply building while demand softens</span> (oversupply watch), or '
-    +'<span class="quad" style="color:var(--cool)">demand outpacing new supply</span> (tightening).</div>');
+  h+=section('Cross-Signal · Filing activity vs. transaction liquidity · '+m.windowLabel,
+    '<div class="xintro">This view joins <b>New Building filings</b> (filing activity, DOB) and <b>recorded sales</b> (transaction liquidity, DOF) by property ZIP, comparing the latest quarter year-over-year, and flags where the two <b>diverge</b>. '
+    +'<b>Read these as filing and sales signals, not a supply–demand balance:</b> a filing is <i>proposed</i> pipeline activity — not permitted, completed, or available supply — and recorded sales are transaction <i>liquidity</i>, not demand, absorption, or buyer depth. A true supply/absorption read needs lifecycle (filed→permitted→completed) and inventory data not yet in the product.</div>');
 
   const counts=C.counts||{};
   const kpis=[
-    {label:'Oversupply watch', big:(counts['Supply building, demand softening']||0), sub:'supply ▲ · demand ▼'},
-    {label:'Tightening', big:(counts['Demand outpacing supply']||0), sub:'demand ▲ · supply ▼'},
-    {label:'Heating (both ▲)', big:(counts['Heating']||0), sub:'supply & demand rising'},
-    {label:'Cooling (both ▼)', big:(counts['Cooling']||0), sub:'supply & demand falling'},
+    {label:'Filings ↑, sales ↓', big:(counts['Supply building, demand softening']||0), sub:'filings ▲ · sales ▼'},
+    {label:'Sales ↑, filings ↓', big:(counts['Demand outpacing supply']||0), sub:'sales ▲ · filings ▼'},
+    {label:'Both rising', big:(counts['Heating']||0), sub:'filings & sales ▲'},
+    {label:'Both falling', big:(counts['Cooling']||0), sub:'filings & sales ▼'},
   ];
   h+=section('Divergence tally · '+C.zips.length+' qualifying ZIPs',
     '<div class="kpis">'+kpis.map(k=>'<div class="kpi"><div class="label">'+k.label+'</div><div class="big num">'+k.big+'</div><div class="sub">'+k.sub+'</div></div>').join('')+'</div>');
 
-  if(C.oversupply.length) h+=section('Oversupply watch — supply building, demand softening',
+  if(C.oversupply.length) h+=section('Filings rising while sales fall',
     '<div class="grid">'+C.oversupply.map(xcard).join('')+'</div>');
-  if(C.tightening.length) h+=section('Tightening — demand outpacing new supply',
+  if(C.tightening.length) h+=section('Sales rising while filings fall',
     '<div class="grid">'+C.tightening.map(xcard).join('')+'</div>');
 
   h+=section('All qualifying ZIPs · ranked by divergence',
-    '<table><thead><tr><th>ZIP</th><th>Area</th><th>Borough</th><th class="n">Supply YoY</th><th class="n">Demand YoY</th><th class="n">Hazard (C)</th><th class="n">Afford. gap</th><th>Signal</th><th></th></tr></thead><tbody>'
-    +C.zips.map(z=>'<tr><td class="num">'+z.zip+'</td><td class="desc">'+z.neighborhood+'</td><td>'+z.borough+'</td>'
+    '<table><thead><tr><th>ZIP</th><th>Area</th><th>Borough</th><th class="n">Filings YoY</th><th class="n">Sales YoY</th><th class="n">Hazard (C)</th><th class="n">Afford. gap</th><th>Signal</th><th></th></tr></thead><tbody>'
+    +C.zips.map(z=>'<tr><td class="num">'+z.zip+'</td><td class="desc">'+esc(z.neighborhood)+'</td><td>'+esc(z.borough)+'</td>'
       +'<td class="n '+upd(z.devYoY)+'">'+pct(z.devYoY)+'</td><td class="n '+upd(z.txYoY)+'">'+pct(z.txYoY)+'</td>'
       +'<td class="n">'+fmt(z.hazardC||0)+'</td>'
       +'<td class="n">'+(z.afford&&z.afford.gap!=null?z.afford.gap.toFixed(1)+'×':'—')+'</td>'
@@ -405,13 +410,13 @@ function renderRisk(){
       +'<div class="big num">'+fmt(b.weighted)+' <small>risk pts</small></div>'
       +'<div class="deltas"><span><b class="'+upd(b.yoy)+'">'+arrow(b.yoy)+' '+pct(b.yoy)+'</b> YoY</span><span><b>'+fmt(b.C)+'</b> Class C</span></div>'
       +sparkline(b.spark,'weighted')
-      +'<div class="cardfoot"><span class="num">'+fmt(b.complaints311)+' 311 · $'+fmt(Math.round(b.ecbBalance/1e6))+'M ECB</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+      +'<div class="cardfoot"><span class="num">'+fmt(b.complaints311)+' 311 · $'+fmt(Math.round(b.ecbBalance/1e6))+'M ECB</span><a href="'+b.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></div>'
       +'<div class="hint">View '+b.neighborhoodCount+' ZIPs →</div></div>';
     }).join('')+'</div>');
 
   if(R.topRising.length) h+=section('Fastest-rising risk · ZIPs where hazardous violations are climbing',
     '<div class="grid">'+R.topRising.map(z=>
-      '<div class="card"><div class="top"><span class="name">'+z.zip+' · '+z.neighborhood+'</span>'+riskChip('Rising')+'</div>'
+      '<div class="card"><div class="top"><span class="name">'+z.zip+' · '+esc(z.neighborhood)+'</span>'+riskChip('Rising')+'</div>'
       +'<div style="font-size:12px;color:var(--muted)">'+z.borough+'</div>'
       +'<div class="big num">'+fmt(z.weighted)+' <small>risk pts</small></div>'
       +'<div class="deltas"><span><b class="up">'+arrow(z.yoy)+' '+pct(z.yoy)+'</b> YoY</span><span><b>'+fmt(z.C)+'</b> Class C · '+fmt(z.complaints311)+' 311</span></div>'
@@ -453,7 +458,7 @@ function renderLL97(){
 
   h+=section('Highest-exposure buildings · est. 2024 penalty',
     '<table><thead><tr><th>Address</th><th>Borough</th><th>Type</th><th class="n">Floor area</th><th class="n">Est. penalty/yr</th></tr></thead><tbody>'
-    +L.topBuildings.map(b=>'<tr><td>'+(b.address||'—')+'</td><td>'+b.borough+'</td><td class="desc">'+(b.ptype||'').slice(0,26)+'</td><td class="n">'+fmt(b.gfa)+' sf</td><td class="n">'+bigMoney(b.pen24)+'</td></tr>').join('')
+    +L.topBuildings.map(b=>'<tr><td>'+esc(b.address||'—')+'</td><td>'+esc(b.borough)+'</td><td class="desc">'+esc((b.ptype||'').slice(0,26))+'</td><td class="n">'+fmt(b.gfa)+' sf</td><td class="n">'+bigMoney(b.pen24)+'</td></tr>').join('')
     +'</tbody></table>');
 
   h+=section('Data Provenance &amp; Freshness', provenanceBoxes([{...m.source, publisher:m.source.attribution}], m.generatedAt, 'Benchmarking is annual · report year '+m.reportYear));
@@ -530,7 +535,6 @@ function renderCapital(){
 }
 
 // ---------- Brief panel (LLM interpretation layer) ----------
-function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
 // Colorize figures inside brief prose so the data reads "important, now".
 // Rising % → amber, falling % → blue, $ amounts → green, comma-counts → bold ink.
 // (Bare integers like ZIPs 11222, years 2026, "311" are intentionally NOT matched —
@@ -618,7 +622,7 @@ function renderDemand(){
       +'<div class="big num">'+money(b.engine.incomeRequired)+' <small>income to buy</small></div>'
       +'<div class="deltas"><span><b>'+gapx(b.engine.gapRatio)+'</b> median income</span><span><b>'+share(b.engine.shareCanAfford)+'</b> can afford</span></div>'
       +growth3(b.growth)
-      +'<div class="cardfoot"><span class="num">median inc '+money(b.income)+' · rent burden '+share(b.rentBurdenShare)+'</span><a href="'+b.censusUrl+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">verify ↗</a></div>'
+      +'<div class="cardfoot"><span class="num">median inc '+money(b.income)+' · rent burden '+share(b.rentBurdenShare)+'</span><a href="'+b.censusUrl+'" target="_blank" rel="noopener">verify ↗</a></div>'
       +'<div class="hint">View ZIPs →</div></div>').join('')+'</div>');
 
   const top=D.zips.slice(0,20);
@@ -655,7 +659,7 @@ document.getElementById('panel-risk').innerHTML = renderRisk();
 document.getElementById('panel-ll97').innerHTML = renderLL97();
 document.getElementById('panel-demand').innerHTML = renderDemand();
 document.getElementById('asof').textContent =
-  'Development as of '+DEV.meta.latestMonthLabel+' · Transactions as of '+TX.meta.latestMonthLabel;
+  'Snapshot — data pulled '+dateOnly(DEV.meta.generatedAt)+' · periodically refreshed, not live · Development '+DEV.meta.latestMonthLabel+' · Transactions '+TX.meta.latestMonthLabel;
 
 // tab switching
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
@@ -666,11 +670,15 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
 }));
 
 // neighborhood drill-down (both feeds)
-document.querySelectorAll('#panel-dev .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('dev',+el.dataset.i)));
-document.querySelectorAll('#panel-tx .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('tx',+el.dataset.i)));
-document.querySelectorAll('#panel-risk .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('risk',+el.dataset.i)));
-document.querySelectorAll('#panel-ll97 .card.click').forEach(el=>el.addEventListener('click',()=>openBorough('ll97',+el.dataset.i)));
-document.querySelectorAll('#panel-demand .card.click').forEach(el=>el.addEventListener('click',()=>openDemandBorough(+el.dataset.i)));
+// Ignore clicks that land on a link (verify ↗) so the card drill-down doesn't
+// fire — replaces the former inline stop-propagation handlers, which a strict
+// (nonce-based) CSP would block.
+const cardTap = (fn) => (e) => { if (e.target.closest('a')) return; fn(e); };
+document.querySelectorAll('#panel-dev .card.click').forEach(el=>el.addEventListener('click',cardTap(()=>openBorough('dev',+el.dataset.i))));
+document.querySelectorAll('#panel-tx .card.click').forEach(el=>el.addEventListener('click',cardTap(()=>openBorough('tx',+el.dataset.i))));
+document.querySelectorAll('#panel-risk .card.click').forEach(el=>el.addEventListener('click',cardTap(()=>openBorough('risk',+el.dataset.i))));
+document.querySelectorAll('#panel-ll97 .card.click').forEach(el=>el.addEventListener('click',cardTap(()=>openBorough('ll97',+el.dataset.i))));
+document.querySelectorAll('#panel-demand .card.click').forEach(el=>el.addEventListener('click',cardTap(()=>openDemandBorough(+el.dataset.i))));
 
 // Affordability drill-down: borough → its ZIPs, ranked by affordability gap.
 function openDemandBorough(i){
@@ -708,7 +716,7 @@ function openBorough(feed,i){
         +'<td><a href="'+n.evidenceUrl+'" target="_blank" rel="noopener">verify ↗</a></td></tr>';
     }
     if(feed==='risk'){
-      return '<tr><td>'+n.zip+(n.neighborhood?' · '+n.neighborhood:'')+'</td><td class="nn">'+fmt(n.weighted)+'</td>'
+      return '<tr><td>'+n.zip+(n.neighborhood?' · '+esc(n.neighborhood):'')+'</td><td class="nn">'+fmt(n.weighted)+'</td>'
         +'<td class="nn">'+fmt(n.C)+'</td><td class="nn">'+fmt(n.B)+'</td><td class="nn">'+fmt(n.complaints311)+'</td>'
         +'<td class="nn '+(n.yoy!=null?upd(n.yoy):'')+'">'+(n.yoy!=null?pct(n.yoy):'—')+'</td>'
         +'<td>'+riskChip(n.regime)+'</td>'
@@ -716,7 +724,7 @@ function openBorough(feed,i){
     }
     const dev=feed==='dev', yoyBase = dev? n.yoyFilings : n.yoySales, minBase = dev?3:5;
     const yoyCell = (yoyBase>=minBase && n.yoy!=null)? pct(n.yoy) : '—';
-    return '<tr><td>'+(dev?n.nta:n.neighborhood)+'</td><td class="nn">'+(dev?fmt(n.filings):fmt(n.sales))+'</td><td class="nn">'+(dev?fmt(n.units):money(n.med))+'</td>'
+    return '<tr><td>'+esc(dev?n.nta:n.neighborhood)+'</td><td class="nn">'+(dev?fmt(n.filings):fmt(n.sales))+'</td><td class="nn">'+(dev?fmt(n.units):money(n.med))+'</td>'
       +'<td class="nn">'+n.baseline.toFixed(1)+'</td>'
       +'<td class="nn '+(yoyBase>=minBase?upd(n.yoy):'')+'">'+yoyCell+'</td>'
       +'<td><span class="chip '+cls(n.regime)+'">'+n.regime+'</span></td>'

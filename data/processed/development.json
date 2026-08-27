@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "NYC Development",
-    "generatedAt": "2026-08-06T01:46:28.504Z",
+    "generatedAt": "2026-08-18T17:38:48.662Z",
     "latestCompleteMonth": "2026-07",
     "latestMonthLabel": "July 2026",
     "source": {
@@ -13,7 +13,7 @@
       "publisher": "Department of Buildings (DOB)",
       "provenance": "official",
       "updateFrequency": "Daily",
-      "dataUpdatedAt": "2026-08-05T20:26:21.000Z"
+      "dataUpdatedAt": "2026-08-17T20:32:46.000Z"
     },
     "method": {
       "baseline": "Trailing 12-month average of New Building filings.",
@@ -22,23 +22,23 @@
     }
   },
   "narration": {
-    "headline": "New Building filings in Manhattan rose to 109 in July 2026 — +58% year-over-year (vs. 69 a year earlier). Signal: Elevated.",
-    "citySummary": "Citywide, 1,536 New Building filings were logged in July 2026 (74,533 proposed dwelling units), +15% vs. the trailing-12-month average and +24% year-over-year."
+    "headline": "New Building filings in Manhattan rose to 108 in July 2026 — +57% year-over-year (vs. 69 a year earlier). Signal: Elevated.",
+    "citySummary": "Citywide, 1,532 New Building filings were logged in July 2026 (73,798 proposed dwelling units), +15% vs. the trailing-12-month average and +23% year-over-year."
   },
   "citywide": {
     "latest": {
-      "filings": 1536,
-      "units": 74533
+      "filings": 1532,
+      "units": 73798
     },
-    "baselineFilings": 1332,
-    "baselineUnits": 60576,
+    "baselineFilings": 1331,
+    "baselineUnits": 60588,
     "baselineMonths": 12,
-    "deviation": 0.15351398710807942,
-    "yoy": 0.23671497584541062,
+    "deviation": 0.15087016401652678,
+    "yoy": 0.23349436392914655,
     "yoyFilings": 1242,
     "dominant": {
       "kind": "yoy",
-      "v": 0.23671497584541062
+      "v": 0.23349436392914655
     },
     "regime": "In range",
     "spark": [
@@ -49,13 +49,13 @@
       },
       {
         "month": "2024-09",
-        "filings": 866,
-        "units": 27884
+        "filings": 865,
+        "units": 27924
       },
       {
         "month": "2024-10",
         "filings": 1040,
-        "units": 35845
+        "units": 35854
       },
       {
         "month": "2024-11",
@@ -85,7 +85,7 @@
       {
         "month": "2025-04",
         "filings": 1135,
-        "units": 40587
+        "units": 40655
       },
       {
         "month": "2025-05",
@@ -95,12 +95,12 @@
       {
         "month": "2025-06",
         "filings": 1028,
-        "units": 37571
+        "units": 37625
       },
       {
         "month": "2025-07",
         "filings": 1242,
-        "units": 48836
+        "units": 49069
       },
       {
         "month": "2025-08",
@@ -109,58 +109,58 @@
       },
       {
         "month": "2025-09",
-        "filings": 1289,
-        "units": 55016
+        "filings": 1288,
+        "units": 54983
       },
       {
         "month": "2025-10",
         "filings": 1215,
-        "units": 51124
+        "units": 51167
       },
       {
         "month": "2025-11",
         "filings": 1027,
-        "units": 46853
+        "units": 46880
       },
       {
         "month": "2025-12",
-        "filings": 1359,
-        "units": 68053
+        "filings": 1357,
+        "units": 67902
       },
       {
         "month": "2026-01",
         "filings": 1240,
-        "units": 60934
+        "units": 60974
       },
       {
         "month": "2026-02",
-        "filings": 1274,
-        "units": 58238
+        "filings": 1273,
+        "units": 58163
       },
       {
         "month": "2026-03",
         "filings": 2038,
-        "units": 105343
+        "units": 105337
       },
       {
         "month": "2026-04",
         "filings": 1350,
-        "units": 56702
+        "units": 56776
       },
       {
         "month": "2026-05",
-        "filings": 1224,
-        "units": 54576
+        "filings": 1223,
+        "units": 54579
       },
       {
         "month": "2026-06",
         "filings": 1529,
-        "units": 71421
+        "units": 71415
       },
       {
         "month": "2026-07",
-        "filings": 1536,
-        "units": 74533
+        "filings": 1532,
+        "units": 73798
       }
     ]
   },
@@ -168,18 +168,18 @@
     {
       "name": "Manhattan",
       "latest": {
-        "filings": 109,
-        "units": 12188
+        "filings": 108,
+        "units": 11988
       },
       "baselineFilings": 107,
-      "baselineUnits": 9362,
+      "baselineUnits": 9342,
       "baselineMonths": 12,
-      "deviation": 0.020280811232449344,
-      "yoy": 0.5797101449275363,
+      "deviation": 0.0117096018735363,
+      "yoy": 0.5652173913043478,
       "yoyFilings": 69,
       "dominant": {
         "kind": "yoy",
-        "v": 0.5797101449275363
+        "v": 0.5652173913043478
       },
       "regime": "Elevated",
       "spark": [
@@ -265,8 +265,8 @@
         },
         {
           "month": "2025-12",
-          "filings": 117,
-          "units": 9041
+          "filings": 116,
+          "units": 8847
         },
         {
           "month": "2026-01",
@@ -281,7 +281,7 @@
         {
           "month": "2026-03",
           "filings": 231,
-          "units": 25548
+          "units": 25542
         },
         {
           "month": "2026-04",
@@ -291,32 +291,32 @@
         {
           "month": "2026-05",
           "filings": 86,
-          "units": 10301
+          "units": 10271
         },
         {
           "month": "2026-06",
           "filings": 105,
-          "units": 9883
+          "units": 9877
         },
         {
           "month": "2026-07",
-          "filings": 109,
-          "units": 12188
+          "filings": 108,
+          "units": 11988
         }
       ],
       "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cborough%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Manhattan%27+AND+filing_date+%3E%3D+%272026-07-01%27+AND+filing_date+%3C+%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
       "neighborhoods": [
         {
           "nta": "East Harlem (North)",
-          "filings": 18,
-          "units": 1797,
-          "baseline": 10.2,
-          "deviation": 0.7704918032786886,
-          "yoy": 5,
-          "yoyFilings": 3,
+          "filings": 19,
+          "units": 2138,
+          "baseline": 11.1,
+          "deviation": 0.7142857142857142,
+          "yoy": 2.8,
+          "yoyFilings": 5,
           "dominant": {
             "kind": "yoy",
-            "v": 5
+            "v": 2.8
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Manhattan%27+AND+nta%3D%27East+Harlem+%28North%29%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -427,21 +427,6 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Manhattan%27+AND+nta%3D%27Upper+West+Side-Lincoln+Square%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
-          "nta": "East Midtown-Turtle Bay",
-          "filings": 3,
-          "units": 529,
-          "baseline": 2.8,
-          "deviation": 0.05882352941176465,
-          "yoy": 2,
-          "yoyFilings": 1,
-          "dominant": {
-            "kind": "yoy",
-            "v": 2
-          },
-          "regime": "Elevated",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Manhattan%27+AND+nta%3D%27East+Midtown-Turtle+Bay%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
           "nta": "East Village",
           "filings": 3,
           "units": 45,
@@ -474,7 +459,7 @@
         {
           "nta": "Chelsea-Hudson Yards",
           "filings": 3,
-          "units": 122,
+          "units": 116,
           "baseline": 8.8,
           "deviation": -0.6603773584905661,
           "yoy": -0.25,
@@ -515,6 +500,21 @@
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Manhattan%27+AND+nta%3D%27Midtown+South-Flatiron-Union+Square%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
+          "nta": "East Midtown-Turtle Bay",
+          "filings": 2,
+          "units": 335,
+          "baseline": 2.8,
+          "deviation": -0.2727272727272727,
+          "yoy": 1,
+          "yoyFilings": 1,
+          "dominant": {
+            "kind": "yoy",
+            "v": 1
+          },
+          "regime": "Elevated",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Manhattan%27+AND+nta%3D%27East+Midtown-Turtle+Bay%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
           "nta": "Upper West Side (Central)",
@@ -657,18 +657,18 @@
     {
       "name": "Brooklyn",
       "latest": {
-        "filings": 493,
-        "units": 29818
+        "filings": 491,
+        "units": 29392
       },
       "baselineFilings": 432,
-      "baselineUnits": 23132,
+      "baselineUnits": 23134,
       "baselineMonths": 12,
-      "deviation": 0.14054366685945632,
-      "yoy": 0.3288409703504043,
+      "deviation": 0.13613575009641338,
+      "yoy": 0.32345013477088946,
       "yoyFilings": 371,
       "dominant": {
         "kind": "yoy",
-        "v": 0.3288409703504043
+        "v": 0.32345013477088946
       },
       "regime": "Elevated",
       "spark": [
@@ -679,13 +679,13 @@
         },
         {
           "month": "2024-09",
-          "filings": 298,
-          "units": 10746
+          "filings": 297,
+          "units": 10786
         },
         {
           "month": "2024-10",
           "filings": 349,
-          "units": 13739
+          "units": 13748
         },
         {
           "month": "2024-11",
@@ -715,7 +715,7 @@
         {
           "month": "2025-04",
           "filings": 401,
-          "units": 19430
+          "units": 19444
         },
         {
           "month": "2025-05",
@@ -740,7 +740,7 @@
         {
           "month": "2025-09",
           "filings": 395,
-          "units": 22016
+          "units": 22017
         },
         {
           "month": "2025-10",
@@ -760,12 +760,12 @@
         {
           "month": "2026-01",
           "filings": 456,
-          "units": 27279
+          "units": 27319
         },
         {
           "month": "2026-02",
-          "filings": 414,
-          "units": 25879
+          "filings": 413,
+          "units": 25804
         },
         {
           "month": "2026-03",
@@ -775,12 +775,12 @@
         {
           "month": "2026-04",
           "filings": 424,
-          "units": 23250
+          "units": 23308
         },
         {
           "month": "2026-05",
           "filings": 403,
-          "units": 17792
+          "units": 17798
         },
         {
           "month": "2026-06",
@@ -789,8 +789,8 @@
         },
         {
           "month": "2026-07",
-          "filings": 493,
-          "units": 29818
+          "filings": 491,
+          "units": 29392
         }
       ],
       "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cborough%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+filing_date+%3E%3D+%272026-07-01%27+AND+filing_date+%3C+%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
@@ -827,15 +827,15 @@
         },
         {
           "nta": "Bedford-Stuyvesant (West)",
-          "filings": 35,
-          "units": 381,
-          "baseline": 28.1,
-          "deviation": 0.2462908011869437,
-          "yoy": 0.16666666666666666,
-          "yoyFilings": 30,
+          "filings": 36,
+          "units": 395,
+          "baseline": 30.6,
+          "deviation": 0.17711171662125344,
+          "yoy": 0.09090909090909091,
+          "yoyFilings": 33,
           "dominant": {
             "kind": "baseline",
-            "v": 0.2462908011869437
+            "v": 0.17711171662125344
           },
           "regime": "In range",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Bedford-Stuyvesant+%28West%29%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -856,6 +856,21 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27East+New+York+%28North%29%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
+          "nta": "Prospect Lefferts Gardens-Wingate",
+          "filings": 19,
+          "units": 1014,
+          "baseline": 12.8,
+          "deviation": 0.48051948051948046,
+          "yoy": 1.375,
+          "yoyFilings": 8,
+          "dominant": {
+            "kind": "yoy",
+            "v": 1.375
+          },
+          "regime": "Elevated",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Prospect+Lefferts+Gardens-Wingate%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
           "nta": "Bedford-Stuyvesant (East)",
           "filings": 18,
           "units": 776,
@@ -869,21 +884,6 @@
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Bedford-Stuyvesant+%28East%29%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
-          "nta": "Prospect Lefferts Gardens-Wingate",
-          "filings": 18,
-          "units": 994,
-          "baseline": 12.5,
-          "deviation": 0.44,
-          "yoy": 2,
-          "yoyFilings": 6,
-          "dominant": {
-            "kind": "yoy",
-            "v": 2
-          },
-          "regime": "Elevated",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Prospect+Lefferts+Gardens-Wingate%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
           "nta": "Coney Island-Sea Gate",
@@ -903,14 +903,14 @@
         {
           "nta": "Canarsie",
           "filings": 17,
-          "units": 293,
-          "baseline": 5.3,
-          "deviation": 2.1875000000000004,
-          "yoy": 7.5,
-          "yoyFilings": 2,
+          "units": 294,
+          "baseline": 5.9,
+          "deviation": 1.873239436619718,
+          "yoy": 4.666666666666667,
+          "yoyFilings": 3,
           "dominant": {
             "kind": "yoy",
-            "v": 7.5
+            "v": 4.666666666666667
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Canarsie%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -919,8 +919,8 @@
           "nta": "Crown Heights (North)",
           "filings": 16,
           "units": 360,
-          "baseline": 15.5,
-          "deviation": 0.03225806451612903,
+          "baseline": 16.3,
+          "deviation": -0.02040816326530605,
           "yoy": 0.3333333333333333,
           "yoyFilings": 12,
           "dominant": {
@@ -1291,26 +1291,11 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Gravesend+%28East%29-Homecrest%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
-          "nta": "Spring Creek-Starrett City",
-          "filings": 4,
-          "units": 850,
-          "baseline": 5.8,
-          "deviation": -0.30434782608695654,
-          "yoy": 3,
-          "yoyFilings": 1,
-          "dominant": {
-            "kind": "yoy",
-            "v": 3
-          },
-          "regime": "Elevated",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Spring+Creek-Starrett+City%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
           "nta": "Bushwick (West)",
           "filings": 4,
           "units": 292,
-          "baseline": 9.5,
-          "deviation": -0.5789473684210527,
+          "baseline": 9.4,
+          "deviation": -0.5752212389380531,
           "yoy": -0.6363636363636364,
           "yoyFilings": 11,
           "dominant": {
@@ -1409,6 +1394,21 @@
           },
           "regime": "Cooling",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Flatbush+%28West%29-Ditmas+Park-Parkville%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
+          "nta": "Spring Creek-Starrett City",
+          "filings": 2,
+          "units": 425,
+          "baseline": 5.8,
+          "deviation": -0.6521739130434783,
+          "yoy": 1,
+          "yoyFilings": 1,
+          "dominant": {
+            "kind": "yoy",
+            "v": 1
+          },
+          "regime": "Elevated",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Brooklyn%27+AND+nta%3D%27Spring+Creek-Starrett+City%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
           "nta": "Bay Ridge",
@@ -1572,12 +1572,12 @@
       "baselineFilings": 354,
       "baselineUnits": 13132,
       "baselineMonths": 12,
-      "deviation": 0.1256186660381806,
+      "deviation": 0.12588401697312587,
       "yoy": 0.08743169398907104,
       "yoyFilings": 366,
       "dominant": {
         "kind": "baseline",
-        "v": 0.1256186660381806
+        "v": 0.12588401697312587
       },
       "regime": "In range",
       "spark": [
@@ -1688,7 +1688,7 @@
         },
         {
           "month": "2026-05",
-          "filings": 314,
+          "filings": 313,
           "units": 10680
         },
         {
@@ -1738,13 +1738,13 @@
           "nta": "Bayside",
           "filings": 22,
           "units": 41,
-          "baseline": 12.8,
-          "deviation": 0.7142857142857142,
+          "baseline": 13,
+          "deviation": 0.6923076923076923,
           "yoy": 0.047619047619047616,
           "yoyFilings": 21,
           "dominant": {
             "kind": "baseline",
-            "v": 0.7142857142857142
+            "v": 0.6923076923076923
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Bayside%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -1765,46 +1765,46 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Rockaway+Beach-Arverne-Edgemere%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
-          "nta": "Flushing-Willets Point",
-          "filings": 18,
-          "units": 665,
-          "baseline": 15.6,
-          "deviation": 0.15508021390374327,
-          "yoy": 1.5714285714285714,
-          "yoyFilings": 7,
-          "dominant": {
-            "kind": "yoy",
-            "v": 1.5714285714285714
-          },
-          "regime": "Elevated",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Flushing-Willets+Point%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
           "nta": "Far Rockaway-Bayswater",
-          "filings": 18,
-          "units": 919,
-          "baseline": 19.3,
-          "deviation": -0.06896551724137925,
-          "yoy": -0.1,
+          "filings": 21,
+          "units": 1057,
+          "baseline": 19.8,
+          "deviation": 0.06329113924050633,
+          "yoy": 0.05,
           "yoyFilings": 20,
           "dominant": {
-            "kind": "yoy",
-            "v": -0.1
+            "kind": "baseline",
+            "v": 0.06329113924050633
           },
           "regime": "In range",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Far+Rockaway-Bayswater%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
+          "nta": "Flushing-Willets Point",
+          "filings": 19,
+          "units": 712,
+          "baseline": 15.9,
+          "deviation": 0.19371727748691103,
+          "yoy": 1.7142857142857142,
+          "yoyFilings": 7,
+          "dominant": {
+            "kind": "yoy",
+            "v": 1.7142857142857142
+          },
+          "regime": "Elevated",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Flushing-Willets+Point%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
           "nta": "East Flushing",
           "filings": 16,
           "units": 25,
-          "baseline": 11.6,
-          "deviation": 0.3812949640287769,
+          "baseline": 12.2,
+          "deviation": 0.31506849315068497,
           "yoy": -0.15789473684210525,
           "yoyFilings": 19,
           "dominant": {
             "kind": "baseline",
-            "v": 0.3812949640287769
+            "v": 0.31506849315068497
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27East+Flushing%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -1903,13 +1903,13 @@
           "nta": "Laurelton",
           "filings": 11,
           "units": 22,
-          "baseline": 4.5,
-          "deviation": 1.4444444444444444,
+          "baseline": 4.8,
+          "deviation": 1.2758620689655173,
           "yoy": null,
           "yoyFilings": 0,
           "dominant": {
             "kind": "baseline",
-            "v": 1.4444444444444444
+            "v": 1.2758620689655173
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Laurelton%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -1948,15 +1948,15 @@
           "nta": "Queensbridge-Ravenswood-Dutch Kills",
           "filings": 8,
           "units": 747,
-          "baseline": 10.2,
-          "deviation": -0.21311475409836061,
+          "baseline": 10.9,
+          "deviation": -0.2671755725190839,
           "yoy": -0.1111111111111111,
           "yoyFilings": 9,
           "dominant": {
             "kind": "baseline",
-            "v": -0.21311475409836061
+            "v": -0.2671755725190839
           },
-          "regime": "In range",
+          "regime": "Cooling",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Queensbridge-Ravenswood-Dutch+Kills%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
@@ -2110,6 +2110,21 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Murray+Hill-Broadway+Flushing%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
+          "nta": "Douglaston-Little Neck",
+          "filings": 5,
+          "units": 20,
+          "baseline": 4.8,
+          "deviation": 0.05263157894736842,
+          "yoy": 1.5,
+          "yoyFilings": 2,
+          "dominant": {
+            "kind": "yoy",
+            "v": 1.5
+          },
+          "regime": "Elevated",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Douglaston-Little+Neck%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
           "nta": "Maspeth",
           "filings": 5,
           "units": 17,
@@ -2200,21 +2215,6 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27North+Corona%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
-          "nta": "Douglaston-Little Neck",
-          "filings": 4,
-          "units": 20,
-          "baseline": 4.8,
-          "deviation": -0.15789473684210525,
-          "yoy": 1,
-          "yoyFilings": 2,
-          "dominant": {
-            "kind": "yoy",
-            "v": 1
-          },
-          "regime": "Elevated",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Douglaston-Little+Neck%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
           "nta": "Astoria (North)-Ditmars-Steinway",
           "filings": 4,
           "units": 18,
@@ -2248,13 +2248,13 @@
           "nta": "Jackson Heights",
           "filings": 3,
           "units": 172,
-          "baseline": 1.7,
-          "deviation": 0.7999999999999999,
+          "baseline": 1.6,
+          "deviation": 0.8947368421052633,
           "yoy": -0.5714285714285714,
           "yoyFilings": 7,
           "dominant": {
             "kind": "baseline",
-            "v": 0.7999999999999999
+            "v": 0.8947368421052633
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Jackson+Heights%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -2365,6 +2365,21 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Sunnyside%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
+          "nta": "Bellerose",
+          "filings": 2,
+          "units": 3,
+          "baseline": 1.5,
+          "deviation": 0.3333333333333333,
+          "yoy": 0,
+          "yoyFilings": 2,
+          "dominant": {
+            "kind": "baseline",
+            "v": 0.3333333333333333
+          },
+          "regime": "In range",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Bellerose%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
           "nta": "Ozone Park",
           "filings": 2,
           "units": 4,
@@ -2398,8 +2413,8 @@
           "nta": "Springfield Gardens (North)-Rochdale Village",
           "filings": 2,
           "units": 0,
-          "baseline": 3,
-          "deviation": -0.3333333333333333,
+          "baseline": 3.6,
+          "deviation": -0.4418604651162791,
           "yoy": 1,
           "yoyFilings": 1,
           "dominant": {
@@ -2408,21 +2423,6 @@
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Springfield+Gardens+%28North%29-Rochdale+Village%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
-          "nta": "Bellerose",
-          "filings": 1,
-          "units": 1,
-          "baseline": 1.3,
-          "deviation": -0.24999999999999994,
-          "yoy": -0.5,
-          "yoyFilings": 2,
-          "dominant": {
-            "kind": "yoy",
-            "v": -0.5
-          },
-          "regime": "In range",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Bellerose%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
           "nta": "Kew Gardens",
@@ -2458,15 +2458,15 @@
           "nta": "Richmond Hill",
           "filings": 1,
           "units": 2,
-          "baseline": 0.7,
-          "deviation": 0.5000000000000001,
-          "yoy": null,
-          "yoyFilings": 0,
+          "baseline": 1.2,
+          "deviation": -0.1428571428571429,
+          "yoy": -0.75,
+          "yoyFilings": 4,
           "dominant": {
-            "kind": "baseline",
-            "v": 0.5000000000000001
+            "kind": "yoy",
+            "v": -0.75
           },
-          "regime": "In range",
+          "regime": "Cooling",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Queens%27+AND+nta%3D%27Richmond+Hill%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         }
       ],
@@ -2475,18 +2475,18 @@
     {
       "name": "Bronx",
       "latest": {
-        "filings": 341,
-        "units": 19601
+        "filings": 340,
+        "units": 19492
       },
       "baselineFilings": 278,
-      "baselineUnits": 14450,
+      "baselineUnits": 14479,
       "baselineMonths": 12,
-      "deviation": 0.22551662174303683,
-      "yoy": 0.19230769230769232,
+      "deviation": 0.22265507941264617,
+      "yoy": 0.1888111888111888,
       "yoyFilings": 286,
       "dominant": {
         "kind": "baseline",
-        "v": 0.22551662174303683
+        "v": 0.22265507941264617
       },
       "regime": "In range",
       "spark": [
@@ -2533,7 +2533,7 @@
         {
           "month": "2025-04",
           "filings": 202,
-          "units": 9544
+          "units": 9598
         },
         {
           "month": "2025-05",
@@ -2543,12 +2543,12 @@
         {
           "month": "2025-06",
           "filings": 192,
-          "units": 7088
+          "units": 7142
         },
         {
           "month": "2025-07",
           "filings": 286,
-          "units": 13913
+          "units": 14146
         },
         {
           "month": "2025-08",
@@ -2557,23 +2557,23 @@
         },
         {
           "month": "2025-09",
-          "filings": 242,
-          "units": 9494
+          "filings": 241,
+          "units": 9460
         },
         {
           "month": "2025-10",
           "filings": 276,
-          "units": 14662
+          "units": 14705
         },
         {
           "month": "2025-11",
           "filings": 208,
-          "units": 10987
+          "units": 11014
         },
         {
           "month": "2025-12",
-          "filings": 239,
-          "units": 11096
+          "filings": 238,
+          "units": 11139
         },
         {
           "month": "2026-01",
@@ -2593,12 +2593,12 @@
         {
           "month": "2026-04",
           "filings": 283,
-          "units": 13783
+          "units": 13799
         },
         {
           "month": "2026-05",
           "filings": 272,
-          "units": 15178
+          "units": 15205
         },
         {
           "month": "2026-06",
@@ -2607,8 +2607,8 @@
         },
         {
           "month": "2026-07",
-          "filings": 341,
-          "units": 19601
+          "filings": 340,
+          "units": 19492
         }
       ],
       "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cborough%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Bronx%27+AND+filing_date+%3E%3D+%272026-07-01%27+AND+filing_date+%3C+%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC",
@@ -2737,13 +2737,13 @@
           "nta": "Belmont",
           "filings": 16,
           "units": 1131,
-          "baseline": 14.9,
-          "deviation": 0.0726256983240224,
+          "baseline": 15.6,
+          "deviation": 0.026737967914438464,
           "yoy": 0.06666666666666667,
           "yoyFilings": 15,
           "dominant": {
-            "kind": "baseline",
-            "v": 0.0726256983240224
+            "kind": "yoy",
+            "v": 0.06666666666666667
           },
           "regime": "In range",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Bronx%27+AND+nta%3D%27Belmont%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -2767,8 +2767,8 @@
           "nta": "Eastchester-Edenwald-Baychester",
           "filings": 13,
           "units": 111,
-          "baseline": 12.2,
-          "deviation": 0.06849315068493156,
+          "baseline": 12.5,
+          "deviation": 0.04,
           "yoy": -0.07142857142857142,
           "yoyFilings": 14,
           "dominant": {
@@ -2782,13 +2782,13 @@
           "nta": "Concourse-Concourse Village",
           "filings": 13,
           "units": 1611,
-          "baseline": 8.8,
-          "deviation": 0.47169811320754707,
-          "yoy": 0.3,
-          "yoyFilings": 10,
+          "baseline": 9.3,
+          "deviation": 0.40540540540540543,
+          "yoy": 0.08333333333333333,
+          "yoyFilings": 12,
           "dominant": {
             "kind": "baseline",
-            "v": 0.47169811320754707
+            "v": 0.40540540540540543
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Bronx%27+AND+nta%3D%27Concourse-Concourse+Village%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -2884,21 +2884,6 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Bronx%27+AND+nta%3D%27Mott+Haven-Port+Morris%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
-          "nta": "Norwood",
-          "filings": 7,
-          "units": 424,
-          "baseline": 4.8,
-          "deviation": 0.4482758620689656,
-          "yoy": 2.5,
-          "yoyFilings": 2,
-          "dominant": {
-            "kind": "yoy",
-            "v": 2.5
-          },
-          "regime": "Elevated",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Bronx%27+AND+nta%3D%27Norwood%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
           "nta": "Soundview-Bruckner-Bronx River",
           "filings": 7,
           "units": 209,
@@ -2927,6 +2912,21 @@
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Bronx%27+AND+nta%3D%27Fordham+Heights%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
+          "nta": "Norwood",
+          "filings": 6,
+          "units": 315,
+          "baseline": 4.8,
+          "deviation": 0.2631578947368421,
+          "yoy": 2,
+          "yoyFilings": 2,
+          "dominant": {
+            "kind": "yoy",
+            "v": 2
+          },
+          "regime": "Elevated",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Bronx%27+AND+nta%3D%27Norwood%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
           "nta": "Mount Eden-Claremont (West)",
@@ -3286,8 +3286,8 @@
           "nta": "Annadale-Huguenot-Prince's Bay-Woodrow",
           "filings": 32,
           "units": 50,
-          "baseline": 33.8,
-          "deviation": -0.05418719211822667,
+          "baseline": 34.2,
+          "deviation": -0.0634146341463414,
           "yoy": 0.18518518518518517,
           "yoyFilings": 27,
           "dominant": {
@@ -3301,13 +3301,13 @@
           "nta": "Todt Hill-Emerson Hill-Lighthouse Hill-Manor Heights",
           "filings": 28,
           "units": 26,
-          "baseline": 8.9,
-          "deviation": 2.140186915887851,
+          "baseline": 10.2,
+          "deviation": 1.754098360655738,
           "yoy": 0.6470588235294118,
           "yoyFilings": 17,
           "dominant": {
             "kind": "baseline",
-            "v": 2.140186915887851
+            "v": 1.754098360655738
           },
           "regime": "Elevated",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Staten+Island%27+AND+nta%3D%27Todt+Hill-Emerson+Hill-Lighthouse+Hill-Manor+Heights%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
@@ -3373,34 +3373,34 @@
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Staten+Island%27+AND+nta%3D%27Tompkinsville-Stapleton-Clifton-Fox+Hills%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
-          "nta": "Great Kills-Eltingville",
-          "filings": 10,
-          "units": 15,
-          "baseline": 16.6,
-          "deviation": -0.3969849246231155,
-          "yoy": -0.47368421052631576,
-          "yoyFilings": 19,
-          "dominant": {
-            "kind": "yoy",
-            "v": -0.47368421052631576
-          },
-          "regime": "Cooling",
-          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Staten+Island%27+AND+nta%3D%27Great+Kills-Eltingville%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
-        },
-        {
           "nta": "Westerleigh-Castleton Corners",
-          "filings": 9,
-          "units": 17,
+          "filings": 12,
+          "units": 23,
           "baseline": 10.3,
-          "deviation": -0.12195121951219512,
-          "yoy": -0.1,
+          "deviation": 0.1612903225806451,
+          "yoy": 0.2,
           "yoyFilings": 10,
           "dominant": {
-            "kind": "baseline",
-            "v": -0.12195121951219512
+            "kind": "yoy",
+            "v": 0.2
           },
           "regime": "In range",
           "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Staten+Island%27+AND+nta%3D%27Westerleigh-Castleton+Corners%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
+        },
+        {
+          "nta": "Great Kills-Eltingville",
+          "filings": 11,
+          "units": 17,
+          "baseline": 16.7,
+          "deviation": -0.34,
+          "yoy": -0.42105263157894735,
+          "yoyFilings": 19,
+          "dominant": {
+            "kind": "yoy",
+            "v": -0.42105263157894735
+          },
+          "regime": "Cooling",
+          "evidenceUrl": "https://data.cityofnewyork.us/resource/w9ak-ipjd.json?%24select=job_filing_number%2Chouse_no%2Cstreet_name%2Cnta%2Cproposed_dwelling_units%2Cfiling_date&%24where=job_type%3D%27New+Building%27+AND+borough%3D%27Staten+Island%27+AND+nta%3D%27Great+Kills-Eltingville%27+AND+filing_date%3E%3D%272026-07-01%27+AND+filing_date%3C%272026-08-01%27&%24order=proposed_dwelling_units%3A%3Anumber+DESC"
         },
         {
           "nta": "West New Brighton-Silver Lake-Grymes Hill",
@@ -3546,7 +3546,7 @@
       "filings": 236,
       "units": 0
     },
-    "deviation": 0.05514157973174371,
+    "deviation": 0.05553484904957133,
     "regime": "In range"
   },
   "notable": [
@@ -3573,37 +3573,59 @@
       "bbl": "1017900013"
     },
     {
-      "filing": "B01313117-Z4",
+      "filing": "Q00528973-B5",
+      "address": "42-06 ORCHARD STREET",
+      "borough": "Queens",
+      "units": 824,
+      "stories": 69,
+      "cost": 1000,
+      "date": "2026-08",
+      "description": "Plumbing work in conjunction with NB Construction.",
+      "bbl": "4002650013"
+    },
+    {
+      "filing": "B01313117-Z3",
       "address": "10 NOBLE STREET",
       "borough": "Brooklyn",
       "units": 792,
       "stories": 38,
       "cost": 0,
       "date": "2026-08",
-      "description": "NYC DEV HUB: Application filed for 33' curb cut (with splays) on Noble Street.",
+      "description": "NYC DEV HUB: Application filed for 17.4' curb cut (with splays) (on Oak Street).",
       "bbl": "3025670001"
     },
     {
-      "filing": "M00903689-A6",
+      "filing": "M00903689-A5",
       "address": "1710 BROADWAY",
       "borough": "Manhattan",
       "units": 686,
       "stories": 55,
       "cost": 0,
       "date": "2026-07",
-      "description": "Installation of plumbing system as per plans filed herewith.",
+      "description": "CONSTRUCTION OF NEW BUILDING. APPLICATION #M00486337-I1 REFILED TO COMPLY WITH BC 2022. KINDLY REQUEST REVIEW FROM DEVELOPMENT HUB",
       "bbl": "1010260021"
     },
     {
-      "filing": "M00601915-Z2",
+      "filing": "M00601915-S7",
       "address": "689 LENOX AVENUE",
       "borough": "Manhattan",
       "units": 652,
       "stories": 40,
       "cost": 0,
       "date": "2026-07",
-      "description": "curb cut installation filed in conjunction with NB M00601915-I1",
+      "description": "MECHANICAL SYSTEMS FILED IN CONJUNCTION WITH NB M00601915-I1",
       "bbl": "1020130029"
+    },
+    {
+      "filing": "M00632762-P6",
+      "address": "250 WATER STREET",
+      "borough": "Manhattan",
+      "units": 600,
+      "stories": 28,
+      "cost": 1000,
+      "date": "2026-08",
+      "description": "Foundation /Earthwork in conjunction with NB Construction.",
+      "bbl": "1000980001"
     },
     {
       "filing": "Q00676542-S8",
@@ -3615,28 +3637,6 @@
       "date": "2026-07",
       "description": "UNDERPINNING WORKTYPE FILED IN CONJUNCTION WITH SOE FILED FOR NB # Q00676542-I1",
       "bbl": "4099950007"
-    },
-    {
-      "filing": "Q00614075-P8",
-      "address": "29-10 NORTHERN BOULEVARD",
-      "borough": "Queens",
-      "units": 594,
-      "stories": 49,
-      "cost": 1000,
-      "date": "2026-07",
-      "description": "Structural Work",
-      "bbl": "4002390006"
-    },
-    {
-      "filing": "B01369136-S3",
-      "address": "2108 SURF AVENUE",
-      "borough": "Brooklyn",
-      "units": 527,
-      "stories": 28,
-      "cost": 0,
-      "date": "2026-07",
-      "description": "Superstructure in conjunction with New Building B01369136-I1.",
-      "bbl": "3070710100"
     }
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "name": "urban-update",
+  "version": "1.0.0",
+  "description": "An AI-generated NYC real-estate market-intelligence dashboard built from public data, with every figure traceable to a primary source. Zero-dependency Node pipeline → self-contained static dashboard.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "refresh": "node src/refresh.mjs",
+    "check-sources": "node src/check-sources.mjs",
+    "verify": "node src/verify-brief.mjs",
+    "pressure-test": "node src/pressure-test.mjs",
+    "build": "node src/build-dashboard.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "keywords": [
+    "nyc",
+    "real-estate",
+    "market-intelligence",
+    "open-data",
+    "dashboard"
+  ],
+  "author": "Calvin Jiang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cajiang/urban-update.git"
+  },
+  "homepage": "https://cajiang.github.io/urban-update/"
+}

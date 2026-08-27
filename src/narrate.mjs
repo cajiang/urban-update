@@ -61,11 +61,12 @@ export function buildEvidence(dev, tx, risk, ll97, cross, capital, demand) {
     },
     transactions: {
       citywide_sales: tx.citywide.latest.sales,
-      citywide_median_price: Math.round(tx.citywide.latest.med),
+      all_property_median_sale_price: Math.round(tx.citywide.latest.med),
       citywide_dollar_volume_billions: Math.round(tx.citywide.latest.vol / 1e9),
       citywide_yoy_pct: pctd(tx.citywide.yoy),
       citywide_median_yoy_pct: pctd(tx.citywide.medianYoY),
-      boroughs: tx.boroughs.map((b) => ({ name: b.name, sales: b.latest.sales, median_price: Math.round(b.latest.med), yoy_pct: pctd(b.yoy), regime: b.regime })),
+      boroughs: tx.boroughs.map((b) => ({ name: b.name, sales: b.latest.sales, all_property_median_price: Math.round(b.latest.med), yoy_pct: pctd(b.yoy), regime: b.regime })),
+      note: 'These medians cover ALL recorded property sales (commercial, hotels, and rental apartment buildings included), so they sit above the residential home-purchase median in demand_affordability. The two are DIFFERENT universes measuring different things — never present them as a contradiction; use the residential figure when discussing what it costs to buy a home.',
     },
     risk: {
       citywide_class_c: risk.citywide.C, citywide_class_b: risk.citywide.B,
@@ -84,8 +85,9 @@ export function buildEvidence(dev, tx, risk, ll97, cross, capital, demand) {
       boroughs: ll97.boroughs.map((b) => ({ name: b.name, est_penalty_millions: Math.round(b.pen24 / 1e6), pct_over_2030: Math.round(b.pct30 * 100) })),
     },
     cross_signal: {
-      oversupply_watch: cross.oversupply.map((z) => ({ zip: z.zip, area: z.neighborhood, borough: z.borough, supply_yoy_pct: pctd(z.devYoY), demand_yoy_pct: pctd(z.txYoY), immediately_hazardous_violations: z.hazardC })),
-      tightening: cross.tightening.map((z) => ({ zip: z.zip, area: z.neighborhood, borough: z.borough, supply_yoy_pct: pctd(z.devYoY), demand_yoy_pct: pctd(z.txYoY), immediately_hazardous_violations: z.hazardC })),
+      note: 'New Building FILINGS are proposed pipeline activity (not delivered supply); recorded SALES are transaction liquidity (not demand/absorption). Describe them as filing/sales signals, never as supply/demand, "oversupply", or "tightening".',
+      filings_up_sales_down: cross.oversupply.map((z) => ({ zip: z.zip, area: z.neighborhood, borough: z.borough, filings_yoy_pct: pctd(z.devYoY), sales_yoy_pct: pctd(z.txYoY), immediately_hazardous_violations: z.hazardC })),
+      sales_up_filings_down: cross.tightening.map((z) => ({ zip: z.zip, area: z.neighborhood, borough: z.borough, filings_yoy_pct: pctd(z.devYoY), sales_yoy_pct: pctd(z.txYoY), immediately_hazardous_violations: z.hazardC })),
     },
     capital: capital ? {
       rates: capital.rates.map((r) => ({ name: r.name, latest_pct: r.latest.value, yoy_change_bps: r.yoyBps, role: r.role })),
@@ -103,7 +105,7 @@ export function buildEvidence(dev, tx, risk, ll97, cross, capital, demand) {
       mortgage_rate_pct: demand.rate.value,
       citywide: demand.city ? {
         median_household_income: demand.city.income,
-        median_sale_price: demand.city.dofMedianPrice,
+        residential_median_sale_price: demand.city.dofMedianPrice,
         income_required_to_buy: demand.city.engine.incomeRequired,
         affordability_gap_x: demand.city.engine.gapRatio,
         share_can_afford_pct: pctd(demand.city.engine.shareCanAfford),
@@ -123,7 +125,7 @@ export function buildEvidence(dev, tx, risk, ll97, cross, capital, demand) {
         affordability_gap_x: z.engine.gapRatio, renter_cost_burden_pct: pctd(z.rentBurdenShare), divergence: z.divergence.cls,
       })),
       growth_window: `${demand.meta.vintages.prior}→${demand.meta.vintages.current}`,
-      note: 'Affordability = income required to buy the local median-priced home at the current mortgage rate (20% down, 30% DTI, principal & interest only — a floor) vs. ACS median household income; "share can afford" is an estimate. Divergence classes compare home-value/income/rent growth: affordability stress = rents outrunning incomes, yield compression = values outrunning rents, improving fundamentals = incomes outrunning values. The largest ownership gaps fall in low-income, majority-renter areas — pair a high gap with renter cost burden, not with a claim that everyone there is buying.',
+      note: 'residential_median_sale_price is the DOF median for residential OWNERSHIP sales only (1–3 family homes, condos, co-ops) — a narrower, lower universe than the transactions all-property median, and NOT in conflict with it. Affordability = income required to buy the local median-priced home at the current mortgage rate (20% down, 30% DTI, principal & interest only — a floor) vs. ACS median household income; "share can afford" is an estimate. Divergence classes compare home-value/income/rent growth: affordability stress = rents outrunning incomes, yield compression = values outrunning rents, improving fundamentals = incomes outrunning values. The largest ownership gaps fall in low-income, majority-renter areas — pair a high gap with renter cost burden, not with a claim that everyone there is buying.',
     } : null,
   };
 }
@@ -138,12 +140,13 @@ Use the demand_affordability data to judge whether price and sales moves are sup
 
 Hard rules:
 - Use ONLY numbers present in DATA. Never invent, estimate, or round to a different figure. Never name an address, project, or trend not supported by DATA.
-- Separate fact from interpretation. State the figure first (fact), then, if useful, a clearly-hedged implication using words like "suggests," "may," or "worth watching" (interpretation).
+- Separate fact from interpretation. State the figure first (fact), then, if useful, a clearly-hedged implication using words like "suggests" or "may" (interpretation). Keep interpretation descriptive, not advisory — never tell the reader to watch, monitor, track, or act (no "worth watching," "one to watch," "keep an eye on," "bears monitoring"); if two DATA facts co-occur, state that they co-occur, don't nudge action.
 - Institutional tone: precise, useful, no hype, no filler, no emoji.
 - This is market intelligence, not investment advice. Do not tell anyone to buy, sell, or hold.
 - The strongest insights connect two or more feeds (e.g., supply vs. demand vs. risk in the same area).
 - Keep the whole brief tight: a one-line headline, a 2–3 sentence summary, 3–5 insights, and 3–5 neighborhood spotlights.
-- No superlatives or rankings the DATA does not explicitly compute — avoid "most," "least," "highest," "largest," "tightest," "the X-est in the dataset." Only make a comparative/superlative claim when you have compared every relevant item in DATA and it plainly holds (e.g., call a borough's affordability gap the smallest only if it is the smallest of all boroughs in DATA); otherwise state the specific figure, not a ranking. This applies to titles too.
+- No superlatives or rankings the DATA does not explicitly compute — avoid "most," "least," "highest," "largest," "tightest," "the X-est in the dataset." Only make a comparative/superlative claim when you have compared every relevant item in DATA and it plainly holds (e.g., call a borough's affordability gap the smallest only if it is the smallest of all boroughs in DATA); otherwise state the specific figure, not a ranking. This applies to titles too. When you claim a borough is the smallest/largest/most/least on any metric, you MUST compare all FIVE boroughs — Manhattan, Bronx, Brooklyn, Queens, and Staten Island — before writing it. Staten Island is frequently the true extreme (lowest prices, smallest affordability multiple) and the easiest to overlook. Your superlatives must be self-consistent across spotlights: if one spotlight calls Staten Island's gap the smallest, no other spotlight may call a different borough's gap the smallest.
+- Do not state a COUNT or TALLY ("six ZIPs," "three boroughs," "N of the M") unless you have counted the exact matching entries in DATA and the number is exactly right. The cross-signal lists mix boroughs — before writing "N Brooklyn ZIPs," count only the entries whose borough is Brooklyn, not the whole list. If you are not certain of the count, name the specific items instead, or omit the number. Never round or approximate a count.
 - Do not extrapolate a rate or figure to a downstream cost, price, valuation, cap rate, or spread that is not in DATA. A change in SOFR is not "cheaper retrofit financing," LL97 penalty exposure is not "priced in" to values, and rate moves are not "improved build-side economics." Report only what DATA contains.
 - Do not attribute a cause DATA cannot distinguish. A sales decline is not "liquidity rather than a purchasing-power problem" without inventory/days-on-market data; a rate–sales correlation the DATA itself labels "association, not causation" must not be restated as a causal "channel." A "suggests"/"may" hedge does NOT license an unsupported mechanism or a causation claim made without a matched control — and a title must be hedged as much as the body it summarizes.
 - Do not use a figure from one period to characterize another period's figure without flagging the gap (e.g., don't use ACS 2020→2024 growth to explain a May 2026 price move without saying so).

@@ -14,9 +14,10 @@
 //
 // Run: node src/pressure-test.mjs
 
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, unlink } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 import { loadFeeds, buildEvidence } from './narrate.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -63,12 +64,20 @@ const SCHEMA = {
 };
 
 async function main() {
+  // Invalidate any prior audit FIRST — a skipped, failed, or invalid run must
+  // leave NO audit behind, so the publish gate can never reuse a stale "pass"
+  // from a previous brief. A fresh pass is written only on success below.
+  try { await unlink(OUT); } catch { /* nothing to remove */ }
+
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) { console.log('ANTHROPIC_API_KEY not set — skipping pressure-test (no audit produced).'); process.exit(0); }
 
-  let brief;
-  try { brief = JSON.parse(await readFile(join(dir, 'narratives.json'), 'utf8')); }
+  let brief, narrativesRaw;
+  try { narrativesRaw = await readFile(join(dir, 'narratives.json'), 'utf8'); brief = JSON.parse(narrativesRaw); }
   catch { console.log('No narratives.json to audit — skipping.'); process.exit(0); }
+  // Bind the audit to the exact brief file reviewed, so the publish gate can
+  // confirm the report matches the brief it is about to ship (not an older one).
+  const narrativesSha256 = createHash('sha256').update(narrativesRaw).digest('hex');
 
   const feeds = await loadFeeds();
   const packet = buildEvidence(feeds.dev, feeds.tx, feeds.risk, feeds.ll97, feeds.cross, feeds.capital, feeds.demand);
@@ -117,6 +126,7 @@ async function main() {
 
   const out = {
     generatedAt: new Date().toISOString(),
+    narrativesSha256,
     model: data.model || MODEL,
     briefGeneratedAt: brief.meta && brief.meta.generatedAt,
     auditor: 'adversarial fact-check vs. evidence packet',

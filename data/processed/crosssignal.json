@@ -2,7 +2,7 @@
   "meta": {
     "product": "Urban Update",
     "feed": "Cross-Signal",
-    "generatedAt": "2026-08-06T01:53:09.974Z",
+    "generatedAt": "2026-08-18T17:40:16.916Z",
     "referenceMonth": "2026-05",
     "referenceMonthLabel": "May 2026",
     "yoyMonthLabel": "May 2025",
@@ -63,7 +63,7 @@
       "hazardC": 386,
       "afford": {
         "gap": 2.04,
-        "canAfford": 0.22160375169221339,
+        "canAfford": 0.22121995734251798,
         "rentBurden": 0.5909265077783739,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -84,7 +84,7 @@
       "hazardC": 495,
       "afford": {
         "gap": 1.98,
-        "canAfford": 0.22996860108519276,
+        "canAfford": 0.22956756186839591,
         "rentBurden": 0.5125867195242815,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -105,7 +105,7 @@
       "hazardC": 19,
       "afford": {
         "gap": 1.69,
-        "canAfford": 0.27381707813947803,
+        "canAfford": 0.273406106269568,
         "rentBurden": 0.5825133539499578,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -126,7 +126,7 @@
       "hazardC": 379,
       "afford": {
         "gap": 2.4,
-        "canAfford": 0.14160891311166424,
+        "canAfford": 0.14127266454813264,
         "rentBurden": 0.5685629211722301,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -147,7 +147,7 @@
       "hazardC": 219,
       "afford": {
         "gap": 1.88,
-        "canAfford": 0.2019205202064917,
+        "canAfford": 0.2016248381394377,
         "rentBurden": 0.5295077315931338,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -168,7 +168,7 @@
       "hazardC": 164,
       "afford": {
         "gap": 2.25,
-        "canAfford": 0.12868260960052094,
+        "canAfford": 0.12841775901401492,
         "rentBurden": 0.41533018867924526,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -189,7 +189,7 @@
       "hazardC": 973,
       "afford": {
         "gap": 2.18,
-        "canAfford": 0.16881903205710325,
+        "canAfford": 0.16839728374020613,
         "rentBurden": 0.5803022855738511,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -210,7 +210,7 @@
       "hazardC": 388,
       "afford": {
         "gap": 1.91,
-        "canAfford": 0.22006144562908808,
+        "canAfford": 0.21966161621462432,
         "rentBurden": 0.4665618050659001,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -233,7 +233,7 @@
       "hazardC": 66,
       "afford": {
         "gap": 1.31,
-        "canAfford": 0.3892693185146243,
+        "canAfford": 0.38846813638412947,
         "rentBurden": 0.4812286689419795,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -254,7 +254,7 @@
       "hazardC": 11,
       "afford": {
         "gap": 1.07,
-        "canAfford": 0.4582008587399348,
+        "canAfford": 0.45752681938115886,
         "rentBurden": 0.5802469135802469,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -276,8 +276,8 @@
       "cls": "Heating",
       "hazardC": 53,
       "afford": {
-        "gap": 2.33,
-        "canAfford": 0.1381300935808642,
+        "gap": 2.34,
+        "canAfford": 0.1377130248715748,
         "rentBurden": 0.5041682219733732,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -298,7 +298,7 @@
       "hazardC": 791,
       "afford": {
         "gap": 2.63,
-        "canAfford": 0.11559903215313883,
+        "canAfford": 0.11536110978305072,
         "rentBurden": 0.4290214704599428,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -319,7 +319,7 @@
       "hazardC": 139,
       "afford": {
         "gap": 1.53,
-        "canAfford": 0.3264651859909755,
+        "canAfford": 0.32599225576737617,
         "rentBurden": 0.4252480328429695,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -340,7 +340,7 @@
       "hazardC": 181,
       "afford": {
         "gap": 0.83,
-        "canAfford": 0.5945912465437336,
+        "canAfford": 0.5940996161365276,
         "rentBurden": 0.45381755790677725,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -361,7 +361,7 @@
       "hazardC": 1009,
       "afford": {
         "gap": 1.18,
-        "canAfford": 0.42993580715721397,
+        "canAfford": 0.4294198270945986,
         "rentBurden": 0.590403529736189,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -382,7 +382,7 @@
       "hazardC": 386,
       "afford": {
         "gap": 2.04,
-        "canAfford": 0.22160375169221339,
+        "canAfford": 0.22121995734251798,
         "rentBurden": 0.5909265077783739,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -402,8 +402,8 @@
       "cls": "Mixed / flat",
       "hazardC": 394,
       "afford": {
-        "gap": 1.79,
-        "canAfford": 0.1655360628662066,
+        "gap": 1.8,
+        "canAfford": 0.16519536163645931,
         "rentBurden": 0.343439845073832,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -424,7 +424,7 @@
       "hazardC": 495,
       "afford": {
         "gap": 1.98,
-        "canAfford": 0.22996860108519276,
+        "canAfford": 0.22956756186839591,
         "rentBurden": 0.5125867195242815,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -445,7 +445,7 @@
       "hazardC": 19,
       "afford": {
         "gap": 1.69,
-        "canAfford": 0.27381707813947803,
+        "canAfford": 0.273406106269568,
         "rentBurden": 0.5825133539499578,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -465,8 +465,8 @@
       "cls": "Mixed / flat",
       "hazardC": 205,
       "afford": {
-        "gap": 3.46,
-        "canAfford": 0.07826132529640949,
+        "gap": 3.47,
+        "canAfford": 0.0781002502453996,
         "rentBurden": 0.5978375691294352,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -487,7 +487,7 @@
       "hazardC": 32,
       "afford": {
         "gap": 1.43,
-        "canAfford": 0.36203979762957045,
+        "canAfford": 0.36150036004574865,
         "rentBurden": 0.5725631768953069,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -508,7 +508,7 @@
       "hazardC": 156,
       "afford": {
         "gap": 1.33,
-        "canAfford": 0.4162336224594977,
+        "canAfford": 0.4159104543093269,
         "rentBurden": 0.4716225546605293,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -529,7 +529,7 @@
       "hazardC": 379,
       "afford": {
         "gap": 2.4,
-        "canAfford": 0.14160891311166424,
+        "canAfford": 0.14127266454813264,
         "rentBurden": 0.5685629211722301,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -550,7 +550,7 @@
       "hazardC": 41,
       "afford": {
         "gap": 1.14,
-        "canAfford": 0.4184272990348019,
+        "canAfford": 0.4177867737866772,
         "rentBurden": 0.513583071203889,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -571,7 +571,7 @@
       "hazardC": 1101,
       "afford": {
         "gap": 2.39,
-        "canAfford": 0.1790497913031911,
+        "canAfford": 0.17871243435336498,
         "rentBurden": 0.5595228267150995,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -592,7 +592,7 @@
       "hazardC": 219,
       "afford": {
         "gap": 1.88,
-        "canAfford": 0.2019205202064917,
+        "canAfford": 0.2016248381394377,
         "rentBurden": 0.5295077315931338,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -613,7 +613,7 @@
       "hazardC": 128,
       "afford": {
         "gap": 1.68,
-        "canAfford": 0.2782204897810209,
+        "canAfford": 0.27783887416100767,
         "rentBurden": 0.536649527681454,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -634,7 +634,7 @@
       "hazardC": 535,
       "afford": {
         "gap": 1.68,
-        "canAfford": 0.25905664731997313,
+        "canAfford": 0.25852346490166545,
         "rentBurden": 0.38629139751871217,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -655,7 +655,7 @@
       "hazardC": 164,
       "afford": {
         "gap": 2.25,
-        "canAfford": 0.12868260960052094,
+        "canAfford": 0.12841775901401492,
         "rentBurden": 0.41533018867924526,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -676,7 +676,7 @@
       "hazardC": 213,
       "afford": {
         "gap": 1.35,
-        "canAfford": 0.38690087177547183,
+        "canAfford": 0.3865023608463142,
         "rentBurden": 0.5519834832620557,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -697,7 +697,7 @@
       "hazardC": 973,
       "afford": {
         "gap": 2.18,
-        "canAfford": 0.16881903205710325,
+        "canAfford": 0.16839728374020613,
         "rentBurden": 0.5803022855738511,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -718,7 +718,7 @@
       "hazardC": 388,
       "afford": {
         "gap": 1.91,
-        "canAfford": 0.22006144562908808,
+        "canAfford": 0.21966161621462432,
         "rentBurden": 0.4665618050659001,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -739,7 +739,7 @@
       "hazardC": 131,
       "afford": {
         "gap": 2.01,
-        "canAfford": 0.1785778250473291,
+        "canAfford": 0.178210281664058,
         "rentBurden": 0.40787845796011285,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -760,7 +760,7 @@
       "hazardC": 37,
       "afford": {
         "gap": 1.96,
-        "canAfford": 0.22184824865629232,
+        "canAfford": 0.22140714585402463,
         "rentBurden": 0.5174621653084982,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -780,8 +780,8 @@
       "cls": "Mixed / flat",
       "hazardC": 351,
       "afford": {
-        "gap": 3.09,
-        "canAfford": 0.103510104029541,
+        "gap": 3.1,
+        "canAfford": 0.10329706271924573,
         "rentBurden": 0.5529830810329475,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -802,7 +802,7 @@
       "hazardC": 761,
       "afford": {
         "gap": 1.92,
-        "canAfford": 0.23877419675677156,
+        "canAfford": 0.23847949046519218,
         "rentBurden": 0.5774463089565638,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -822,8 +822,8 @@
       "cls": "Mixed / flat",
       "hazardC": 947,
       "afford": {
-        "gap": 3.1,
-        "canAfford": 0.17323895865148484,
+        "gap": 3.11,
+        "canAfford": 0.17293273428519687,
         "rentBurden": 0.5053267610112896,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -844,7 +844,7 @@
       "hazardC": 307,
       "afford": {
         "gap": 3.52,
-        "canAfford": 0.15759203299201838,
+        "canAfford": 0.1573939088278173,
         "rentBurden": 0.5223661183059153,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -865,7 +865,7 @@
       "hazardC": 126,
       "afford": {
         "gap": 2.07,
-        "canAfford": 0.14510642661127035,
+        "canAfford": 0.14480777303008266,
         "rentBurden": 0.40782122905027934,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -886,7 +886,7 @@
       "hazardC": 66,
       "afford": {
         "gap": 1.31,
-        "canAfford": 0.3892693185146243,
+        "canAfford": 0.38846813638412947,
         "rentBurden": 0.4812286689419795,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -907,7 +907,7 @@
       "hazardC": 182,
       "afford": {
         "gap": 2.01,
-        "canAfford": 0.2613530026737929,
+        "canAfford": 0.26095853318481266,
         "rentBurden": 0.4630738522954092,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -927,8 +927,8 @@
       "cls": "Supply building, demand softening",
       "hazardC": 90,
       "afford": {
-        "gap": 1.32,
-        "canAfford": 0.34815656062038214,
+        "gap": 1.33,
+        "canAfford": 0.3474399955028235,
         "rentBurden": 0.47742166090789945,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -949,7 +949,7 @@
       "hazardC": 19,
       "afford": {
         "gap": 1.43,
-        "canAfford": 0.34472224452673206,
+        "canAfford": 0.34425842171601934,
         "rentBurden": 0.5130193905817174,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -970,7 +970,7 @@
       "hazardC": 149,
       "afford": {
         "gap": 2.05,
-        "canAfford": 0.23566194951202107,
+        "canAfford": 0.23524272456496315,
         "rentBurden": 0.492656315568611,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -991,7 +991,7 @@
       "hazardC": 4,
       "afford": {
         "gap": 1.36,
-        "canAfford": 0.383005893461352,
+        "canAfford": 0.3825059117761861,
         "rentBurden": 0.657196261682243,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1012,7 +1012,7 @@
       "hazardC": 11,
       "afford": {
         "gap": 1.07,
-        "canAfford": 0.4582008587399348,
+        "canAfford": 0.45752681938115886,
         "rentBurden": 0.5802469135802469,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1033,7 +1033,7 @@
       "hazardC": 285,
       "afford": {
         "gap": 1.8,
-        "canAfford": 0.2515805471117371,
+        "canAfford": 0.2510578566204137,
         "rentBurden": 0.5963534361851333,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -1053,8 +1053,8 @@
       "cls": "Supply building, demand softening",
       "hazardC": 225,
       "afford": {
-        "gap": 1.64,
-        "canAfford": 0.27131962540115173,
+        "gap": 1.65,
+        "canAfford": 0.270971350063447,
         "rentBurden": 0.554320987654321,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -1075,7 +1075,7 @@
       "hazardC": 419,
       "afford": {
         "gap": 1.41,
-        "canAfford": 0.32326362724970853,
+        "canAfford": 0.3227422644306134,
         "rentBurden": 0.5617611088463106,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1096,7 +1096,7 @@
       "hazardC": 64,
       "afford": {
         "gap": 1.19,
-        "canAfford": 0.42140056478581,
+        "canAfford": 0.42092570130382095,
         "rentBurden": 0.5422318125770653,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1117,7 +1117,7 @@
       "hazardC": 232,
       "afford": {
         "gap": 2.39,
-        "canAfford": 0.18600292673786076,
+        "canAfford": 0.18570325535283438,
         "rentBurden": 0.5295581014729951,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1138,7 +1138,7 @@
       "hazardC": 724,
       "afford": {
         "gap": 2.06,
-        "canAfford": 0.19401934389077702,
+        "canAfford": 0.19365491260532394,
         "rentBurden": 0.5451168689980069,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1159,7 +1159,7 @@
       "hazardC": 268,
       "afford": {
         "gap": 2.05,
-        "canAfford": 0.1884076782366602,
+        "canAfford": 0.18801974152175305,
         "rentBurden": 0.5298065190866307,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1180,7 +1180,7 @@
       "hazardC": 1396,
       "afford": {
         "gap": 2.83,
-        "canAfford": 0.09596122534489648,
+        "canAfford": 0.09576372090437169,
         "rentBurden": 0.45564046763500177,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -1201,7 +1201,7 @@
       "hazardC": 158,
       "afford": {
         "gap": 1.32,
-        "canAfford": 0.3325954578198566,
+        "canAfford": 0.3319109200851443,
         "rentBurden": 0.40021013419934093,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1222,7 +1222,7 @@
       "hazardC": 37,
       "afford": {
         "gap": 1.47,
-        "canAfford": 0.32617944878698735,
+        "canAfford": 0.3256545552981362,
         "rentBurden": 0.5970098538905878,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1243,7 +1243,7 @@
       "hazardC": 60,
       "afford": {
         "gap": 1.46,
-        "canAfford": 0.32667680331043486,
+        "canAfford": 0.3263394573227578,
         "rentBurden": 0.5535529620327966,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1264,7 +1264,7 @@
       "hazardC": 48,
       "afford": {
         "gap": 1.34,
-        "canAfford": 0.37185203747281326,
+        "canAfford": 0.3713925748439486,
         "rentBurden": 0.49179697513458087,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1285,7 +1285,7 @@
       "hazardC": 294,
       "afford": {
         "gap": 3.25,
-        "canAfford": 0.058678544821737885,
+        "canAfford": 0.05855777444678512,
         "rentBurden": 0.5812245968270617,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1305,8 +1305,8 @@
       "cls": "Mixed / flat",
       "hazardC": 147,
       "afford": {
-        "gap": 1.66,
-        "canAfford": 0.25799123052060935,
+        "gap": 1.67,
+        "canAfford": 0.2574602409103668,
         "rentBurden": 0.44007892751436367,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1327,7 +1327,7 @@
       "hazardC": 433,
       "afford": {
         "gap": 3.03,
-        "canAfford": 0.0861246755230129,
+        "canAfford": 0.08594741636658366,
         "rentBurden": 0.5582585143201083,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1347,8 +1347,8 @@
       "cls": "Mixed / flat",
       "hazardC": 32,
       "afford": {
-        "gap": 1.78,
-        "canAfford": 0.20329675550359913,
+        "gap": 1.79,
+        "canAfford": 0.2028041555394847,
         "rentBurden": 0.4824242424242424,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1369,7 +1369,7 @@
       "hazardC": 65,
       "afford": {
         "gap": 1.79,
-        "canAfford": 0.210193517331377,
+        "canAfford": 0.2097609035033098,
         "rentBurden": 0.39054545454545453,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1390,7 +1390,7 @@
       "hazardC": 2761,
       "afford": {
         "gap": 2.23,
-        "canAfford": 0.16914373852935333,
+        "canAfford": 0.16879105575761855,
         "rentBurden": 0.4954306459689534,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1410,8 +1410,8 @@
       "cls": "Mixed / flat",
       "hazardC": 774,
       "afford": {
-        "gap": 2.61,
-        "canAfford": 0.1276178100018311,
+        "gap": 2.62,
+        "canAfford": 0.12735515095308694,
         "rentBurden": 0.5144364543056409,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1432,7 +1432,7 @@
       "hazardC": 131,
       "afford": {
         "gap": 1.66,
-        "canAfford": 0.2794070124567872,
+        "canAfford": 0.2790333120419807,
         "rentBurden": 0.5021933672574136,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1452,8 +1452,8 @@
       "cls": "Mixed / flat",
       "hazardC": 248,
       "afford": {
-        "gap": 1.75,
-        "canAfford": 0.27052562240623346,
+        "gap": 1.76,
+        "canAfford": 0.2701061951124309,
         "rentBurden": 0.6424754352697811,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -1474,7 +1474,7 @@
       "hazardC": 751,
       "afford": {
         "gap": 1.06,
-        "canAfford": 0.4742389427162258,
+        "canAfford": 0.4737925391118347,
         "rentBurden": 0.5513196480938416,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -1495,7 +1495,7 @@
       "hazardC": 291,
       "afford": {
         "gap": 1.95,
-        "canAfford": 0.22743760025754528,
+        "canAfford": 0.2269842425640232,
         "rentBurden": 0.5584860873005407,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1515,8 +1515,8 @@
       "cls": "Mixed / flat",
       "hazardC": 984,
       "afford": {
-        "gap": 3.26,
-        "canAfford": 0.09254516557397698,
+        "gap": 3.27,
+        "canAfford": 0.09235469196253365,
         "rentBurden": 0.5369107619329974,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1537,7 +1537,7 @@
       "hazardC": 579,
       "afford": {
         "gap": 2.25,
-        "canAfford": 0.1647554583854884,
+        "canAfford": 0.16438932839724477,
         "rentBurden": 0.5385958348921311,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1558,7 +1558,7 @@
       "hazardC": 270,
       "afford": {
         "gap": 4.01,
-        "canAfford": 0.05875538534243329,
+        "canAfford": 0.058634456816685845,
         "rentBurden": 0.6064981949458483,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1579,7 +1579,7 @@
       "hazardC": 62,
       "afford": {
         "gap": 2.16,
-        "canAfford": 0.1562221381966053,
+        "canAfford": 0.15564574821506783,
         "rentBurden": 0.5872242175474602,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1600,7 +1600,7 @@
       "hazardC": 415,
       "afford": {
         "gap": 2.49,
-        "canAfford": 0.18365954276465135,
+        "canAfford": 0.18333397121349243,
         "rentBurden": 0.6426987497051191,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1620,8 +1620,8 @@
       "cls": "Mixed / flat",
       "hazardC": 50,
       "afford": {
-        "gap": 1.45,
-        "canAfford": 0.2996965496225077,
+        "gap": 1.46,
+        "canAfford": 0.2991788230045226,
         "rentBurden": 0.55573681348559,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1642,7 +1642,7 @@
       "hazardC": 126,
       "afford": {
         "gap": 1.65,
-        "canAfford": 0.31863191962533305,
+        "canAfford": 0.31826541706282274,
         "rentBurden": 0.4124418604651163,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1663,7 +1663,7 @@
       "hazardC": 410,
       "afford": {
         "gap": 2.48,
-        "canAfford": 0.17651738158959748,
+        "canAfford": 0.17619227441606186,
         "rentBurden": 0.5572480324955572,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -1684,7 +1684,7 @@
       "hazardC": 95,
       "afford": {
         "gap": 1.88,
-        "canAfford": 0.19177418642119273,
+        "canAfford": 0.19137948269309746,
         "rentBurden": 0.44795333400382176,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1705,7 +1705,7 @@
       "hazardC": 168,
       "afford": {
         "gap": 1.5,
-        "canAfford": 0.26406805363197733,
+        "canAfford": 0.26352455689143844,
         "rentBurden": 0.3824038794596467,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1726,7 +1726,7 @@
       "hazardC": 514,
       "afford": {
         "gap": 2.01,
-        "canAfford": 0.17022017959393235,
+        "canAfford": 0.1697502981724129,
         "rentBurden": 0.5939380818358952,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1747,7 +1747,7 @@
       "hazardC": 32,
       "afford": {
         "gap": 1.59,
-        "canAfford": 0.2822461661663894,
+        "canAfford": 0.281883015361905,
         "rentBurden": 0.5542216886754702,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1768,7 +1768,7 @@
       "hazardC": 200,
       "afford": {
         "gap": 1.7,
-        "canAfford": 0.28955782839961774,
+        "canAfford": 0.28896186938917245,
         "rentBurden": 0.44615009746588696,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1789,7 +1789,7 @@
       "hazardC": 49,
       "afford": {
         "gap": 2.27,
-        "canAfford": 0.16279738563876806,
+        "canAfford": 0.16246232107019962,
         "rentBurden": 0.5737480438184663,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1809,8 +1809,8 @@
       "cls": "Cooling",
       "hazardC": 418,
       "afford": {
-        "gap": 2.11,
-        "canAfford": 0.1483119616076507,
+        "gap": 2.12,
+        "canAfford": 0.14806079713181997,
         "rentBurden": 0.5591643179886369,
         "divCls": "Supported growth",
         "divCode": "supported"
@@ -1830,8 +1830,8 @@
       "cls": "Mixed / flat",
       "hazardC": 21,
       "afford": {
-        "gap": 1.95,
-        "canAfford": 0.23430307249556256,
+        "gap": 1.96,
+        "canAfford": 0.23388168127217251,
         "rentBurden": 0.5623334320402724,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1851,8 +1851,8 @@
       "cls": "Mixed / flat",
       "hazardC": 27,
       "afford": {
-        "gap": 1.34,
-        "canAfford": 0.3482512241636772,
+        "gap": 1.35,
+        "canAfford": 0.347708047874026,
         "rentBurden": 0.5939537640782454,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1873,7 +1873,7 @@
       "hazardC": 724,
       "afford": {
         "gap": 2.57,
-        "canAfford": 0.143965548275966,
+        "canAfford": 0.14370655712632854,
         "rentBurden": 0.5716018285287807,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1894,7 +1894,7 @@
       "hazardC": 348,
       "afford": {
         "gap": 2.18,
-        "canAfford": 0.22728700552276962,
+        "canAfford": 0.22681921040340774,
         "rentBurden": 0.41801570053665676,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -1914,8 +1914,8 @@
       "cls": "Mixed / flat",
       "hazardC": 351,
       "afford": {
-        "gap": 1.99,
-        "canAfford": 0.17774561266207345,
+        "gap": 2,
+        "canAfford": 0.17732453210220467,
         "rentBurden": 0.47070634060153393,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1936,7 +1936,7 @@
       "hazardC": 38,
       "afford": {
         "gap": 2,
-        "canAfford": 0.20780857776085018,
+        "canAfford": 0.2072909731872898,
         "rentBurden": 0.5579103922662205,
         "divCls": "Affordability stress",
         "divCode": "stress"
@@ -1957,7 +1957,7 @@
       "hazardC": 51,
       "afford": {
         "gap": 2.47,
-        "canAfford": 0.15121238050821673,
+        "canAfford": 0.15090115984064656,
         "rentBurden": 0.37870427140813406,
         "divCls": "Insufficient data",
         "divCode": "na"
@@ -1978,7 +1978,7 @@
       "hazardC": 1976,
       "afford": {
         "gap": 1.73,
-        "canAfford": 0.27402224139009557,
+        "canAfford": 0.2735958582484631,
         "rentBurden": 0.5794994657946709,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -1999,7 +1999,7 @@
       "hazardC": 128,
       "afford": {
         "gap": 2.37,
-        "canAfford": 0.13994712855707386,
+        "canAfford": 0.13965909368434914,
         "rentBurden": 0.3301826774516041,
         "divCls": "Improving fundamentals",
         "divCode": "fund"
@@ -2020,7 +2020,7 @@
       "hazardC": 49,
       "afford": {
         "gap": 1.36,
-        "canAfford": 0.326511211727914,
+        "canAfford": 0.32600973581846465,
         "rentBurden": 0.5450603902136885,
         "divCls": "Yield compression",
         "divCode": "spec"
@@ -2041,7 +2041,7 @@
       "hazardC": 391,
       "afford": {
         "gap": 2.51,
-        "canAfford": 0.15654351101638053,
+        "canAfford": 0.15626397224944685,
         "rentBurden": 0.6502476313522825,
         "divCls": "Improving fundamentals",
         "divCode": "fund"

@@ -31,16 +31,14 @@ import {
   CENSUS, VINTAGES, ACS_VARS, INCOME_BRACKETS, INCOME_TOTAL_VAR,
   BOROUGH_COUNTIES, allVars, hasKey, fetchACS, fetchACSCounties, fetchACSCity,
 } from './lib/census.mjs';
+import {
+  DOWN_PAYMENT, DTI, TERM_MONTHS, PARETO_ALPHA,
+  monthlyPI, incomeRequired, shareAtOrAbove,
+} from './lib/affordability.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROCESSED = join(__dirname, '..', 'data', 'processed');
 const OUT = join(PROCESSED, 'demand.json');
-
-// ---- affordability assumptions (all disclosed in the dashboard) ----
-const DOWN_PAYMENT = 0.20;   // 20% down → 80% LTV
-const DTI = 0.30;            // 30% of gross income to housing (P&I)
-const TERM_MONTHS = 360;     // 30-year fixed
-const PARETO_ALPHA = 2.0;    // top open-income-bracket ($200k+) tail exponent
 
 // ZIP display gates — ACS ZCTA estimates get noisy on tiny populations.
 const MIN_POP = 1500;
@@ -48,6 +46,34 @@ const MIN_HH = 500;
 
 const BORO_BY_FIPS = Object.fromEntries(BOROUGH_COUNTIES.map((c) => [c.fips, c.borough]));
 const DOF_BORO = { 1: 'Manhattan', 2: 'Bronx', 3: 'Brooklyn', 4: 'Queens', 5: 'Staten Island' };
+
+// Residential OWNERSHIP sale categories (DOF building_class_category prefixes):
+// 1–3 family homes, condos, and co-ops. Excludes commercial, hotels, rental
+// apartment BUILDINGS (investment multifamily), condo parking/storage, and
+// vacant land — so the affordability engine uses a true home-purchase universe,
+// not an all-property median inflated by e.g. $170M condo-hotels. Arm's-length
+// cannot be perfectly isolated in DOF; the $10k floor removes $0/nominal transfers.
+const RESIDENTIAL_CATEGORIES = ['01', '02', '03', '04', '09', '10', '12', '13', '15', '17'];
+const residentialWhere = () => '(' + RESIDENTIAL_CATEGORIES.map((p) => `starts_with(building_class_category,'${p} ')`).join(' OR ') + ')';
+const PRICE_FLOOR = 10000;
+
+// Median residential-ownership sale price for the latest complete month —
+// citywide + by borough — from DOF rolling sales. This replaces the all-property
+// transactions median as the affordability home-price basis.
+async function fetchResidentialMedians(monthKey) {
+  const [y, m] = monthKey.split('-').map(Number);
+  const start = `${monthKey}-01`;
+  const end = (m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, '0')}`) + '-01';
+  const where = `sale_price::number > ${PRICE_FLOOR} AND sale_date >= '${start}' AND sale_date < '${end}' AND ${residentialWhere()}`;
+  const [cityRes, boroRes] = await Promise.all([
+    soqlQuery(SOURCES.salesRolling.id, { $select: 'median(sale_price::number) as med, count(*) as n', $where: where }),
+    soqlQuery(SOURCES.salesRolling.id, { $select: 'borough, median(sale_price::number) as med, count(*) as n', $where: where, $group: 'borough', $limit: '10' }),
+  ]);
+  const byBorough = {};
+  for (const r of boroRes.rows) { const b = DOF_BORO[Number(r.borough)]; if (b) byBorough[b] = { med: Math.round(Number(r.med || 0)), n: Number(r.n || 0) }; }
+  const c = cityRes.rows[0] || {};
+  return { month: monthKey, citywide: { med: Math.round(Number(c.med || 0)), n: Number(c.n || 0) }, byBorough };
+}
 
 const pct = (x) => (x == null ? null : Math.round(x * 1000) / 10);           // → 1 decimal %
 const round = (x, d = 0) => (x == null ? null : Math.round(x * 10 ** d) / 10 ** d);
@@ -58,39 +84,8 @@ const zctaUrl = (zip) => `https://data.census.gov/profile?g=860XX00US${zip}`;
 const countyUrl = (fips) => `https://data.census.gov/profile?g=050XX00US36${fips}`;
 const CITY_URL = 'https://data.census.gov/profile?g=160XX00US3651000';
 
-// ---------- affordability math ----------
-function monthlyPI(loan, annualRatePct, n = TERM_MONTHS) {
-  const m = annualRatePct / 100 / 12;
-  if (m === 0) return loan / n;
-  const f = Math.pow(1 + m, n);
-  return (loan * m * f) / (f - 1);
-}
-// Annual gross income required to buy `price` at `ratePct`, under the disclosed
-// down-payment / DTI / term assumptions. P&I only (excludes taxes, insurance,
-// HOA/maintenance) — so this is a floor; true required income is higher.
-function incomeRequired(price, ratePct) {
-  if (!price || price <= 0) return null;
-  const loan = price * (1 - DOWN_PAYMENT);
-  return (monthlyPI(loan, ratePct) * 12) / DTI;
-}
-// Estimated share of households with income ≥ threshold, from the B19001
-// distribution: uniform within finite brackets; Pareto tail (α) for the open
-// $200k+ bracket. Returns a fraction 0..1.
-function shareAtOrAbove(threshold, brackets, total) {
-  if (!total || threshold == null) return null;
-  let above = 0;
-  for (const b of brackets) {
-    if (b.count == null) continue;
-    if (threshold <= b.lo) { above += b.count; continue; }
-    if (!Number.isFinite(b.hi)) {                     // open-topped $200k+
-      above += b.count * Math.pow(b.lo / threshold, PARETO_ALPHA);
-      continue;
-    }
-    if (threshold >= b.hi) continue;                  // none in this finite bracket
-    above += b.count * (b.hi - threshold) / (b.hi - b.lo);   // partial (uniform)
-  }
-  return above / total;
-}
+// Affordability math (monthlyPI / incomeRequired / shareAtOrAbove) and its
+// disclosed assumptions live in ./lib/affordability.mjs so they can be unit-tested.
 
 // ---------- ACS record → derived affordability/burden/growth object ----------
 // `cur`/`prior` are the ACS variable maps for the two vintages; `price` is the
@@ -227,11 +222,15 @@ async function main() {
   const rate = mortgage.latest.value;
   const rateAsOf = mortgage.latest.date;
   const tx = JSON.parse(await readFile(join(PROCESSED, 'transactions.json'), 'utf8'));
-  const dofByBoro = Object.fromEntries(tx.boroughs.map((b) => [b.name, b.latest.med]));
-  const dofCity = tx.citywide.latest.med;
   const dofAsOf = tx.meta.latestMonthLabel;
+  // Residential-ownership median home price (1–3 family, condo, co-op) — NOT the
+  // all-property transactions median, which mixes in commercial/hotels/offices.
+  const resMed = await fetchResidentialMedians(tx.meta.latestCompleteMonth);
+  const dofByBoro = Object.fromEntries(Object.entries(resMed.byBorough).map(([b, v]) => [b, v.med]));
+  const dofCity = resMed.citywide.med;
 
-  console.log(`Rate (FRED 30Y): ${rate}% as of ${rateAsOf}; DOF price as of ${dofAsOf}.`);
+  console.log(`Rate (FRED 30Y): ${rate}% as of ${rateAsOf}.`);
+  console.log(`Residential home medians (${dofAsOf}): citywide $${dofCity.toLocaleString()} (n=${resMed.citywide.n}) · ` + Object.entries(resMed.byBorough).map(([b, v]) => `${b} $${v.med.toLocaleString()}(${v.n})`).join(' '));
 
   // ZIP universe from DOF, then ACS for both vintages.
   console.log('Fetching DOF ZIP→borough universe…');
@@ -265,14 +264,15 @@ async function main() {
   zipRows.sort((a, b) => (b.engine.gapRatio || 0) - (a.engine.gapRatio || 0));
   console.log(`  ${zipRows.length} ZIPs kept (${dropped} dropped: no ACS / below pop ${MIN_POP} / hh ${MIN_HH}).`);
 
-  // ---- per-borough (engine on DOF transacted median sale price) ----
+  // ---- per-borough (engine on DOF residential median sale price) ----
+  const RES_BASIS = 'DOF residential median sale price (1–3 family, condo, co-op)';
   const boroughs = BOROUGH_COUNTIES.map(({ borough, fips }) => {
-    const d = derive(boroCur[fips], boroPrior[fips], dofByBoro[borough], 'DOF median sale price', rate);
-    return { borough, fips, dofMedianPrice: dofByBoro[borough], censusUrl: countyUrl(fips), ...d };
+    const d = derive(boroCur[fips], boroPrior[fips], dofByBoro[borough], RES_BASIS, rate);
+    return { borough, fips, dofMedianPrice: dofByBoro[borough], residentialSales: (resMed.byBorough[borough] || {}).n ?? null, censusUrl: countyUrl(fips), ...d };
   });
 
   // ---- citywide ----
-  const city = derive(cityCur, cityPrior, dofCity, 'DOF median sale price', rate);
+  const city = derive(cityCur, cityPrior, dofCity, RES_BASIS, rate);
 
   // ---- divergence tallies (for the monitor summary) ----
   const tally = {};
@@ -293,7 +293,7 @@ async function main() {
         variables: 'B19013 income · B25064 gross rent · B25077 home value · B01003 population · B25003 tenure · B25070 rent burden · B19001 income distribution',
       },
       combinedWith: [
-        { label: 'DOF median sale price', via: 'transactions.json', asOf: dofAsOf },
+        { label: 'DOF residential median sale price (1–3 family, condo, co-op)', via: 'DOF rolling sales, residential categories', asOf: dofAsOf, citywideMedian: dofCity, citywideN: resMed.citywide.n },
         { label: 'FRED 30-year fixed mortgage', via: 'capital.json', value: rate, asOf: rateAsOf },
       ],
       assumptions: {
@@ -302,7 +302,7 @@ async function main() {
         note: `Income required to buy = gross income at which principal & interest on an ${Math.round((1 - DOWN_PAYMENT) * 100)}% -LTV ${TERM_MONTHS / 12}-year fixed at ${rate}% equals ${Math.round(DTI * 100)}% of income. Excludes taxes, insurance, and maintenance — so it is a floor. "Share who can afford" interpolates the ACS income distribution (uniform within brackets; Pareto α=${PARETO_ALPHA} above $200k) and is an estimate.`,
       },
       method: {
-        engine: 'Local median home price × current mortgage rate → monthly P&I → annual income required at 30% DTI → gap vs. ACS median household income + estimated share of households who can afford it. Borough/citywide use the DOF transacted median sale price; ZIP grain uses ACS median home value (per-ZIP transaction medians are too thin to be reliable).',
+        engine: `Local median home price × current mortgage rate → monthly P&I → annual income required at 30% DTI → gap vs. ACS median household income + estimated share of households who can afford it. Borough/citywide use the DOF residential median sale price restricted to home-purchase categories — 1–3 family homes, condos, and co-ops (building_class_category ${RESIDENTIAL_CATEGORIES.join('/')}), excluding commercial, hotels, and rental apartment buildings — for the latest complete month (${dofAsOf}); arm's-length cannot be perfectly isolated in DOF (the $10k floor removes $0/nominal transfers). ZIP grain uses ACS median home value (owner-occupied; per-ZIP transaction medians are too thin to be reliable).`,
         divergence: `Home-value vs. income vs. rent growth over ${VINTAGES.prior}→${VINTAGES.current} (ACS, same source/window/geography). Affordability stress = rent growth − income growth ≥ ${DIV_STRESS * 100}pts; yield compression = value growth − rent growth ≥ ${DIV_SPEC * 100}pts; improving fundamentals = income growth ≥ ${DIV_FUND * 100}pts with values ~flat; supported growth = values & incomes rising together.`,
         burden: 'Renter cost burden = share of renter households (with a computed rent/income ratio) paying ≥30% of income on gross rent (severe = ≥50%). ACS table B25070.',
         disclosure: 'ACS 5-year estimates are period averages lagged ~1–1.5 years and carry sampling error at ZIP grain; figures are conditions to investigate, not point forecasts. Affordability assumptions are disclosed above; the linkage of rates→affordability is arithmetic, the market interpretation is inference. At ZIP grain the engine treats ACS median home value as a market price; for limited-equity / regulated cooperatives (e.g., Co-op City, ZIP 10475) that value is a below-market regulated share price, so their ownership-affordability read is not comparable to market-rate areas.',
